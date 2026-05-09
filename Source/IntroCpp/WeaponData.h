@@ -83,4 +83,3 @@ public:
 inline UWeaponData::UWeaponData()
 {
 	ItemType = EItemType::Weapon;
-}

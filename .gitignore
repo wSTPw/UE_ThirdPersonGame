@@ -1,9 +1,16 @@
-Binaries
-DerivedDataCache
-Intermediate
-Saved
-.vscode
-.vs
+# ============================================================
+# Unreal Engine 5 - .gitignore
+# ============================================================
+
+# --- 编译产物 ---
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# --- IDE ---
+.vscode/
+.vs/
 *.VC.db
 *.opensdf
 *.opendb
@@ -12,3 +19,13 @@ Saved
 *.suo
 *.xcodeproj
 *.xcworkspace
+
+# --- UE5 自动生成 ---
+__ExternalActors__/
+__ExternalObjects__/
+*.Build.cs.xml
+
+# --- 操作系统 ---
+Thumbs.db
+.DS_Store
+Desktop.ini
