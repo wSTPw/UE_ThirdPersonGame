@@ -975,6 +975,8 @@ void AMyPlayerCharacter::EquipWeapon(UWeaponData* InWeaponData)
 	{
 		StatusBarInstance->RefreshQuickSlots();
 	}
+
+	UpdateLocomotionAnimType();
 }
 
 void AMyPlayerCharacter::UnequipWeapon()
@@ -995,11 +997,23 @@ void AMyPlayerCharacter::UnequipWeapon()
 	CurrentWeaponData = nullptr;
 	CurrentWeaponID = NAME_None;
 
+	UpdateLocomotionAnimType();
+
 	// Clear StatusBar UI quick slots
 	if (StatusBarInstance)
 	{
 		StatusBarInstance->RefreshQuickSlots();
 	}
+}
+
+void AMyPlayerCharacter::UpdateLocomotionAnimType()
+{
+	UMyAnimInstance* MyAnim = Cast<UMyAnimInstance>(GetMesh()->GetAnimInstance());
+	if (!MyAnim) return;
+
+	MyAnim->CurrentWeaponAnimType = CurrentWeaponData
+		? CurrentWeaponData->WeaponAnimType
+		: EWeaponAnimType::None;
 }
 
 // ==============================================

@@ -11,6 +11,7 @@
 #include "WeaponData.h"       // UWeaponData（当前武器数据指针）
 #include "EWeaponTypes.h"     // EWeaponAnimType（AttackMontageMap 的 Key）
 #include "ComboAttackData.h"  // UComboAttackData（连击系统配置缓存）
+#include "MyAnimInstance.h"   // UMyAnimInstance（locomotion 动画类型通信）
 #include "Components/StaticMeshComponent.h"
 #include "MyPlayerCharacter.generated.h"
 
@@ -305,6 +306,8 @@ private:
 	 *                      打断和自然结束的蓝图回调参数不同
 	 */
 	void ResetCombo(bool bInterrupted = false);
+
+	void UpdateLocomotionAnimType();
 
 	// ---- Timer 回调（UFUNCTION，供 TimerManager 调用）----
 
