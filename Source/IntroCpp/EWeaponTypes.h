@@ -8,25 +8,18 @@
 /**
  * 攻击动画类型枚举
  *
- * 按"动作模式"而非"武器种类"归类，多把不同武器可共用同一套动画。
+ * 按"动作模式"归类，不同武器可共用同一套动画。
  * 角色的 AttackMontageMap 存储了每种类型对应的 UAnimMontage*，
  * 武器装备时通过此枚举值从 Map 中取出对应 Montage。
  *
- * 示例：
- *   Cast_1H  → 单手法杖施法（火球术）
- *   Slash_1H → 单手剑挥砍（铁剑、钢剑通用）
- *   Shoot    → 弓箭/枪械射击动作
+ * 同时驱动 ABP_Move 的 locomotion 混合空间切换。
  */
 UENUM(BlueprintType)
 enum class EWeaponAnimType : uint8
 {
-	Cast_1H		UMETA(DisplayName = "单手施法"),     // 一只手施放法术（法杖、魔导书）
-	Cast_2H		UMETA(DisplayName = "双手施法"),     // 双手大型法术（法球、大魔导书）
-	Slash_1H	UMETA(DisplayName = "单手挥砍"),     // 单手近战挥砍（匕首、剑、斧）
-	Slash_2H	UMETA(DisplayName = "双手挥砍"),     // 双手武器挥砍（巨剑、长枪、大锤）
-	Thrust		UMETA(DisplayName = "刺击"),         // 直线突刺攻击（长矛、刺剑）
-	Shoot		UMETA(DisplayName = "射箭/射击"),    // 远程投射物发射（弓弩、火器）
-	None		UMETA(DisplayName = "无攻击动作")    // 无攻击能力（工具类物品）
+	None		UMETA(DisplayName = "无攻击"),    // 空手或无攻击能力的物品
+	Staff		UMETA(DisplayName = "法杖"),      // 法杖类武器（施法动作）
+	LongSword	UMETA(DisplayName = "长剑")       // 长剑类武器（挥砍动作）	
 };
 
 /**

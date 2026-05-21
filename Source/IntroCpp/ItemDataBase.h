@@ -6,7 +6,6 @@
 #include "Engine/DataAsset.h"
 #include "ItemAction.h"          // UItemAction（TSoftClassPtr 需要完整类型定义）
 #include "Engine/Texture2D.h"    // UTexture2D（ItemIcon 字段使用 TSoftObjectPtr 需要）
-#include "Animation/AnimMontage.h" // UAnimMontage（UseMontage 使用动画蒙太奇）
 #include "ItemDataBase.generated.h"
 
 // ============================================================
@@ -186,14 +185,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Item")
 	TSoftObjectPtr<UStaticMesh> ItemStaticMesh;
 
-	/**
-	 * 使用动画 Montage。
-	 * 右键长按使用物品时播放的角色动画（如"喝药水"、"吃食物"动作）。
-	 * 动画播完后通过 AnimNotify_UseItemComplete 通知角色执行实际效果。
-	 * 留空 = 不播放动画，立即执行效果（适合瞬发物品）
-	 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation")
-	UAnimMontage* UseMontage = nullptr;
 
 	/**
 	 * 掉落物 Actor 类（软引用）。

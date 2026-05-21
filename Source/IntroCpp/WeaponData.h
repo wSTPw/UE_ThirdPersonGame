@@ -16,9 +16,8 @@
  * 只有装备武器或执行攻击时才需要访问这些字段。
  *
  * 【典型用途】
- *   - 火球法杖 (DA_WP_FireStaff)：投射物=BP_FireBall, 动画=Cast_1H, 远程=true, MP消耗=10
- *   - 铁剑 (DA_WP_Sword_Iron)：动画=Slash_1H, 远程=false, 伤害=25
- *   - 长弓 (DA_WP_Bow)：投射物=BP_Arrow, 动画=Shoot, 远程=true
+ *   - 火球法杖 (DA_WP_FireStaff)：投射物=BP_FireBall, 动画=Staff, 远程=true, MP消耗=10
+ *   - 长刀 (DA_WP_LongSword)：动画=LongSword, 远程=false, 伤害=25
  *
  * 【装备流程】
  *   InventoryComponent::EquipItem(SlotIndex)
@@ -58,24 +57,16 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat")
 	TSoftClassPtr<AActor> WeaponProjectileClass;
 
-	/**
-	 * 攻击动画类型枚举。
-	 * 决定角色使用哪个共享 Montage（存储在角色的 AttackMontageMap 中）。
-	 *
-	 * 设计意图：按"动作模式"而非"武器种类"分类，
-	 * 多把不同武器可共用同一套动画（如所有单手剑都用 Slash_1H）
-	 *
-	 * 如果需要完全自定义动画，请使用 OverrideAttackMontage 字段
-	 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat")
-	EWeaponAnimType WeaponAnimType = EWeaponAnimType::None;
+	// ==========================================
+	// 战斗属性 — 数值
+	// ==========================================
 
 	/** 是否为远程武器。true=发射投射物(Projectile), false=近战 SphereTrace 检测 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat")
 	bool bIsRangedWeapon = true;
 
 	/** 单次攻击消耗的法力值。0 = 不消耗 MP */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat|Stats")
 	float WeaponManaCost = 0.0f;
 
 	/**
@@ -83,28 +74,46 @@ public:
 	 * 0 = 使用投射物自身默认伤害（推荐，保持投射物自包含）
 	 * 非0 = 强制覆盖投射物的 BaseDamage（特殊平衡调整用）
 	 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat|Stats")
 	int32 WeaponDamageOverride = 0;
+
+	/** 攻击冷却时间（秒）。防止连点过快导致无限发射/挥砍 */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat|Stats")
+	float WeaponAttackCooldown = 0.5f;
+
+	// ==========================================
+	// 战斗属性 — 动画
+	// ==========================================
+
+	/**
+	 * 攻击动画类型枚举。
+	 * 决定角色使用 AttackMontageMap 中的哪个共享 Montage。
+	 *
+	 * 按"动作模式"而非"武器种类"分类，多把不同武器可共用同一套动画。
+	 * 如需完全自定义，请使用 OverrideAttackMontage 字段。
+	 */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat|Animation")
+	EWeaponAnimType WeaponAnimType = EWeaponAnimType::None;
+
+	/**
+	 * 专属攻击动画覆盖。
+	 * 留空 = 走 WeaponAnimType → AttackMontageMap 的通用逻辑
+	 * 非空 = 优先播放此 Montage（特殊武器需要独特动画时使用）
+	 */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat|Animation")
+	UAnimMontage* OverrideAttackMontage = nullptr;
+
+	// ==========================================
+	// 战斗属性 — 发射
+	// ==========================================
 
 	/**
 	 * 发射位置的 Socket 名称。
 	 * 投射物生成时的起点（如 "hand_r"、"MuzzleFlash"）。
 	 * 必须与角色骨骼中的 Socket 名称一致。
 	 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat|Projectile")
 	FName WeaponFireSocketName = TEXT("hand_r");
-
-	/** 攻击冷却时间（秒）。防止连点过快导致无限发射/挥砍 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat")
-	float WeaponAttackCooldown = 0.5f;
-
-	/**
-	 * 专属蒙太奇覆盖。
-	 * 留空(=nullptr) = 走枚举→AttackMontageMap 的通用逻辑（99%的普通武器）
-	 * 非空 = 优先使用此 Montage（仅 1% 特殊武器需要独特动画时使用）
-	 */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat")
-	UAnimMontage* OverrideAttackMontage = nullptr;
 
 	// ==========================================
 	// 外观属性

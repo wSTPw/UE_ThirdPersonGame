@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "ItemDataBase.h"       // UItemDataBase 基类（继承目标）
 #include "EWeaponTypes.h"        // EBuffType 枚举（BuffType 字段需要）
+#include "Animation/AnimMontage.h" // UAnimMontage（UseMontage 需要）
 #include "ConsumableData.generated.h"
 
 /**
@@ -73,8 +74,18 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Effect", meta = (EditCondition = "BuffType != EBuffType::None"))
 	float BuffValue = 0.0f;
 
-	// ★ 注意：UseMontage 已在基类 UItemDataBase 中定义，此处不可重复声明！
-	//   UHT（Unreal Header Tool）禁止子类声明与基类同名的 UPROPERTY 字段（即使类型相同）
+	// ==========================================
+	// 动作表现
+	// ==========================================
+
+	/**
+	 * 使用动画 Montage。
+	 * 右键长按使用消耗品时播放的角色动画（如"喝药水"、"吃食物"动作）。
+	 * 动画播完后通过 AnimNotify_UseItemComplete 通知角色执行实际效果。
+	 * 留空 = 不播放动画，立即执行效果（适合瞬发物品）
+	 */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Animation")
+	UAnimMontage* UseMontage = nullptr;
 };
 
 // ---- 内联构造函数：自动设置 ItemType 为消耗品 ----

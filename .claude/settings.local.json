@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "Bash(gh repo *)",
+      "Bash(git clone *)",
+      "Bash(ls -la \"/tmp/UEBridgeMCP/\")",
+      "Read(//tmp/**)",
+      "Bash(mkdir -p \"e:/Unreal Projects/IntorCpp/Plugins\")",
+      "Bash(cp -r \"/tmp/UEBridgeMCP\" \"e:/Unreal Projects/IntorCpp/Plugins/UEBridgeMCP\")",
+      "WebSearch",
+      "Bash(npx --version)",
+      "Bash(npx skills *)",
+      "Bash(rm -rf \"/tmp/UEBridgeMCP\" 2>&1)",
+      "Bash(tasklist)",
+      "Bash(curl -s -X POST http://127.0.0.1:8080/mcp -H \"Content-Type: application/json\" -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/list\"}')",
+      "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); tools=[t['name'] for t in data['result']['tools']]; print\\('\\\\n'.join\\(tools\\)\\)\")",
+      "Bash(curl -s -X POST http://127.0.0.1:8080/mcp -H \"Content-Type: application/json\" -H \"Accept: application/json\" -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/list\"}' -o /tmp/ue_tools.json)",
+      "Bash(python -c \"import json; data=json.load\\(open\\('/tmp/ue_tools.json','r',encoding='utf-8'\\)\\); tools=[t['name'] for t in data['result']['tools']]; print\\('\\\\n'.join\\(tools\\)\\)\")",
+      "Bash(python -c \"import sys,json; data=json.load\\(sys.stdin\\); [print\\(t['name']\\) for t in data['result']['tools']]\")",
+      "Bash(curl -s -X POST http://127.0.0.1:8080/mcp -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"search-level-entities\",\"arguments\":{\"query\":\"Walk_Stop_B_180_Seq_YBot\"}}}')",
+      "Bash(curl -s -X POST http://127.0.0.1:8080/mcp -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":3,\"method\":\"tools/call\",\"params\":{\"name\":\"spawn-actor\",\"arguments\":{\"class\":\"/Script/Engine.StaticMeshActor\",\"location\":[-956,691,-1],\"label\":\"Sphere_At_YBot\"}}}')",
+      "Bash(python -c ' *)",
+      "Bash(curl -s -X POST http://127.0.0.1:8080/mcp -H \"Content-Type: application/json\" -d '{\"jsonrpc\":\"2.0\",\"id\":4,\"method\":\"tools/list\"}')",
+      "Bash(curl -s -X POST http://127.0.0.1:8080/mcp -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":5,\"method\":\"tools/call\",\"params\":{\"name\":\"spawn-actor\",\"arguments\":{\"actor_class\":\"StaticMeshActor\",\"location\":[-956,691,-1],\"label\":\"Sphere_At_YBot\"}}}')",
+      "Bash(curl -s -X POST http://127.0.0.1:8080/mcp -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":6,\"method\":\"tools/call\",\"params\":{\"name\":\"set_static_mesh\",\"arguments\":{\"actor_handle\":{\"kind\":\"actor\",\"session_id\":\"default\",\"resource_path\":\"/Game/MyStuff/TestAnim.TestAnim\",\"entity_id\":\"/Game/MyStuff/TestAnim.TestAnim:PersistentLevel.StaticMeshActor_0\",\"display_name\":\"Sphere_At_YBot\"},\"mesh_path\":\"/Engine/BasicShapes/Sphere.Sphere\"}}}')",
+      "Bash(curl -s -X POST http://127.0.0.1:8080/mcp -H \"Content-Type: application/json\" -d '{\"jsonrpc\":\"2.0\",\"id\":7,\"method\":\"tools/list\"}')",
+      "Bash(curl -s -X POST http://127.0.0.1:8080/mcp -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":8,\"method\":\"tools/call\",\"params\":{\"name\":\"replace-static-mesh\",\"arguments\":{\"actors\":[{\"actor_name\":\"StaticMeshActor_0\"}],\"static_mesh_path\":\"/Engine/BasicShapes/Sphere.Sphere\"}}}')",
+      "Bash(git add *)",
+      "Bash(git reset *)",
+      "Bash(git rm *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git config *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" --connect-timeout 5 https://github.com)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" --connect-timeout 5 --proxy http://127.0.0.1:7890 https://github.com)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" --connect-timeout 5 --proxy http://127.0.0.1:10809 https://github.com)"
+    ],
+    "additionalDirectories": [
+      "\\tmp"
+    ]
+  }
+}

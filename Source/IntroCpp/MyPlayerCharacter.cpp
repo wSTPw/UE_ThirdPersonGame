@@ -16,6 +16,7 @@
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Kismet/GameplayStatics.h"  // 特效/音效播放工具函数
 #include "ItemDataSubsystem.h"      // Subsystem 查询（EquipWeapon 预加载用）
+#include "ConsumableData.h"          // UConsumableData（UseHeldItem 读取 UseMontage）
 
 // ==============================================
 // 构造函数：初始化组件
@@ -154,6 +155,9 @@ void AMyPlayerCharacter::Move(const FInputActionValue& Value)
 {
     // ★ 背包打开时禁止移动
     if (bIsInventoryOpen) return;
+
+    // ★ 攻击或使用物品时禁止移动（避免边走边砍）
+    if (bIsAttacking || bIsUsingItem) return;
 
     // 拿到二维输入值（X=左右，Y=前后）
     FVector2D MoveVal = Value.Get<FVector2D>();
@@ -516,8 +520,12 @@ void AMyPlayerCharacter::UseHeldItem()
 
 	bIsUsingItem = true;
 
-	// 确定使用动画 Montage（直接读基类的 UseMontage 字段）
-	UAnimMontage* UseAnim = ItemData->UseMontage;
+	// 确定使用动画 Montage（仅 ConsumableData 有此属性）
+	UAnimMontage* UseAnim = nullptr;
+	if (UConsumableData* Consumable = Cast<UConsumableData>(ItemData))
+	{
+		UseAnim = Consumable->UseMontage;
+	}
 
 	if (UseAnim)
 	{
@@ -673,105 +681,26 @@ void AMyPlayerCharacter::OnQuickSlotPressed(int32 SlotIndex)
 
 void AMyPlayerCharacter::Attack()
 {
-	// 1. 未装备武器 → 无法攻击
+	// ---- 前置检查 ----
 	if (!CurrentWeaponData)
 	{
 		UE_LOG(LogTemp, Warning, TEXT("[Attack] 未装备武器，无法攻击"));
 		return;
 	}
 
-	// ====== 分支：远程武器 vs 近战连击系统 ======
-
-	if (!CurrentWeaponData->bIsRangedWeapon)
+	if (bIsUsingItem)
 	{
-		// ---- 近战武器：走连击系统 ----
-
-		// 2a. 确保连击数据已加载且有效
-		if (!EnsureComboDataReady())
-		{
-			UE_LOG(LogTemp, Warning,
-				TEXT("[Attack] 近战武器 %s 没有有效的连击配置，无法攻击"),
-				*CurrentWeaponID.ToString());
-			return;
-		}
-
-		// 3a. 正在攻击中时的输入处理（连击缓冲逻辑）
-		if (bIsAttacking)
-		{
-			if (bIsInComboWindow)
-			{
-				// ✅ 在输入窗口期内按下 → 缓存输入，等当前段 MontageEnded 后衔接
-				bHasBufferedInput = true;
-				UE_LOG(LogTemp, Log,
-					TEXT("[Combo] 攻击按键已缓存 (当前第%d段, 等待动画结束)"),
-					CurrentComboIndex);
-			}
-			else
-			{
-				// ❌ 不在窗口期内（还在预备/蓄力阶段）→ 忽略此次按键
-				UE_LOG(LogTemp, Log,
-					TEXT("[Combo] 攻击按键被忽略 - 未在输入窗口内 (第%d段)"),
-					CurrentComboIndex);
-			}
-			return;  // 无论哪种情况都不打断当前正在播放的攻击动画
-		}
-
-		// 4a. 不在攻击中 → 开始新的攻击段（首击或中断后重新开始）
-		StartComboHit();
-		return;  // 近战处理完毕，不再走下面的远程逻辑
+		return;  // 使用物品期间不能攻击
 	}
 
-	// ---- 远程武器：保持原有单次攻击逻辑完全不变 ----
-
-	if (bIsAttacking)
+	// ---- ① 优先尝试连击系统（仅近战武器生效）----
+	if (!CurrentWeaponData->bIsRangedWeapon && TryComboAttack())
 	{
-		return;
+		return;  // 连击系统已接管（StartComboHit 内部播 Montage + 设状态 + 启动 Timer）
 	}
 
-	// 2. 确定 Montage（优先级：专属覆盖 > 共享枚举映射）
-	UAnimMontage* MontageToPlay = nullptr;
-
-	if (CurrentWeaponData->OverrideAttackMontage)
-	{
-		// 特殊武器有专属蒙太奇 → 直接使用
-		MontageToPlay = CurrentWeaponData->OverrideAttackMontage;
-	}
-	else if (UAnimMontage** Found = AttackMontageMap.Find(CurrentWeaponData->WeaponAnimType))
-	{
-		// 普通武器 → 从共享池按枚举取 Montage
-		MontageToPlay = *Found;
-	}
-
-	if (!MontageToPlay)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("[Attack] 武器 %s 未配置有效 Montage (AnimType=%d)"),
-			*CurrentWeaponID.ToString(), static_cast<int32>(CurrentWeaponData->WeaponAnimType));
-		return;
-	}
-
-	bIsAttacking = true;
-
-	UE_LOG(LogTemp, Log, TEXT("[Attack] 远程攻击! 武器=%s, Montage=%s"),
-		*CurrentWeaponID.ToString(), *MontageToPlay->GetName());
-
-	float Duration = PlayAnimMontage(MontageToPlay);
-	float Cooldown = CurrentWeaponData->WeaponAttackCooldown > 0.0f
-		? CurrentWeaponData->WeaponAttackCooldown
-		: Duration;
-
-	if (Duration > 0.0f)
-	{
-		FTimerHandle AttackResetHandle;
-		GetWorld()->GetTimerManager().SetTimer(AttackResetHandle, [this]()
-		{
-			bIsAttacking = false;
-			UE_LOG(LogTemp, Log, TEXT("[Attack] 攻击冷却结束，可再次攻击"));
-		}, Cooldown, false);
-	}
-	else
-	{
-		bIsAttacking = false;
-	}
+	// ---- ② 降级：单次攻击（远程武器 / 近战无连击数据 统一路径）----
+	PlaySingleAttack();
 }
 
 // ==============================================
@@ -885,8 +814,15 @@ void AMyPlayerCharacter::FireFromHand()
 	}
 	else
 	{
-		// ---- 近战武器：执行命中检测 ----
-		MeleeHitCheck();
+		// ---- 近战武器：智能分发 ----
+		if (ActiveComboDataCache.IsValid())
+		{
+			MeleeHitCheck();   // 有连击数据 → 完整 SubHits 判定
+		}
+		else
+		{
+			SimpleMeleeHit();  // 无连击数据 → 降级简单判定
+		}
 	}
 }
 
@@ -1274,6 +1210,195 @@ void AMyPlayerCharacter::MeleeHitCheck()
 }
 
 // ==============================================
+// 攻击降级路径（无连击数据时使用）
+// ==============================================
+
+bool AMyPlayerCharacter::TryComboAttack()
+{
+	if (!EnsureComboDataReady())
+	{
+		return false;
+	}
+
+	if (bIsAttacking)
+	{
+		if (bIsInComboWindow)
+		{
+			UE_LOG(LogTemp, Log,
+				TEXT("[Combo] 窗口内按键! 当前 index=%d → 执行连跳"),
+				CurrentComboIndex);
+			ExecuteBufferedCombo();
+		}
+		else
+		{
+			UE_LOG(LogTemp, Log,
+				TEXT("[Combo] 攻击按键被忽略 - 未在输入窗口内 (第%d段, bIsInComboWindow=%s)"),
+				CurrentComboIndex, bIsInComboWindow ? TEXT("T") : TEXT("F"));
+		}
+		return true;
+	}
+
+	StartComboHit();
+	return true;
+}
+
+void AMyPlayerCharacter::ExecuteBufferedCombo()
+{
+	if (!ActiveComboDataCache.IsValid()) return;
+
+	// 推进段数
+	CurrentComboIndex++;
+	const int32 TotalHits = ActiveComboDataCache->Hits.Num();
+
+	UE_LOG(LogTemp, Log,
+		TEXT("[Combo] ExecuteBufferedCombo: 推进到 index=%d/%d, bIsAttacking=%s, bIsInComboWindow=%s"),
+		CurrentComboIndex, TotalHits,
+		bIsAttacking ? TEXT("T") : TEXT("F"),
+		bIsInComboWindow ? TEXT("T") : TEXT("F"));
+
+	if (CurrentComboIndex >= TotalHits)
+	{
+		if (ActiveComboDataCache->bLoopFromLastHit)
+		{
+			CurrentComboIndex = 0;
+			UE_LOG(LogTemp, Log, TEXT("[Combo] 循环回第 0 段"));
+		}
+		else
+		{
+			UE_LOG(LogTemp, Log, TEXT("[Combo] 所有段数打完 (%d/%d)，自然结束"), CurrentComboIndex, TotalHits);
+			ResetCombo(false);
+			bIsAttacking = false;
+			return;
+		}
+	}
+
+	const FComboHitEntry& NextHit = ActiveComboDataCache->Hits[CurrentComboIndex];
+
+	// 立即跳到下一段（跳过收刀，直接进入下一刀的攻击前段）
+	UAnimInstance* AnimInst = GetMesh()->GetAnimInstance();
+	if (AnimInst)
+	{
+		AnimInst->Montage_JumpToSection(NextHit.SectionName);
+		AnimInst->Montage_SetNextSection(NextHit.SectionName, NAME_None);
+	}
+
+	// 重置这段的状态
+	bIsInComboWindow = false;
+	bHasBufferedInput = false;
+	CurrentSubHitIndex = 0;
+
+	// 取这段的时长用于超时计算
+	float SectionLen = 1.5f;
+	if (ActiveComboDataCache->ComboMontage)
+	{
+		int32 SecIdx = ActiveComboDataCache->ComboMontage->GetSectionIndex(NextHit.SectionName);
+		if (SecIdx != INDEX_NONE)
+		{
+			SectionLen = ActiveComboDataCache->ComboMontage->GetSectionLength(SecIdx);
+		}
+	}
+
+	// 重启 Timer
+	GetWorldTimerManager().ClearTimer(ComboResetTimer);
+	GetWorldTimerManager().ClearTimer(WindowOpenTimer);
+
+	GetWorldTimerManager().SetTimer(ComboResetTimer, this,
+		&AMyPlayerCharacter::OnComboResetTimeout,
+		SectionLen + ActiveComboDataCache->ComboResetTime, false);
+
+	GetWorldTimerManager().SetTimer(WindowOpenTimer, this,
+		&AMyPlayerCharacter::OnComboWindowOpen,
+		NextHit.HitWindowStart, false);
+
+	BP_OnComboAdvanced(CurrentComboIndex);
+
+	UE_LOG(LogTemp, Log,
+		TEXT("[Combo] ⚡ 跳转到第%d段 (Section='%s'), 窗口将在 %.2fs 后开启"),
+		CurrentComboIndex, *NextHit.SectionName.ToString(), NextHit.HitWindowStart);
+}
+
+void AMyPlayerCharacter::PlaySingleAttack()
+{
+	if (bIsAttacking) return;  // 单次攻击冷却中，防止连点
+
+	// 优先级：专属覆盖 > AttackMontageMap[枚举]
+	UAnimMontage* Montage = CurrentWeaponData->OverrideAttackMontage;
+	if (!Montage)
+	{
+		Montage = AttackMontageMap.FindRef(CurrentWeaponData->WeaponAnimType);
+	}
+
+	if (!Montage)
+	{
+		UE_LOG(LogTemp, Warning,
+			TEXT("[Attack] %s (AnimType=%s) 未找到攻击动画! "
+				 "请在角色 AttackMontageMap 或武器 OverrideAttackMontage 中指定"),
+			*CurrentWeaponID.ToString(),
+			*UEnum::GetValueAsString(CurrentWeaponData->WeaponAnimType));
+		return;
+	}
+
+	bIsAttacking = true;
+
+	float Duration = PlayAnimMontage(Montage);
+
+	// 冷却时间取武器配置和动画时长的较大值
+	float Cooldown = FMath::Max(CurrentWeaponData->WeaponAttackCooldown, Duration);
+	GetWorldTimerManager().SetTimer(AttackCooldownTimer,
+		FTimerDelegate::CreateLambda([this]()
+		{
+			bIsAttacking = false;
+			UE_LOG(LogTemp, Log, TEXT("[Attack] 攻击冷却结束，可再次攻击"));
+		}), Cooldown, false);
+
+	UE_LOG(LogTemp, Log, TEXT("[Attack] 单次攻击: %s, Montage=%s, 冷却=%.2fs"),
+		*CurrentWeaponID.ToString(), *Montage->GetName(), Cooldown);
+}
+
+void AMyPlayerCharacter::SimpleMeleeHit()
+{
+	const float Radius = 50.f;
+	const float ForwardOffset = 60.f;
+	const float Damage = 20.f;
+	const float Knockback = 500.f;
+
+	FVector Start = GetActorLocation();
+	Start.Z += 80.f;
+	FVector End = Start + GetActorForwardVector() * ForwardOffset;
+
+	FCollisionQueryParams Params;
+	Params.AddIgnoredActor(this);
+
+	FHitResult Hit;
+	bool bHit = GetWorld()->SweepSingleByChannel(
+		Hit, Start, End, FQuat::Identity,
+		ECC_Pawn, FCollisionShape::MakeSphere(Radius), Params);
+
+	if (bHit && Hit.GetActor())
+	{
+		AActor* HitActor = Hit.GetActor();
+
+		if (UAttributeComponent* Attr = HitActor->FindComponentByClass<UAttributeComponent>())
+		{
+			Attr->ApplyDamage(Damage, this);
+		}
+
+		if (ACharacter* HitChar = Cast<ACharacter>(HitActor))
+		{
+			FVector Dir = (HitActor->GetActorLocation() - GetActorLocation()).GetSafeNormal();
+			Dir.Z = 0.3f;
+			HitChar->LaunchCharacter(Dir * Knockback, true, true);
+		}
+
+		BP_OnMeleeAttackHit(Hit, 0, 0, Damage);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Log, TEXT("[Melee] 简单判定未命中目标"));
+	}
+}
+
+// ==============================================
 // 连击系统 — 核心方法实现
 // ==============================================
 
@@ -1377,6 +1502,18 @@ void AMyPlayerCharacter::StartComboHit()
 	UE_LOG(LogTemp, Log,
 		TEXT("[Combo] PlayAnimMontage 返回 Duration=%.3fs"), Duration);
 
+	// ---- 诊断：检查 Montage 是否真的在播放 ----
+	{
+		const bool bIsPlaying = AnimInst->Montage_IsPlaying(MontageToPlay);
+		const FSlotAnimationTrack& SlotTrack = MontageToPlay->SlotAnimTracks[0];
+		UE_LOG(LogTemp, Log,
+			TEXT("[Combo] 诊断: Montage_IsPlaying=%s, Montage Slot='%s.%s', AnimInst 类型='%s'"),
+			bIsPlaying ? TEXT("TRUE") : TEXT("FALSE"),
+			*SlotTrack.SlotName.ToString(),
+			*MontageToPlay->GetGroupName().ToString(),
+			*AnimInst->GetClass()->GetName());
+	}
+
 	if (Duration <= 0.f)
 	{
 		UE_LOG(LogTemp, Error,
@@ -1394,12 +1531,20 @@ void AMyPlayerCharacter::StartComboHit()
 	bHasBufferedInput = false;      // 清空旧缓冲
 	CurrentSubHitIndex = 0;         // 重置子判定索引
 
-	// ---- ③ 启动全局超时 Timer ----
+	// 计算当前 Section 的实际时长（PlayAnimMontage 返回总长，需单独取）
+	float SectionLen = Duration;
+	int32 SecIdx = MontageToPlay->GetSectionIndex(HitCfg.SectionName);
+	if (SecIdx != INDEX_NONE)
+	{
+		SectionLen = MontageToPlay->GetSectionLength(SecIdx);
+	}
+
+	// ---- ③ 启动全局超时 Timer（Section 播完 + ComboResetTime 秒缓冲）----
 	GetWorldTimerManager().SetTimer(
 		ComboResetTimer,
 		this,
 		&AMyPlayerCharacter::OnComboResetTimeout,
-		ActiveComboDataCache->ComboResetTime,  // 如 1.0 秒
+		SectionLen + ActiveComboDataCache->ComboResetTime,
 		false                                   // 不循环（每次 StartComboHit 重新启动）
 	);
 
@@ -1419,6 +1564,9 @@ void AMyPlayerCharacter::StartComboHit()
 		BlendOutDelegate,
 		MontageToPlay
 	);
+
+	// ---- ⑥ 阻止 Section 自动串联（每段播完后自然结束，由代码决定跳转）----
+	AnimInst->Montage_SetNextSection(HitCfg.SectionName, NAME_None);
 
 	UE_LOG(LogTemp, Log,
 		TEXT("[Combo] ▶ 开始第%d段攻击 (Section='%s'), 窗口将在 %.2fs 后开启"),
@@ -1492,8 +1640,8 @@ void AMyPlayerCharacter::ResetCombo(bool bInterrupted /* = false */)
 	GetWorldTimerManager().ClearTimer(ComboResetTimer);
 	GetWorldTimerManager().ClearTimer(WindowOpenTimer);
 
-	// 安全停止可能还在播放的 Montage（防止残留动画卡住角色）
-	if (ActiveComboDataCache.IsValid() && ActiveComboDataCache->ComboMontage)
+	// 仅在真正被打断时才停止动画（切换武器/受伤等），超时则不杀动画，让它自然播完
+	if (bInterrupted && ActiveComboDataCache.IsValid() && ActiveComboDataCache->ComboMontage)
 	{
 		StopAnimMontage(ActiveComboDataCache->ComboMontage);
 	}
@@ -1523,33 +1671,21 @@ void AMyPlayerCharacter::OnComboResetTimeout()
 
 void AMyPlayerCharacter::OnAttackMontageEnded_Combo(UAnimMontage* Montage, bool bInterrupted)
 {
-	// 先清除窗口 Timer（防止残留触发导致状态不一致）
 	GetWorldTimerManager().ClearTimer(WindowOpenTimer);
 	bIsInComboWindow = false;
 
 	if (bInterrupted)
 	{
-		// 被外部打断（受伤硬直、闪避取消、手动切换武器等）
 		UE_LOG(LogTemp, Log, TEXT("[Combo] Montage 被外部中断!"));
 		ResetCombo(true);
 		bIsAttacking = false;
 		return;
 	}
 
-	// 检查是否有之前缓存的攻击输入
-	if (bHasBufferedInput)
-	{
-		// ✅ 有缓冲输入 → 衔接到下一段攻击
-		UE_LOG(LogTemp, Log, TEXT("[Combo] Montage 播放完毕 + 有缓冲输入 → 衔接下一段"));
-		AdvanceToNextHit();
-	}
-	else
-	{
-		// ❌ 无缓冲输入 → 连击自然结束
-		UE_LOG(LogTemp, Log, TEXT("[Combo] Montage 播放完毕 + 无缓冲输入 → 连击结束"));
-		ResetCombo(false);  // 正常自然结束
-		bIsAttacking = false;
-	}
+	// Montage 自然放完 → 连击结束（跳转改由 ExecuteBufferedCombo 即时处理，不再走这里）
+	UE_LOG(LogTemp, Log, TEXT("[Combo] Montage 播放完毕 → 连击结束"));
+	ResetCombo(false);
+	bIsAttacking = false;
 }
 
 void AMyPlayerCharacter::OnMeleeHitNotify()

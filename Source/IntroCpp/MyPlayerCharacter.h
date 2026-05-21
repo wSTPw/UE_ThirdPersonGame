@@ -144,9 +144,8 @@ public:
 	 * 武器只存 EWeaponAnimType 枚举值 → 从此 Map 取出实际 Montage
 	 *
 	 * 示例配置（蓝图 Defaults）：
-	 *   Cast_1H  → M_Attack_Cast_1H
-	 *   Slash_1H → M_Attack_Slash_1H
-	 *   Shoot    → M_Attack_Shoot
+	 *   Staff     → M_Attack_Staff
+	 *   LongBlade → M_Attack_LongBlade
 	 */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attack")
 	TMap<EWeaponAnimType, UAnimMontage*> AttackMontageMap;
@@ -267,6 +266,9 @@ private:
 	/** 输入窗口开启延迟 Timer（预备期结束后才开放按键响应）*/
 	FTimerHandle WindowOpenTimer;
 
+	/** 单次攻击冷却 Timer（PlaySingleAttack 使用，到期设 bIsAttacking=false）*/
+	FTimerHandle AttackCooldownTimer;
+
 	// ---- 数据缓存 ----
 
 	/**
@@ -308,6 +310,25 @@ private:
 	void ResetCombo(bool bInterrupted = false);
 
 	void UpdateLocomotionAnimType();
+
+	/**
+	 * 尝试进入连击系统（仅近战武器生效）。
+	 * 连击数据完整 → 走连击状态机，返回 true。
+	 * 连击数据不全 → 静默降级，返回 false（让调用方走 PlaySingleAttack）。
+	 */
+	bool TryComboAttack();
+
+	/** 在连击窗口内按下攻击键 → 立即 JumpToSection 到下一段（跳过收刀） */
+	void ExecuteBufferedCombo();
+
+	/** 统一的单次攻击（远程武器 / 近战无连击数据 都用这个路径） */
+	void PlaySingleAttack();
+
+	/**
+	 * 降级近战判定（无 ComboAttackData 时的 MeleeHitCheck 替代）。
+	 * 使用固定默认参数做一次 SphereTrace + ApplyDamage + 击退。
+	 */
+	void SimpleMeleeHit();
 
 	// ---- Timer 回调（UFUNCTION，供 TimerManager 调用）----
 

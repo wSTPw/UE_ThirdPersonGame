@@ -1,0 +1,1 @@
+- [Git Config Reference](git_config_reference.md) — UE5 project: LFS rules, .gitignore patterns, remote config, and uncovered gaps
