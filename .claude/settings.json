@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/DY_1005/.claude/**)",
+      "Bash(git fetch *)"
+    ],
+    "defaultMode": "bypassPermissions"
+  }
+}

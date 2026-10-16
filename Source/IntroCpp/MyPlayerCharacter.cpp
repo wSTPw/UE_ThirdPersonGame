@@ -952,6 +952,16 @@ void AMyPlayerCharacter::UpdateLocomotionAnimType()
 		: EWeaponAnimType::None;
 }
 
+void AMyPlayerCharacter::SetAttacking(bool bInAttacking)
+{
+	bIsAttacking = bInAttacking;
+
+	if (UMyAnimInstance* Anim = Cast<UMyAnimInstance>(GetMesh()->GetAnimInstance()))
+	{
+		Anim->bIsAttacking = bInAttacking;
+	}
+}
+
 // ==============================================
 // 手持物品系统（快捷栏选中时在手上显示模型）
 // ==============================================
@@ -1267,7 +1277,7 @@ void AMyPlayerCharacter::ExecuteBufferedCombo()
 		{
 			UE_LOG(LogTemp, Log, TEXT("[Combo] 所有段数打完 (%d/%d)，自然结束"), CurrentComboIndex, TotalHits);
 			ResetCombo(false);
-			bIsAttacking = false;
+			SetAttacking(false);
 			return;
 		}
 	}
@@ -1338,7 +1348,7 @@ void AMyPlayerCharacter::PlaySingleAttack()
 		return;
 	}
 
-	bIsAttacking = true;
+	SetAttacking(true);
 
 	float Duration = PlayAnimMontage(Montage);
 
@@ -1347,7 +1357,7 @@ void AMyPlayerCharacter::PlaySingleAttack()
 	GetWorldTimerManager().SetTimer(AttackCooldownTimer,
 		FTimerDelegate::CreateLambda([this]()
 		{
-			bIsAttacking = false;
+			SetAttacking(false);
 			UE_LOG(LogTemp, Log, TEXT("[Attack] 攻击冷却结束，可再次攻击"));
 		}), Cooldown, false);
 
@@ -1488,7 +1498,7 @@ void AMyPlayerCharacter::StartComboHit()
 			TEXT("[Combo] 致命错误: GetMesh()->GetAnimInstance() 返回 null! "
 				 "角色可能没有设置 Animation Blueprint。无法播放 Montage。"));
 		ResetCombo(true);
-		bIsAttacking = false;
+		SetAttacking(false);
 		return;
 	}
 
@@ -1521,12 +1531,12 @@ void AMyPlayerCharacter::StartComboHit()
 				 "→ 请检查: ①Montage是否为空 ②Section名称是否匹配 ③角色是否有AnimBP"),
 			*HitCfg.SectionName.ToString(), CurrentComboIndex);
 		ResetCombo(true);  // 播放失败视为中断
-		bIsAttacking = false;
+		SetAttacking(false);
 		return;
 	}
 
 	// ---- ② 设置攻击状态标志 ----
-	bIsAttacking = true;
+	SetAttacking(true);
 	bIsInComboWindow = false;       // 窗口还没开启（等 WindowOpenTimer 到期）
 	bHasBufferedInput = false;      // 清空旧缓冲
 	CurrentSubHitIndex = 0;         // 重置子判定索引
@@ -1579,7 +1589,7 @@ void AMyPlayerCharacter::AdvanceToNextHit()
 	if (!ActiveComboDataCache.IsValid())
 	{
 		ResetCombo(true);
-		bIsAttacking = false;
+		SetAttacking(false);
 		return;
 	}
 
@@ -1607,7 +1617,7 @@ void AMyPlayerCharacter::AdvanceToNextHit()
 			UE_LOG(LogTemp, Log,
 				TEXT("[Combo] 连击完成! 共 %d 段, 结束"), TotalHits);
 			ResetCombo(false);  // 非中断性正常结束
-			bIsAttacking = false;
+			SetAttacking(false);
 			return;
 		}
 	}
@@ -1666,7 +1676,7 @@ void AMyPlayerCharacter::OnComboResetTimeout()
 		ActiveComboDataCache.IsValid() ? ActiveComboDataCache->ComboResetTime : 0.f);
 
 	ResetCombo(false);  // 超时不算"被打断"，是自然超时
-	bIsAttacking = false;
+	SetAttacking(false);
 }
 
 void AMyPlayerCharacter::OnAttackMontageEnded_Combo(UAnimMontage* Montage, bool bInterrupted)
@@ -1678,14 +1688,14 @@ void AMyPlayerCharacter::OnAttackMontageEnded_Combo(UAnimMontage* Montage, bool 
 	{
 		UE_LOG(LogTemp, Log, TEXT("[Combo] Montage 被外部中断!"));
 		ResetCombo(true);
-		bIsAttacking = false;
+		SetAttacking(false);
 		return;
 	}
 
 	// Montage 自然放完 → 连击结束（跳转改由 ExecuteBufferedCombo 即时处理，不再走这里）
 	UE_LOG(LogTemp, Log, TEXT("[Combo] Montage 播放完毕 → 连击结束"));
 	ResetCombo(false);
-	bIsAttacking = false;
+	SetAttacking(false);
 }
 
 void AMyPlayerCharacter::OnMeleeHitNotify()

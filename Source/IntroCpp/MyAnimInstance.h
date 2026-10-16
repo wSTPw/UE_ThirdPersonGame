@@ -22,4 +22,8 @@ public:
 	/** 当前装备武器对应的动画类型。由角色在 EquipWeapon/UnequipWeapon 时设置。None = 空手。 */
 	UPROPERTY(BlueprintReadOnly, Category = "Locomotion")
 	EWeaponAnimType CurrentWeaponAnimType = EWeaponAnimType::None;
+
+	/** 是否正在播放攻击动画。由 AM yPlayerCharacter::SetAttacking() 在状态变化时同步。 */
+	UPROPERTY(BlueprintReadOnly, Category = "Combat")
+	bool bIsAttacking = false;
 };

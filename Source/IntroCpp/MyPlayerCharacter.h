@@ -153,6 +153,9 @@ public:
 	/** 是否正在攻击中（防止连发） */
 	bool bIsAttacking = false;
 
+	/** 设置攻击状态，同步推送到 AnimInstance */
+	void SetAttacking(bool bInAttacking);
+
 	/** 是否正在使用物品中（播放使用动画期间，防止重复触发） */
 	bool bIsUsingItem = false;
 
