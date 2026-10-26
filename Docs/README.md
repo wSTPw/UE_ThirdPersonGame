@@ -14,6 +14,7 @@
 | 查询MHWI武器独立动画、完整TIML/FSM和逐帧还原缺口 | [源保真调查](Reference/MHWI-Source-Fidelity-Audit.md)、[阶段方案](Plans/PLAN-20261023-001-mhwi-source-fidelity.md)；2026-10-24只读调查，未修改正式玩法 |
 | 查看Content/MHWI原版还原进度与交接 | [逐项开发台账](Plans/MHWI-Restoration-Progress.md)、[B10三项开发交付](Reference/MHWI-R06-Remaining-Development.md)；[B13/B14/B15验收及B16复验](Reference/MHWI-Acceptance-Update-20261026.md)：A05/A06已静态修复，B14构建/正式DA保存读回/22项离线检查通过，未PIE；35项总状态不变，运行由用户操作 |
 | 查询R28基础移动与R30装配/IK补充取证及方案 | [B18取证报告](Reference/MHWI-R28-R30-Evidence-20261026.md)、[R28移动过渡方案](Plans/PLAN-20261026-004-mhwi-locomotion-transitions.md)、[R30四链IK方案](Plans/PLAN-20261026-005-mhwi-equipment-ik.md)；候选动作与骨链已有源依据，原生语义/solver 未完全闭合 |
+| 查询原作太刀攻击碰撞证据及项目实现差异 | [B19武器碰撞取证](Reference/MHWI-Weapon-Collision-Evidence-20261026.md)：39/39动作碰撞轨UID匹配太刀COL；CLND类型1已追到节点工厂`cCollNodePl`，但CLGM几何/骨骼映射未闭合，原作数据暂不可直接用于忠实实现 |
 | 查询MHWI全部离线静态取证结论 | [B17取证收尾](Reference/MHWI-Forensic-Completion-20261026.md)：EXE指纹匹配、48/48资源和19/19函数快照复验；发现5项`nativePC`覆盖，分别记录原版归档与当前覆盖；十项台账边界仍待语义闭合/运行观测 |
 | 查询剩余原生消费者及B12证据更正 | [B13取证](Reference/MHWI-Outstanding-Evidence-20261026.md)：Q/回旋/shell/回避/等待子链；10秒属颜色暂停、0.4秒属shell延迟；[B14实施记录](Changes/CHG-20261026-005-mhwi-evidenced-mechanics.md)；取消/转向/耐力/空间/IK及完整运行验收仍开放 |
 | 查询源采样修复、独立武器轨道及公开帧表校准 | [实施现状](Reference/MHWI-Native-Fidelity-Implementation.md)、[实施方案](Plans/PLAN-20261024-001-mhwi-native-fidelity-implementation.md)；36段平行库、27处Montage迁移，完整装配和取消仍有缺口 |
