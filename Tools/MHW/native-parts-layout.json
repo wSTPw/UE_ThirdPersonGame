@@ -1,0 +1,690 @@
+{
+  "schema": 1,
+  "boundary": "Public text layout; consumer semantics must be established separately. Unknown names remain unknown.",
+  "sources": {
+    "Weapons/Melee.cs": {
+      "url": "https://github.com/Synthlight/MHW-Editor/blob/master/Generated/MHW_Editor/Structs/Weapons/Melee.cs",
+      "sha256": "3849ab99acfd7c83edf3970aa51164c32ae86dbc23545e6b3ea1e04afb8d02e4",
+      "classes": {
+        "Header": [
+          {
+            "name": "Magic_1",
+            "type": "UInt32"
+          },
+          {
+            "name": "Magic_2",
+            "type": "UInt16"
+          },
+          {
+            "name": "Entry_Count",
+            "type": "UInt32"
+          }
+        ],
+        "Entries": [
+          {
+            "name": "Index",
+            "type": "UInt32"
+          },
+          {
+            "name": "Unk1",
+            "type": "Int16"
+          },
+          {
+            "name": "Base_Model_Id",
+            "type": "Int16"
+          },
+          {
+            "name": "Part_1_Id",
+            "type": "Int16"
+          },
+          {
+            "name": "Part_2_Id",
+            "type": "Int16"
+          },
+          {
+            "name": "Unk_1",
+            "type": "Byte"
+          },
+          {
+            "name": "Color",
+            "type": "Byte"
+          },
+          {
+            "name": "Tree_Id",
+            "type": "Byte"
+          },
+          {
+            "name": "Is_Fixed_Upgrade",
+            "type": "Byte"
+          },
+          {
+            "name": "Cost",
+            "type": "UInt32"
+          },
+          {
+            "name": "Rarity",
+            "type": "Byte"
+          },
+          {
+            "name": "Sharpness_kire_Id",
+            "type": "Byte"
+          },
+          {
+            "name": "Sharpness_Amount",
+            "type": "Byte"
+          },
+          {
+            "name": "Damage",
+            "type": "UInt16"
+          },
+          {
+            "name": "Defense",
+            "type": "UInt16"
+          },
+          {
+            "name": "Affinity",
+            "type": "SByte"
+          },
+          {
+            "name": "Element",
+            "type": "Byte"
+          },
+          {
+            "name": "Element_Damage",
+            "type": "UInt16"
+          },
+          {
+            "name": "Element_Hidden_",
+            "type": "Byte"
+          },
+          {
+            "name": "Element_Hidden_Damage",
+            "type": "UInt16"
+          },
+          {
+            "name": "Elderseal",
+            "type": "Byte"
+          },
+          {
+            "name": "Slot_Count",
+            "type": "Byte"
+          },
+          {
+            "name": "Slot_1_Size",
+            "type": "Byte"
+          },
+          {
+            "name": "Slot_2_Size",
+            "type": "Byte"
+          },
+          {
+            "name": "Slot_3_Size",
+            "type": "Byte"
+          },
+          {
+            "name": "Special_Ability_1_ID",
+            "type": "UInt16"
+          },
+          {
+            "name": "Special_Ability_2_ID",
+            "type": "UInt16"
+          },
+          {
+            "name": "Unk_2",
+            "type": "UInt32"
+          },
+          {
+            "name": "Unk_3",
+            "type": "UInt32"
+          },
+          {
+            "name": "Unk_4",
+            "type": "UInt32"
+          },
+          {
+            "name": "Tree_Position",
+            "type": "Byte"
+          },
+          {
+            "name": "Id",
+            "type": "UInt16"
+          },
+          {
+            "name": "GMD_Name_Index",
+            "type": "UInt16"
+          },
+          {
+            "name": "GMD_Description_Index",
+            "type": "UInt16"
+          },
+          {
+            "name": "Skill",
+            "type": "UInt16"
+          },
+          {
+            "name": "Unk_5",
+            "type": "UInt16"
+          }
+        ]
+      }
+    },
+    "Monsters/MonsterParts.cs": {
+      "url": "https://github.com/Synthlight/MHW-Editor/blob/master/Generated/MHW_Editor/Structs/Monsters/MonsterParts.cs",
+      "sha256": "cee80a8907ec3031226f642ab1c2a6f4d59e134d5bad995267c01da028db85f0",
+      "classes": {
+        "Monster_Parts": [
+          {
+            "name": "Magic_1",
+            "type": "UInt32"
+          },
+          {
+            "name": "Magic_2",
+            "type": "UInt32"
+          },
+          {
+            "name": "Monster_Id",
+            "type": "UInt32"
+          },
+          {
+            "name": "Magic_3",
+            "type": "UInt32"
+          },
+          {
+            "name": "Health",
+            "type": "UInt32"
+          },
+          {
+            "name": "Flinches_Count",
+            "type": "UInt32"
+          }
+        ],
+        "Flinches": [
+          {
+            "name": "Flinch_Value",
+            "type": "UInt32"
+          },
+          {
+            "name": "Special_Part_1",
+            "type": "Int32"
+          },
+          {
+            "name": "Special_Part_2",
+            "type": "Int32"
+          },
+          {
+            "name": "Special_Part_3",
+            "type": "Int32"
+          },
+          {
+            "name": "Kinsect_Color",
+            "type": "UInt32"
+          },
+          {
+            "name": "Parts_Type",
+            "type": "UInt32"
+          }
+        ],
+        "Parts1": [
+          {
+            "name": "Part_Id_LR_HR1_Normal",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR1_Wounded",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR1_Special_Phase_1",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR1_Special_Phase_2",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR1_Special_Phase_3",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR1_Normal",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR1_Wounded",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR1_Special_Phase_1",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR1_Special_Phase_2",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR1_Special_Phase_3",
+            "type": "Int32"
+          },
+          {
+            "name": "unk9",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk10",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk11",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk12",
+            "type": "Byte"
+          },
+          {
+            "name": "unk13",
+            "type": "Byte"
+          }
+        ],
+        "Parts2": [
+          {
+            "name": "Part_Id_LR_HR1_Normal",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR1_Wounded",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR1_Special_Phase_1",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR1_Special_Phase_2",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR1_Special_Phase_3",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR1_Normal",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR1_Wounded",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR1_Special_Phase_1",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR1_Special_Phase_2",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR1_Special_Phase_3",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR2_Normal",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR2_Wounded",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR2_Special_Phase_1",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR2_Special_Phase_2",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR2_Special_Phase_3",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR2_Normal",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR2_Wounded",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR2_Special_Phase_1",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR2_Special_Phase_2",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR2_Special_Phase_3",
+            "type": "Int32"
+          },
+          {
+            "name": "unk19",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk20",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk21",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk22",
+            "type": "Byte"
+          },
+          {
+            "name": "unk23",
+            "type": "Byte"
+          }
+        ],
+        "Parts3": [
+          {
+            "name": "Part_Id_LR_HR1_Normal",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR1_Wounded",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR1_Special_Phase_1",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR1_Special_Phase_2",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR1_Special_Phase_3",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR1_Normal",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR1_Wounded",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR1_Special_Phase_1",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR1_Special_Phase_2",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR1_Special_Phase_3",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR2_Normal",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR2_Wounded",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR2_Special_Phase_1",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR2_Special_Phase_2",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR2_Special_Phase_3",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR2_Normal",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR2_Wounded",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR2_Special_Phase_1",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR2_Special_Phase_2",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR2_Special_Phase_3",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR3_Normal",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR3_Wounded",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR3_Special_Phase_1",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR3_Special_Phase_2",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_LR_HR3_Special_Phase_3",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR3_Normal",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR3_Wounded",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR3_Special_Phase_1",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR3_Special_Phase_2",
+            "type": "Int32"
+          },
+          {
+            "name": "Part_Id_MR3_Special_Phase_3",
+            "type": "Int32"
+          },
+          {
+            "name": "unk29",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk30",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk31",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk32",
+            "type": "Byte"
+          },
+          {
+            "name": "unk33",
+            "type": "Byte"
+          }
+        ],
+        "Hitzone_Header": [
+          {
+            "name": "Hitzone_Count",
+            "type": "UInt32"
+          }
+        ],
+        "Hitzones": [
+          {
+            "name": "Timer",
+            "type": "Single"
+          },
+          {
+            "name": "Sever",
+            "type": "UInt32"
+          },
+          {
+            "name": "Impact",
+            "type": "UInt32"
+          },
+          {
+            "name": "Shot",
+            "type": "UInt32"
+          },
+          {
+            "name": "Fire",
+            "type": "UInt32"
+          },
+          {
+            "name": "Water",
+            "type": "UInt32"
+          },
+          {
+            "name": "Ice",
+            "type": "UInt32"
+          },
+          {
+            "name": "Thunder",
+            "type": "UInt32"
+          },
+          {
+            "name": "Dragon",
+            "type": "UInt32"
+          },
+          {
+            "name": "Stun",
+            "type": "UInt32"
+          },
+          {
+            "name": "Stamina",
+            "type": "UInt32"
+          }
+        ],
+        "Sever_Header": [
+          {
+            "name": "Sever_Count",
+            "type": "UInt32"
+          }
+        ],
+        "Severs": [
+          {
+            "name": "Damage",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk1",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk2",
+            "type": "UInt32"
+          },
+          {
+            "name": "Sever",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk5",
+            "type": "Int32"
+          },
+          {
+            "name": "Special",
+            "type": "Byte"
+          },
+          {
+            "name": "Blunt",
+            "type": "Byte"
+          },
+          {
+            "name": "Shot",
+            "type": "Byte"
+          }
+        ],
+        "Unk_Header": [
+          {
+            "name": "Unk_Count",
+            "type": "UInt32"
+          }
+        ],
+        "Unknowns": [
+          {
+            "name": "unk1",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk2",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk3",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk4",
+            "type": "Byte"
+          },
+          {
+            "name": "unk5",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk6",
+            "type": "Byte"
+          },
+          {
+            "name": "unk7",
+            "type": "Byte"
+          },
+          {
+            "name": "unk8",
+            "type": "Int32"
+          },
+          {
+            "name": "unk9",
+            "type": "Byte"
+          },
+          {
+            "name": "unk10",
+            "type": "Byte"
+          },
+          {
+            "name": "unk11",
+            "type": "Byte"
+          }
+        ],
+        "Unknown": [
+          {
+            "name": "unk1",
+            "type": "UInt32"
+          },
+          {
+            "name": "unk2",
+            "type": "UInt32"
+          }
+        ]
+      }
+    }
+  }
+}

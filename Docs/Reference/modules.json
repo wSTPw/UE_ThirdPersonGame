@@ -377,7 +377,14 @@
         "Scripts/MHWI/build_r06_remaining_data.py",
         "Scripts/MHWI/record_r06_remaining_progress.py",
         "Tools/MHW/native-r06-source-owners.json",
-        "Tools/MHW/native-r06-remaining-evidence.json"
+        "Tools/MHW/native-r06-remaining-evidence.json",
+        "Scripts/MHWI/trace_outstanding_evidence.py",
+        "Scripts/MHWI/extract_outstanding_tables.py",
+        "Scripts/MHWI/build_outstanding_evidence.py",
+        "Tools/MHW/native-outstanding-evidence.json",
+        "Scripts/MHWI/extract_native_parts.py",
+        "Tools/MHW/native-parts-layout.json",
+        "Tools/MHW/native-outstanding-followup.json"
       ],
       "interface_ids": [
         "DAMAGE-001",
