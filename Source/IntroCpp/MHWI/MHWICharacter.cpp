@@ -1917,7 +1917,7 @@ void AMHWICharacter::TickDelayedShells(float DeltaSeconds)
     while (!HelmDelayedHits.IsEmpty() && HelmDelayedHits[0].RemainingSeconds <= 0.f)
     {
         const FMHWIDelayedHitRuntime Hit = HelmDelayedHits[0];
-        HelmDelayedHits.RemoveAt(0, 1, false);
+        HelmDelayedHits.RemoveAt(0, 1, EAllowShrinking::No);
         EmitDelayedShell(Hit, MHWI::HelmStrike);
         if (bEnding || !Attributes->IsAlive()) return;
     }

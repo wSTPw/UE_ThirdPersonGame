@@ -5,7 +5,7 @@
 - 用户需求：查看 MHWI 与开发台账，只开发原游戏证据已经明确的部分；本机不运行原游戏，未取证且实现方式不清楚的部分不擅自修改，并报告来源、依据与跳过项。
 - 关联模块 / 接口 / 问题：`mhwi-longsword`；MHWI-003/005/007/008/010；台账 R10/R11/R13/R16/R19/R21/R29/R31；R-COMBAT-017/018。
 - 前置证据：[B13 原生消费者](../Reference/MHWI-Outstanding-Evidence-20261026.md)、[总台账](MHWI-Restoration-Progress.md)。
-- 实施记录：待 [CHG-20261026-005](../Changes/CHG-20261026-005-mhwi-evidenced-mechanics.md) 完成后填写实际结果。
+- 实施记录：CHG-20261026-005（文件名拟为 `CHG-20261026-005-mhwi-evidenced-mechanics.md`）**尚未创建**，编号已按 §B14 预留；实际结果待补录。该方案代码已于 `4b5361c` 提交，编译错误另见 [CHG-20261026-007](../Changes/CHG-20261026-007-mhwi-build-fix.md)。
 
 ## 现状与目标
 

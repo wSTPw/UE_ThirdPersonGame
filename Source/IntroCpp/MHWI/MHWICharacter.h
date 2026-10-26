@@ -73,8 +73,9 @@ public:
     UPROPERTY(BlueprintAssignable, Category="MHWI|Combat") FMHWIHitResolved OnHitResolved;
 
     UFUNCTION(BlueprintCallable, Category="MHWI") bool RequestInput(EMHWIInput Input);
-    /** Monotonic count of received command attempts, including rejected requests. */
-    UFUNCTION(BlueprintPure, Category="MHWI|Input") uint32 GetInputRequestSerial() const { return InputRequestSerial; }
+    /** Monotonic count of received command attempts, including rejected requests.
+     *  Exposed as int32 because blueprint does not support uint32. */
+    UFUNCTION(BlueprintPure, Category="MHWI|Input") int32 GetInputRequestSerial() const { return static_cast<int32>(InputRequestSerial); }
     /** Last command passed to RequestInput; this is not proof that a move started. */
     UFUNCTION(BlueprintPure, Category="MHWI|Input") EMHWIInput GetLastRequestedInput() const { return LastRequestedInput; }
     UFUNCTION(BlueprintCallable, Category="MHWI") bool StartMove(FName MoveId);

@@ -4,6 +4,7 @@
 
 | ID | 日期 | 主题 | 状态 |
 | --- | --- | --- | --- |
+| CHG-20261026-007 | 2026-10-26 | [B14/B15提交的编译错误修复](CHG-20261026-007-mhwi-build-fix.md) | completed，`uint32`蓝图类型与`RemoveAt`签名两处修复；编译通过，未PIE |
 | CHG-20261026-006 | 2026-10-26 | [B15 MHWI原游戏PC键盘适配](CHG-20261026-006-mhwi-keyboard-adaptation.md) | partial，键盘代码与49项静态检查完成；未编译/PIE，手柄A02保留 |
 | CHG-20261026-004 | 2026-10-26 | [B13剩余原生消费者与两项旧依据更正](CHG-20261026-004-mhwi-outstanding-evidence.md) | partial，静态子链补证；十项未全关闭，玩法未修复，未运行 |
 | CHG-20261026-003 | 2026-10-26 | [MHWI台账静态验收与运行交接](CHG-20261026-003-mhwi-static-acceptance.md) | completed，审查完成；4项静态问题未修，R06降为部分完成；51项离线PASS，运行由用户操作 |
