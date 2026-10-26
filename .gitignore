@@ -2,7 +2,7 @@
 # Unreal Engine 5 - .gitignore
 # ============================================================
 
-# --- 编译产物 ---
+# --- 缂栬瘧浜х墿 ---
 Binaries/
 DerivedDataCache/
 Intermediate/
@@ -20,12 +20,32 @@ Saved/
 *.xcodeproj
 *.xcworkspace
 
-# --- UE5 自动生成 ---
+# --- UE5 鑷姩鐢熸垚 ---
 __ExternalActors__/
 __ExternalObjects__/
 *.Build.cs.xml
 
-# --- 操作系统 ---
+# --- 鎿嶄綔绯荤粺 ---
 Thumbs.db
 .DS_Store
 Desktop.ini
+
+# UE 5.8 generated solution files
+*.slnx
+
+# Local Node.js dependencies for the project MCP server
+node_modules/
+
+# UE-MCP machine-local configuration
+ue-mcp.local.yml
+
+# MHW local source assets and portable conversion dependencies
+/ArtSource/ThirdParty/MHWLongSword/nativePC/
+/ArtSource/ThirdParty/MHWLongSword/Converted/
+/ArtSource/ThirdParty/MHWLongSword/archive-index.json
+/ArtSource/ThirdParty/MHWLongSword/player-candidates.json
+/Tools/MHW/Downloads/
+/Tools/MHW/Source/
+/Tools/MHW/BlenderAddons/
+/Tools/MHW/Runtime/
+/Tools/MHW/*.log

@@ -1,0 +1,7540 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-22",
+  "status": "source_static_research_no_ue_runtime_verification",
+  "fps": 60,
+  "fps_status": "Conversion at 60fps; TIML collision frame units mapped; source MotionSpeed keys decoded and locally linearly interpolated. Original cancel/counter flags not fully decoded.",
+  "evidence": {
+    "fsm": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/wp03_action.fsm",
+    "lmt": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+    "inventory": "ArtSource/ThirdParty/MHWLongSword/source-inventory.json",
+    "pose_sampling": "Scripts/MHWI/sample_source_poses.py",
+    "layout_references": [
+      "https://github.com/Strackeror/MHW-Fsm/blob/main/fsm_handling.py",
+      "https://github.com/AsteriskAmpersand/MHW-Free-HyperKinetics/blob/main/struct/Lmt.py",
+      "https://github.com/AsteriskAmpersand/MHW-Free-HyperKinetics/blob/main/struct/TIML.py"
+    ]
+  },
+  "important": [
+    "FSM ActionNo and LMT MotionNo are different namespaces.",
+    "Clip labels are inferred from source pose and event shape, not claimed as original text labels.",
+    "No exact parry/invincibility/cancel timings claimed until flag meanings are decoded.",
+    "Iceborne Iai Spirit Slash counter preserves a spirit level rather than the Rise/Wilds level-up behavior."
+  ],
+  "moves": {
+    "StepSlash": {
+      "clip": "w03_00_101",
+      "fsm_node_id": 11,
+      "fsm_action_no": 85,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 150.0,
+      "converted_duration_seconds_at_60fps": 2.5,
+      "collision_active_frames": [
+        [
+          55.0,
+          66.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        50.0,
+        70.0,
+        130.0,
+        135.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              1073824000
+            ],
+            [
+              70.0,
+              3221472000
+            ],
+            [
+              130.0,
+              768
+            ],
+            [
+              135.0,
+              769
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              67112960
+            ],
+            [
+              70.0,
+              201338880
+            ],
+            [
+              130.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              4194640
+            ],
+            [
+              70.0,
+              12583920
+            ],
+            [
+              130.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              37748742
+            ],
+            [
+              120.0,
+              33554438
+            ],
+            [
+              146.0,
+              6
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              20.0,
+              32768
+            ],
+            [
+              48.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              2048
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              3.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              5
+            ],
+            [
+              14.0,
+              4
+            ],
+            [
+              100.0,
+              5
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "OverheadSlash": {
+      "clip": "w03_00_102",
+      "fsm_node_id": 10,
+      "fsm_action_no": 81,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 160.0,
+      "converted_duration_seconds_at_60fps": 2.6666666666666665,
+      "collision_active_frames": [
+        [
+          51.0,
+          60.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        51.0,
+        65.0,
+        70.0,
+        130.0,
+        141.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              51.0,
+              1073824000
+            ],
+            [
+              65.0,
+              1073857280
+            ],
+            [
+              70.0,
+              3221472000
+            ],
+            [
+              130.0,
+              768
+            ],
+            [
+              141.0,
+              769
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              51.0,
+              67112960
+            ],
+            [
+              70.0,
+              201338880
+            ],
+            [
+              130.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              51.0,
+              4194640
+            ],
+            [
+              65.0,
+              4195152
+            ],
+            [
+              70.0,
+              12583920
+            ],
+            [
+              130.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              37748742
+            ],
+            [
+              120.0,
+              33554438
+            ],
+            [
+              140.0,
+              6
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              20.0,
+              32768
+            ],
+            [
+              48.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              2048
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              2.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "FadeSlash": {
+      "clip": "w03_00_103",
+      "fsm_node_id": 7,
+      "fsm_action_no": 84,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 98.0,
+      "converted_duration_seconds_at_60fps": 1.6333333333333333,
+      "collision_active_frames": [
+        [
+          27.0,
+          41.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        56.0,
+        76.0,
+        85.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              56.0,
+              1073824000
+            ],
+            [
+              76.0,
+              3221472000
+            ],
+            [
+              85.0,
+              3221472001
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              56.0,
+              4096
+            ],
+            [
+              76.0,
+              12288
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              56.0,
+              4194560
+            ],
+            [
+              76.0,
+              12583680
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              37748742
+            ],
+            [
+              60.0,
+              33554438
+            ],
+            [
+              90.0,
+              6
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              3.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "SpiritI": {
+      "clip": "w03_00_104",
+      "fsm_node_id": 1,
+      "fsm_action_no": 1001,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 142.0,
+      "converted_duration_seconds_at_60fps": 2.3666666666666667,
+      "collision_active_frames": [
+        [
+          47.0,
+          57.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        36.0,
+        46.0,
+        52.0,
+        56.0,
+        110.0,
+        121.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              36.0,
+              1073823744
+            ],
+            [
+              46.0,
+              1073824000
+            ],
+            [
+              56.0,
+              3221472000
+            ],
+            [
+              110.0,
+              768
+            ],
+            [
+              121.0,
+              769
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              36.0,
+              67112960
+            ],
+            [
+              56.0,
+              201338880
+            ],
+            [
+              110.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              36.0,
+              4194640
+            ],
+            [
+              56.0,
+              12583920
+            ],
+            [
+              110.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              36.0,
+              268435456
+            ],
+            [
+              52.0,
+              805306368
+            ],
+            [
+              105.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              37748742
+            ],
+            [
+              100.0,
+              33554438
+            ],
+            [
+              121.0,
+              6
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              20.0,
+              32768
+            ],
+            [
+              45.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              2048
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              3.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ],
+            [
+              116.0,
+              5
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "Thrust": {
+      "clip": "w03_00_105",
+      "fsm_node_id": 4,
+      "fsm_action_no": 79,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 130.0,
+      "converted_duration_seconds_at_60fps": 2.1666666666666665,
+      "collision_active_frames": [
+        [
+          22.0,
+          33.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        18.0,
+        28.0,
+        38.0,
+        110.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              18.0,
+              1073823744
+            ],
+            [
+              28.0,
+              1073824000
+            ],
+            [
+              38.0,
+              3221472000
+            ],
+            [
+              110.0,
+              3221472001
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              18.0,
+              67112960
+            ],
+            [
+              38.0,
+              201338880
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              18.0,
+              4194640
+            ],
+            [
+              38.0,
+              12583920
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              37748742
+            ],
+            [
+              80.0,
+              33554438
+            ],
+            [
+              120.0,
+              6
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              2048
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              4.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "RisingSlash": {
+      "clip": "w03_00_107",
+      "fsm_node_id": 3,
+      "fsm_action_no": 80,
+      "mapping_status": "source_pose_and_user_identified_correction_2026_10_22",
+      "source_frames": 136.0,
+      "converted_duration_seconds_at_60fps": 2.2666666666666666,
+      "collision_active_frames": [
+        [
+          22.0,
+          29.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        22.0,
+        42.0,
+        100.0,
+        124.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              22.0,
+              1073824000
+            ],
+            [
+              42.0,
+              3221472000
+            ],
+            [
+              100.0,
+              768
+            ],
+            [
+              124.0,
+              769
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              22.0,
+              67112960
+            ],
+            [
+              42.0,
+              201338880
+            ],
+            [
+              100.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              22.0,
+              4194640
+            ],
+            [
+              42.0,
+              12583920
+            ],
+            [
+              100.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              4194310
+            ],
+            [
+              22.0,
+              37748742
+            ],
+            [
+              29.0,
+              4194310
+            ],
+            [
+              105.0,
+              6
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              15.0,
+              32768
+            ],
+            [
+              25.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              2048
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              3.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ],
+            [
+              112.0,
+              5
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames",
+      "mapping_note": "106 is SpiritII; 107 is RisingSlash. Previous labels were reversed; corrected after user comparison and UE source-pose review."
+    },
+    "SpiritII": {
+      "clip": "w03_00_106",
+      "fsm_node_id": 12,
+      "fsm_action_no": 67,
+      "mapping_status": "source_pose_and_user_identified_correction_2026_10_22",
+      "source_frames": 120.0,
+      "converted_duration_seconds_at_60fps": 2.0,
+      "collision_active_frames": [
+        [
+          33.0,
+          41.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        24.0,
+        40.0,
+        44.0,
+        45.0,
+        54.0,
+        62.0,
+        110.0,
+        120.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              24.0,
+              1073823744
+            ],
+            [
+              44.0,
+              3221471232
+            ],
+            [
+              45.0,
+              3221471488
+            ],
+            [
+              62.0,
+              3221472000
+            ],
+            [
+              110.0,
+              3221472001
+            ],
+            [
+              120.0,
+              1073857281
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              24.0,
+              67112960
+            ],
+            [
+              44.0,
+              201330688
+            ],
+            [
+              54.0,
+              201338880
+            ],
+            [
+              120.0,
+              67112960
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              24.0,
+              4194640
+            ],
+            [
+              44.0,
+              12583920
+            ],
+            [
+              120.0,
+              4194640
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              24.0,
+              268435456
+            ],
+            [
+              40.0,
+              805306368
+            ],
+            [
+              100.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              37748742
+            ],
+            [
+              101.0,
+              33554438
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              2048
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              2.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              5
+            ],
+            [
+              16.0,
+              4
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames",
+      "mapping_note": "106 is SpiritII; 107 is RisingSlash. Previous labels were reversed; corrected after user comparison and UE source-pose review."
+    },
+    "SpiritIII": {
+      "clip": "w03_00_108",
+      "fsm_node_id": 2,
+      "fsm_action_no": 68,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 200.0,
+      "converted_duration_seconds_at_60fps": 3.3333333333333335,
+      "collision_active_frames": [
+        [
+          15.0,
+          25.0
+        ],
+        [
+          32.0,
+          40.0
+        ],
+        [
+          87.0,
+          95.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        25.0,
+        50.0,
+        75.0,
+        90.0,
+        95.0,
+        110.0,
+        160.0,
+        194.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              25.0,
+              16384
+            ],
+            [
+              50.0,
+              49152
+            ],
+            [
+              55.0,
+              0
+            ],
+            [
+              75.0,
+              16384
+            ],
+            [
+              90.0,
+              16640
+            ],
+            [
+              95.0,
+              49408
+            ],
+            [
+              110.0,
+              49920
+            ],
+            [
+              160.0,
+              768
+            ],
+            [
+              194.0,
+              769
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              90.0,
+              67112960
+            ],
+            [
+              110.0,
+              201338880
+            ],
+            [
+              160.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              90.0,
+              4194640
+            ],
+            [
+              110.0,
+              12583920
+            ],
+            [
+              160.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              75.0,
+              268435456
+            ],
+            [
+              95.0,
+              805306368
+            ],
+            [
+              160.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              37748742
+            ],
+            [
+              161.0,
+              33554438
+            ],
+            [
+              194.0,
+              6
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              32768
+            ],
+            [
+              79.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              2048
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              3.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ],
+            [
+              180.0,
+              5
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "SpiritRoundslash": {
+      "clip": "w03_00_109",
+      "fsm_node_id": 5,
+      "fsm_action_no": 69,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 158.0,
+      "converted_duration_seconds_at_60fps": 2.6333333333333333,
+      "collision_active_frames": [
+        [
+          25.0,
+          39.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        30.0,
+        50.0,
+        64.0,
+        128.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              30.0,
+              16384
+            ],
+            [
+              50.0,
+              49152
+            ],
+            [
+              64.0,
+              49152
+            ],
+            [
+              100.0,
+              0
+            ],
+            [
+              128.0,
+              769
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 2997755392,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              0.0
+            ],
+            [
+              64.0,
+              100.0
+            ],
+            [
+              128.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "hash": 4107349814,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ],
+            [
+              25.0,
+              2
+            ],
+            [
+              70.0,
+              -1
+            ]
+          ]
+        },
+        {
+          "hash": 623469005,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              15
+            ]
+          ]
+        },
+        {
+          "hash": 1737628254,
+          "name": "mWeaponMotionNo",
+          "frames": [
+            [
+              0.0,
+              -1
+            ],
+            [
+              128.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              4
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              37748742
+            ],
+            [
+              81.0,
+              33554438
+            ],
+            [
+              128.0,
+              6
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              128.0,
+              134217728
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              2048
+            ],
+            [
+              30.0,
+              1024
+            ],
+            [
+              45.0,
+              1073741824
+            ],
+            [
+              90.0,
+              2147483648
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              3.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "SpiritStepSlash": {
+      "clip": "w03_00_110",
+      "fsm_node_id": 6,
+      "fsm_action_no": 70,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 116.0,
+      "converted_duration_seconds_at_60fps": 1.9333333333333333,
+      "collision_active_frames": [
+        [
+          31.0,
+          44.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        38.0,
+        46.0,
+        58.0,
+        64.0,
+        109.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              38.0,
+              1073823744
+            ],
+            [
+              46.0,
+              1073824000
+            ],
+            [
+              58.0,
+              3221471488
+            ],
+            [
+              64.0,
+              3221472000
+            ],
+            [
+              109.0,
+              3221472001
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              38.0,
+              67112960
+            ],
+            [
+              58.0,
+              201338880
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              38.0,
+              4194640
+            ],
+            [
+              58.0,
+              12583920
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              38.0,
+              268435456
+            ],
+            [
+              58.0,
+              805306368
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              37748742
+            ],
+            [
+              80.0,
+              33554438
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              23.0,
+              32768
+            ],
+            [
+              45.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              2048
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "FadeSlashLeft": {
+      "clip": "w03_00_128",
+      "fsm_node_id": 8,
+      "fsm_action_no": 82,
+      "mapping_status": "ue_runtime_displacement_correction_2026_10_23",
+      "source_frames": 88.0,
+      "converted_duration_seconds_at_60fps": 1.4666666666666666,
+      "collision_active_frames": [
+        [
+          27.0,
+          42.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        50.0,
+        72.0,
+        80.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              1073824000
+            ],
+            [
+              72.0,
+              3221472000
+            ],
+            [
+              80.0,
+              3221472001
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              4096
+            ],
+            [
+              72.0,
+              12288
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              4194560
+            ],
+            [
+              72.0,
+              12583680
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 2404894170,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1.2999999523162842
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              37748742
+            ],
+            [
+              70.0,
+              33554438
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              3.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames",
+      "mapping_note": "B05: original FSM node8 is left/Action82/input-left; node9 is right/Action83/input-right. Original MBD362->128 and361->127 corroborate the existing UE left128/right127 clips. Correct source node/action only; do not swap animations, timings or runtime input.",
+      "fsm_binding_status": "original_fsm_name_input_and_mbd_agree_B05_pending_tests"
+    },
+    "FadeSlashRight": {
+      "clip": "w03_00_127",
+      "fsm_node_id": 9,
+      "fsm_action_no": 83,
+      "mapping_status": "ue_runtime_displacement_correction_2026_10_23",
+      "source_frames": 90.0,
+      "converted_duration_seconds_at_60fps": 1.5,
+      "collision_active_frames": [
+        [
+          27.0,
+          43.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        50.0,
+        72.0,
+        80.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              1073824000
+            ],
+            [
+              72.0,
+              3221472000
+            ],
+            [
+              80.0,
+              3221472001
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              4096
+            ],
+            [
+              72.0,
+              12288
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              4194560
+            ],
+            [
+              72.0,
+              12583680
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 2404894170,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1.2999999523162842
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              37748742
+            ],
+            [
+              70.0,
+              33554438
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              15.0,
+              32768
+            ],
+            [
+              50.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              2.0
+            ],
+            [
+              30.0,
+              1.0
+            ],
+            [
+              53.0,
+              1.0
+            ],
+            [
+              80.0,
+              5.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames",
+      "mapping_note": "B05: original FSM node8 is left/Action82/input-left; node9 is right/Action83/input-right. Original MBD362->128 and361->127 corroborate the existing UE left128/right127 clips. Correct source node/action only; do not swap animations, timings or runtime input.",
+      "fsm_binding_status": "original_fsm_name_input_and_mbd_agree_B05_pending_tests"
+    },
+    "ForesightSlash": {
+      "clip": "w03_00_140",
+      "fsm_node_id": 28,
+      "fsm_action_no": 86,
+      "mapping_status": "source_fsm_node_and_user_identified_correction_2026_10_22",
+      "mapping_note": "ForesightSlash (見切り) is source node 28, ActionNo 86, clip 140. Root track retreats about 346.5cm then returns; collision active 70-80 source frames. 170 is SpiritThrust, not ForesightSlash. Previous mapping reversed the two clips.",
+      "source_frames": 186.0,
+      "converted_duration_seconds_at_60fps": 3.1,
+      "collision_active_frames": [
+        [
+          70.0,
+          80.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        25.0,
+        40.0,
+        70.0,
+        90.0,
+        110.0,
+        160.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              25.0,
+              16384
+            ],
+            [
+              40.0,
+              49152
+            ],
+            [
+              47.0,
+              0
+            ],
+            [
+              70.0,
+              1073823744
+            ],
+            [
+              90.0,
+              3221471232
+            ],
+            [
+              110.0,
+              3221472000
+            ],
+            [
+              160.0,
+              769
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              70.0,
+              67112960
+            ],
+            [
+              90.0,
+              201338880
+            ],
+            [
+              160.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              25.0,
+              256
+            ],
+            [
+              40.0,
+              768
+            ],
+            [
+              47.0,
+              0
+            ],
+            [
+              70.0,
+              336
+            ],
+            [
+              90.0,
+              1008
+            ],
+            [
+              160.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 717816547,
+          "name": "mMotionSpeed",
+          "frames": [
+            [
+              0.0,
+              1.0
+            ],
+            [
+              23.0,
+              1.0
+            ],
+            [
+              29.0,
+              1.0
+            ],
+            [
+              55.0,
+              1.0
+            ],
+            [
+              58.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "hash": 2241939764,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 4107349814,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              -1
+            ],
+            [
+              9.0,
+              2
+            ],
+            [
+              100.0,
+              -1
+            ]
+          ]
+        },
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              4
+            ]
+          ]
+        },
+        {
+          "hash": 4093844087,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              -1.0
+            ],
+            [
+              88.0,
+              1.5
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              2151677952
+            ],
+            [
+              130.0,
+              2147483648
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              52.0,
+              32768
+            ],
+            [
+              90.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              65537
+            ],
+            [
+              10.0,
+              1
+            ],
+            [
+              20.0,
+              1
+            ],
+            [
+              45.0,
+              2048
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              3.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [
+        [
+          [
+            0.0,
+            1.0
+          ],
+          [
+            23.0,
+            1.0
+          ],
+          [
+            29.0,
+            1.0
+          ],
+          [
+            55.0,
+            1.0
+          ],
+          [
+            58.0,
+            1.0
+          ]
+        ]
+      ],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "SpiritThrust": {
+      "clip": "w03_00_170",
+      "fsm_node_id": 45,
+      "fsm_action_no": 87,
+      "mapping_status": "source_fsm_node_and_user_identified_correction_2026_10_22",
+      "mapping_note": "SpiritThrust (必殺攻撃 / helm-breaker opener) is source node 45, ActionNo 87, clip 170. Charge then forward root travel about 398.3cm; collision active 84-97 source frames. Hit plus white aura or above is the FSM transition to node 55 (HelmRise). 140 is ForesightSlash, not SpiritThrust.",
+      "source_frames": 244.0,
+      "converted_duration_seconds_at_60fps": 4.066666666666666,
+      "collision_active_frames": [
+        [
+          84.0,
+          97.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        130.0,
+        140.0,
+        181.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              130.0,
+              256
+            ],
+            [
+              140.0,
+              768
+            ],
+            [
+              181.0,
+              769
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 4107349814,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ],
+            [
+              180.0,
+              -1
+            ]
+          ]
+        },
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              37748742
+            ],
+            [
+              180.0,
+              33554438
+            ],
+            [
+              190.0,
+              6
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              2048
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "HelmRise": {
+      "clip": "w03_00_171",
+      "fsm_node_id": 55,
+      "fsm_action_no": 89,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 46.0,
+      "converted_duration_seconds_at_60fps": 0.7666666666666667,
+      "collision_active_frames": [],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [],
+      "input_flags": [],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 1633264886,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              0.010000000707805157
+            ]
+          ]
+        },
+        {
+          "hash": 510913204,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 4107349814,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              -1
+            ],
+            [
+              39.0,
+              5
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              37748774
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              2
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "HelmAir": {
+      "clip": "w03_00_172",
+      "fsm_node_id": 56,
+      "fsm_action_no": 90,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 133.0,
+      "converted_duration_seconds_at_60fps": 2.216666666666667,
+      "collision_active_frames": [],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        15.0,
+        42.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              15.0,
+              1073807360
+            ],
+            [
+              42.0,
+              3221422080
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              15.0,
+              4096
+            ],
+            [
+              42.0,
+              12288
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 2997755392,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              80.0
+            ],
+            [
+              20.0,
+              0.0
+            ]
+          ]
+        },
+        {
+          "hash": 510913204,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 4107349814,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              5
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              33554432
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              2
+            ],
+            [
+              9.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "SpiritHelmBreaker": {
+      "clip": "w03_00_173",
+      "fsm_node_id": 58,
+      "fsm_action_no": 91,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 114.0,
+      "converted_duration_seconds_at_60fps": 1.9,
+      "collision_active_frames": [
+        [
+          25.0,
+          112.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [],
+      "input_flags": [],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 717816547,
+          "name": "mMotionSpeed",
+          "frames": [
+            [
+              0.0,
+              1.5
+            ],
+            [
+              25.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "hash": 510913204,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 4107349814,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              5
+            ]
+          ]
+        },
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              6
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              33554438
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              32768
+            ],
+            [
+              30.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              2048
+            ],
+            [
+              30.0,
+              16
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [
+        [
+          [
+            0.0,
+            1.5
+          ],
+          [
+            25.0,
+            1.0
+          ]
+        ]
+      ],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "HelmLand": {
+      "clip": "w03_00_174",
+      "fsm_node_id": 57,
+      "fsm_action_no": 92,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 146.0,
+      "converted_duration_seconds_at_60fps": 2.433333333333333,
+      "collision_active_frames": [
+        [
+          3.0,
+          15.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        5.0,
+        15.0,
+        60.0,
+        80.0,
+        91.0,
+        112.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              5.0,
+              16384
+            ],
+            [
+              15.0,
+              49152
+            ],
+            [
+              80.0,
+              49408
+            ],
+            [
+              91.0,
+              49920
+            ],
+            [
+              112.0,
+              49923
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              60.0,
+              4194304
+            ],
+            [
+              80.0,
+              12582912
+            ]
+          ]
+        },
+        {
+          "hash": 4027018852,
+          "name": "mFlag6",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              112.0,
+              524288
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 510913204,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 4107349814,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              5
+            ],
+            [
+              106.0,
+              -1
+            ]
+          ]
+        },
+        {
+          "hash": 1272144161,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 623469005,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              37748742
+            ],
+            [
+              106.0,
+              6
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              256
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              1024
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "SpecialSheathe": {
+      "clip": "w03_00_306",
+      "fsm_node_id": 61,
+      "fsm_action_no": 98,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 271.0,
+      "converted_duration_seconds_at_60fps": 4.516666666666667,
+      "collision_active_frames": [],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        65.0,
+        80.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              65.0,
+              65536
+            ],
+            [
+              80.0,
+              196608
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              65.0,
+              4096
+            ],
+            [
+              80.0,
+              12288
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 510913204,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 4107349814,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              10
+            ]
+          ]
+        },
+        {
+          "hash": 1272144161,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 623469005,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              30
+            ]
+          ]
+        },
+        {
+          "hash": 2222217367,
+          "name": "mActionPhase",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              73.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 1737628254,
+          "name": "mWeaponMotionNo",
+          "frames": [
+            [
+              0.0,
+              -1
+            ],
+            [
+              73.0,
+              3
+            ],
+            [
+              80.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              37748736
+            ],
+            [
+              10.0,
+              54525952
+            ],
+            [
+              15.0,
+              54525958
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              524288
+            ],
+            [
+              10.0,
+              557056
+            ],
+            [
+              73.0,
+              32768
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              73.0,
+              1024
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "IaiSlash": {
+      "clip": "w03_00_307",
+      "fsm_node_id": 64,
+      "fsm_action_no": 101,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 137.0,
+      "converted_duration_seconds_at_60fps": 2.283333333333333,
+      "collision_active_frames": [
+        [
+          13.0,
+          19.0
+        ],
+        [
+          33.0,
+          37.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        30.0,
+        40.0,
+        50.0,
+        60.0,
+        130.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              30.0,
+              1073807360
+            ],
+            [
+              40.0,
+              1073807616
+            ],
+            [
+              50.0,
+              3221422336
+            ],
+            [
+              60.0,
+              3221422848
+            ],
+            [
+              130.0,
+              768
+            ]
+          ]
+        },
+        {
+          "hash": 1852046279,
+          "name": "mFlag1",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              30.0,
+              67112960
+            ],
+            [
+              50.0,
+              201338880
+            ],
+            [
+              130.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              30.0,
+              4194640
+            ],
+            [
+              50.0,
+              12583920
+            ],
+            [
+              130.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 1272144161,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 623469005,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              32
+            ]
+          ]
+        },
+        {
+          "hash": 1737628254,
+          "name": "mWeaponMotionNo",
+          "frames": [
+            [
+              0.0,
+              2
+            ],
+            [
+              8.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              19
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              121634822
+            ],
+            [
+              5.0,
+              54525958
+            ],
+            [
+              10.0,
+              37748742
+            ],
+            [
+              100.0,
+              33554438
+            ],
+            [
+              110.0,
+              33554432
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              32768
+            ],
+            [
+              36.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              10.0,
+              2048
+            ],
+            [
+              30.0,
+              1024
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              2.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "IaiSpiritSlash": {
+      "clip": "w03_00_308",
+      "fsm_node_id": 65,
+      "fsm_action_no": 102,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 176.0,
+      "converted_duration_seconds_at_60fps": 2.933333333333333,
+      "collision_active_frames": [
+        [
+          17.0,
+          37.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        40.0,
+        70.0,
+        120.0,
+        150.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              120.0,
+              256
+            ],
+            [
+              150.0,
+              768
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              40.0,
+              256
+            ],
+            [
+              70.0,
+              768
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 717816547,
+          "name": "mMotionSpeed",
+          "frames": [
+            [
+              0.0,
+              1.0
+            ],
+            [
+              23.0,
+              1.5
+            ],
+            [
+              40.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "hash": 737680499,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              0.699999988079071
+            ],
+            [
+              37.0,
+              0.4000000059604645
+            ]
+          ]
+        },
+        {
+          "hash": 1272144161,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 623469005,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              36
+            ]
+          ]
+        },
+        {
+          "hash": 1737628254,
+          "name": "mWeaponMotionNo",
+          "frames": [
+            [
+              0.0,
+              2
+            ],
+            [
+              8.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              19
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              121634822
+            ],
+            [
+              12.0,
+              54525958
+            ],
+            [
+              25.0,
+              37748742
+            ],
+            [
+              70.0,
+              37748736
+            ],
+            [
+              131.0,
+              33554432
+            ],
+            [
+              150.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              32768
+            ],
+            [
+              25.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              12.0,
+              2048
+            ],
+            [
+              20.0,
+              2147483648
+            ],
+            [
+              25.0,
+              1024
+            ],
+            [
+              37.0,
+              3221225472
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              2.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [
+        [
+          [
+            0.0,
+            1.0
+          ],
+          [
+            23.0,
+            1.5
+          ],
+          [
+            40.0,
+            1.0
+          ]
+        ]
+      ],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "IaiSpiritSlashWhite": {
+      "clip": "w03_00_309",
+      "fsm_node_id": 65,
+      "fsm_action_no": 102,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 176.0,
+      "converted_duration_seconds_at_60fps": 2.933333333333333,
+      "collision_active_frames": [
+        [
+          17.0,
+          37.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        40.0,
+        70.0,
+        120.0,
+        150.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              120.0,
+              256
+            ],
+            [
+              150.0,
+              768
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              40.0,
+              256
+            ],
+            [
+              70.0,
+              768
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 717816547,
+          "name": "mMotionSpeed",
+          "frames": [
+            [
+              0.0,
+              1.0
+            ],
+            [
+              23.0,
+              2.0
+            ],
+            [
+              40.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "hash": 737680499,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              0.699999988079071
+            ],
+            [
+              37.0,
+              0.4000000059604645
+            ]
+          ]
+        },
+        {
+          "hash": 510913204,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 4107349814,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              10
+            ],
+            [
+              12.0,
+              11
+            ],
+            [
+              130.0,
+              -1
+            ]
+          ]
+        },
+        {
+          "hash": 1272144161,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 623469005,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              36
+            ]
+          ]
+        },
+        {
+          "hash": 1737628254,
+          "name": "mWeaponMotionNo",
+          "frames": [
+            [
+              0.0,
+              2
+            ],
+            [
+              8.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              19
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              121634822
+            ],
+            [
+              14.0,
+              54525958
+            ],
+            [
+              25.0,
+              37748742
+            ],
+            [
+              70.0,
+              37748736
+            ],
+            [
+              150.0,
+              4194304
+            ],
+            [
+              162.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              32768
+            ],
+            [
+              25.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              12.0,
+              2048
+            ],
+            [
+              20.0,
+              2147483648
+            ],
+            [
+              25.0,
+              1024
+            ],
+            [
+              37.0,
+              3221225472
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              2.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [
+        [
+          [
+            0.0,
+            1.0
+          ],
+          [
+            23.0,
+            2.0
+          ],
+          [
+            40.0,
+            1.0
+          ]
+        ]
+      ],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "IaiSpiritSlashYellow": {
+      "clip": "w03_00_310",
+      "fsm_node_id": 65,
+      "fsm_action_no": 102,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 176.0,
+      "converted_duration_seconds_at_60fps": 2.933333333333333,
+      "collision_active_frames": [
+        [
+          17.0,
+          37.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        40.0,
+        70.0,
+        120.0,
+        150.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              120.0,
+              256
+            ],
+            [
+              150.0,
+              768
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              40.0,
+              256
+            ],
+            [
+              70.0,
+              768
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 717816547,
+          "name": "mMotionSpeed",
+          "frames": [
+            [
+              0.0,
+              1.0
+            ],
+            [
+              23.0,
+              2.0
+            ],
+            [
+              40.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "hash": 737680499,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              0.699999988079071
+            ],
+            [
+              37.0,
+              0.4000000059604645
+            ]
+          ]
+        },
+        {
+          "hash": 510913204,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 4107349814,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              10
+            ],
+            [
+              12.0,
+              11
+            ],
+            [
+              130.0,
+              -1
+            ]
+          ]
+        },
+        {
+          "hash": 1272144161,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 623469005,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              36
+            ]
+          ]
+        },
+        {
+          "hash": 1737628254,
+          "name": "mWeaponMotionNo",
+          "frames": [
+            [
+              0.0,
+              2
+            ],
+            [
+              8.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              19
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              121634822
+            ],
+            [
+              14.0,
+              54525958
+            ],
+            [
+              25.0,
+              37748742
+            ],
+            [
+              70.0,
+              37748736
+            ],
+            [
+              150.0,
+              4194304
+            ],
+            [
+              162.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              32768
+            ],
+            [
+              25.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              12.0,
+              2048
+            ],
+            [
+              20.0,
+              2147483648
+            ],
+            [
+              25.0,
+              1024
+            ],
+            [
+              37.0,
+              3221225472
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              2.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [
+        [
+          [
+            0.0,
+            1.0
+          ],
+          [
+            23.0,
+            2.0
+          ],
+          [
+            40.0,
+            1.0
+          ]
+        ]
+      ],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    },
+    "IaiSpiritSlashRed": {
+      "clip": "w03_00_311",
+      "fsm_node_id": 65,
+      "fsm_action_no": 102,
+      "mapping_status": "inferred_from_source_pose_and_motion_events",
+      "source_frames": 176.0,
+      "converted_duration_seconds_at_60fps": 2.933333333333333,
+      "collision_active_frames": [
+        [
+          17.0,
+          37.0
+        ]
+      ],
+      "collision_status": "source_timl_collision_enable_bit0; not a swept weapon trace verification",
+      "input_flag_change_frames": [
+        40.0,
+        70.0,
+        120.0,
+        150.0
+      ],
+      "input_flags": [
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              120.0,
+              256
+            ],
+            [
+              150.0,
+              768
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              40.0,
+              256
+            ],
+            [
+              70.0,
+              768
+            ]
+          ]
+        }
+      ],
+      "cancel_status": "unknown_per_button; raw source bitfields retained; do not use first change as universal cancel",
+      "source_common_events": [
+        {
+          "hash": 717816547,
+          "name": "mMotionSpeed",
+          "frames": [
+            [
+              0.0,
+              1.0
+            ],
+            [
+              23.0,
+              2.0
+            ],
+            [
+              40.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "hash": 737680499,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              0.699999988079071
+            ],
+            [
+              37.0,
+              0.4000000059604645
+            ]
+          ]
+        },
+        {
+          "hash": 510913204,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 4107349814,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              10
+            ],
+            [
+              12.0,
+              11
+            ],
+            [
+              130.0,
+              -1
+            ]
+          ]
+        },
+        {
+          "hash": 1272144161,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 623469005,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              36
+            ]
+          ]
+        },
+        {
+          "hash": 2241509828,
+          "name": "mLinkMotionPhase",
+          "frames": [
+            [
+              0.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 1737628254,
+          "name": "mWeaponMotionNo",
+          "frames": [
+            [
+              0.0,
+              2
+            ],
+            [
+              8.0,
+              1
+            ]
+          ]
+        },
+        {
+          "hash": 13972729,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              19
+            ]
+          ]
+        },
+        {
+          "hash": 150806694,
+          "name": "mFlag",
+          "frames": [
+            [
+              0.0,
+              121634822
+            ],
+            [
+              14.0,
+              54525958
+            ],
+            [
+              25.0,
+              37748742
+            ],
+            [
+              70.0,
+              37748736
+            ],
+            [
+              150.0,
+              4194304
+            ],
+            [
+              162.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 4150962813,
+          "name": "mFlag2",
+          "frames": [
+            [
+              0.0,
+              32768
+            ],
+            [
+              25.0,
+              0
+            ]
+          ]
+        },
+        {
+          "hash": 2575924291,
+          "name": "mTrigger",
+          "frames": [
+            [
+              0.0,
+              0
+            ],
+            [
+              12.0,
+              2048
+            ],
+            [
+              20.0,
+              2147483648
+            ],
+            [
+              25.0,
+              1024
+            ],
+            [
+              37.0,
+              3221225472
+            ]
+          ]
+        },
+        {
+          "hash": 4091183908,
+          "name": null,
+          "frames": [
+            [
+              0.0,
+              2.0
+            ]
+          ]
+        },
+        {
+          "hash": 503910216,
+          "name": "mFlag4",
+          "frames": [
+            [
+              0.0,
+              4
+            ]
+          ]
+        }
+      ],
+      "source_motion_speed": [
+        [
+          [
+            0.0,
+            1.0
+          ],
+          [
+            23.0,
+            2.0
+          ],
+          [
+            40.0,
+            1.0
+          ]
+        ]
+      ],
+      "delayed_hit_status": "shell/effect-generated extra damage is not represented by collision_active_frames"
+    }
+  },
+  "project_adapters": {
+    "status": "project_operation_adaptation_not_original_action_mapping",
+    "note": "These identities and routes are explicit project rules. They reuse checked source clips but are not claimed as decoded original FSM actions. Connector frames are project blends until endpoint comparison is recorded.",
+    "insertion_identities": {
+      "SpiritComboThrust": {
+        "reused_move": "Thrust",
+        "reused_clip": "w03_00_105",
+        "reused_montage": "/Game/MHWI/Montages/M_Thrust",
+        "source_path": "SpiritI node 1 -> connector node 40 (clip 118) -> node 23 (気刃突き, ActionNo 71)",
+        "connector_clip": "w03_00_118",
+        "connector_has_collision": false,
+        "project_connection": "connection frames are a project blend; no new original action mapping is claimed",
+        "routes": {
+          "Light": "RisingSlash",
+          "Thrust": "RisingSlash",
+          "Spirit": "SpiritII"
+        }
+      },
+      "SpiritComboRisingSlash": {
+        "reused_move": "RisingSlash",
+        "reused_clip": "w03_00_107",
+        "reused_montage": "/Game/MHWI/Montages/M_RisingSlash",
+        "source_path": "SpiritII node 12 -> node 38 (気刃斬り上げ); R and level-III gauge -> connector node 36 (clip 124) -> node 2",
+        "connector_clip": "w03_00_124",
+        "connector_has_collision": false,
+        "project_connection": "connection frames are a project blend; no new original action mapping is claimed",
+        "routes": {
+          "Light": "OverheadSlash",
+          "Thrust": "Thrust",
+          "Spirit": "SpiritIII"
+        }
+      }
+    },
+    "spirit_connectors": {
+      "w03_00_118": {
+        "from": "SpiritI node 1",
+        "to": "SpiritComboThrust node 23",
+        "damage_windows": "none",
+        "use": "endpoint analysis only"
+      },
+      "w03_00_121": {
+        "from": "SpiritComboThrust node 23",
+        "to": "SpiritII node 12",
+        "damage_windows": "none",
+        "use": "endpoint analysis only"
+      },
+      "w03_00_124": {
+        "from": "SpiritComboRisingSlash node 38",
+        "to": "SpiritIII node 2",
+        "damage_windows": "none",
+        "use": "endpoint analysis only"
+      }
+    },
+    "rmb_cycle": {
+      "note": "Single-button RMB cycle is an explicit project adaptation; the original FSM uses separate light/heavy inputs for thrust and rising slash. Insertion identities fall back to the normal chain without carrying their old spirit-segment identity.",
+      "routes": {
+        "Thrust": {
+          "Thrust": "RisingSlash"
+        },
+        "RisingSlash": {
+          "Thrust": "Thrust"
+        }
+      },
+      "insertion_routes": {
+        "SpiritComboThrust": {
+          "Thrust": "RisingSlash"
+        },
+        "SpiritComboRisingSlash": {
+          "Thrust": "Thrust"
+        }
+      }
+    },
+    "roll_step_slash": {
+      "input": "Roll + Light while drawn",
+      "route_order": [
+        "Light -> RollStepSlash (require_drawn=true)",
+        "Light -> DrawSlash (require_drawn=false fallback while a sheathed Roll is still active)"
+      ],
+      "route_require_drawn": true,
+      "light_fallback": "DrawSlash",
+      "montage": "/Game/MHWI/Montages/M_RollStepSlash",
+      "source_link": "roll nodes 13/14/15/16 Light -> connector node 52 (clip 129) -> StepSlash node 11 (clip 101)",
+      "segments": [
+        {
+          "clip": "w03_00_129",
+          "animation": "/Game/MHWI/Animations/LongSword/A_w03_00_129",
+          "start_frame": 0.0,
+          "end_frame": 29.0,
+          "start_pos": 0.0,
+          "end_pos": 0.48333333333333334,
+          "play_rate": 1.0
+        },
+        {
+          "clip": "w03_00_101",
+          "animation": "/Game/MHWI/Animations/LongSword/A_w03_00_101",
+          "start_frame": 48.0,
+          "end_frame": 150.0,
+          "start_pos": 0.8,
+          "end_pos": 2.5,
+          "play_rate": 1.0
+        }
+      ],
+      "segment_entry_status": "measured_48_best_endpoint_0.54cm_mean_bone_error; 45=8.74cm, 47=2.68cm, 49=2.43cm; Blender 4.5 read-only logs Saved/MHWIImport/DSH-20261022/blender-link-wide.log and root-link-readonly.json",
+      "montage_length_seconds": 2.183333333333333,
+      "damage_windows_seconds": [
+        [
+          0.6,
+          0.7833333333333333
+        ]
+      ],
+      "damage_windows_note": "offset by 29/60s (clip 129 frames 0..29) then by entry trim 48 frames; source collision frames 55-66 are preserved; 7 source frames before the hit",
+      "cancel_start_seconds": 0.8166666666666667,
+      "cancel_end_seconds": 2.1533333333333333,
+      "damage": 26.0,
+      "spirit_gain": 9.0,
+      "root_motion_note": "measured composite root delta for entry 48 is [2.216, -259.804, 0] cm: 129's 233.95cm dash plus 101's remaining 25.9cm (48..150). Entry 37 would keep 31.7cm more forward root travel (composite about 291.6cm) and was rejected; full 129 + full 101 is explicitly rejected.",
+      "follow_up_light": "OverheadSlash"
+    },
+    "spirit_thrust_helm": {
+      "auto_follow_up_on_hit": "HelmRise",
+      "auto_follow_up_time_seconds": 1.6166666666666667,
+      "note": "equals clip 170 collision end frame 97 at 60fps; HelmRise keeps the automatic exit to HelmAir. HelmAir/SpiritHelmBreaker auto exits are cleared and their generic cancel window is disabled for the runtime air phase.",
+      "helm_air_turn_window_source_frames": [
+        0.0,
+        25.0
+      ],
+      "project_tuning": true
+    }
+  },
+  "drawn_locomotion": {
+    "status": "source_pose_inference_and_source_loop_frame",
+    "idle": "w03_00_001",
+    "draw": "w03_00_002",
+    "sheathe": "w03_00_003",
+    "walk_loop_candidate": "w03_00_004",
+    "walk_start_candidate": "w03_00_005",
+    "turn_start_candidates": [
+      "w03_00_006",
+      "w03_00_007"
+    ],
+    "walk_stop_candidate": "w03_00_008",
+    "moving_sheathe_candidate": "w03_00_009",
+    "roll_back": "w03_00_010",
+    "roll_forward": "w03_00_011",
+    "roll_right": "w03_00_012",
+    "roll_left": "w03_00_013",
+    "run_loop": null,
+    "run_note": "014/015 have directional start/turn poses, not yet identified as loops"
+  },
+  "sheathed_locomotion": {
+    "status": "source_pose_inference_and_source_loop_frame",
+    "idle": "co00_00_001",
+    "idle_variants": [
+      "co00_00_002",
+      "co00_00_003"
+    ],
+    "walk": "co00_00_203",
+    "sprint_candidate": "co00_00_090",
+    "roll": "co00_00_130",
+    "note": "203/090 are standing forward loops, inspected in UE. Rate scales match project 180/420 cm/s; names remain pose inference.",
+    "source_speed_cm_s": {
+      "walk": 135.0417565734742,
+      "run": 365.51273290259655
+    },
+    "rejected": {
+      "co00_00_034": "ladder ascent +171.58cm vertical",
+      "co00_00_035": "ladder descent -173.53cm vertical",
+      "co00_00_010": "low crouched gait",
+      "co00_00_037": "low crouched gait"
+    }
+  },
+  "locomotion_source_headers": {
+    "w03_00_001": {
+      "source_frame_count": 203,
+      "source_loop_frame": 0,
+      "timl_length_frames": 202.0,
+      "timl_label_hash": 614530040
+    },
+    "w03_00_002": {
+      "source_frame_count": 71,
+      "source_loop_frame": -1,
+      "timl_length_frames": 70.0,
+      "timl_label_hash": 75590704
+    },
+    "w03_00_003": {
+      "source_frame_count": 67,
+      "source_loop_frame": -1,
+      "timl_length_frames": 66.0,
+      "timl_label_hash": 682199415
+    },
+    "w03_00_004": {
+      "source_frame_count": 51,
+      "source_loop_frame": 0,
+      "timl_length_frames": 50.0,
+      "timl_label_hash": 3337781904
+    },
+    "w03_00_005": {
+      "source_frame_count": 61,
+      "source_loop_frame": -1,
+      "timl_length_frames": 60.0,
+      "timl_label_hash": 4147243354
+    },
+    "w03_00_006": {
+      "source_frame_count": 71,
+      "source_loop_frame": -1,
+      "timl_length_frames": 70.0,
+      "timl_label_hash": 472384158
+    },
+    "w03_00_007": {
+      "source_frame_count": 71,
+      "source_loop_frame": -1,
+      "timl_length_frames": 70.0,
+      "timl_label_hash": 1094998417
+    },
+    "w03_00_008": {
+      "source_frame_count": 58,
+      "source_loop_frame": -1,
+      "timl_length_frames": 57.0,
+      "timl_label_hash": 3507673794
+    },
+    "w03_00_009": {
+      "source_frame_count": 103,
+      "source_loop_frame": -1,
+      "timl_length_frames": 102.0,
+      "timl_label_hash": 14315181
+    },
+    "w03_00_010": {
+      "source_frame_count": 111,
+      "source_loop_frame": -1,
+      "timl_length_frames": 110.0,
+      "timl_label_hash": 2934590436
+    },
+    "w03_00_011": {
+      "source_frame_count": 81,
+      "source_loop_frame": -1,
+      "timl_length_frames": 80.0,
+      "timl_label_hash": 4120316906
+    },
+    "w03_00_012": {
+      "source_frame_count": 77,
+      "source_loop_frame": -1,
+      "timl_length_frames": 76.0,
+      "timl_label_hash": 2050624907
+    },
+    "w03_00_013": {
+      "source_frame_count": 77,
+      "source_loop_frame": -1,
+      "timl_length_frames": 76.0,
+      "timl_label_hash": 2878237214
+    },
+    "w03_00_014": {
+      "source_frame_count": 64,
+      "source_loop_frame": -1,
+      "timl_length_frames": 63.0,
+      "timl_label_hash": 502869268
+    },
+    "w03_00_015": {
+      "source_frame_count": 58,
+      "source_loop_frame": -1,
+      "timl_length_frames": 57.0,
+      "timl_label_hash": 564813812
+    }
+  },
+  "fsm_nodes": [
+    {
+      "node_id": 0,
+      "name_ja": "待機２",
+      "process": "Action_W03",
+      "action_no": 1012,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 7,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 53,
+          "conditions": [
+            "△"
+          ]
+        },
+        {
+          "destination_node_id": 4,
+          "conditions": [
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 1,
+          "conditions": [
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 63,
+          "conditions": [
+            "抜刀クローモード有効(L2+R3)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 1,
+      "name_ja": "特抜(気刃斬1",
+      "process": "Action_W03",
+      "action_no": 1001,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 30,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 12,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃斬りII"
+          ]
+        },
+        {
+          "destination_node_id": 40,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 66,
+          "conditions": [
+            "スリンガーコンボ角度(正面)"
+          ]
+        },
+        {
+          "destination_node_id": 70,
+          "conditions": [
+            "スリンガーコンボ角度(左)"
+          ]
+        },
+        {
+          "destination_node_id": 69,
+          "conditions": [
+            "スリンガーコンボ角度(右)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 2,
+      "name_ja": "気刃斬3",
+      "process": "Action_W03",
+      "action_no": 68,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 7,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 5,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃大回転斬り"
+          ]
+        },
+        {
+          "destination_node_id": 68,
+          "conditions": [
+            "スリンガーコンボ角度(正面)"
+          ]
+        },
+        {
+          "destination_node_id": 73,
+          "conditions": [
+            "スリンガーコンボ角度(左)"
+          ]
+        },
+        {
+          "destination_node_id": 74,
+          "conditions": [
+            "スリンガーコンボ角度(右)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 3,
+      "name_ja": "斬り上げ",
+      "process": "Action_W03",
+      "action_no": 80,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 42,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△",
+            "オーラレベル白以上",
+            "練気ゲージ判定(必殺"
+          ]
+        },
+        {
+          "destination_node_id": 39,
+          "conditions": [
+            "△"
+          ]
+        },
+        {
+          "destination_node_id": 4,
+          "conditions": [
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 1,
+          "conditions": [
+            "R"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 4,
+      "name_ja": "突き",
+      "process": "Action_W03",
+      "action_no": 79,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 32,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 31,
+          "conditions": [
+            "△"
+          ]
+        },
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 1,
+          "conditions": [
+            "R"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 5,
+      "name_ja": "気刃大回転斬り",
+      "process": "Action_W03",
+      "action_no": 69,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": []
+    },
+    {
+      "node_id": 6,
+      "name_ja": "気刃踏込斬り",
+      "process": "Action_W03",
+      "action_no": 70,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 7,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 2,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃斬りIII"
+          ]
+        },
+        {
+          "destination_node_id": 38,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 67,
+          "conditions": [
+            "スリンガーコンボ角度(正面)"
+          ]
+        },
+        {
+          "destination_node_id": 71,
+          "conditions": [
+            "スリンガーコンボ角度(左)"
+          ]
+        },
+        {
+          "destination_node_id": 72,
+          "conditions": [
+            "スリンガーコンボ角度(右)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 7,
+      "name_ja": "斬り下がり",
+      "process": "Action_W03",
+      "action_no": 84,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 4,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 6,
+          "conditions": [
+            "R"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 8,
+      "name_ja": "左移動斬り",
+      "process": "Action_W03",
+      "action_no": 82,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 6,
+          "conditions": [
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 4,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 9,
+      "name_ja": "右移動斬り",
+      "process": "Action_W03",
+      "action_no": 83,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 6,
+          "conditions": [
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 4,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 10,
+      "name_ja": "縦斬り",
+      "process": "Action_W03",
+      "action_no": 81,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 7,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 1,
+          "conditions": [
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 4,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 11,
+      "name_ja": "踏込斬り",
+      "process": "Action_W03",
+      "action_no": 85,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 29,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 1,
+          "conditions": [
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 4,
+          "conditions": [
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 10,
+          "conditions": [
+            "△"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 12,
+      "name_ja": "気刃斬2",
+      "process": "Action_W03",
+      "action_no": 67,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 34,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 2,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃斬りIII"
+          ]
+        },
+        {
+          "destination_node_id": 38,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 67,
+          "conditions": [
+            "スリンガーコンボ角度(正面)"
+          ]
+        },
+        {
+          "destination_node_id": 71,
+          "conditions": [
+            "スリンガーコンボ角度(左)"
+          ]
+        },
+        {
+          "destination_node_id": 72,
+          "conditions": [
+            "スリンガーコンボ角度(右)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 13,
+      "name_ja": "回避F",
+      "process": "Action_W03",
+      "action_no": 1005,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 52,
+          "conditions": [
+            "△"
+          ]
+        },
+        {
+          "destination_node_id": 1,
+          "conditions": [
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 63,
+          "conditions": [
+            "抜刀クローモード有効(L2+R3)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 14,
+      "name_ja": "回避R",
+      "process": "Action_W03",
+      "action_no": 21,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 52,
+          "conditions": [
+            "△"
+          ]
+        },
+        {
+          "destination_node_id": 1,
+          "conditions": [
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 7,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 4,
+          "conditions": [
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 63,
+          "conditions": [
+            "抜刀クローモード有効(L2+R3)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 15,
+      "name_ja": "回避B",
+      "process": "Action_W03",
+      "action_no": 22,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 52,
+          "conditions": [
+            "△"
+          ]
+        },
+        {
+          "destination_node_id": 1,
+          "conditions": [
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 7,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 4,
+          "conditions": [
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 63,
+          "conditions": [
+            "抜刀クローモード有効(L2+R3)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 16,
+      "name_ja": "回避L",
+      "process": "Action_W03",
+      "action_no": 20,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 52,
+          "conditions": [
+            "△"
+          ]
+        },
+        {
+          "destination_node_id": 1,
+          "conditions": [
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 7,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 4,
+          "conditions": [
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 63,
+          "conditions": [
+            "抜刀クローモード有効(L2+R3)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 17,
+      "name_ja": "J斬り",
+      "process": "Action_W03",
+      "action_no": 13,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 20,
+          "conditions": [
+            "着地"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 18,
+      "name_ja": "ジャンプ中(抜刀中)",
+      "process": "Action_W03",
+      "action_no": 1007,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 17,
+          "conditions": [
+            "△"
+          ]
+        },
+        {
+          "destination_node_id": 50,
+          "conditions": [
+            "オーラレベル赤以上",
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 24,
+          "conditions": [
+            "オーラレベル白以上",
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 21,
+          "conditions": [
+            "R"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 19,
+      "name_ja": "ジャンプ中(納刀中)",
+      "process": "Action_W03",
+      "action_no": 1006,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 50,
+          "conditions": [
+            "オーラレベル赤以上",
+            "抜刀(特殊)"
+          ]
+        },
+        {
+          "destination_node_id": 24,
+          "conditions": [
+            "オーラレベル白以上",
+            "抜刀(特殊)"
+          ]
+        },
+        {
+          "destination_node_id": 21,
+          "conditions": [
+            "抜刀(特殊)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 20,
+      "name_ja": "J攻撃着地",
+      "process": "Action_W03",
+      "action_no": 29,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 1,
+          "conditions": [
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 7,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 4,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 21,
+      "name_ja": "J気刃斬り",
+      "process": "Action_W03",
+      "action_no": 73,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 22,
+          "conditions": [
+            "着地"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 22,
+      "name_ja": "J気刃斬着地",
+      "process": "Action_W03",
+      "action_no": 76,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 0,
+          "conditions": [
+            "アクション終了"
+          ]
+        },
+        {
+          "destination_node_id": 12,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃斬りII"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 7,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 23,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 66,
+          "conditions": [
+            "スリンガーコンボ角度(正面)"
+          ]
+        },
+        {
+          "destination_node_id": 70,
+          "conditions": [
+            "スリンガーコンボ角度(左)"
+          ]
+        },
+        {
+          "destination_node_id": 69,
+          "conditions": [
+            "スリンガーコンボ角度(右)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 23,
+      "name_ja": "気刃突き",
+      "process": "Action_W03",
+      "action_no": 71,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 32,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 33,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃斬りII"
+          ]
+        },
+        {
+          "destination_node_id": 3,
+          "conditions": [
+            "△"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 24,
+      "name_ja": "J気刃二連斬り",
+      "process": "Action_W03",
+      "action_no": 74,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 25,
+          "conditions": [
+            "着地"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 25,
+      "name_ja": "J気刃二連斬着地",
+      "process": "Action_W03",
+      "action_no": 77,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 0,
+          "conditions": [
+            "アクション終了"
+          ]
+        },
+        {
+          "destination_node_id": 2,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃斬りIII"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 7,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 38,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 67,
+          "conditions": [
+            "スリンガーコンボ角度(正面)"
+          ]
+        },
+        {
+          "destination_node_id": 71,
+          "conditions": [
+            "スリンガーコンボ角度(左)"
+          ]
+        },
+        {
+          "destination_node_id": 72,
+          "conditions": [
+            "スリンガーコンボ角度(右)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 26,
+      "name_ja": "段登(抜刀)",
+      "process": "Action_W03",
+      "action_no": 1003,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 60,
+          "conditions": [
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 7,
+          "conditions": [
+            "フェイズサブ1",
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 4,
+          "conditions": [
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 53,
+          "conditions": [
+            "△"
+          ]
+        },
+        {
+          "destination_node_id": 63,
+          "conditions": [
+            "抜刀クローモード有効(L2+R3)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 27,
+      "name_ja": "段登(納刀)",
+      "process": "Action_W03",
+      "action_no": 1002,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 11,
+          "conditions": [
+            "抜刀(通常)"
+          ]
+        },
+        {
+          "destination_node_id": 1,
+          "conditions": [
+            "抜刀(特殊)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 28,
+      "name_ja": "見切り",
+      "process": "Action_W03",
+      "action_no": 86,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 7,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 5,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃大回転斬り",
+            "見切り回避成功後の攻撃ヒット"
+          ]
+        },
+        {
+          "destination_node_id": 11,
+          "conditions": [
+            "△"
+          ]
+        },
+        {
+          "destination_node_id": 4,
+          "conditions": [
+            "○"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 29,
+      "name_ja": "s0001",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 111,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 7,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 30,
+      "name_ja": "s0002",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 117,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 7,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 31,
+      "name_ja": "s0004",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 119,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 3,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 32,
+      "name_ja": "s0005",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 120,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 7,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 33,
+      "name_ja": "s0006",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 121,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 12,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 34,
+      "name_ja": "s0007",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 122,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 7,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 35,
+      "name_ja": "s0008",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 123,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 7,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 36,
+      "name_ja": "s0009",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 124,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 2,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 37,
+      "name_ja": "s000a",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 125,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 10,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 38,
+      "name_ja": "気刃斬り上げ",
+      "process": "Action_W03",
+      "action_no": 72,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 35,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 36,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃斬りIII"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 1,
+          "conditions": [
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 4,
+          "conditions": [
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 37,
+          "conditions": [
+            "△"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 39,
+      "name_ja": "s0000",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 125,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 10,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 40,
+      "name_ja": "s000c",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 118,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 23,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 41,
+      "name_ja": "移動抜刀",
+      "process": "Action_W03",
+      "action_no": 7,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 29,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 1,
+          "conditions": [
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 4,
+          "conditions": [
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 10,
+          "conditions": [
+            "△"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 42,
+      "name_ja": "s0008",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 123,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 7,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 43,
+      "name_ja": "弾かれ",
+      "process": "Action_W03",
+      "action_no": 34,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 44,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 44,
+      "name_ja": "s0003",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 114,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 11,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 45,
+      "name_ja": "必殺攻撃",
+      "process": "Action_W03",
+      "action_no": 87,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 55,
+          "conditions": [
+            "攻撃ヒット",
+            "エネステ無視ヒットではない",
+            "オーラレベル白以上"
+          ]
+        },
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 7,
+          "conditions": [
+            "△+○"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 46,
+      "name_ja": "スラ（納刀",
+      "process": "Action_W03",
+      "action_no": 1009,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 47,
+          "conditions": [
+            "坂道下り(Z方向)",
+            "抜刀(通常)"
+          ]
+        },
+        {
+          "destination_node_id": 48,
+          "conditions": [
+            "坂道下り(Z方向)",
+            "抜刀(特殊)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 47,
+      "name_ja": "スラ抜",
+      "process": "Action_W03",
+      "action_no": 93,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 17,
+          "conditions": [
+            "△"
+          ]
+        },
+        {
+          "destination_node_id": 50,
+          "conditions": [
+            "オーラレベル赤以上",
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 24,
+          "conditions": [
+            "オーラレベル白以上",
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 21,
+          "conditions": [
+            "R"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 48,
+      "name_ja": "スラ特抜",
+      "process": "Action_W03",
+      "action_no": 94,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 49,
+          "conditions": [
+            "着地"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 49,
+      "name_ja": "スラ特抜着地",
+      "process": "Action_W03",
+      "action_no": 95,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 5,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃大回転斬り"
+          ]
+        },
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 7,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 23,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 68,
+          "conditions": [
+            "スリンガーコンボ角度(正面)"
+          ]
+        },
+        {
+          "destination_node_id": 73,
+          "conditions": [
+            "スリンガーコンボ角度(左)"
+          ]
+        },
+        {
+          "destination_node_id": 74,
+          "conditions": [
+            "スリンガーコンボ角度(右)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 50,
+      "name_ja": "J気刃三連斬り",
+      "process": "Action_W03",
+      "action_no": 75,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 25,
+          "conditions": [
+            "フェイズ0",
+            "着地"
+          ]
+        },
+        {
+          "destination_node_id": 51,
+          "conditions": [
+            "フェイズ1",
+            "着地"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 51,
+      "name_ja": "J気刃三連斬着地",
+      "process": "Action_W03",
+      "action_no": 78,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 0,
+          "conditions": [
+            "アクション終了"
+          ]
+        },
+        {
+          "destination_node_id": 2,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃斬りIII"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 7,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 38,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        },
+        {
+          "destination_node_id": 67,
+          "conditions": [
+            "スリンガーコンボ角度(正面)"
+          ]
+        },
+        {
+          "destination_node_id": 71,
+          "conditions": [
+            "スリンガーコンボ角度(左)"
+          ]
+        },
+        {
+          "destination_node_id": 72,
+          "conditions": [
+            "スリンガーコンボ角度(右)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 52,
+      "name_ja": "s000a",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 129,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 11,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 53,
+      "name_ja": "s000a",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 131,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 11,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 54,
+      "name_ja": "待機",
+      "process": "Action_W03",
+      "action_no": 1000,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": []
+    },
+    {
+      "node_id": 55,
+      "name_ja": "必殺駆け上がり",
+      "process": "Action_W03",
+      "action_no": 89,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 56,
+          "conditions": [
+            "アクション終了"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 56,
+      "name_ja": "必殺駆け上がりジャンプ",
+      "process": "Action_W03",
+      "action_no": 90,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 58,
+          "conditions": [
+            "△",
+            "○",
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 57,
+          "conditions": [
+            "着地"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 57,
+      "name_ja": "必殺着地",
+      "process": "Action_W03",
+      "action_no": 92,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 58,
+      "name_ja": "必殺空中攻撃",
+      "process": "Action_W03",
+      "action_no": 91,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 57,
+          "conditions": [
+            "着地"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 59,
+      "name_ja": "味方アッパー",
+      "process": "Action_W03",
+      "action_no": 1008,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 17,
+          "conditions": [
+            "抜刀中",
+            "△"
+          ]
+        },
+        {
+          "destination_node_id": 17,
+          "conditions": [
+            "納刀中",
+            "抜刀(通常)"
+          ]
+        },
+        {
+          "destination_node_id": 50,
+          "conditions": [
+            "納刀中",
+            "オーラレベル赤以上",
+            "抜刀(特殊)"
+          ]
+        },
+        {
+          "destination_node_id": 50,
+          "conditions": [
+            "抜刀中",
+            "オーラレベル赤以上",
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 24,
+          "conditions": [
+            "抜刀中",
+            "オーラレベル白以上",
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 24,
+          "conditions": [
+            "納刀中",
+            "オーラレベル白以上",
+            "抜刀(特殊)"
+          ]
+        },
+        {
+          "destination_node_id": 21,
+          "conditions": [
+            "抜刀中",
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 21,
+          "conditions": [
+            "納刀中",
+            "抜刀(特殊)"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 60,
+      "name_ja": "152or132",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 152,
+      "motion_no_phase1": 132,
+      "transitions": [
+        {
+          "destination_node_id": 1,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 61,
+      "name_ja": "居合斬り開始",
+      "process": "Action_W03",
+      "action_no": 98,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": []
+    },
+    {
+      "node_id": 62,
+      "name_ja": "ほぼ全攻撃",
+      "process": "Action_W03",
+      "action_no": 1013,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 61,
+          "conditions": [
+            "居合斬り"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 63,
+      "name_ja": "抜刀スリンガー",
+      "process": "Action_W03",
+      "action_no": 44,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": []
+    },
+    {
+      "node_id": 64,
+      "name_ja": "居合斬り",
+      "process": "Action_W03",
+      "action_no": 101,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 83,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 80,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 81,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 79,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 77,
+          "conditions": [
+            "△"
+          ]
+        },
+        {
+          "destination_node_id": 82,
+          "conditions": [
+            "R"
+          ]
+        },
+        {
+          "destination_node_id": 78,
+          "conditions": [
+            "○"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 65,
+      "name_ja": "居合気刃",
+      "process": "Action_W03",
+      "action_no": 102,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 76,
+          "conditions": [
+            "R+△"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 66,
+      "name_ja": "気刃１スリF",
+      "process": "Action_W03",
+      "action_no": 104,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 84,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃斬りII"
+          ]
+        },
+        {
+          "destination_node_id": 23,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 67,
+      "name_ja": "気刃２スリF",
+      "process": "Action_W03",
+      "action_no": 107,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 88,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃斬りIII"
+          ]
+        },
+        {
+          "destination_node_id": 38,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 68,
+      "name_ja": "気刃３スリF",
+      "process": "Action_W03",
+      "action_no": 110,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 5,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃大回転斬り"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 69,
+      "name_ja": "気刃１スリR",
+      "process": "Action_W03",
+      "action_no": 106,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 85,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃斬りII"
+          ]
+        },
+        {
+          "destination_node_id": 23,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 70,
+      "name_ja": "気刃１スリL",
+      "process": "Action_W03",
+      "action_no": 105,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 85,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃斬りII"
+          ]
+        },
+        {
+          "destination_node_id": 23,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 71,
+      "name_ja": "気刃２スリL",
+      "process": "Action_W03",
+      "action_no": 108,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 89,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃斬りIII"
+          ]
+        },
+        {
+          "destination_node_id": 38,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 72,
+      "name_ja": "気刃２スリR",
+      "process": "Action_W03",
+      "action_no": 109,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 87,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃斬りIII"
+          ]
+        },
+        {
+          "destination_node_id": 38,
+          "conditions": [
+            "△",
+            "○"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 73,
+      "name_ja": "気刃３スリL",
+      "process": "Action_W03",
+      "action_no": 111,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 5,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃大回転斬り"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 74,
+      "name_ja": "気刃３スリR",
+      "process": "Action_W03",
+      "action_no": 112,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 5,
+          "conditions": [
+            "R",
+            "練気ゲージ判定(気刃大回転斬り"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 75,
+      "name_ja": "気刃スリまとめ",
+      "process": "Action_W03",
+      "action_no": 1014,
+      "motion_no": null,
+      "motion_no_phase1": null,
+      "transitions": [
+        {
+          "destination_node_id": 8,
+          "conditions": [
+            "△+○+←"
+          ]
+        },
+        {
+          "destination_node_id": 9,
+          "conditions": [
+            "△+○+→"
+          ]
+        },
+        {
+          "destination_node_id": 34,
+          "conditions": [
+            "△+○"
+          ]
+        },
+        {
+          "destination_node_id": 45,
+          "conditions": [
+            "R+△"
+          ]
+        },
+        {
+          "destination_node_id": 28,
+          "conditions": [
+            "R+○"
+          ]
+        },
+        {
+          "destination_node_id": 61,
+          "conditions": [
+            "居合斬り"
+          ]
+        }
+      ]
+    },
+    {
+      "node_id": 76,
+      "name_ja": "s000c",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 357,
+      "motion_no_phase1": 367,
+      "transitions": [
+        {
+          "destination_node_id": 45,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 77,
+      "name_ja": "s000c",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 358,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 10,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 78,
+      "name_ja": "s000c",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 359,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 4,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 79,
+      "name_ja": "s000c",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 360,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 7,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 80,
+      "name_ja": "s000c",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 361,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 9,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 81,
+      "name_ja": "s000c",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 362,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 8,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 82,
+      "name_ja": "s000c",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 363,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 1,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 83,
+      "name_ja": "s000c",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 364,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 45,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 84,
+      "name_ja": "s000c",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 365,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 12,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 85,
+      "name_ja": "s000c",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 365,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 12,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 86,
+      "name_ja": "s000c",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 365,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 12,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 87,
+      "name_ja": "s000c",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 366,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 2,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 88,
+      "name_ja": "s000c",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 366,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 2,
+          "conditions": []
+        }
+      ]
+    },
+    {
+      "node_id": 89,
+      "name_ja": "s000c",
+      "process": "LinkMotion_W03",
+      "action_no": null,
+      "motion_no": 366,
+      "motion_no_phase1": -1,
+      "transitions": [
+        {
+          "destination_node_id": 2,
+          "conditions": []
+        }
+      ]
+    }
+  ]
+}

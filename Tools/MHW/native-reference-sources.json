@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "source_build": 15539686,
+  "layout_sha256": "b832885cec9e281207ea9628af6c5223d2c19648aeca7ae2be8eb4e3a2669ba7",
+  "files": {
+    "hm/wp/wp03/collision/wp03.col": {
+      "project_path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/collision/wp03.col",
+      "sha256": "5f3791b307bb1c6afe3f46b09dc97a771daf61df13ff5dc1ee70a0a8aa009c27",
+      "bytes": 20408
+    },
+    "hm/wp/wp03/shell/collision/object.col": {
+      "project_path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/shell/collision/object.col",
+      "sha256": "a350e96b5ceeb98a08bc5cabe2a996e5e795e63240293bb8dc81c0473c8dc2dc",
+      "bytes": 4197
+    },
+    "hm/wp/wp03/wp03_action.fsm": {
+      "project_path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/wp03_action.fsm",
+      "sha256": "b817b1cd16a6f653ad2c60f88b30967f56185a7c4b3a3d5927b3f9334e633b18",
+      "bytes": 117125
+    },
+    "hm/wp/wp03/wp03_param.w03p": {
+      "project_path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/wp03_param.w03p",
+      "sha256": "efdcb3bdbe92828e2926b9d29570c85f65ff2a8899659e1fbcf80adfc4ccee54",
+      "bytes": 1584
+    }
+  },
+  "spirit_branch_evidence": {
+    "path": "Tools/MHW/native-spirit-branch-evidence.json",
+    "sha256": "09b3b4d434a8c990a17cea9c518f5f04b3047f49ccbce310781081998552c79a"
+  }
+}

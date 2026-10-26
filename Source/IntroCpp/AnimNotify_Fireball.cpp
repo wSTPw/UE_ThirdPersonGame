@@ -18,6 +18,6 @@ void UAnimNotify_Fireball::Notify(USkeletalMeshComponent* MeshComp, UAnimSequenc
 	// 转换为玩家角色，调用火球发射方法
 	if (AMyPlayerCharacter* PlayerChar = Cast<AMyPlayerCharacter>(Owner))
 	{
-		PlayerChar->FireFromHand();
+		if (PlayerChar->Actions) PlayerChar->Actions->HandleNotify(MeshComp, Animation, EventReference, ECharacterActionEvent::CastCommit);
 	}
 }

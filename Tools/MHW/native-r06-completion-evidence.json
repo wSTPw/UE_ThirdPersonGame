@@ -1,0 +1,99 @@
+{
+  "schema": 1,
+  "status": "static_evidence_and_partial_adapter_implementation",
+  "tests_executed": false,
+  "sources": {
+    "schema": 1,
+    "exe": {
+      "path": "F:/PCprogram/Steam/steamapps/common/Monster Hunter World/MonsterHunterWorld.exe",
+      "sha256": "c2ebbbd2c49f216d484e31a5219bed419eb1e5e7d206d02cba040a3ab79d90ea"
+    },
+    "text": {
+      "path": "Saved/MHWIRestoration/B05-20261024/analysis-text.bin",
+      "sha256": "9b48a8490df702ba9dc1cb95ffd387358ae2a639aa9675ad90719bd997124ebe",
+      "boundary": "local non-executable analysis bytes; no install modification or original game execution"
+    },
+    "scope": "Local non-executable analysis section only. Hash-qualified read; never execute native bytes or alter original image.",
+    "addresses": {
+      "vm_tick": "0x1423fe8d0",
+      "condition_evaluator": "0x1423fc990",
+      "callback_binding": "0x142458dd0",
+      "name_lookup": "0x142400150",
+      "callback_dispatch": "0x1423ffaf0",
+      "node_exit": "0x1423fe680",
+      "context_setup": "0x1423fd1a0",
+      "drive_reset": "0x1423fec80",
+      "phase_type_registration": "0x1401e15c0",
+      "phase_property_registration": "0x14191f7d0",
+      "phase_parameter_constructor": "0x14191f5b0",
+      "phase_parameter_get_dti": "0x140f0c750",
+      "phase_parameter_zeroing": "0x141921cb0"
+    },
+    "explicit_leaf_ranges": [
+      {
+        "begin": "0x142400150",
+        "end": "0x1424001ac",
+        "next_unwind_entry": "0x1424001b0",
+        "evidence": "Call target in binding function; observed terminal rets at 0x1424001a7 and 0x1424001ab, then int3 padding before next pdata entry. Fixed-version explicit range, not 256-byte fallback; pending next-stage boundary review."
+      },
+      {
+        "begin": "0x140f0c750",
+        "end": "0x140f0c758",
+        "evidence": "Vtable 0x1431c93d0 slot 4 target; lea rax to local DTI 0x145000fc0, then ret at 0x140f0c757 and int3 padding. Fixed-version leaf range; pending boundary review."
+      },
+      {
+        "begin": "0x141921cb0",
+        "end": "0x141921e7a",
+        "next_unwind_entry": "0x141921e80",
+        "evidence": "Vtable 0x1431c93d0 slot 5 target; observed straight-line zero/store sequence, ret at 0x141921e79, then padding before next pdata entry. Fixed-version explicit leaf range; pending review. Invocation timing not established."
+      }
+    ]
+  },
+  "main_binding_nodes": [
+    1,
+    2,
+    3,
+    4,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    23,
+    38,
+    45
+  ],
+  "functions": "Saved/MHWIRestoration/B09-20261025/completion-native-functions.json",
+  "blend_facts": [
+    {
+      "address": "0x142255b8e",
+      "finding": "Request +0xc populates interpolation duration at tree+4c0; +14 is a separate tail fade duration at +4c8."
+    },
+    {
+      "address": "0x142256594",
+      "finding": "Blend elapsed advances separately from source motion position, using the native step supplied to blend advance."
+    },
+    {
+      "address": "0x14225332d",
+      "finding": "When the native node/request enables this path, overlap waits for forward source frame beyond endpoint-overlap; then clears elapsed and enables tail fade. The MotionTree/request flags must be proven before enabling this branch in UE."
+    },
+    {
+      "address": "0x14225338b",
+      "finding": "Tail weight decreases using elapsed/duration, then removes the current layer; curve selectors are separate from duration."
+    },
+    {
+      "address": "0x1417fed51",
+      "finding": "StepSlash custom entry checks actual prior group/action and player state; selected group1 103/110/115 takes explicit151 before main101."
+    },
+    {
+      "address": "0x1417fe610",
+      "finding": "SpiritI custom entry includes state/source-dependent 113/116/126/130/132/152, then generic entry; the LinkMotion table alone is not its full policy."
+    }
+  ],
+  "remaining_development": [
+    "MotionTree/request flags gating interpolation and tail envelopes, curve selection and native owner+6c blend-clock scaling still need migration. No guessed automatic tail fade was enabled. UE offers a pre-root-extraction Montage_UpdateWeight hook for the eventual qualified adapter.",
+    "Native Creep/Step/KijinComboShot source gameplay owners must bind their actual identity and live montage instance; the new binding API has no such production callers yet.",
+    "StepSlash and SpiritI custom native entry branches still need full state/identity consumer migration; do not enable guessed branches."
+  ]
+}

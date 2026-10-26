@@ -296,8 +296,9 @@ EStateTreeRunStatus FStateTreeSenseEnemiesTask::EnterState(FStateTreeExecutionCo
 		InstanceData.Controller->OnShooterPerceptionForgotten.BindLambda(
 			[WeakContext = Context.MakeWeakExecutionContext()](AActor* SensedActor)
 			{
-				// get the instance data inside the lambda
-				FInstanceDataType* LambdaInstanceData = WeakContext.MakeStrongExecutionContext().GetInstanceDataPtr<FInstanceDataType>();
+				// Keep the strong context alive while accessing the instance data.
+				const FStateTreeStrongExecutionContext StrongContext = WeakContext.MakeStrongExecutionContext();
+				FInstanceDataType* LambdaInstanceData = StrongContext.GetInstanceDataPtr<FInstanceDataType>();
 
 				if (!LambdaInstanceData)
 				{

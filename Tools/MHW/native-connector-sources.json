@@ -1,0 +1,23 @@
+{
+  "mbd": {
+    "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.mbd",
+    "sha256": "eb4744e6ba98aae1d79bab0fdd9526e2d12e57f654d294a23376697cc2e82268"
+  },
+  "fsm": {
+    "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/wp03_action.fsm",
+    "sha256": "b817b1cd16a6f653ad2c60f88b30967f56185a7c4b3a3d5927b3f9334e633b18"
+  },
+  "lmt": {
+    "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+    "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+  },
+  "layout": {
+    "path": "Saved/MHWIImport/SourceFidelity-20261023/timing-FreeHK-upstream/MHW-Free-HyperKinetics-main/struct/mbd.py",
+    "sha256": "e30d6406c0c52357dbb7deadb02b2c2f390119453ed3f4a1692b189ce4762b4e",
+    "url": "https://github.com/AsteriskAmpersand/MHW-Free-HyperKinetics/blob/main/struct/mbd.py"
+  },
+  "mapping": {
+    "path": "Scripts/MHWI/moveset_mapping.json",
+    "sha256": "30163d9a5f3fd661ec15dbf2aafda31a225116ccd57402e9bf279e4b29e7b65c"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "status": "authored_pending_next_stage_tests",
+  "tests_executed": false,
+  "source_blend": {
+    "path": "ArtSource/ThirdParty/MHWLongSword/Converted/MHW_Hunter_LongSword_Actions.blend",
+    "bytes": 398110688,
+    "sha256": "c7e6c46d63a16cf826af85c81ccdf4850ad735c09c0e903a3bff58ddcbc01329"
+  },
+  "source_lmt": {
+    "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+    "bytes": 3596020,
+    "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+  },
+  "clips": [
+    {
+      "clip": "w03_00_112",
+      "motion": 112,
+      "frame_count": 131,
+      "last_source_frame": 130,
+      "loop_frame": -1,
+      "flags2": 1,
+      "shared_curve_owner": 105,
+      "native_curve_table_offset": 643828,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06MainShared-20261025/w03_00_112.fbx",
+        "bytes": 3475388,
+        "sha256": "5523530452adc9e68b781821c6e80c0ca20d1ea6611387f9c59721e43bcace03"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    }
+  ],
+  "blocked": [],
+  "production_assets_written": false
+}

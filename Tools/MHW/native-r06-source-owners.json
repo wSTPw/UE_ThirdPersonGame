@@ -1,0 +1,291 @@
+{
+  "schema": 1,
+  "status": "source_generated_not_tested",
+  "tests_executed": false,
+  "bindings": [
+    {
+      "identity": [
+        3,
+        30
+      ],
+      "bank": "w03_00",
+      "motion": 61,
+      "node": 26
+    },
+    {
+      "identity": [
+        3,
+        31
+      ],
+      "bank": "w03_00",
+      "motion": 62,
+      "node": 26
+    },
+    {
+      "identity": [
+        3,
+        32
+      ],
+      "bank": "w03_00",
+      "motion": 63,
+      "node": 26
+    },
+    {
+      "identity": [
+        1,
+        103
+      ],
+      "bank": "co00_00",
+      "motion": 70,
+      "node": 27
+    },
+    {
+      "identity": [
+        1,
+        110
+      ],
+      "bank": "co00_00",
+      "motion": 71,
+      "node": 27
+    },
+    {
+      "identity": [
+        1,
+        115
+      ],
+      "bank": "co00_00",
+      "motion": 72,
+      "node": 27
+    },
+    {
+      "identity": [
+        3,
+        34
+      ],
+      "bank": "w03_00",
+      "motion": 221,
+      "node": 43
+    },
+    {
+      "identity": [
+        3,
+        104
+      ],
+      "bank": "w03_00",
+      "motion": 338,
+      "node": 66
+    },
+    {
+      "identity": [
+        3,
+        105
+      ],
+      "bank": "w03_00",
+      "motion": 340,
+      "node": 70
+    },
+    {
+      "identity": [
+        3,
+        106
+      ],
+      "bank": "w03_00",
+      "motion": 339,
+      "node": 69
+    },
+    {
+      "identity": [
+        3,
+        107
+      ],
+      "bank": "w03_00",
+      "motion": 341,
+      "node": 67
+    },
+    {
+      "identity": [
+        3,
+        108
+      ],
+      "bank": "w03_00",
+      "motion": 343,
+      "node": 71
+    },
+    {
+      "identity": [
+        3,
+        109
+      ],
+      "bank": "w03_00",
+      "motion": 342,
+      "node": 72
+    },
+    {
+      "identity": [
+        3,
+        110
+      ],
+      "bank": "w03_00",
+      "motion": 344,
+      "node": 68
+    },
+    {
+      "identity": [
+        3,
+        111
+      ],
+      "bank": "w03_00",
+      "motion": 346,
+      "node": 73
+    },
+    {
+      "identity": [
+        3,
+        112
+      ],
+      "bank": "w03_00",
+      "motion": 345,
+      "node": 74
+    }
+  ],
+  "weapon_keys": [
+    {
+      "bank": "w03_00",
+      "motion": 113,
+      "frame": 0.0,
+      "value": -1
+    },
+    {
+      "bank": "w03_00",
+      "motion": 113,
+      "frame": 1.0,
+      "value": 2
+    },
+    {
+      "bank": "w03_00",
+      "motion": 115,
+      "frame": 0.0,
+      "value": -1
+    },
+    {
+      "bank": "w03_00",
+      "motion": 115,
+      "frame": 7.0,
+      "value": 2
+    },
+    {
+      "bank": "w03_00",
+      "motion": 116,
+      "frame": 0.0,
+      "value": -1
+    },
+    {
+      "bank": "w03_00",
+      "motion": 116,
+      "frame": 3.0,
+      "value": 2
+    },
+    {
+      "bank": "w03_00",
+      "motion": 151,
+      "frame": 0.0,
+      "value": -1
+    },
+    {
+      "bank": "w03_00",
+      "motion": 151,
+      "frame": 6.0,
+      "value": 2
+    },
+    {
+      "bank": "w03_00",
+      "motion": 152,
+      "frame": 0.0,
+      "value": -1
+    },
+    {
+      "bank": "w03_00",
+      "motion": 152,
+      "frame": 2.0,
+      "value": 2
+    }
+  ],
+  "slinger_triggers": [
+    {
+      "motion": 332,
+      "frame": 36.0
+    },
+    {
+      "motion": 333,
+      "frame": 36.0
+    },
+    {
+      "motion": 334,
+      "frame": 36.0
+    },
+    {
+      "motion": 338,
+      "frame": 36.0
+    },
+    {
+      "motion": 339,
+      "frame": 36.0
+    },
+    {
+      "motion": 340,
+      "frame": 36.0
+    },
+    {
+      "motion": 341,
+      "frame": 36.0
+    },
+    {
+      "motion": 342,
+      "frame": 36.0
+    },
+    {
+      "motion": 343,
+      "frame": 36.0
+    },
+    {
+      "motion": 344,
+      "frame": 36.0
+    },
+    {
+      "motion": 345,
+      "frame": 36.0
+    },
+    {
+      "motion": 346,
+      "frame": 36.0
+    },
+    {
+      "motion": 347,
+      "frame": 36.0
+    },
+    {
+      "motion": 348,
+      "frame": 36.0
+    },
+    {
+      "motion": 349,
+      "frame": 36.0
+    }
+  ],
+  "common_motion_count": 318,
+  "evidence": "Saved/MHWIRestoration/B10-20261025/remaining-native-functions.json",
+  "impact_configuration": [
+    "0x14187cb9a",
+    "0x14187cbcc",
+    "0x14187a849",
+    "0x14187a89d",
+    "0x14187a8ee"
+  ],
+  "recoil_configuration": "0x14187cc99",
+  "slinger_variants": [
+    "0x1417fe370",
+    "0x1417fe3e0",
+    "0x1417fe450"
+  ],
+  "boundary": "Canonical LS standing reactions are production owners. Full environmental/walk/sit/mirrored reaction selection belongs to R24, not an invented source alias."
+}

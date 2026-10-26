@@ -20,7 +20,7 @@ void UAnimNotify_MeleeHit::Notify(
 	// 尝试转换为玩家角色 — 只有 AMyPlayerCharacter 才有连击系统的 OnMeleeHitNotify
 	if (AMyPlayerCharacter* PlayerChar = Cast<AMyPlayerCharacter>(OwnerActor))
 	{
-		PlayerChar->OnMeleeHitNotify();
+		if (PlayerChar->Actions) PlayerChar->Actions->HandleNotify(MeshComp, Animation, EventReference, ECharacterActionEvent::MeleeHit);
 	}
 	// 如果 Cast 失败（例如敌人也用了这个 Notify），静默忽略不做任何事
 }

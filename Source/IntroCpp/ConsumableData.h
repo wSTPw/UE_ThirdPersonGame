@@ -34,6 +34,9 @@ class INTROCPP_API UConsumableData : public UItemDataBase
 	GENERATED_BODY()
 
 public:
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Animation|Action")
+	TObjectPtr<class UCharacterActionDefinition> ActionDefinition;
 	/* 使用内联构造函数（实现直接写在头文件），无需额外 .cpp 文件 */
 	UConsumableData();
 

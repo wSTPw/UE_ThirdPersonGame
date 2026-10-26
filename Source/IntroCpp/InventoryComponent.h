@@ -9,6 +9,10 @@
 #include "EWeaponTypes.h"    // EItemType 枚举（EquipItem 判断武器类型需要）
 #include "InventoryComponent.generated.h"
 
+struct FActionItemReservation;
+struct FActionItemCommitResult;
+class UCharacterActionComponent;
+
 // ============================================================
 //  委托声明 — 背包事件通知系统
 // ============================================================
@@ -148,17 +152,11 @@ public:
     bool RemoveItemAt(int32 SlotIndex, int32 Quantity = 1);
 
     /**
-     * 使用指定槽位的物品
-     * 完整流程：
-     *   1. 校验槽位有效且非空
-     *   2. 通过 Subsystem 获取 ItemData，检查 bCanUse
-     *   3. 权限校验：必须在服务器端执行 (HasAuthority)
-     *   4. 加载并执行 ItemActionClasses 中注册的所有 Action
-     *   5. 任一 Action 返回 bConsumed=true → RemoveItemAt(SlotIndex, 1)
-     *   6. 广播 OnItemUsed + OnInventoryUpdated
+     * 玩家通过动作组件请求使用；通知提交时只从原背包槽扣除一件。
+     * 没有动作组件的拥有者同步执行相同的来源校验与消费事务。
      *
      * @param SlotIndex 要使用的物品槽位索引
-     * @return          true=使用流程执行完成; false=校验失败
+     * @return 玩家 true=请求已接受，不保证已经生效；同步路径 true=已经消费。
      */
     UFUNCTION(BlueprintCallable, Category = "Inventory")
     bool UseItem(int32 SlotIndex);
@@ -288,10 +286,12 @@ public:
     /** 快捷栏固定 5 格（Minecraft 风格底栏）*/
     static const int32 QUICK_SLOT_COUNT = 5;
 
-    /** 5 个快捷槽位存储（不限定物品类型，武器消耗品都可放）*/
-    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "QuickSlot")
+private:
+    /** Read through GetQuickSlot; all writes must honor the action reservation. */
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "QuickSlot", meta = (AllowPrivateAccess = true))
     TArray<FItemInstance> QuickSlots;
 
+public:
     /** 当前选中的快捷槽索引 (0~4)，-1 表示无选中 */
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "QuickSlot")
     int32 SelectedQuickSlotIndex = 0;
@@ -315,11 +315,10 @@ public:
 
     /**
      * 使用当前选中快捷槽位的物品
-     * 根据 ItemType 分支：
-     *   Weapon   → 在背包 FindItemSlot 然后 EquipItem
-     *   Consumable → 在背包 FindItemSlot 然后 UseItem（同步快捷栏数量）
+     * 武器经动作许可后直接装备；消耗品预约当前快捷栏来源。
+     * 快捷栏是独立存储，不查找或扣除背包里的同 ID 物品。
      *
-     * @return 是否成功执行了操作
+     * @return 武器是否获准装备，或使用请求是否已接受；不代表效果已经生效。
      */
     UFUNCTION(BlueprintCallable, Category = "QuickSlot")
     bool UseSelectedQuickSlot();
@@ -356,6 +355,16 @@ protected:
     void BroadcastInventoryUpdate();
 
 private:
+
+    friend class UCharacterActionComponent;
+#if WITH_DEV_AUTOMATION_TESTS
+    friend struct FInventoryActionTestAccess;
+#endif
+    bool CanMutateForAction() const;
+    bool ReserveActionItem(bool bQuickSlot, int32 SlotIndex, FActionItemReservation& Out) const;
+    FActionItemCommitResult CommitActionItem(const FActionItemReservation& Source, UItemDataBase* Data);
+    uint64 MutationRevision = 0;
+    bool bCommittingActionItem = false;
 
     /**
      * 背包主存储数组。

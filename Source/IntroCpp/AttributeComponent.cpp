@@ -2,6 +2,7 @@
 
 #include "AttributeComponent.h"
 #include "GameFramework/Actor.h"
+#include "IncomingDamageResponse.h"
 
 // Sets default values
 UAttributeComponent::UAttributeComponent()
@@ -51,7 +52,7 @@ void UAttributeComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 			
 			if (OldHealth != CurrentHealth)
 			{
-				OnHealthChanged.Broadcast(CurrentHealth, MaxHealth);
+				NotifyHealthChanged();
 			}
 		}
 	}
@@ -67,7 +68,7 @@ void UAttributeComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 
 			if (OldMana != CurrentMana)
 			{
-				OnManaChanged.Broadcast(CurrentMana, MaxMana);
+				NotifyManaChanged();
 			}
 		}
 	}
@@ -75,6 +76,23 @@ void UAttributeComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 
 void UAttributeComponent::ApplyDamage(float DamageAmount, AActor* Instigator)
 {
+	if (bIsAlive && DamageAmount > 0.0f)
+	{
+		AActor* DamageOwner = GetOwner();
+		if (IsValid(DamageOwner) && DamageOwner->Implements<UIncomingDamageResponse>())
+		{
+			const bool bConsumed = IIncomingDamageResponse::Execute_InterceptIncomingDamage(DamageOwner, DamageAmount, Instigator);
+			if (bConsumed || !IsValid(this) || !IsValid(DamageOwner) || !bIsAlive) return;
+			float AdjustedDamage = DamageAmount;
+			const bool bAdjusted = IIncomingDamageResponse::Execute_AdjustIncomingDamage(DamageOwner, DamageAmount, Instigator, AdjustedDamage);
+			if (!IsValid(this) || !IsValid(DamageOwner) || !bIsAlive) return;
+			if (bAdjusted && FMath::IsFinite(AdjustedDamage))
+			{
+				DamageAmount = FMath::Max(0.f, AdjustedDamage);
+				if (DamageAmount <= 0.f) return;
+			}
+		}
+	}
 	if (!bIsAlive || !bCanDie && (CurrentHealth - DamageAmount <= 0)) return;
 
 	float OldHealth = CurrentHealth;
@@ -86,7 +104,7 @@ void UAttributeComponent::ApplyDamage(float DamageAmount, AActor* Instigator)
 	// 触发事件
 	if (OldHealth != CurrentHealth)
 	{
-		OnHealthChanged.Broadcast(CurrentHealth, MaxHealth);
+		NotifyHealthChanged();
 	}
 
 	// 检查死亡
@@ -116,7 +134,7 @@ void UAttributeComponent::ApplyHeal(float HealAmount)
 
 	if (OldHealth != CurrentHealth)
 	{
-		OnHealthChanged.Broadcast(CurrentHealth, MaxHealth);
+		NotifyHealthChanged();
 		UE_LOG(LogTemp, Log, TEXT("[AttributeComponent] %s 恢复 %.1f 点生命，当前HP: %.1f/%.1f"),
 			*GetOwner()->GetName(), HealAmount, CurrentHealth, MaxHealth);
 	}
@@ -131,10 +149,17 @@ void UAttributeComponent::UseMana(float ManaAmount)
 
 	if (OldMana != CurrentMana)
 	{
-		OnManaChanged.Broadcast(CurrentMana, MaxMana);
+		NotifyManaChanged();
 		UE_LOG(LogTemp, Log, TEXT("[AttributeComponent] %s 消耗 %.1f 点魔法，当前MP: %.1f/%.1f"),
 			*GetOwner()->GetName(), ManaAmount, CurrentMana, MaxMana);
 	}
+}
+
+bool UAttributeComponent::TrySpendMana(float ManaAmount)
+{
+	if (!bIsAlive || !FMath::IsFinite(ManaAmount) || ManaAmount < 0.f || CurrentMana < ManaAmount) return false;
+	UseMana(ManaAmount);
+	return true;
 }
 
 void UAttributeComponent::RestoreMana(float ManaAmount)
@@ -146,7 +171,7 @@ void UAttributeComponent::RestoreMana(float ManaAmount)
 
 	if (OldMana != CurrentMana)
 	{
-		OnManaChanged.Broadcast(CurrentMana, MaxMana);
+		NotifyManaChanged();
 		UE_LOG(LogTemp, Log, TEXT("[AttributeComponent] %s 恢复 %.1f 点魔法，当前MP: %.1f/%.1f"),
 			*GetOwner()->GetName(), ManaAmount, CurrentMana, MaxMana);
 	}
@@ -159,7 +184,7 @@ void UAttributeComponent::SetHealth(float NewHealth)
 
 	if (OldHealth != CurrentHealth)
 	{
-		OnHealthChanged.Broadcast(CurrentHealth, MaxHealth);
+		NotifyHealthChanged();
 
 		if (CurrentHealth <= 0.0f && bCanDie)
 		{
@@ -176,7 +201,7 @@ void UAttributeComponent::SetMana(float NewMana)
 
 	if (OldMana != CurrentMana)
 	{
-		OnManaChanged.Broadcast(CurrentMana, MaxMana);
+		NotifyManaChanged();
 	}
 }
 
@@ -190,7 +215,7 @@ void UAttributeComponent::SetMaxHealth(float NewMaxHealth)
 		CurrentHealth = MaxHealth;
 	}
 	
-	OnHealthChanged.Broadcast(CurrentHealth, MaxHealth);
+	NotifyHealthChanged();
 }
 
 void UAttributeComponent::SetMaxMana(float NewMaxMana)
@@ -203,7 +228,7 @@ void UAttributeComponent::SetMaxMana(float NewMaxMana)
 		CurrentMana = MaxMana;
 	}
 
-	OnManaChanged.Broadcast(CurrentMana, MaxMana);
+	NotifyManaChanged();
 }
 
 float UAttributeComponent::GetHealthPercent() const
@@ -216,4 +241,33 @@ float UAttributeComponent::GetManaPercent() const
 {
 	if (MaxMana <= 0.0f) return 0.0f;
 	return CurrentMana / MaxMana;
+}
+
+void UAttributeComponent::BeginNotificationBatch()
+{
+    check(IsInGameThread());
+    ++NotificationBatchDepth;
+}
+
+void UAttributeComponent::EndNotificationBatch()
+{
+    check(IsInGameThread());
+    if (!ensure(NotificationBatchDepth > 0) || --NotificationBatchDepth != 0) return;
+    const bool bHealth = bHealthNotificationPending;
+    const bool bMana = bManaNotificationPending;
+    bHealthNotificationPending = bManaNotificationPending = false;
+    if (bHealth) OnHealthChanged.Broadcast(CurrentHealth, MaxHealth);
+    if (bMana) OnManaChanged.Broadcast(CurrentMana, MaxMana);
+}
+
+void UAttributeComponent::NotifyHealthChanged()
+{
+    if (NotificationBatchDepth > 0) bHealthNotificationPending = true;
+    else OnHealthChanged.Broadcast(CurrentHealth, MaxHealth);
+}
+
+void UAttributeComponent::NotifyManaChanged()
+{
+    if (NotificationBatchDepth > 0) bManaNotificationPending = true;
+    else OnManaChanged.Broadcast(CurrentMana, MaxMana);
 }

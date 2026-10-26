@@ -1,0 +1,343 @@
+{
+  "source": "F:\\PCprogram\\Steam\\steamapps\\common\\Monster Hunter World",
+  "pattern": "^(hm/common/ik/|hm/wp/wp03/(?!.*\\.lmt$)|hm/wp/wp(?:0[0-9]|1[0-3])/wp(?:0[0-9]|1[0-3])_setting\\.cms$)",
+  "total_bytes": 242071,
+  "files": [
+    {
+      "path": "hm/common/ik/hm.arm_mgr",
+      "sha256": "53b00ec2e7bd06f4f6a55f15aabd9d177e404e693e57dfd4ce85d39fa3c40df2",
+      "archive": "chunkG0.bin",
+      "offset": 21451287935,
+      "size": 33
+    },
+    {
+      "path": "hm/common/ik/hm.ikctrl",
+      "sha256": "30386adc96d422ece4ac42940affedaeee2bfe1ef6c1419b2281b188d85796fc",
+      "archive": "chunkG0.bin",
+      "offset": 21451287968,
+      "size": 142
+    },
+    {
+      "path": "hm/common/ik/hm.leg_mgr",
+      "sha256": "6d21cc0985246b13c3049166136023c6f30f8e08764369a62a5fb58537bd037b",
+      "archive": "chunkG0.bin",
+      "offset": 21451288110,
+      "size": 212
+    },
+    {
+      "path": "hm/common/ik/hm_common.ctm",
+      "sha256": "1faeaa62662358a5a8ed58935296abd9a986c229fb00b6bc3dc0faa93f448003",
+      "archive": "chunkG9.bin",
+      "offset": 546654678,
+      "size": 592
+    },
+    {
+      "path": "hm/common/ik/larm.ik",
+      "sha256": "9fb0ce26b7cebd6308eec17b8edee019015dce7f15d27848428e7a90f1a59e3d",
+      "archive": "chunkG0.bin",
+      "offset": 21451288914,
+      "size": 5982
+    },
+    {
+      "path": "hm/common/ik/lfoot.ik",
+      "sha256": "c4673973ec0c21e19aa99c0b84d71abf1ebf07f0d16cfe398a2635f08d4547af",
+      "archive": "chunkG0.bin",
+      "offset": 21451294896,
+      "size": 5982
+    },
+    {
+      "path": "hm/common/ik/rarm.ik",
+      "sha256": "65e6eb0810fc34c23b51df8b876132d0ec404610385943c68730e8aee920265b",
+      "archive": "chunkG0.bin",
+      "offset": 21451300878,
+      "size": 5982
+    },
+    {
+      "path": "hm/common/ik/rfoot.ik",
+      "sha256": "34a121f9c2c2eab1b4a609700346eb89e331a4853b78ea7ea691e505721e9c05",
+      "archive": "chunkG0.bin",
+      "offset": 21451306860,
+      "size": 5982
+    },
+    {
+      "path": "hm/wp/wp00/wp00_setting.cms",
+      "sha256": "24b5faf0e23dc82d54a094f47584fd3bb8a93ba605e39376fadabd79f174c90f",
+      "archive": "chunkG0.bin",
+      "offset": 21503906473,
+      "size": 816
+    },
+    {
+      "path": "hm/wp/wp01/wp01_setting.cms",
+      "sha256": "f69a819334d2f1bd36099a4deaa2f28686b2c05abedc34780bec02d5865f06bf",
+      "archive": "chunkG0.bin",
+      "offset": 21508256708,
+      "size": 532
+    },
+    {
+      "path": "hm/wp/wp02/wp02_setting.cms",
+      "sha256": "187887b092d46f7700faf4b0f2425a33f4fde0ccad88d4372d09e83dd7bedf94",
+      "archive": "chunkG0.bin",
+      "offset": 21512201671,
+      "size": 516
+    },
+    {
+      "path": "hm/wp/wp03/collision/wp03.col",
+      "sha256": "5f3791b307bb1c6afe3f46b09dc97a771daf61df13ff5dc1ee70a0a8aa009c27",
+      "archive": "chunkG3.bin",
+      "offset": 1559526394,
+      "size": 20408
+    },
+    {
+      "path": "hm/wp/wp03/mot/w03_00/w03_00.mbd",
+      "sha256": "eb4744e6ba98aae1d79bab0fdd9526e2d12e57f654d294a23376697cc2e82268",
+      "archive": "chunkG2.bin",
+      "offset": 1886698421,
+      "size": 16499
+    },
+    {
+      "path": "hm/wp/wp03/mot/wp03_tree/wp03_tree.at",
+      "sha256": "c071c82ac66d015819627eb3575bde0bfb1a98c4c6ca7b365482d42227a1f678",
+      "archive": "chunkG0.bin",
+      "offset": 21520017220,
+      "size": 16396
+    },
+    {
+      "path": "hm/wp/wp03/mot/wp03_tree/wp03_tree.mbd",
+      "sha256": "effd5c6fe1077ba24913e748fa75c99a6e8661991dc1d92ed23cd0998baf5c26",
+      "archive": "chunkG0.bin",
+      "offset": 21520033616,
+      "size": 272
+    },
+    {
+      "path": "hm/wp/wp03/shell/collision/object.col",
+      "sha256": "a350e96b5ceeb98a08bc5cabe2a996e5e795e63240293bb8dc81c0473c8dc2dc",
+      "archive": "chunkG3.bin",
+      "offset": 1563142822,
+      "size": 4197
+    },
+    {
+      "path": "hm/wp/wp03/shell/data/finish_delay_hit_red.shlp",
+      "sha256": "11eb2955b97b58fc2c0b1ff461f0c8af90467ab2b8f715d5d5432f11d7b65da6",
+      "archive": "chunkG7.bin",
+      "offset": 1789640555,
+      "size": 1872
+    },
+    {
+      "path": "hm/wp/wp03/shell/data/finish_delay_hit_red_last.shlp",
+      "sha256": "722fb685e79877706c1c3e9bafdb430f07a0c09534d90371dee772a7c1fdbc57",
+      "archive": "chunkG7.bin",
+      "offset": 1789642427,
+      "size": 1872
+    },
+    {
+      "path": "hm/wp/wp03/shell/data/finish_delay_hit_red_shake.shlp",
+      "sha256": "fbffb2a3c508cba775277c9bb77bbdef6fbac0a9344920ada782239240f6bb03",
+      "archive": "chunkG7.bin",
+      "offset": 1789644299,
+      "size": 1872
+    },
+    {
+      "path": "hm/wp/wp03/shell/data/finish_delay_hit_white.shlp",
+      "sha256": "aac7ea07c79af53c31d4119d8fc7801dd31be4308283dbb0af90f3e556c6421f",
+      "archive": "chunkG7.bin",
+      "offset": 1789646171,
+      "size": 1872
+    },
+    {
+      "path": "hm/wp/wp03/shell/data/finish_delay_hit_white_last.shlp",
+      "sha256": "646d2c36b63fe58244ba3e3287d55595d359b0bced46b45e4e37945ee6ffdd62",
+      "archive": "chunkG7.bin",
+      "offset": 1789648043,
+      "size": 1872
+    },
+    {
+      "path": "hm/wp/wp03/shell/data/finish_delay_hit_white_shake.shlp",
+      "sha256": "7da50eda5cc212501d2fbff5433444da965ee03146009cb0c9e22786b18efd78",
+      "archive": "chunkG7.bin",
+      "offset": 1789649915,
+      "size": 1872
+    },
+    {
+      "path": "hm/wp/wp03/shell/data/finish_delay_hit_yellow.shlp",
+      "sha256": "d2645b76dce057d2c1c05cdcc85a3a9d9baa1087758bd9ab87b5b2b9102a59c4",
+      "archive": "chunkG7.bin",
+      "offset": 1789651787,
+      "size": 1872
+    },
+    {
+      "path": "hm/wp/wp03/shell/data/finish_delay_hit_yellow_last.shlp",
+      "sha256": "8922b1dc33df64f42e5ea1e1bc0f62bf0e652a4b79b0d278f263e3453de193a6",
+      "archive": "chunkG7.bin",
+      "offset": 1789653659,
+      "size": 1872
+    },
+    {
+      "path": "hm/wp/wp03/shell/data/finish_delay_hit_yellow_shake.shlp",
+      "sha256": "37f21d30e64e6b3cf0c90430088852b64dad3ce86afcbf927fbaef1d32eac60a",
+      "archive": "chunkG7.bin",
+      "offset": 1789655531,
+      "size": 1872
+    },
+    {
+      "path": "hm/wp/wp03/shell/data/iaigiri.shlp",
+      "sha256": "acf72d1c84469ac91d02c7b0149c845321578024bf57f785ca46dcdc0e4dc7a3",
+      "archive": "chunkG7.bin",
+      "offset": 1789657403,
+      "size": 640
+    },
+    {
+      "path": "hm/wp/wp03/shell/data/iaikijin.shlp",
+      "sha256": "15e8d776b9d93d5622d39b0069eee27d321e2d9cd53346cc6f85517194e2bc42",
+      "archive": "chunkG7.bin",
+      "offset": 1789658043,
+      "size": 640
+    },
+    {
+      "path": "hm/wp/wp03/shell/data/iaikijin_delay_hit_red.shlp",
+      "sha256": "ea59fd435d60db32b5a40b376da307ef6766ba74df52d2efc62b3bd06693b0cc",
+      "archive": "chunkG7.bin",
+      "offset": 1789658683,
+      "size": 1872
+    },
+    {
+      "path": "hm/wp/wp03/shell/data/iaikijin_delay_hit_white.shlp",
+      "sha256": "28fce4d163a7227a5e54e09c140c4dc97555fe8a94a2076b6693a8e8cba445f6",
+      "archive": "chunkG7.bin",
+      "offset": 1789660555,
+      "size": 1872
+    },
+    {
+      "path": "hm/wp/wp03/shell/data/iaikijin_delay_hit_yellow.shlp",
+      "sha256": "6e363d4ba8c7b5f6212a1ac9eb63cc9c3126151e36ce5c12d16f74123e6e9ef9",
+      "archive": "chunkG7.bin",
+      "offset": 1789662427,
+      "size": 1872
+    },
+    {
+      "path": "hm/wp/wp03/shell/data/mikiri.shlp",
+      "sha256": "15e8d776b9d93d5622d39b0069eee27d321e2d9cd53346cc6f85517194e2bc42",
+      "archive": "chunkG7.bin",
+      "offset": 1789658043,
+      "size": 640
+    },
+    {
+      "path": "hm/wp/wp03/shell/swo.shll",
+      "sha256": "ebbb9dafb8ba11da13fb18c3b39cdb335cbdeb6b6654b0a15aea86040a48d131",
+      "archive": "chunkG0.bin",
+      "offset": 21520033888,
+      "size": 737
+    },
+    {
+      "path": "hm/wp/wp03/wp03_action.fsm",
+      "sha256": "b817b1cd16a6f653ad2c60f88b30967f56185a7c4b3a3d5927b3f9334e633b18",
+      "archive": "chunkG1.bin",
+      "offset": 1841678691,
+      "size": 117125
+    },
+    {
+      "path": "hm/wp/wp03/wp03_param.w03p",
+      "sha256": "efdcb3bdbe92828e2926b9d29570c85f65ff2a8899659e1fbcf80adfc4ccee54",
+      "archive": "chunkG8.bin",
+      "offset": 739029740,
+      "size": 1584
+    },
+    {
+      "path": "hm/wp/wp03/wp03_setting.cms",
+      "sha256": "5406c0c3b899af7e83a478f32f35bbad0474214866f00c36565336f05c0984d9",
+      "archive": "chunkG0.bin",
+      "offset": 21516504939,
+      "size": 964
+    },
+    {
+      "path": "hm/wp/wp03/wp03_shake.csk",
+      "sha256": "f2e6cb52e7dc27d5e12f3a42233def7324b4806f656557afcc90edf46d1efd36",
+      "archive": "chunkG0.bin",
+      "offset": 21516505903,
+      "size": 6736
+    },
+    {
+      "path": "hm/wp/wp03/wp03_snow.shvl",
+      "sha256": "64bdb8d7eb7a07f59aecc14287b39c924b1df7cce26957379cb80c7c342c040f",
+      "archive": "chunkG0.bin",
+      "offset": 21516512639,
+      "size": 118
+    },
+    {
+      "path": "hm/wp/wp03/wp03_sub_snow.shvl",
+      "sha256": "599be10dc5218f4af778006e0b9d22f874a0a3c26caf78c6a465afaa199fc4db",
+      "archive": "chunkG0.bin",
+      "offset": 21503917023,
+      "size": 12
+    },
+    {
+      "path": "hm/wp/wp04/wp04_setting.cms",
+      "sha256": "d6c2ed637a4e82f0cf415a2966014a647bd3df31a56e47093ac79d41f0510bea",
+      "archive": "chunkG0.bin",
+      "offset": 21520250952,
+      "size": 620
+    },
+    {
+      "path": "hm/wp/wp05/wp05_setting.cms",
+      "sha256": "db6ceed59f21eee64c8e079e8830213adf995e7598f9cfe475d81f5480b04572",
+      "archive": "chunkG0.bin",
+      "offset": 21524023252,
+      "size": 148
+    },
+    {
+      "path": "hm/wp/wp06/wp06_setting.cms",
+      "sha256": "35c15299a039dac27d9f6300778a92afa188e4d713fb967f7c82f5ef150ec0da",
+      "archive": "chunkG0.bin",
+      "offset": 21527725146,
+      "size": 632
+    },
+    {
+      "path": "hm/wp/wp07/wp07_setting.cms",
+      "sha256": "56c8c2708c6f138b5f4931db3fc562e9f3af03e88b98a29d59616069608bf3ae",
+      "archive": "chunkG0.bin",
+      "offset": 21531395184,
+      "size": 600
+    },
+    {
+      "path": "hm/wp/wp08/wp08_setting.cms",
+      "sha256": "a7fd647a9872d0650a4ab72bf04f9ccbb98b783108448ef78ad29d4d11af4da7",
+      "archive": "chunkG0.bin",
+      "offset": 21534981907,
+      "size": 620
+    },
+    {
+      "path": "hm/wp/wp09/wp09_setting.cms",
+      "sha256": "1c3097cf95c2f2ce3612bd96ce7275ff4c3c8f201eb96e81df0019b6af44d4b9",
+      "archive": "chunkG0.bin",
+      "offset": 21540499581,
+      "size": 840
+    },
+    {
+      "path": "hm/wp/wp10/wp10_setting.cms",
+      "sha256": "b88521032f17f8a946f66beaf487a32ced15c4bc7ec83e8d66bcef0643d088cc",
+      "archive": "chunkG0.bin",
+      "offset": 21546373486,
+      "size": 244
+    },
+    {
+      "path": "hm/wp/wp11/wp11_setting.cms",
+      "sha256": "7373e3d3bd56a3a9887ea438311f87da5fb597d64c41271dab21c3634725fd49",
+      "archive": "chunkG0.bin",
+      "offset": 21549786412,
+      "size": 1460
+    },
+    {
+      "path": "hm/wp/wp12/wp12_setting.cms",
+      "sha256": "5487cd797d5afc1931e368680c3303dab9419125789f7dab2da4647fd8a5d687",
+      "archive": "chunkG0.bin",
+      "offset": 21552799546,
+      "size": 396
+    },
+    {
+      "path": "hm/wp/wp13/wp13_setting.cms",
+      "sha256": "9ccfc24e50e1e71a552e80e482f62cd185f7d38026cb1ce001472afbe6b95454",
+      "archive": "chunkG0.bin",
+      "offset": 21556682918,
+      "size": 308
+    }
+  ]
+}

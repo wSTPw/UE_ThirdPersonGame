@@ -1,0 +1,9 @@
+{
+  "name": "introcpp-ue-mcp",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Pinned UE MCP server for the IntroCpp Unreal Engine project.",
+  "dependencies": {
+    "ue-mcp": "1.4.7"
+  }
+}

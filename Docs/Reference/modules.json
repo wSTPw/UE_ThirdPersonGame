@@ -1,0 +1,430 @@
+{
+  "schema_version": 1,
+  "baseline_date": "2026-10-17",
+  "project": "IntroCpp",
+  "engine_association": "5.8",
+  "note": "Representative source entry points, not an exhaustive file or C++ symbol inventory. Paths are repository-relative. Interface IDs refer to Docs/Interfaces.md.",
+  "modules": [
+    {
+      "id": "entry",
+      "name": "启动与运行入口",
+      "document": "Docs/Architecture.md",
+      "sources": [
+        "IntroCpp.uproject",
+        "Config/DefaultEngine.ini",
+        "Source/IntroCpp/IntroCpp.Build.cs",
+        "Source/IntroCpp/UW_MainHUD.cpp",
+        "Source/IntroCpp/MyPlayerCharacter.cpp"
+      ],
+      "interface_ids": [
+        "UI-003"
+      ],
+      "asset_roots": [
+        "/Game/MyStuff/Lvl_Start",
+        "/Game/MyStuff/MyLevel",
+        "/Game/MyStuff/BP/BP_MyPlayer"
+      ],
+      "validation": [
+        "Scripts/Tests/ue58_smoke.py"
+      ]
+    },
+    {
+      "id": "item-data",
+      "name": "物品数据、注册与效果策略",
+      "document": "Docs/Systems/Inventory.md",
+      "sources": [
+        "Source/IntroCpp/ItemDataBase.h",
+        "Source/IntroCpp/ItemDataSubsystem.h",
+        "Source/IntroCpp/ItemDataSubsystem.cpp",
+        "Source/IntroCpp/ItemAction.h",
+        "Source/IntroCpp/ItemAction_Heal.cpp",
+        "Source/IntroCpp/ItemAction_RestoreMana.cpp",
+        "Source/IntroCpp/ConsumableData.h",
+        "Source/IntroCpp/WeaponData.h"
+      ],
+      "interface_ids": [
+        "ITEM-001",
+        "ITEM-002",
+        "ITEM-003",
+        "ITEM-004",
+        "ITEM-005"
+      ],
+      "asset_roots": [
+        "/Game/Data/Items"
+      ],
+      "validation": [
+        "Scripts/Tests/ue58_smoke.py"
+      ]
+    },
+    {
+      "id": "inventory",
+      "name": "背包、快捷栏与装备状态",
+      "document": "Docs/Systems/Inventory.md",
+      "sources": [
+        "Source/IntroCpp/InventoryComponent.h",
+        "Source/IntroCpp/InventoryComponent.cpp",
+        "Source/IntroCpp/PickupItem.cpp",
+        "Source/IntroCpp/UDragItemOperation.h"
+      ],
+      "interface_ids": [
+        "INV-001",
+        "INV-004",
+        "INV-006",
+        "INV-010",
+        "INV-011",
+        "INV-012",
+        "INV-013",
+        "PICKUP-001",
+        "EVT-INV-01",
+        "EVT-INV-04"
+      ],
+      "asset_roots": [
+        "/Game/MyStuff/BP"
+      ],
+      "validation": [
+        "Scripts/Tests/ue58_smoke.py",
+        "Scripts/Tests/action_refactor_pie.py"
+      ]
+    },
+    {
+      "id": "attributes",
+      "name": "生命、魔法与属性事件",
+      "document": "Docs/Systems/Combat-AI.md",
+      "sources": [
+        "Source/IntroCpp/AttributeComponent.h",
+        "Source/IntroCpp/AttributeComponent.cpp"
+      ],
+      "interface_ids": [
+        "ATTR-001",
+        "ATTR-002",
+        "ATTR-003",
+        "ATTR-004",
+        "ATTR-005",
+        "EVT-ATTR-01",
+        "EVT-ATTR-02",
+        "ATTR-006"
+      ],
+      "asset_roots": [],
+      "validation": [
+        "Scripts/Tests/ue58_smoke.py"
+      ]
+    },
+    {
+      "id": "character-actions",
+      "name": "角色动作调度、执行、动画身份与提交",
+      "document": "Docs/Systems/Combat-AI.md",
+      "sources": [
+        "Source/IntroCpp/Actions/CharacterActionComponent.h",
+        "Source/IntroCpp/Actions/CharacterActionComponent.cpp",
+        "Source/IntroCpp/Actions/CharacterActionTypes.h",
+        "Source/IntroCpp/Actions/CharacterActionExecution.h",
+        "Source/IntroCpp/Actions/CharacterActionEffects.cpp",
+        "Source/IntroCpp/Actions/CharacterActionDefinition.h",
+        "Source/IntroCpp/Actions/AnimNotifyState_ActionWindow.h",
+        "Source/IntroCpp/Actions/LocomotionAnimContext.h",
+        "Source/IntroCpp/MyAnimInstance.cpp"
+      ],
+      "interface_ids": [
+        "ACTION-001",
+        "ACTION-002",
+        "ACTION-003",
+        "ACTION-004",
+        "EVT-ACTION-01",
+        "EVT-ACTION-02"
+      ],
+      "asset_roots": [
+        "/Game/Data/Actions",
+        "/Game/MyStuff/Model/Robot/M_LongSwordAttack",
+        "/Game/MyStuff/Model/Robot/M_Attack_Fireball",
+        "/Game/MyStuff/Model/Robot/M_Drink",
+        "/Game/MyStuff/Animation/Ninja"
+      ],
+      "validation": [
+        "Source/IntroCpp/Tests/CharacterActionTests.cpp",
+        "Source/IntroCpp/Tests/InventoryActionTransactionTests.cpp",
+        "Scripts/Tests/action_refactor_pie.py"
+      ]
+    },
+    {
+      "id": "player-combat",
+      "name": "玩家、武器、连击与动画通知",
+      "document": "Docs/Systems/Combat-AI.md",
+      "sources": [
+        "Source/IntroCpp/MyPlayerCharacter.h",
+        "Source/IntroCpp/MyPlayerCharacter.cpp",
+        "Source/IntroCpp/WeaponData.h",
+        "Source/IntroCpp/ComboAttackData.h",
+        "Source/IntroCpp/MyAnimInstance.h",
+        "Source/IntroCpp/AnimNotify_Fireball.cpp",
+        "Source/IntroCpp/AnimNotify_MeleeHit.cpp",
+        "Source/IntroCpp/AnimNotify_UseItemComplete.cpp",
+        "Source/IntroCpp/AFireballProjectile.cpp",
+        "Source/IntroCpp/AFireballSpawner.cpp",
+        "ArtSource/Animation/NinjaReplacement-20261020.json",
+        "ArtSource/Animation/NinjaRootMotion-20261020.json",
+        "ArtSource/Animation/NinjaLocomotionFix-20261020.json"
+      ],
+      "interface_ids": [
+        "COMBAT-001",
+        "COMBAT-002",
+        "COMBAT-003",
+        "COMBAT-004",
+        "COMBAT-005",
+        "COMBAT-006"
+      ],
+      "asset_roots": [
+        "/Game/Data/ComboData",
+        "/Game/MyStuff/Model/Robot",
+        "/Game/MyStuff/BP/Weapons",
+        "/Game/MyStuff/Animation/Ninja",
+        "/Game/ARPG_Ninja/Animations"
+      ],
+      "validation": [
+        "Scripts/Tests/ue58_smoke.py",
+        "Scripts/Tests/action_refactor_pie.py"
+      ]
+    },
+    {
+      "id": "enemy-ai",
+      "name": "自定义敌人与 Tick 状态机",
+      "document": "Docs/Systems/Combat-AI.md",
+      "sources": [
+        "Source/IntroCpp/EnemyBase.h",
+        "Source/IntroCpp/EnemyBase.cpp",
+        "Source/IntroCpp/EnemyAIController.h",
+        "Source/IntroCpp/EnemyAIController.cpp",
+        "Source/IntroCpp/EnemyData.h",
+        "Source/IntroCpp/EEnemyTypes.h",
+        "Source/IntroCpp/AnimNotify_EnemyAttack.cpp"
+      ],
+      "interface_ids": [
+        "AI-001",
+        "AI-002",
+        "AI-003"
+      ],
+      "asset_roots": [
+        "/Game/Data/Enemys",
+        "/Game/MyStuff/BP/BP_Enemy_Dummy"
+      ],
+      "validation": [
+        "Scripts/Tests/ue58_smoke.py"
+      ]
+    },
+    {
+      "id": "ui-input",
+      "name": "UMG、拖拽与增强输入",
+      "document": "Docs/Systems/UI-Assets.md",
+      "sources": [
+        "Source/IntroCpp/UW_MainHUD.h",
+        "Source/IntroCpp/UW_InventoryUI.h",
+        "Source/IntroCpp/UW_InventoryUI.cpp",
+        "Source/IntroCpp/UW_StatusBar.h",
+        "Source/IntroCpp/UW_StatusBar.cpp",
+        "Source/IntroCpp/UW_QuickSlot.h",
+        "Source/IntroCpp/UW_QuickSlot.cpp",
+        "Source/IntroCpp/UDragItemOperation.h",
+        "Source/IntroCpp/MyPlayerCharacter.cpp"
+      ],
+      "interface_ids": [
+        "UI-001",
+        "UI-002",
+        "UI-003",
+        "UI-004",
+        "EVT-UI-01"
+      ],
+      "asset_roots": [
+        "/Game/MyStuff/MyUI",
+        "/Game/MyStuff/MyInput"
+      ],
+      "validation": [
+        "Scripts/Tests/ue58_smoke.py"
+      ]
+    },
+    {
+      "id": "event-bus",
+      "name": "GameInstance 全局事件总线",
+      "document": "Docs/Interfaces.md",
+      "sources": [
+        "Source/IntroCpp/MyEventBusGameInstance.h",
+        "Source/IntroCpp/MyEventBusGameInstance.cpp",
+        "Source/IntroCpp/GlobalEvents.h"
+      ],
+      "interface_ids": [
+        "EVT-BUS-01",
+        "EVT-BUS-02"
+      ],
+      "asset_roots": [],
+      "validation": []
+    },
+    {
+      "id": "template-variants",
+      "name": "保留的第一人称/Shooter/Horror 模板",
+      "document": "Docs/Architecture.md",
+      "sources": [
+        "Source/IntroCpp/IntroCppCharacter.h",
+        "Source/IntroCpp/IntroCppPlayerController.h",
+        "Source/IntroCpp/Variant_Shooter/ShooterCharacter.h",
+        "Source/IntroCpp/Variant_Shooter/Weapons/ShooterWeaponHolder.h",
+        "Source/IntroCpp/Variant_Shooter/AI/ShooterStateTreeUtility.h",
+        "Source/IntroCpp/Variant_Horror/HorrorCharacter.h"
+      ],
+      "interface_ids": [],
+      "asset_roots": [
+        "/Game/FirstPerson"
+      ],
+      "validation": []
+    },
+    {
+      "id": "editor-tooling",
+      "name": "构建、UE-MCP 与文档维护",
+      "document": "Docs/Development.md",
+      "sources": [
+        "Source/IntroCpp.Target.cs",
+        "Source/IntroCppEditor.Target.cs",
+        "Plugins/UE_MCP_Bridge/UE_MCP_Bridge.uplugin",
+        "Tools/ue-mcp/package.json",
+        "ue-mcp.yml",
+        "Scripts/Docs/check_docs.py"
+      ],
+      "interface_ids": [],
+      "asset_roots": [],
+      "validation": [
+        "Scripts/Tests/test-ue-mcp.mjs",
+        "Scripts/Docs/check_docs.py"
+      ]
+    },
+    {
+      "id": "mhwi-longsword",
+      "name": "MHWI 独立地面太刀训练模组",
+      "document": "Docs/Systems/MHWI-LongSword.md",
+      "sources": [
+        "Source/IntroCpp/MHWI/MHWICharacter.h",
+        "Source/IntroCpp/MHWI/MHWICharacter.cpp",
+        "Source/IntroCpp/MHWI/MHWIAnimInstance.cpp",
+        "Source/IntroCpp/MHWI/MHWIMovesetData.h",
+        "Source/IntroCpp/MHWI/MHWITrainingTarget.cpp",
+        "Source/IntroCpp/MHWIUI/MHWIHUD.cpp",
+        "Source/IntroCpp/IncomingDamageResponse.h",
+        "Scripts/MHWI/author_assets.py",
+        "Scripts/MHWI/author_behavior_corrections.py",
+        "Scripts/MHWI/moveset_mapping.json",
+        "Scripts/MHWI/audit_native_timing.py",
+        "Scripts/MHWI/audit_weapon_fidelity.py",
+        "Scripts/MHWI/read_fidelity_assets.py",
+        "Scripts/MHWI/build_fidelity_report.py",
+        "Scripts/MHWI/native_animation_source.py",
+        "Scripts/MHWI/export_native_animation.py",
+        "Scripts/MHWI/native_weapon_export.py",
+        "Scripts/MHWI/author_native_fidelity.py",
+        "Scripts/MHWI/native_control_evidence.py",
+        "Scripts/MHWI/native_semantics_evidence.py",
+        "Source/IntroCpp/MHWI/MHWIWeaponAttachment.h",
+        "Source/IntroCpp/MHWI/MHWIWeaponAttachment.cpp",
+        "Scripts/MHWI/author_combat_fidelity.py",
+        "Scripts/MHWI/author_transition_calibration.py",
+        "Scripts/MHWI/transition_calibration.json",
+        "Scripts/MHWI/author_native_parameters.py",
+        "Scripts/MHWI/build_native_action_database.py",
+        "Scripts/MHWI/extract_native_longsword_params.py",
+        "Scripts/MHWI/extract_native_equipment_params.py",
+        "Scripts/MHWI/native_reference_basics.py",
+        "Scripts/MHWI/author_reference_basics.py",
+        "Tools/MHW/native-combat-layout.json",
+        "Tools/MHW/native-reference-sources.json",
+        "Scripts/MHWI/native_spirit_branches.py",
+        "Scripts/MHWI/author_spirit_branches.py",
+        "Tools/MHW/native-spirit-branch-evidence.json",
+        "Scripts/MHWI/author_locomotion_fidelity.py",
+        "Scripts/MHWI/pie_locomotion_fidelity.py",
+        "Scripts/MHWI/native_connector_source.py",
+        "Scripts/MHWI/verify_connector_source.py",
+        "Tools/MHW/native-connector-sources.json",
+        "Scripts/MHWI/native_connector_logic.py",
+        "Scripts/MHWI/trace_native_connections.py",
+        "Tools/MHW/native-connector-code-sources.json",
+        "Tools/MHW/native-connector-control-evidence.json",
+        "Source/IntroCpp/MHWI/MHWINativeLinkMotion.h",
+        "Source/IntroCpp/MHWI/MHWINativeLinkMotion.cpp",
+        "Source/IntroCpp/MHWI/MHWINativeLinkMotionData.inl",
+        "Scripts/MHWI/build_native_link_policy.py",
+        "Scripts/MHWI/export_r06_staging.py",
+        "Scripts/MHWI/import_r06_staging.py",
+        "Tools/MHW/native-link-motion-policy.json",
+        "Tools/MHW/native-link-motion-consumer-evidence.json",
+        "Source/IntroCpp/MHWI/MHWICharacterLinkMotion.cpp",
+        "Source/IntroCpp/MHWI/MHWILinkAnimation.h",
+        "Source/IntroCpp/MHWI/MHWILinkAnimation.cpp",
+        "Source/IntroCpp/MHWI/MHWILinkRuntimeData.inl",
+        "Scripts/MHWI/build_link_runtime_data.py",
+        "Scripts/MHWI/extract_link_runtime_evidence.py",
+        "Scripts/MHWI/author_r06_runtime.py",
+        "Scripts/MHWI/export_r06_main.py",
+        "Scripts/MHWI/record_r06_runtime_progress.py",
+        "Tools/MHW/native-main-motion-bindings.json",
+        "Tools/MHW/r06-runtime-adapter.json",
+        "Scripts/MHWI/extract_r06_completion.py",
+        "Scripts/MHWI/record_r06_completion_progress.py",
+        "Tools/MHW/native-r06-completion-evidence.json",
+        "Source/IntroCpp/MHWI/MHWICharacterNativeSources.cpp",
+        "Source/IntroCpp/MHWI/MHWIContactResponse.h",
+        "Source/IntroCpp/MHWI/MHWINativeSources.h",
+        "Source/IntroCpp/MHWI/MHWINativeSources.cpp",
+        "Source/IntroCpp/MHWI/MHWIR06SourceData.inl",
+        "Source/IntroCpp/MHWI/MHWIAnimInstance.h",
+        "Source/IntroCpp/MHWI/MHWITrainingTarget.h",
+        "Scripts/MHWI/extract_r06_remaining.py",
+        "Scripts/MHWI/export_r06_remaining.py",
+        "Scripts/MHWI/build_r06_remaining_data.py",
+        "Scripts/MHWI/record_r06_remaining_progress.py",
+        "Tools/MHW/native-r06-source-owners.json",
+        "Tools/MHW/native-r06-remaining-evidence.json"
+      ],
+      "interface_ids": [
+        "DAMAGE-001",
+        "MHWI-001",
+        "MHWI-002",
+        "MHWI-003",
+        "MHWI-004",
+        "MHWI-005",
+        "MHWI-006",
+        "DAMAGE-002",
+        "MHWI-007",
+        "MHWI-008",
+        "MHWI-009",
+        "MHWI-010",
+        "MHWI-011",
+        "MHWI-012",
+        "MHWI-013"
+      ],
+      "asset_roots": [
+        "/Game/MHWI"
+      ],
+      "validation": [
+        "Scripts/MHWI/pie_smoke.py",
+        "Scripts/MHWI/pie_moveset.py",
+        "Scripts/MHWI/pie_edges.py",
+        "Scripts/MHWI/pie_attachments.py",
+        "Scripts/MHWI/pie_animation_corrections.py",
+        "Scripts/MHWI/pie_training_damage.py",
+        "Scripts/MHWI/pie_behavior_corrections.py",
+        "Scripts/MHWI/audit_behavior_links.py",
+        "Scripts/MHWI/verify_native_timing.py",
+        "Scripts/MHWI/audit_weapon_fidelity.py",
+        "Scripts/MHWI/verify_native_animation.py",
+        "Scripts/MHWI/native_weapon_verify.py",
+        "Scripts/MHWI/export_native_root_reference.py",
+        "Scripts/MHWI/qualify_native_assets.py",
+        "Scripts/MHWI/pie_native_weapon.py",
+        "Scripts/MHWI/pie_combat_fidelity.py",
+        "Scripts/MHWI/pie_weapon_transfer.py",
+        "Scripts/MHWI/qualify_native_parent_pose.py",
+        "Scripts/MHWI/author_weapon_transfer.py",
+        "Scripts/MHWI/build_native_action_database.py",
+        "Scripts/MHWI/audit_weapon_placement_sources.py",
+        "Scripts/MHWI/verify_reference_basics.py",
+        "Scripts/MHWI/pie_reference_basics.py",
+        "Scripts/MHWI/pie_spirit_branches.py"
+      ]
+    }
+  ]
+}

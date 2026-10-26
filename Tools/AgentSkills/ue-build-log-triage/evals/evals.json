@@ -1,0 +1,23 @@
+{
+  "skill_name": "ue-build-log-triage",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "这个 UE 5.8 Editor Target 构建失败了，日志有两万行。找出第一个真正的编译错误，不要把整份日志读进上下文。",
+      "expected_output": "Keeps the full log on disk, extracts bounded error groups, and diagnoses the earliest causal compiler failure.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "启动编辑器后出现 ensure 和一串调用栈，请判断是项目代码还是引擎自检。",
+      "expected_output": "Preserves enough stack context, expands around exact lines if needed, and distinguishes project failures from engine diagnostics.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "构建成功但有很多 warning，告诉我是否需要修。",
+      "expected_output": "Does not report a false failure and treats warnings as primary only when they explain a material problem.",
+      "files": []
+    }
+  ]
+}

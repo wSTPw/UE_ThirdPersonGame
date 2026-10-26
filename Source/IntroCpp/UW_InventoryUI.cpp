@@ -258,7 +258,18 @@ void UUW_InventoryUI::OnButton_UseItemClicked()
 {
 	if (InventoryComponent && SelectedSlotIndex != -1)
 	{
-		InventoryComponent->UseItem(SelectedSlotIndex);
+		// Closing broadcasts user callbacks and removes this widget. Preserve the
+		// chosen source rather than reading mutable widget state afterwards.
+		const TWeakObjectPtr<UInventoryComponent> Inventory = InventoryComponent;
+		const int32 SlotIndex = SelectedSlotIndex;
+		const FItemInstance Source = InventoryComponent->GetItemAt(SlotIndex);
+		OnButton_CloseClicked();
+		if (Inventory.IsValid())
+		{
+			const FItemInstance Current = Inventory->GetItemAt(SlotIndex);
+			if (!Source.IsEmpty() && Current.ItemID == Source.ItemID && Current.Quantity == Source.Quantity)
+				Inventory->UseItem(SlotIndex);
+		}
 	}
 }
 

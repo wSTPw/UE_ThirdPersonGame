@@ -1,0 +1,1077 @@
+{
+  "schema": 1,
+  "tests_executed": false,
+  "sources": {
+    "schema": 1,
+    "exe": {
+      "path": "F:/PCprogram/Steam/steamapps/common/Monster Hunter World/MonsterHunterWorld.exe",
+      "sha256": "c2ebbbd2c49f216d484e31a5219bed419eb1e5e7d206d02cba040a3ab79d90ea"
+    },
+    "text": {
+      "path": "Saved/MHWIRestoration/B05-20261024/analysis-text.bin",
+      "sha256": "9b48a8490df702ba9dc1cb95ffd387358ae2a639aa9675ad90719bd997124ebe",
+      "boundary": "local non-executable analysis bytes; no install modification or original game execution"
+    },
+    "scope": "Local non-executable analysis section only. Hash-qualified read; never execute native bytes or alter original image.",
+    "addresses": {
+      "vm_tick": "0x1423fe8d0",
+      "condition_evaluator": "0x1423fc990",
+      "callback_binding": "0x142458dd0",
+      "name_lookup": "0x142400150",
+      "callback_dispatch": "0x1423ffaf0",
+      "node_exit": "0x1423fe680",
+      "context_setup": "0x1423fd1a0",
+      "drive_reset": "0x1423fec80",
+      "phase_type_registration": "0x1401e15c0",
+      "phase_property_registration": "0x14191f7d0",
+      "phase_parameter_constructor": "0x14191f5b0",
+      "phase_parameter_get_dti": "0x140f0c750",
+      "phase_parameter_zeroing": "0x141921cb0"
+    },
+    "explicit_leaf_ranges": [
+      {
+        "begin": "0x142400150",
+        "end": "0x1424001ac",
+        "next_unwind_entry": "0x1424001b0",
+        "evidence": "Call target in binding function; observed terminal rets at 0x1424001a7 and 0x1424001ab, then int3 padding before next pdata entry. Fixed-version explicit range, not 256-byte fallback; pending next-stage boundary review."
+      },
+      {
+        "begin": "0x140f0c750",
+        "end": "0x140f0c758",
+        "evidence": "Vtable 0x1431c93d0 slot 4 target; lea rax to local DTI 0x145000fc0, then ret at 0x140f0c757 and int3 padding. Fixed-version leaf range; pending boundary review."
+      },
+      {
+        "begin": "0x141921cb0",
+        "end": "0x141921e7a",
+        "next_unwind_entry": "0x141921e80",
+        "evidence": "Vtable 0x1431c93d0 slot 5 target; observed straight-line zero/store sequence, ret at 0x141921e79, then padding before next pdata entry. Fixed-version explicit leaf range; pending review. Invocation timing not established."
+      }
+    ]
+  },
+  "status": "native_static_evidence_not_runtime_verified",
+  "bindings": [
+    {
+      "node": 23,
+      "native_action": [
+        3,
+        71
+      ],
+      "native_type": "nHmAction::Wp03::cKijinStab",
+      "weapon_record": "0x143fd5920",
+      "factory_table": "0x142ef5c30",
+      "row_stride": 32,
+      "row": "0x142ef6510",
+      "dti": "0x144fefb48",
+      "dti_registration": "from_weapon_action_factory_table",
+      "factory": "0x1417faa10",
+      "instance_vtable": "0x143384780",
+      "entry_slot": 6,
+      "entry": "0x1417fe9e0",
+      "main_store": "0x1417fe9f1",
+      "main_motion": 112,
+      "generic_enter": "0x1417845e0",
+      "connector": 118,
+      "mbd": [
+        {
+          "offset": 6156,
+          "fields_offset": 6167,
+          "animation_id": 118,
+          "declaration": "w03_00",
+          "unknown4": 0.0,
+          "start_frame": 14,
+          "interpolation_point": 10,
+          "overlap_blending": 10,
+          "unknown8": 1.0,
+          "one0": 0,
+          "min1": -1
+        }
+      ],
+      "main_binding_status": "native_terminal_main_confirmed_static_not_tested",
+      "evidence_function": "action_71_slot_6",
+      "evidence": "Saved/MHWIRestoration/B09-20261025/completion-native-functions.json"
+    },
+    {
+      "node": 38,
+      "native_action": [
+        3,
+        72
+      ],
+      "entry": "0x1417feae0",
+      "main_store": "0x1417feaf1",
+      "main_motion": 107
+    },
+    {
+      "node": 3,
+      "native_action": [
+        3,
+        80
+      ],
+      "entry": "0x1417fee10",
+      "explicit_connector_store": "0x1417fee20",
+      "explicit_connector": 119,
+      "main_update": "0x141800200",
+      "main_store": "0x141800249",
+      "main_motion": 107,
+      "main_binding_status": "native_terminal_main_confirmed_static_not_tested",
+      "evidence_function": "action_80_slot_7",
+      "evidence": "Saved/MHWIRestoration/B09-20261025/completion-native-functions.json"
+    },
+    {
+      "node": 1,
+      "native_action": [
+        3,
+        11
+      ],
+      "main_motion": 104,
+      "main_store": "0x1417ffea1",
+      "main_binding_status": "native_terminal_main_confirmed_static_not_tested",
+      "evidence_function": "action_11_slot_7",
+      "evidence": "Saved/MHWIRestoration/B09-20261025/completion-native-functions.json",
+      "custom_entry_boundary": "Additional source/state-dependent entry branches are not implemented by terminal main proof."
+    },
+    {
+      "node": 12,
+      "native_action": [
+        3,
+        67
+      ],
+      "main_motion": 106,
+      "main_store": "0x1417fe8b1",
+      "main_binding_status": "native_terminal_main_confirmed_static_not_tested",
+      "evidence_function": "action_67_slot_6",
+      "evidence": "Saved/MHWIRestoration/B09-20261025/completion-native-functions.json"
+    },
+    {
+      "node": 2,
+      "native_action": [
+        3,
+        68
+      ],
+      "main_motion": 108,
+      "main_store": "0x1417fe911",
+      "main_binding_status": "native_terminal_main_confirmed_static_not_tested",
+      "evidence_function": "action_68_slot_6",
+      "evidence": "Saved/MHWIRestoration/B09-20261025/completion-native-functions.json"
+    },
+    {
+      "node": 4,
+      "native_action": [
+        3,
+        79
+      ],
+      "main_motion": 105,
+      "main_store": "0x1417fb781",
+      "main_binding_status": "native_terminal_main_confirmed_static_not_tested",
+      "evidence_function": "action_79_factory",
+      "evidence": "Saved/MHWIRestoration/B09-20261025/completion-native-functions.json"
+    },
+    {
+      "node": 10,
+      "native_action": [
+        3,
+        81
+      ],
+      "main_motion": 102,
+      "main_store": "0x1417f5cb1",
+      "main_binding_status": "native_terminal_main_confirmed_static_not_tested",
+      "evidence_function": "action_81_factory",
+      "evidence": "Saved/MHWIRestoration/B09-20261025/completion-native-functions.json"
+    },
+    {
+      "node": 8,
+      "native_action": [
+        3,
+        82
+      ],
+      "main_motion": 128,
+      "main_store": "0x1417fbb11",
+      "main_binding_status": "native_terminal_main_confirmed_static_not_tested",
+      "evidence_function": "action_82_factory",
+      "evidence": "Saved/MHWIRestoration/B09-20261025/completion-native-functions.json"
+    },
+    {
+      "node": 9,
+      "native_action": [
+        3,
+        83
+      ],
+      "main_motion": 127,
+      "main_store": "0x1417fb9e1",
+      "main_binding_status": "native_terminal_main_confirmed_static_not_tested",
+      "evidence_function": "action_83_factory",
+      "evidence": "Saved/MHWIRestoration/B09-20261025/completion-native-functions.json"
+    },
+    {
+      "node": 7,
+      "native_action": [
+        3,
+        84
+      ],
+      "main_motion": 103,
+      "main_store": "0x1417f5b81",
+      "main_binding_status": "native_terminal_main_confirmed_static_not_tested",
+      "evidence_function": "action_84_factory",
+      "evidence": "Saved/MHWIRestoration/B09-20261025/completion-native-functions.json"
+    },
+    {
+      "node": 11,
+      "native_action": [
+        3,
+        85
+      ],
+      "main_motion": 101,
+      "main_store": "0x1417fed2a",
+      "main_binding_status": "native_terminal_main_confirmed_static_not_tested",
+      "evidence_function": "action_85_slot_6",
+      "evidence": "Saved/MHWIRestoration/B09-20261025/completion-native-functions.json",
+      "custom_entry_boundary": "Additional source/state-dependent entry branches are not implemented by terminal main proof."
+    },
+    {
+      "node": 45,
+      "native_action": [
+        3,
+        87
+      ],
+      "main_motion": 170,
+      "main_store": "0x1417f6071",
+      "main_binding_status": "native_terminal_main_confirmed_static_not_tested",
+      "evidence_function": "action_87_factory",
+      "evidence": "Saved/MHWIRestoration/B09-20261025/completion-native-functions.json"
+    }
+  ],
+  "shared_curve_aliases": [
+    {
+      "motion": 112,
+      "owner": 105,
+      "source_header": {
+        "id": 112,
+        "fcurve_offset": 643828,
+        "fcurve_count": 82,
+        "frame_count": 131,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          0.593592643737793,
+          0.0,
+          38.04164505004883,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "flags": 1,
+        "null2": "0000",
+        "flags2": 1,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 852880
+      },
+      "owner_header": {
+        "id": 105,
+        "fcurve_offset": 643828,
+        "fcurve_count": 82,
+        "frame_count": 131,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          0.593592643737793,
+          0.0,
+          38.04164505004883,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "flags": 1,
+        "null2": "0000",
+        "flags2": 0,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 667248
+      },
+      "basis": "same nonzero curve-table address/count and identical pose header; independent TIML"
+    },
+    {
+      "motion": 149,
+      "owner": 101,
+      "source_header": {
+        "id": 149,
+        "fcurve_offset": 522276,
+        "fcurve_count": 82,
+        "frame_count": 151,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          -1.7285377979278564,
+          0.0,
+          246.02256774902344,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "flags": 1,
+        "null2": "0000",
+        "flags2": 1,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 1187264
+      },
+      "owner_header": {
+        "id": 101,
+        "fcurve_offset": 522276,
+        "fcurve_count": 82,
+        "frame_count": 151,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          -1.7285377979278564,
+          0.0,
+          246.02256774902344,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "flags": 1,
+        "null2": "0000",
+        "flags2": 0,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 550544
+      },
+      "basis": "same nonzero curve-table address/count and identical pose header; independent TIML"
+    },
+    {
+      "motion": 158,
+      "owner": 101,
+      "source_header": {
+        "id": 158,
+        "fcurve_offset": 522276,
+        "fcurve_count": 82,
+        "frame_count": 151,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          -1.7285377979278564,
+          0.0,
+          246.02256774902344,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "flags": 1,
+        "null2": "0000",
+        "flags2": 1,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 1380160
+      },
+      "owner_header": {
+        "id": 101,
+        "fcurve_offset": 522276,
+        "fcurve_count": 82,
+        "frame_count": 151,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          -1.7285377979278564,
+          0.0,
+          246.02256774902344,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "flags": 1,
+        "null2": "0000",
+        "flags2": 0,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 550544
+      },
+      "basis": "same nonzero curve-table address/count and identical pose header; independent TIML"
+    },
+    {
+      "motion": 162,
+      "owner": 154,
+      "source_header": {
+        "id": 162,
+        "fcurve_offset": 1273956,
+        "fcurve_count": 82,
+        "frame_count": 91,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          -3.118704080581665,
+          0.0,
+          39.26520538330078,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "flags": 1,
+        "null2": "0000",
+        "flags2": 1,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 1450624
+      },
+      "owner_header": {
+        "id": 154,
+        "fcurve_offset": 1273956,
+        "fcurve_count": 82,
+        "frame_count": 91,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          -3.118704080581665,
+          0.0,
+          39.26520538330078,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "flags": 1,
+        "null2": "0000",
+        "flags2": 0,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 1291616
+      },
+      "basis": "same nonzero curve-table address/count and identical pose header; independent TIML"
+    },
+    {
+      "motion": 309,
+      "owner": 308,
+      "source_header": {
+        "id": 309,
+        "fcurve_offset": 2221412,
+        "fcurve_count": 82,
+        "frame_count": 177,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          0.22502343356609344,
+          0.0,
+          787.6980590820312,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          -1.0,
+          0.0,
+          6.123234262925839e-17
+        ],
+        "flags": 0,
+        "null2": "0000",
+        "flags2": 1,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 2264944
+      },
+      "owner_header": {
+        "id": 308,
+        "fcurve_offset": 2221412,
+        "fcurve_count": 82,
+        "frame_count": 177,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          0.22502343356609344,
+          0.0,
+          787.6980590820312,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          -1.0,
+          0.0,
+          6.123234262925839e-17
+        ],
+        "flags": 0,
+        "null2": "0000",
+        "flags2": 0,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 2260288
+      },
+      "basis": "same nonzero curve-table address/count and identical pose header; independent TIML"
+    },
+    {
+      "motion": 310,
+      "owner": 308,
+      "source_header": {
+        "id": 310,
+        "fcurve_offset": 2221412,
+        "fcurve_count": 82,
+        "frame_count": 177,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          0.22502343356609344,
+          0.0,
+          787.6980590820312,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          -1.0,
+          0.0,
+          6.123234262925839e-17
+        ],
+        "flags": 0,
+        "null2": "0000",
+        "flags2": 1,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 2269616
+      },
+      "owner_header": {
+        "id": 308,
+        "fcurve_offset": 2221412,
+        "fcurve_count": 82,
+        "frame_count": 177,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          0.22502343356609344,
+          0.0,
+          787.6980590820312,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          -1.0,
+          0.0,
+          6.123234262925839e-17
+        ],
+        "flags": 0,
+        "null2": "0000",
+        "flags2": 0,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 2260288
+      },
+      "basis": "same nonzero curve-table address/count and identical pose header; independent TIML"
+    },
+    {
+      "motion": 311,
+      "owner": 308,
+      "source_header": {
+        "id": 311,
+        "fcurve_offset": 2221412,
+        "fcurve_count": 82,
+        "frame_count": 177,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          0.22502343356609344,
+          0.0,
+          787.6980590820312,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          -1.0,
+          0.0,
+          6.123234262925839e-17
+        ],
+        "flags": 0,
+        "null2": "0000",
+        "flags2": 1,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 2274288
+      },
+      "owner_header": {
+        "id": 308,
+        "fcurve_offset": 2221412,
+        "fcurve_count": 82,
+        "frame_count": 177,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          0.22502343356609344,
+          0.0,
+          787.6980590820312,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          -1.0,
+          0.0,
+          6.123234262925839e-17
+        ],
+        "flags": 0,
+        "null2": "0000",
+        "flags2": 0,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 2260288
+      },
+      "basis": "same nonzero curve-table address/count and identical pose header; independent TIML"
+    },
+    {
+      "motion": 344,
+      "owner": 332,
+      "source_header": {
+        "id": 344,
+        "fcurve_offset": 2432964,
+        "fcurve_count": 82,
+        "frame_count": 134,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          12.207793235778809,
+          0.0,
+          -14.792990684509277,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "flags": 0,
+        "null2": "0000",
+        "flags2": 1,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 2827600
+      },
+      "owner_header": {
+        "id": 332,
+        "fcurve_offset": 2432964,
+        "fcurve_count": 82,
+        "frame_count": 134,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          12.207793235778809,
+          0.0,
+          -14.792990684509277,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "flags": 0,
+        "null2": "0000",
+        "flags2": 0,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 2467184
+      },
+      "basis": "same nonzero curve-table address/count and identical pose header; independent TIML"
+    },
+    {
+      "motion": 345,
+      "owner": 333,
+      "source_header": {
+        "id": 345,
+        "fcurve_offset": 2469652,
+        "fcurve_count": 82,
+        "frame_count": 134,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          0.7984728217124939,
+          0.0,
+          -7.712744235992432,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "flags": 0,
+        "null2": "0000",
+        "flags2": 1,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 2830080
+      },
+      "owner_header": {
+        "id": 333,
+        "fcurve_offset": 2469652,
+        "fcurve_count": 82,
+        "frame_count": 134,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          0.7984728217124939,
+          0.0,
+          -7.712744235992432,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "flags": 0,
+        "null2": "0000",
+        "flags2": 0,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 2504816
+      },
+      "basis": "same nonzero curve-table address/count and identical pose header; independent TIML"
+    },
+    {
+      "motion": 346,
+      "owner": 334,
+      "source_header": {
+        "id": 346,
+        "fcurve_offset": 2507268,
+        "fcurve_count": 82,
+        "frame_count": 134,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          8.156488418579102,
+          0.0,
+          -10.517478942871094,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "flags": 0,
+        "null2": "0000",
+        "flags2": 1,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 2832544
+      },
+      "owner_header": {
+        "id": 334,
+        "fcurve_offset": 2507268,
+        "fcurve_count": 82,
+        "frame_count": 134,
+        "loop_frame": -1,
+        "null0": [
+          0,
+          0,
+          0
+        ],
+        "translation": [
+          8.156488418579102,
+          0.0,
+          -10.517478942871094,
+          0.0
+        ],
+        "rotation_lerp": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "flags": 0,
+        "null2": "0000",
+        "flags2": 0,
+        "null3": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "timl_offset": 2540176
+      },
+      "basis": "same nonzero curve-table address/count and identical pose header; independent TIML"
+    }
+  ],
+  "facts": [
+    {
+      "id": "MBD_ROW_ZERO",
+      "va": "0x141c00ab9",
+      "finding": "No source-specific row: read serialized row zero. Preserve its values; no fabricated default."
+    },
+    {
+      "id": "PHASE_STEP",
+      "va": "0x1424a85b8",
+      "finding": "Transition 1 branches to current-key copy 1424a8770; next-key selection uses >= frame."
+    },
+    {
+      "id": "FORWARD_END",
+      "va": "0x14224e340",
+      "finding": "Truncate current and next source frame with epsilon 0.0005; flag1 predicts boundary, flag4 marks reached boundary. Forward one-shot scope."
+    },
+    {
+      "id": "UPPER_CUSTOM",
+      "va": "0x1417fee10",
+      "finding": "Upper action does not call generic LinkMotion entry: explicitly plays 119 then waits and submits 107."
+    },
+    {
+      "id": "SOURCE_34",
+      "finding": "Native weapon action34 is cActCreepSingleMotion; project Draw(002) must not be bound to source node43."
+    },
+    {
+      "id": "SOURCE_1002_1003",
+      "finding": "These expand native StepS/M/L and WpOnStep actions; do not label them climbing or bind project sheathed Roll to node27."
+    }
+  ],
+  "unresolved": [
+    "native overlap/curve equivalence in UE blending",
+    "unimplemented predecessor gameplay contexts remain separately tracked",
+    "non-LinkMotion custom entry branches beyond the implemented cUpper case"
+  ],
+  "b09_sources": {
+    "schema": 1,
+    "exe": {
+      "path": "F:/PCprogram/Steam/steamapps/common/Monster Hunter World/MonsterHunterWorld.exe",
+      "sha256": "c2ebbbd2c49f216d484e31a5219bed419eb1e5e7d206d02cba040a3ab79d90ea"
+    },
+    "text": {
+      "path": "Saved/MHWIRestoration/B05-20261024/analysis-text.bin",
+      "sha256": "9b48a8490df702ba9dc1cb95ffd387358ae2a639aa9675ad90719bd997124ebe",
+      "boundary": "local non-executable analysis bytes; no install modification or original game execution"
+    },
+    "scope": "Local non-executable analysis section only. Hash-qualified read; never execute native bytes or alter original image.",
+    "addresses": {
+      "vm_tick": "0x1423fe8d0",
+      "condition_evaluator": "0x1423fc990",
+      "callback_binding": "0x142458dd0",
+      "name_lookup": "0x142400150",
+      "callback_dispatch": "0x1423ffaf0",
+      "node_exit": "0x1423fe680",
+      "context_setup": "0x1423fd1a0",
+      "drive_reset": "0x1423fec80",
+      "phase_type_registration": "0x1401e15c0",
+      "phase_property_registration": "0x14191f7d0",
+      "phase_parameter_constructor": "0x14191f5b0",
+      "phase_parameter_get_dti": "0x140f0c750",
+      "phase_parameter_zeroing": "0x141921cb0"
+    },
+    "explicit_leaf_ranges": [
+      {
+        "begin": "0x142400150",
+        "end": "0x1424001ac",
+        "next_unwind_entry": "0x1424001b0",
+        "evidence": "Call target in binding function; observed terminal rets at 0x1424001a7 and 0x1424001ab, then int3 padding before next pdata entry. Fixed-version explicit range, not 256-byte fallback; pending next-stage boundary review."
+      },
+      {
+        "begin": "0x140f0c750",
+        "end": "0x140f0c758",
+        "evidence": "Vtable 0x1431c93d0 slot 4 target; lea rax to local DTI 0x145000fc0, then ret at 0x140f0c757 and int3 padding. Fixed-version leaf range; pending boundary review."
+      },
+      {
+        "begin": "0x141921cb0",
+        "end": "0x141921e7a",
+        "next_unwind_entry": "0x141921e80",
+        "evidence": "Vtable 0x1431c93d0 slot 5 target; observed straight-line zero/store sequence, ret at 0x141921e79, then padding before next pdata entry. Fixed-version explicit leaf range; pending review. Invocation timing not established."
+      }
+    ]
+  },
+  "b09_evidence": "Scripts/MHWI/extract_r06_completion.py"
+}

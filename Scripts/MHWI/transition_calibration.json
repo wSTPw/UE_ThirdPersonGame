@@ -1,0 +1,4157 @@
+{
+  "schema": 1,
+  "revision": "2026-10-24-route-phase-1-B02-source-branches",
+  "frame_rate": 60.0,
+  "original_game_exact_frames": false,
+  "status": "project_tuning_ready_for_UE_authoring_and_runtime_validation",
+  "units": "source montage frames at 60 FPS, before PlayRate and source speed curves",
+  "window_semantics": "Project closed intervals; [9999s,9999s] is an unreachable explicit-disabled route, suppressing generic fallback. No original BIG_FLAGS meanings are claimed.",
+  "entry_frames": "Unchanged; no guessed connector/main entry trim or connector clip insertion.",
+  "source_files": [
+    {
+      "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+      "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+    },
+    {
+      "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/wp03_action.fsm",
+      "sha256": "b817b1cd16a6f653ad2c60f88b30967f56185a7c4b3a3d5927b3f9334e633b18"
+    }
+  ],
+  "public_references": [
+    {
+      "id": "P1",
+      "url": "https://www.youtube.com/watch?v=q92OLi711IA",
+      "author": "Peppo",
+      "use": "Special Sheathe/Iai qualitative action structure and provenance of public General Data/Attack Tables. Cached description read; exact video frames not measured."
+    },
+    {
+      "id": "P2",
+      "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vQ5HFkHnEP74gD-SCVta9syb9GaF1_nSmMFgV4hxvZt9iu4HmfhGlP2KbnIbC-cAx5kkvsd8L7oB0Uy/pubhtml/sheet?headers=false&gid=82408715",
+      "author": "Deathcream and MoonBunnie",
+      "use": "Separates public counter/iframe/resource facts from unresolved per-route cancel timings; does not supply these window numbers."
+    }
+  ],
+  "policy": [
+    "Preserve existing timing values/prerequisites; route targets and resource branches incorporate source-qualified B01/B02 fixes.",
+    "Retain every attack damage interval before the standard attack continuation window.",
+    "Use literal source input phase boundaries as rhythm anchors, not as decoded per-button permission bits.",
+    "Separate attack, evade, foresight, special sheathe and fade windows; early buffered requests still expire on the actor clock.",
+    "Restore HelmLand ground follow-ups only after real landing; Rise/Air/Strike are excluded.",
+    "Do not alter Montage segments, clips, speed curves, hit/counter windows or resource rules."
+  ],
+  "moves": {
+    "StepSlash": {
+      "source_clip": "w03_00_101",
+      "source_node_id": 11,
+      "expected_montage_frames": 150.0,
+      "source_collision_frames": [
+        [
+          55.0,
+          66.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              1073824000
+            ],
+            [
+              70.0,
+              3221472000
+            ],
+            [
+              130.0,
+              768
+            ],
+            [
+              135.0,
+              769
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              67112960
+            ],
+            [
+              70.0,
+              201338880
+            ],
+            [
+              130.0,
+              0
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              4194640
+            ],
+            [
+              70.0,
+              12583920
+            ],
+            [
+              130.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 8,
+          "condition_id": 12
+        },
+        {
+          "to": 9,
+          "condition_id": 10
+        },
+        {
+          "to": 29,
+          "condition_id": 11
+        },
+        {
+          "to": 45,
+          "condition_id": 171
+        },
+        {
+          "to": 28,
+          "condition_id": 53
+        },
+        {
+          "to": 1,
+          "condition_id": 18
+        },
+        {
+          "to": 4,
+          "condition_id": 154
+        },
+        {
+          "to": 10,
+          "condition_id": 1
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            70,
+            130
+          ]
+        },
+        {
+          "input": "THRUST",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            70,
+            130
+          ]
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            70,
+            130
+          ]
+        },
+        {
+          "input": "HELM_BREAKER",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            70,
+            130
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            68,
+            130
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            70,
+            130
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            70,
+            130
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            70,
+            130
+          ]
+        }
+      ]
+    },
+    "OverheadSlash": {
+      "source_clip": "w03_00_102",
+      "source_node_id": 10,
+      "expected_montage_frames": 160.0,
+      "source_collision_frames": [
+        [
+          51.0,
+          60.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              51.0,
+              1073824000
+            ],
+            [
+              65.0,
+              1073857280
+            ],
+            [
+              70.0,
+              3221472000
+            ],
+            [
+              130.0,
+              768
+            ],
+            [
+              141.0,
+              769
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              51.0,
+              67112960
+            ],
+            [
+              70.0,
+              201338880
+            ],
+            [
+              130.0,
+              0
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              51.0,
+              4194640
+            ],
+            [
+              65.0,
+              4195152
+            ],
+            [
+              70.0,
+              12583920
+            ],
+            [
+              130.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 8,
+          "condition_id": 9
+        },
+        {
+          "to": 9,
+          "condition_id": 7
+        },
+        {
+          "to": 7,
+          "condition_id": 8
+        },
+        {
+          "to": 28,
+          "condition_id": 145
+        },
+        {
+          "to": 45,
+          "condition_id": 170
+        },
+        {
+          "to": 1,
+          "condition_id": 17
+        },
+        {
+          "to": 4,
+          "condition_id": 3
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            65,
+            130
+          ]
+        },
+        {
+          "input": "THRUST",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            65,
+            130
+          ]
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            70,
+            130
+          ]
+        },
+        {
+          "input": "HELM_BREAKER",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            70,
+            130
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            62,
+            130
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            65,
+            130
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            70,
+            130
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            65,
+            130
+          ]
+        }
+      ]
+    },
+    "Thrust": {
+      "source_clip": "w03_00_105",
+      "source_node_id": 4,
+      "expected_montage_frames": 130.0,
+      "source_collision_frames": [
+        [
+          22.0,
+          33.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              18.0,
+              1073823744
+            ],
+            [
+              28.0,
+              1073824000
+            ],
+            [
+              38.0,
+              3221472000
+            ],
+            [
+              110.0,
+              3221472001
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              18.0,
+              67112960
+            ],
+            [
+              38.0,
+              201338880
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              18.0,
+              4194640
+            ],
+            [
+              38.0,
+              12583920
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 8,
+          "condition_id": 5
+        },
+        {
+          "to": 9,
+          "condition_id": 6
+        },
+        {
+          "to": 32,
+          "condition_id": 4
+        },
+        {
+          "to": 45,
+          "condition_id": 169
+        },
+        {
+          "to": 31,
+          "condition_id": 57
+        },
+        {
+          "to": 28,
+          "condition_id": 143
+        },
+        {
+          "to": 1,
+          "condition_id": 19
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            38,
+            128
+          ]
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            38,
+            128
+          ]
+        },
+        {
+          "input": "HELM_BREAKER",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            38,
+            128
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            35,
+            128
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            38,
+            128
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            38,
+            128
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            38,
+            128
+          ]
+        }
+      ]
+    },
+    "RisingSlash": {
+      "source_clip": "w03_00_107",
+      "source_node_id": 3,
+      "expected_montage_frames": 136.0,
+      "source_collision_frames": [
+        [
+          22.0,
+          29.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              22.0,
+              1073824000
+            ],
+            [
+              42.0,
+              3221472000
+            ],
+            [
+              100.0,
+              768
+            ],
+            [
+              124.0,
+              769
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              22.0,
+              67112960
+            ],
+            [
+              42.0,
+              201338880
+            ],
+            [
+              100.0,
+              0
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              22.0,
+              4194640
+            ],
+            [
+              42.0,
+              12583920
+            ],
+            [
+              100.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 8,
+          "condition_id": 14
+        },
+        {
+          "to": 9,
+          "condition_id": 15
+        },
+        {
+          "to": 42,
+          "condition_id": 13
+        },
+        {
+          "to": 28,
+          "condition_id": 144
+        },
+        {
+          "to": 45,
+          "condition_id": 168
+        },
+        {
+          "to": 39,
+          "condition_id": 37
+        },
+        {
+          "to": 4,
+          "condition_id": 155
+        },
+        {
+          "to": 1,
+          "condition_id": 16
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            42,
+            100
+          ]
+        },
+        {
+          "input": "THRUST",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            42,
+            100
+          ]
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            42,
+            100
+          ]
+        },
+        {
+          "input": "HELM_BREAKER",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            42,
+            100
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            31,
+            100
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            42,
+            100
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            42,
+            100
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            42,
+            100
+          ]
+        }
+      ]
+    },
+    "SpiritI": {
+      "source_clip": "w03_00_104",
+      "source_node_id": 1,
+      "expected_montage_frames": 142.0,
+      "source_collision_frames": [
+        [
+          47.0,
+          57.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              36.0,
+              1073823744
+            ],
+            [
+              46.0,
+              1073824000
+            ],
+            [
+              56.0,
+              3221472000
+            ],
+            [
+              110.0,
+              768
+            ],
+            [
+              121.0,
+              769
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              36.0,
+              67112960
+            ],
+            [
+              56.0,
+              201338880
+            ],
+            [
+              110.0,
+              0
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              36.0,
+              4194640
+            ],
+            [
+              56.0,
+              12583920
+            ],
+            [
+              110.0,
+              0
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag4",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              36.0,
+              268435456
+            ],
+            [
+              52.0,
+              805306368
+            ],
+            [
+              105.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 9,
+          "condition_id": 51
+        },
+        {
+          "to": 8,
+          "condition_id": 52
+        },
+        {
+          "to": 30,
+          "condition_id": 50
+        },
+        {
+          "to": 28,
+          "condition_id": 153
+        },
+        {
+          "to": 45,
+          "condition_id": 163
+        },
+        {
+          "to": 12,
+          "condition_id": 20
+        },
+        {
+          "to": 40,
+          "condition_id": 67
+        },
+        {
+          "to": 66,
+          "condition_id": 243
+        },
+        {
+          "to": 70,
+          "condition_id": 247
+        },
+        {
+          "to": 69,
+          "condition_id": 248
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            59,
+            110
+          ]
+        },
+        {
+          "input": "THRUST",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            59,
+            110
+          ]
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            59,
+            110
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            59,
+            110
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            59,
+            110
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            59,
+            110
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            59,
+            110
+          ]
+        }
+      ]
+    },
+    "SpiritII": {
+      "source_clip": "w03_00_106",
+      "source_node_id": 12,
+      "expected_montage_frames": 120.0,
+      "source_collision_frames": [
+        [
+          33.0,
+          41.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              24.0,
+              1073823744
+            ],
+            [
+              44.0,
+              3221471232
+            ],
+            [
+              45.0,
+              3221471488
+            ],
+            [
+              62.0,
+              3221472000
+            ],
+            [
+              110.0,
+              3221472001
+            ],
+            [
+              120.0,
+              1073857281
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              24.0,
+              67112960
+            ],
+            [
+              44.0,
+              201330688
+            ],
+            [
+              54.0,
+              201338880
+            ],
+            [
+              120.0,
+              67112960
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              24.0,
+              4194640
+            ],
+            [
+              44.0,
+              12583920
+            ],
+            [
+              120.0,
+              4194640
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag4",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              24.0,
+              268435456
+            ],
+            [
+              40.0,
+              805306368
+            ],
+            [
+              100.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 8,
+          "condition_id": 88
+        },
+        {
+          "to": 9,
+          "condition_id": 87
+        },
+        {
+          "to": 34,
+          "condition_id": 60
+        },
+        {
+          "to": 45,
+          "condition_id": 162
+        },
+        {
+          "to": 28,
+          "condition_id": 135
+        },
+        {
+          "to": 2,
+          "condition_id": 21
+        },
+        {
+          "to": 38,
+          "condition_id": 33
+        },
+        {
+          "to": 67,
+          "condition_id": 245
+        },
+        {
+          "to": 71,
+          "condition_id": 249
+        },
+        {
+          "to": 72,
+          "condition_id": 250
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            44,
+            118
+          ]
+        },
+        {
+          "input": "THRUST",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            44,
+            118
+          ]
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            44,
+            118
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            43,
+            118
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            44,
+            118
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            54,
+            118
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            62,
+            118
+          ]
+        }
+      ]
+    },
+    "SpiritIII": {
+      "source_clip": "w03_00_108",
+      "source_node_id": 2,
+      "expected_montage_frames": 200.0,
+      "source_collision_frames": [
+        [
+          15.0,
+          25.0
+        ],
+        [
+          32.0,
+          40.0
+        ],
+        [
+          87.0,
+          95.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              25.0,
+              16384
+            ],
+            [
+              50.0,
+              49152
+            ],
+            [
+              55.0,
+              0
+            ],
+            [
+              75.0,
+              16384
+            ],
+            [
+              90.0,
+              16640
+            ],
+            [
+              95.0,
+              49408
+            ],
+            [
+              110.0,
+              49920
+            ],
+            [
+              160.0,
+              768
+            ],
+            [
+              194.0,
+              769
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              90.0,
+              67112960
+            ],
+            [
+              110.0,
+              201338880
+            ],
+            [
+              160.0,
+              0
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              90.0,
+              4194640
+            ],
+            [
+              110.0,
+              12583920
+            ],
+            [
+              160.0,
+              0
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag4",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              75.0,
+              268435456
+            ],
+            [
+              95.0,
+              805306368
+            ],
+            [
+              160.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 8,
+          "condition_id": 121
+        },
+        {
+          "to": 45,
+          "condition_id": 109
+        },
+        {
+          "to": 28,
+          "condition_id": 97
+        },
+        {
+          "to": 9,
+          "condition_id": 120
+        },
+        {
+          "to": 7,
+          "condition_id": 122
+        },
+        {
+          "to": 5,
+          "condition_id": 22
+        },
+        {
+          "to": 68,
+          "condition_id": 263
+        },
+        {
+          "to": 73,
+          "condition_id": 264
+        },
+        {
+          "to": 74,
+          "condition_id": 265
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            110,
+            160
+          ]
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            110,
+            160
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            97,
+            160
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            97,
+            160
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            110,
+            160
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            110,
+            160
+          ]
+        }
+      ]
+    },
+    "SpiritStepSlash": {
+      "source_clip": "w03_00_110",
+      "source_node_id": 6,
+      "expected_montage_frames": 116.0,
+      "source_collision_frames": [
+        [
+          31.0,
+          44.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              38.0,
+              1073823744
+            ],
+            [
+              46.0,
+              1073824000
+            ],
+            [
+              58.0,
+              3221471488
+            ],
+            [
+              64.0,
+              3221472000
+            ],
+            [
+              109.0,
+              3221472001
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              38.0,
+              67112960
+            ],
+            [
+              58.0,
+              201338880
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              38.0,
+              4194640
+            ],
+            [
+              58.0,
+              12583920
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag4",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              38.0,
+              268435456
+            ],
+            [
+              58.0,
+              805306368
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 28,
+          "condition_id": 137
+        },
+        {
+          "to": 9,
+          "condition_id": 95
+        },
+        {
+          "to": 8,
+          "condition_id": 96
+        },
+        {
+          "to": 7,
+          "condition_id": 94
+        },
+        {
+          "to": 45,
+          "condition_id": 160
+        },
+        {
+          "to": 2,
+          "condition_id": 23
+        },
+        {
+          "to": 38,
+          "condition_id": 89
+        },
+        {
+          "to": 67,
+          "condition_id": 266
+        },
+        {
+          "to": 71,
+          "condition_id": 267
+        },
+        {
+          "to": 72,
+          "condition_id": 268
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            64,
+            114
+          ],
+          "target": "SpiritComboRisingSlash"
+        },
+        {
+          "input": "THRUST",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Same original A/B condition as Light; copy existing project window without claiming original timing.",
+          "frames": [
+            64,
+            114
+          ],
+          "target": "SpiritComboRisingSlash"
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            58,
+            114
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            46,
+            114
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            58,
+            114
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            64,
+            114
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            64,
+            114
+          ]
+        }
+      ]
+    },
+    "FadeSlash": {
+      "source_clip": "w03_00_103",
+      "source_node_id": 7,
+      "expected_montage_frames": 98.0,
+      "source_collision_frames": [
+        [
+          27.0,
+          41.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              56.0,
+              1073824000
+            ],
+            [
+              76.0,
+              3221472000
+            ],
+            [
+              85.0,
+              3221472001
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              56.0,
+              4096
+            ],
+            [
+              76.0,
+              12288
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              56.0,
+              4194560
+            ],
+            [
+              76.0,
+              12583680
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 28,
+          "condition_id": 147
+        },
+        {
+          "to": 45,
+          "condition_id": 165
+        },
+        {
+          "to": 4,
+          "condition_id": 28
+        },
+        {
+          "to": 6,
+          "condition_id": 25
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            56,
+            96
+          ],
+          "target": "Thrust"
+        },
+        {
+          "input": "THRUST",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            56,
+            96
+          ]
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            56,
+            96
+          ]
+        },
+        {
+          "input": "HELM_BREAKER",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            56,
+            96
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            56,
+            96
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            56,
+            96
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            76,
+            96
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            76,
+            96
+          ]
+        }
+      ]
+    },
+    "FadeSlashLeft": {
+      "source_clip": "w03_00_128",
+      "source_node_id": 9,
+      "expected_montage_frames": 88.0,
+      "source_collision_frames": [
+        [
+          27.0,
+          42.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              1073824000
+            ],
+            [
+              72.0,
+              3221472000
+            ],
+            [
+              80.0,
+              3221472001
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              4096
+            ],
+            [
+              72.0,
+              12288
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              4194560
+            ],
+            [
+              72.0,
+              12583680
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 28,
+          "condition_id": 148
+        },
+        {
+          "to": 45,
+          "condition_id": 164
+        },
+        {
+          "to": 6,
+          "condition_id": 24
+        },
+        {
+          "to": 4,
+          "condition_id": 29
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            50,
+            86
+          ],
+          "target": "Thrust"
+        },
+        {
+          "input": "THRUST",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            50,
+            86
+          ]
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            50,
+            86
+          ]
+        },
+        {
+          "input": "HELM_BREAKER",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            50,
+            86
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            50,
+            86
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            50,
+            86
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            72,
+            86
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            72,
+            86
+          ]
+        }
+      ]
+    },
+    "FadeSlashRight": {
+      "source_clip": "w03_00_127",
+      "source_node_id": 8,
+      "expected_montage_frames": 90.0,
+      "source_collision_frames": [
+        [
+          27.0,
+          43.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              1073824000
+            ],
+            [
+              72.0,
+              3221472000
+            ],
+            [
+              80.0,
+              3221472001
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              4096
+            ],
+            [
+              72.0,
+              12288
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              4194560
+            ],
+            [
+              72.0,
+              12583680
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 28,
+          "condition_id": 146
+        },
+        {
+          "to": 45,
+          "condition_id": 166
+        },
+        {
+          "to": 6,
+          "condition_id": 26
+        },
+        {
+          "to": 4,
+          "condition_id": 27
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            50,
+            88
+          ],
+          "target": "Thrust"
+        },
+        {
+          "input": "THRUST",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            50,
+            88
+          ]
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            50,
+            88
+          ]
+        },
+        {
+          "input": "HELM_BREAKER",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            50,
+            88
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            50,
+            88
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            50,
+            88
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            72,
+            88
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            72,
+            88
+          ]
+        }
+      ]
+    },
+    "ForesightSlash": {
+      "source_clip": "w03_00_140",
+      "source_node_id": 28,
+      "expected_montage_frames": 186.0,
+      "source_collision_frames": [
+        [
+          70.0,
+          80.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              25.0,
+              16384
+            ],
+            [
+              40.0,
+              49152
+            ],
+            [
+              47.0,
+              0
+            ],
+            [
+              70.0,
+              1073823744
+            ],
+            [
+              90.0,
+              3221471232
+            ],
+            [
+              110.0,
+              3221472000
+            ],
+            [
+              160.0,
+              769
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              70.0,
+              67112960
+            ],
+            [
+              90.0,
+              201338880
+            ],
+            [
+              160.0,
+              0
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              25.0,
+              256
+            ],
+            [
+              40.0,
+              768
+            ],
+            [
+              47.0,
+              0
+            ],
+            [
+              70.0,
+              336
+            ],
+            [
+              90.0,
+              1008
+            ],
+            [
+              160.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 8,
+          "condition_id": 91
+        },
+        {
+          "to": 9,
+          "condition_id": 92
+        },
+        {
+          "to": 7,
+          "condition_id": 93
+        },
+        {
+          "to": 45,
+          "condition_id": 108
+        },
+        {
+          "to": 5,
+          "condition_id": 48
+        },
+        {
+          "to": 11,
+          "condition_id": 107
+        },
+        {
+          "to": 4,
+          "condition_id": 90
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            90,
+            160
+          ],
+          "target": "StepSlash"
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            90,
+            160
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            90,
+            160
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            90,
+            160
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            110,
+            160
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            110,
+            160
+          ]
+        }
+      ]
+    },
+    "SpiritThrust": {
+      "source_clip": "w03_00_170",
+      "source_node_id": 45,
+      "expected_montage_frames": 244.0,
+      "source_collision_frames": [
+        [
+          84.0,
+          97.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              130.0,
+              256
+            ],
+            [
+              140.0,
+              768
+            ],
+            [
+              181.0,
+              769
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 55,
+          "condition_id": 158
+        },
+        {
+          "to": 28,
+          "condition_id": 198
+        },
+        {
+          "to": 9,
+          "condition_id": 200
+        },
+        {
+          "to": 8,
+          "condition_id": 201
+        },
+        {
+          "to": 7,
+          "condition_id": 202
+        }
+      ],
+      "rules": [
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            130,
+            181
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            130,
+            181
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            140,
+            181
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            140,
+            181
+          ]
+        }
+      ]
+    },
+    "IaiSlash": {
+      "source_clip": "w03_00_307",
+      "source_node_id": 64,
+      "expected_montage_frames": 137.0,
+      "source_collision_frames": [
+        [
+          13.0,
+          19.0
+        ],
+        [
+          33.0,
+          37.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              30.0,
+              1073807360
+            ],
+            [
+              40.0,
+              1073807616
+            ],
+            [
+              50.0,
+              3221422336
+            ],
+            [
+              60.0,
+              3221422848
+            ],
+            [
+              130.0,
+              768
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              30.0,
+              67112960
+            ],
+            [
+              50.0,
+              201338880
+            ],
+            [
+              130.0,
+              0
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              30.0,
+              4194640
+            ],
+            [
+              50.0,
+              12583920
+            ],
+            [
+              130.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 83,
+          "condition_id": 241
+        },
+        {
+          "to": 28,
+          "condition_id": 239
+        },
+        {
+          "to": 80,
+          "condition_id": 235
+        },
+        {
+          "to": 81,
+          "condition_id": 236
+        },
+        {
+          "to": 79,
+          "condition_id": 234
+        },
+        {
+          "to": 77,
+          "condition_id": 237
+        },
+        {
+          "to": 82,
+          "condition_id": 240
+        },
+        {
+          "to": 78,
+          "condition_id": 238
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            60,
+            130
+          ]
+        },
+        {
+          "input": "THRUST",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            60,
+            130
+          ]
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            50,
+            130
+          ]
+        },
+        {
+          "input": "HELM_BREAKER",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            50,
+            130
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            50,
+            130
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            50,
+            130
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            60,
+            130
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            60,
+            130
+          ]
+        }
+      ]
+    },
+    "DrawSlash": {
+      "source_clip": "w03_00_101",
+      "source_node_id": 11,
+      "expected_montage_frames": 150,
+      "source_collision_frames": [
+        [
+          55.0,
+          66.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              1073824000
+            ],
+            [
+              70.0,
+              3221472000
+            ],
+            [
+              130.0,
+              768
+            ],
+            [
+              135.0,
+              769
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              67112960
+            ],
+            [
+              70.0,
+              201338880
+            ],
+            [
+              130.0,
+              0
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              4194640
+            ],
+            [
+              70.0,
+              12583920
+            ],
+            [
+              130.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 8,
+          "condition_id": 12
+        },
+        {
+          "to": 9,
+          "condition_id": 10
+        },
+        {
+          "to": 29,
+          "condition_id": 11
+        },
+        {
+          "to": 45,
+          "condition_id": 171
+        },
+        {
+          "to": 28,
+          "condition_id": 53
+        },
+        {
+          "to": 1,
+          "condition_id": 18
+        },
+        {
+          "to": 4,
+          "condition_id": 154
+        },
+        {
+          "to": 10,
+          "condition_id": 1
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            70,
+            130
+          ]
+        },
+        {
+          "input": "THRUST",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            70,
+            130
+          ]
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            70,
+            130
+          ]
+        },
+        {
+          "input": "HELM_BREAKER",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            70,
+            130
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            68,
+            130
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            70,
+            130
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            70,
+            130
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            70,
+            130
+          ]
+        }
+      ],
+      "montage_name": "StepSlash"
+    },
+    "SpiritComboThrust": {
+      "source_clip": "w03_00_105",
+      "source_node_id": 23,
+      "expected_montage_frames": 130,
+      "source_collision_frames": [
+        [
+          22.0,
+          33.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              18.0,
+              1073823744
+            ],
+            [
+              28.0,
+              1073824000
+            ],
+            [
+              38.0,
+              3221472000
+            ],
+            [
+              110.0,
+              3221472001
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              18.0,
+              67112960
+            ],
+            [
+              38.0,
+              201338880
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              18.0,
+              4194640
+            ],
+            [
+              38.0,
+              12583920
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 9,
+          "condition_id": 80
+        },
+        {
+          "to": 32,
+          "condition_id": 79
+        },
+        {
+          "to": 45,
+          "condition_id": 167
+        },
+        {
+          "to": 28,
+          "condition_id": 138
+        },
+        {
+          "to": 8,
+          "condition_id": 81
+        },
+        {
+          "to": 33,
+          "condition_id": 36
+        },
+        {
+          "to": 3,
+          "condition_id": 86
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            38,
+            128
+          ]
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            38,
+            128
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            35,
+            128
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            38,
+            128
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            38,
+            128
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            38,
+            128
+          ]
+        }
+      ],
+      "montage_name": "Thrust"
+    },
+    "SpiritComboRisingSlash": {
+      "source_clip": "w03_00_107",
+      "source_node_id": 38,
+      "expected_montage_frames": 136,
+      "source_collision_frames": [
+        [
+          22.0,
+          29.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              22.0,
+              1073824000
+            ],
+            [
+              42.0,
+              3221472000
+            ],
+            [
+              100.0,
+              768
+            ],
+            [
+              124.0,
+              769
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              22.0,
+              67112960
+            ],
+            [
+              42.0,
+              201338880
+            ],
+            [
+              100.0,
+              0
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              22.0,
+              4194640
+            ],
+            [
+              42.0,
+              12583920
+            ],
+            [
+              100.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 28,
+          "condition_id": 136
+        },
+        {
+          "to": 8,
+          "condition_id": 83
+        },
+        {
+          "to": 9,
+          "condition_id": 82
+        },
+        {
+          "to": 35,
+          "condition_id": 72
+        },
+        {
+          "to": 36,
+          "condition_id": 65
+        },
+        {
+          "to": 45,
+          "condition_id": 161
+        },
+        {
+          "to": 1,
+          "condition_id": 71
+        },
+        {
+          "to": 4,
+          "condition_id": 156
+        },
+        {
+          "to": 37,
+          "condition_id": 70
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            42,
+            100
+          ]
+        },
+        {
+          "input": "THRUST",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            42,
+            100
+          ]
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Full damage portion retained; source input phase boundary constrains the project continuation rhythm.",
+          "frames": [
+            42,
+            100
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "ForesightSlash",
+          "frames": [
+            31,
+            100
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "SpecialSheathe",
+          "frames": [
+            42,
+            100
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "Roll",
+          "frames": [
+            42,
+            100
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
+          "target": "FadeSlash",
+          "frames": [
+            42,
+            100
+          ]
+        }
+      ],
+      "montage_name": "RisingSlash"
+    },
+    "SpiritRoundslash": {
+      "source_clip": "w03_00_109",
+      "source_node_id": 5,
+      "expected_montage_frames": 158.0,
+      "source_collision_frames": [
+        [
+          25.0,
+          39.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              30.0,
+              16384
+            ],
+            [
+              50.0,
+              49152
+            ],
+            [
+              64.0,
+              49152
+            ],
+            [
+              100.0,
+              0
+            ],
+            [
+              128.0,
+              769
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [],
+      "rules": [
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "TIML input mFlag boundaries30/50/100 bound post-hit recovery. Public Iceborne Special Sheathe route is retained; exact execution frame is project tuning.",
+          "target": "SpecialSheathe",
+          "frames": [
+            50,
+            100
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "TIML input mFlag boundaries30/50/100 bound post-hit recovery. Public Iceborne Special Sheathe route is retained; exact execution frame is project tuning.",
+          "target": "Roll",
+          "frames": [
+            50,
+            128
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "No direct route in source roundslash node; prohibit the previous unrestricted generic cancel. Special Sheathe and evade remain available.",
+          "target": "ForesightSlash",
+          "disabled": true
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "No direct route in source roundslash node; prohibit the previous unrestricted generic cancel. Special Sheathe and evade remain available.",
+          "target": "FadeSlash",
+          "disabled": true
+        }
+      ]
+    },
+    "IaiSpiritSlash": {
+      "source_clip": "w03_00_308",
+      "source_node_id": 65,
+      "expected_montage_frames": 176.0,
+      "source_collision_frames": [
+        [
+          17.0,
+          37.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              120.0,
+              256
+            ],
+            [
+              150.0,
+              768
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              40.0,
+              256
+            ],
+            [
+              70.0,
+              768
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 76,
+          "condition_id": 242
+        }
+      ],
+      "rules": [
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "mFlag2 activity40/70 and mFlag activity120/150 distinguish route categories;70 is a project continuation anchor, not decoded native permission. Existing SpiritIII shortcut retained as project input adaptation.",
+          "frames": [
+            70,
+            174
+          ]
+        },
+        {
+          "input": "HELM_BREAKER",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "mFlag2 activity40/70 and mFlag activity120/150 distinguish route categories;70 is a project continuation anchor, not decoded native permission. Existing SpiritIII shortcut retained as project input adaptation.",
+          "frames": [
+            70,
+            174
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Avoid the old universal39-frame cancel. Late source input phase is used as a conservative project recovery anchor; success-conditioned variants remain future work.",
+          "target": "SpecialSheathe",
+          "frames": [
+            120,
+            174
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Avoid the old universal39-frame cancel. Late source input phase is used as a conservative project recovery anchor; success-conditioned variants remain future work.",
+          "target": "Roll",
+          "frames": [
+            150,
+            174
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Source node65 only serializes the SpiritThrust connector; avoid unrestricted ground cancels inherited from a universal fallback. Existing spirit continuation is preserved separately.",
+          "target": "ForesightSlash",
+          "disabled": true
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Source node65 only serializes the SpiritThrust connector; avoid unrestricted ground cancels inherited from a universal fallback. Existing spirit continuation is preserved separately.",
+          "target": "FadeSlash",
+          "disabled": true
+        }
+      ]
+    },
+    "SpecialSheathe": {
+      "source_clip": "w03_00_306",
+      "source_node_id": 61,
+      "expected_montage_frames": 271.0,
+      "source_collision_frames": [],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionCommon",
+          "property": "mActionPhase",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              73.0,
+              1
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              65.0,
+              65536
+            ],
+            [
+              80.0,
+              196608
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              65.0,
+              4096
+            ],
+            [
+              80.0,
+              12288
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Source input track starts65, phase hold starts73. Project prepare/hold contract retained; no guessed80-frame event consumption or native input-bit decoding.",
+          "frames": [
+            65,
+            269
+          ]
+        },
+        {
+          "input": "SPIRIT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Source input track starts65, phase hold starts73. Project prepare/hold contract retained; no guessed80-frame event consumption or native input-bit decoding.",
+          "frames": [
+            65,
+            269
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Source input track starts65, phase hold starts73. Project prepare/hold contract retained; no guessed80-frame event consumption or native input-bit decoding.",
+          "frames": [
+            65,
+            269
+          ]
+        }
+      ]
+    },
+    "Roll": {
+      "source_clip": "w03_00_011",
+      "source_node_id": 51,
+      "expected_montage_frames": 80,
+      "source_collision_frames": [],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionCommon",
+          "property": "mActionPhase",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              35.0,
+              1
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              10.0,
+              65536
+            ],
+            [
+              19.0,
+              65536
+            ],
+            [
+              26.0,
+              1114112
+            ],
+            [
+              31.0,
+              1245185
+            ],
+            [
+              42.0,
+              3342337
+            ],
+            [
+              50.0,
+              3342605
+            ],
+            [
+              65.0,
+              3343117
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              11.0,
+              266240
+            ],
+            [
+              31.0,
+              798720
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              26.0,
+              256
+            ],
+            [
+              42.0,
+              768
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag6",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              8192
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 28,
+          "condition_id": 141
+        },
+        {
+          "to": 45,
+          "condition_id": 174
+        },
+        {
+          "to": 0,
+          "condition_id": 118
+        },
+        {
+          "to": 2,
+          "condition_id": 116
+        },
+        {
+          "to": 9,
+          "condition_id": 206
+        },
+        {
+          "to": 8,
+          "condition_id": 204
+        },
+        {
+          "to": 7,
+          "condition_id": 205
+        },
+        {
+          "to": 38,
+          "condition_id": 117
+        },
+        {
+          "to": 67,
+          "condition_id": 301
+        },
+        {
+          "to": 71,
+          "condition_id": 302
+        },
+        {
+          "to": 72,
+          "condition_id": 303
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Source action phase changes at35. Project drawn129->101 and sheathed DrawSlash routes keep their original prerequisites and order; earlier recovery is a project adaptation.",
+          "frames": [
+            35,
+            78
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Source input changes at42; project repeated evade starts after the recovery phase, independently of Light.",
+          "target": "Roll",
+          "frames": [
+            42,
+            78
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Roll is not an attack setup; direct generic attack-only cancels are suppressed. Light recovery route remains available.",
+          "target": "ForesightSlash",
+          "disabled": true
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Roll is not an attack setup; direct generic attack-only cancels are suppressed. Light recovery route remains available.",
+          "target": "SpecialSheathe",
+          "disabled": true
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Roll is not an attack setup; direct generic attack-only cancels are suppressed. Light recovery route remains available.",
+          "target": "FadeSlash",
+          "disabled": true
+        }
+      ]
+    },
+    "RollStepSlash": {
+      "source_clip": "w03_00_101",
+      "source_node_id": 11,
+      "expected_montage_frames": 131,
+      "source_collision_frames": [
+        [
+          36,
+          47
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              1073824000
+            ],
+            [
+              70.0,
+              3221472000
+            ],
+            [
+              130.0,
+              768
+            ],
+            [
+              135.0,
+              769
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag1",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              67112960
+            ],
+            [
+              70.0,
+              201338880
+            ],
+            [
+              130.0,
+              0
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              50.0,
+              4194640
+            ],
+            [
+              70.0,
+              12583920
+            ],
+            [
+              130.0,
+              0
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 8,
+          "condition_id": 12
+        },
+        {
+          "to": 9,
+          "condition_id": 10
+        },
+        {
+          "to": 29,
+          "condition_id": 11
+        },
+        {
+          "to": 45,
+          "condition_id": 171
+        },
+        {
+          "to": 28,
+          "condition_id": 53
+        },
+        {
+          "to": 1,
+          "condition_id": 18
+        },
+        {
+          "to": 4,
+          "condition_id": 154
+        },
+        {
+          "to": 10,
+          "condition_id": 1
+        }
+      ],
+      "rules": [
+        {
+          "input": "LIGHT",
+          "scope": "existing_route",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Retain the existing composite damage36..47 and cancel49 boundary. Do not reapply raw101 source frames directly to the composite.",
+          "frames": [
+            49,
+            129
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Retain the existing composite damage36..47 and cancel49 boundary. Do not reapply raw101 source frames directly to the composite.",
+          "target": "ForesightSlash",
+          "frames": [
+            49,
+            129
+          ]
+        },
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Retain the existing composite damage36..47 and cancel49 boundary. Do not reapply raw101 source frames directly to the composite.",
+          "target": "SpecialSheathe",
+          "frames": [
+            49,
+            129
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Retain the existing composite damage36..47 and cancel49 boundary. Do not reapply raw101 source frames directly to the composite.",
+          "target": "Roll",
+          "frames": [
+            49,
+            129
+          ]
+        },
+        {
+          "input": "FADE_SLASH",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Retain the existing composite damage36..47 and cancel49 boundary. Do not reapply raw101 source frames directly to the composite.",
+          "target": "FadeSlash",
+          "frames": [
+            49,
+            129
+          ]
+        }
+      ],
+      "composite": "Existing129 frames0..29 +101 frames48..150; all profile frames are composite-relative."
+    },
+    "HelmLand": {
+      "source_clip": "w03_00_174",
+      "source_node_id": 57,
+      "expected_montage_frames": 146.0,
+      "source_collision_frames": [
+        [
+          3.0,
+          15.0
+        ]
+      ],
+      "source_tracks": [
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              5.0,
+              16384
+            ],
+            [
+              15.0,
+              49152
+            ],
+            [
+              80.0,
+              49408
+            ],
+            [
+              91.0,
+              49920
+            ],
+            [
+              112.0,
+              49923
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag2",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              60.0,
+              4194304
+            ],
+            [
+              80.0,
+              12582912
+            ]
+          ]
+        },
+        {
+          "group": "nTimelineParam::PlMotionInput",
+          "property": "mFlag6",
+          "keys": [
+            [
+              0.0,
+              0
+            ],
+            [
+              112.0,
+              524288
+            ]
+          ]
+        }
+      ],
+      "source_outgoing_links": [
+        {
+          "to": 28,
+          "condition_id": 199
+        }
+      ],
+      "rules": [
+        {
+          "input": "SPECIAL_SHEATHE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Real landing only. Source174 input boundaries5/15/80/91/112 and hit3..15 constrain a project recovery link; source node57->28 supports Foresight, while Special Sheathe is a public Iceborne follow-up. No native cancel-frame claim.",
+          "target": "SpecialSheathe",
+          "frames": [
+            17,
+            80
+          ]
+        },
+        {
+          "input": "EVADE",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Real landing only. Source174 input boundaries5/15/80/91/112 and hit3..15 constrain a project recovery link; source node57->28 supports Foresight, while Special Sheathe is a public Iceborne follow-up. No native cancel-frame claim.",
+          "target": "Roll",
+          "frames": [
+            91,
+            144
+          ]
+        },
+        {
+          "input": "FORESIGHT",
+          "scope": "generic_cancel",
+          "confidence": "project_tuning_source_phase_anchor",
+          "rationale": "Real landing only. Source174 input boundaries5/15/80/91/112 and hit3..15 constrain a project recovery link; source node57->28 supports Foresight, while Special Sheathe is a public Iceborne follow-up. No native cancel-frame claim.",
+          "target": "ForesightSlash",
+          "frames": [
+            91,
+            112
+          ]
+        }
+      ]
+    }
+  }
+}

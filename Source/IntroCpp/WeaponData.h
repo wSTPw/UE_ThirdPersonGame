@@ -41,6 +41,10 @@ class INTROCPP_API UWeaponData : public UItemDataBase
 	GENERATED_BODY()
 
 public:
+
+	/** Optional action tuning; legacy fields remain the configuration adapter. */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat|Action")
+	TObjectPtr<class UCharacterActionDefinition> ActionDefinition;
 	/* 内联构造函数（实现写在头文件），无需额外 .cpp */
 	UWeaponData();
 

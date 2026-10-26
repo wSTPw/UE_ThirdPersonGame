@@ -1,0 +1,35 @@
+{
+  "commit": "b6ff379b13079a4abb99490590fb05dfe6851bbc",
+  "files": [
+    {
+      "path": "010 Templates/w03p.bt",
+      "sha256": "10a0059b5ba3e09c55144830c24679acc462e5611aac0334078f8f8bf840502a",
+      "url": "https://raw.githubusercontent.com/Synthlight/MHW-Editor/b6ff379b13079a4abb99490590fb05dfe6851bbc/010%20Templates/w03p.bt",
+      "bytes": 13463
+    },
+    {
+      "path": "Generated/MHW_Editor/Structs/Weapons/Wp03Param.cs",
+      "sha256": "ceeca60f46a085fc3590d05192f91b86ebb7a07843fe9881a7719f23b2d8f608",
+      "url": "https://raw.githubusercontent.com/Synthlight/MHW-Editor/b6ff379b13079a4abb99490590fb05dfe6851bbc/Generated/MHW_Editor/Structs/Weapons/Wp03Param.cs",
+      "bytes": 239426
+    },
+    {
+      "path": "MHW-Generator/Weapons/Wp03Param.cs",
+      "sha256": "7de7798290babb35318090f82489361127955bea3cc78a9886890f51a737aa38",
+      "url": "https://raw.githubusercontent.com/Synthlight/MHW-Editor/b6ff379b13079a4abb99490590fb05dfe6851bbc/MHW-Generator/Weapons/Wp03Param.cs",
+      "bytes": 8451
+    },
+    {
+      "path": "MHW-Template/EncryptionKeys.cs",
+      "sha256": "236e813eeb499a3081a8d1eff698f48cbce2367d412cd3caf707a3a52a7d8eb8",
+      "url": "https://raw.githubusercontent.com/Synthlight/MHW-Editor/b6ff379b13079a4abb99490590fb05dfe6851bbc/MHW-Template/EncryptionKeys.cs",
+      "bytes": 3100
+    },
+    {
+      "path": "Util/EncryptionHelper.cs",
+      "sha256": "ef547e11c5c59467185fb022a1bf2e91404221c6cfe77ddf171ff291ea4647be",
+      "url": "https://raw.githubusercontent.com/Synthlight/MHW-Editor/b6ff379b13079a4abb99490590fb05dfe6851bbc/Util/EncryptionHelper.cs",
+      "bytes": 2701
+    }
+  ]
+}

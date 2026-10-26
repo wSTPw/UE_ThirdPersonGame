@@ -1,0 +1,10 @@
+
+[mcp_servers.ue-mcp]
+command = "C:/nvm4w/nodejs/node.exe"
+args = ["E:/Unreal Projects/IntorCpp/Tools/ue-mcp/node_modules/ue-mcp/dist/index.js", "E:/Unreal Projects/IntorCpp/IntroCpp.uproject"]
+cwd = "E:/Unreal Projects/IntorCpp"
+startup_timeout_sec = 60
+tool_timeout_sec = 120
+
+[mcp_servers.ue-mcp.env]
+UE_MCP_SERVER_MODE = "in-process"

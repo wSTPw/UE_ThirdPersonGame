@@ -1,0 +1,146 @@
+# MHWI 太刀训练模组
+
+## 当前验收（2026-10-26）
+
+[静态验收报告](../Reference/MHWI-Acceptance-20261026.md)：R06因B12受击锁阻断恢复入口降为部分完成；另发现组合键重发、开启预设影响键鼠、菜单阻断遗漏来源缓存。四项均未修复、未运行复现。历史开发/编译结论不覆盖这些回归；运行调试由用户操作。当前统计以总台账为准。
+
+## B12全台账处置（2026-10-26）
+
+[全量矩阵](../Reference/MHWI-Ledger-Disposition-20261026.md)、[本批记录](../Changes/CHG-20261026-002-mhwi-ledger-sweep.md)。本批逐项处理35项：R11停止把10秒“不衰减”字段加到颜色T；R15补登龙空中126首击（COL #28，源碰撞25–112）；R22新增结构化命中结果；R24新增受击S/M/L控制状态；R26禁止非登龙/翻滚地面动作在Falling启动；R27新增UI输入阻断；R31新增表现hit lag与命中事件；R01/R05/R08新增原版手柄预设（默认关）、同帧手势解析与居合适配路线标记；R33新增51项静态基准。代码增量编译通过，**未运行PIE**；正式DA仅改`SpiritHelmBreaker`一窗与`IaiSpiritSlash`两条适配位。下方B10/B08及更早段落保留其当时含义。
+
+## R06当前交付（2026-10-25，B10）
+
+[B10现状](../Reference/MHWI-R06-Remaining-Development.md)：R06剩余三项开发全部完成，未编译/测试。实际受击Step、弹刀Creep、KijinComboShot/Slinger拥有者已通过原生身份和真实Montage实例接入；SpiritI/StepSlash专用入口全分支、有序请求、MotionTree/request混合门控、线性姿态插值及独立Actor时钟已实现。新增32段动画，CDO硬引用并在BeginPlay建立角色独立运行定义，未保存正式DA/地图/蓝图。node86保持无入边/0记录。开发结果见[本批记录](../Changes/CHG-20261025-005-mhwi-r06-remaining.md)与[32行台账](../Plans/MHWI-Connector-Progress.md)；下方B08/B07及历史验证保留其当时含义。
+
+## B08当前连接播放实现
+
+角色已消费R06连接核心，使用源帧Phase、原生前向结束flags、原MBD默认行与主段入帧。Action71主段已纠正为112并保存正式资产；RollStepSlash改引完整101，129由连接控制器调度；311独立TIML不会被共享308骨轨吞掉。上挑固定119→107按原自定义入口实现。未编译/测试。Step/Creep/KijinComboShot等前置玩法未接入，混合权重仍有缺口，完整R06未关闭；详见[B08现状](../Reference/MHWI-R06-Character-Playback.md)和[逐连接台账](../Plans/MHWI-Connector-Progress.md)。以下既有批次段落保留其历史范围，当前状态以B08为准。
+
+更新：2026-10-25。源素材、现有 Ninja 角色和此独立训练模组是三个不同层次。资源获取历史见 [素材记录](../Changes/CHG-20261022-001-mhw-longsword-source-assets.md)，实施范围见 [方案](../Plans/PLAN-20261022-001-mhwi-longsword-module.md)。
+
+同日[批判性审查](../Reference/MHWI-Restoration-Review.md)记录了修复前349资产文件、32定义/149路由/29个Montage的快照。用户已授权按[逐项开发台账](../Plans/MHWI-Restoration-Progress.md)推进完整原版还原。B01现已保存原生基础数值与五处既有路线修正，当前32定义/148路由/29个Montage；详见[本批记录](../Changes/CHG-20261024-007-mhwi-native-basics.md)。完整四色居合追加命中、命中空间、Q衰减及精确取消等仍未完成，不能将B01或历史PIE通过等同于完整还原。
+
+最新B02已修复气刃踏步18/28弱强消费、A/B接气刃插入上挑、插入上挑R的III/I原序分支，并删除插入突刺的自定B出口；当前32定义/149路由/29个Montage，见[B02记录](../Changes/CHG-20261024-008-mhwi-spirit-branches.md)。B01的低槽拒绝属于当时适配，已被新证据纠正；所有窗口数值仍为既有项目调校。
+
+首阶段完成源采样修复和独立武器内部动画：36段合格平行动画导入、27处正式 Montage 段引用替换；六条武器 Sequence 按19个源事件运行。该阶段边界见 [采样/公开资料说明](../Reference/MHWI-Native-Fidelity-Implementation.md)、[CHG-20261024-002](../Changes/CHG-20261024-002-mhwi-native-fidelity-implementation.md)；后续最新状态如下。
+
+后续实施已扩展独立防御窗、逐输入取消窗和连续握柄/刀鞘交接；三条有色居合Montage依据共享骨轨证明改用合格Native308，累计30组正式段引用迁移。[CHG-20261024-003](../Changes/CHG-20261024-003-mhwi-defense-routes-transfer.md)区分已经运行验证的防御与尚待完整验收的视觉/路由。用户现改为参数优先：[批处理说明](../Reference/MHWI-Native-Parameter-Pipeline.md)提供425字段、164动作和4条IK链的统一数据库，21处支持属性已直接从原始W03P批量导入；停止以逐动画目测为主路径。
+
+2026-10-23 已实现见切/气刃突刺映射、气刃插入续接、右键循环、持刀翻滚出口、转向窗口和登龙物理阶段；最终 C++ 构建、重启后四套真实PIE回归通过，正式资产已保存。[资料核对](../Reference/MHWI-LongSword-Behavior-Research.md) 区分源 FSM/TIML 事实与未知运动参数；[本轮记录](../Changes/CHG-20261023-001-mhwi-behavior-implementation.md) 记录验证范围，未声称原版逐帧一致。
+
+B07已取得玩家加载器→连接表→Phase精确选择→动画结束→MBD主段入帧执行链，控制核心与124条身份记录已写入Source；26个源采样片段已导入`/Game/MHWI/Animations/R06Staging`。**AMHWICharacter尚未消费新核心，正式新增调度0条，R06未完成**。主片段105/112原生构造绑定、MBD混合和根运动/武器/事件时钟适配继续开发。见[实施现状](../Reference/MHWI-Native-LinkMotion-Implementation.md)、[本批记录](../Changes/CHG-20261025-002-mhwi-link-motion-core.md)及[逐连接台账](../Plans/MHWI-Connector-Progress.md)。本轮未编译或测试。
+
+## 运行入口与资产
+
+在编辑器打开 `/Game/MHWI/Maps/L_MHWI_Training` 后 Play。地图的 `DefaultGameMode` 为 `/Game/MHWI/Blueprints/BP_MHWI_TrainingGameMode`，默认 Pawn 为 `/Game/MHWI/Blueprints/BP_MHWI_Hunter`，父类 `AMHWICharacter`；HUD 为原生 `AMHWIHUD`。原项目菜单、Ninja 角色和默认地图保留。
+
+| 完整资产路径 | 用途 |
+| --- | --- |
+| `/Game/MHWI/Character/SK_MHWI_Hunter` | 原素材六部件统一的 225 骨猎人；Skeleton 为同目录 `SK_MHWI_Hunter_Skeleton` |
+| `/Game/MHWI/Weapons/SK_MHWI_LongSword`、`/Game/MHWI/Weapons/SK_MHWI_Scabbard` | 独立武器/刀鞘骨架，按角色骨挂接，不用 Leader Pose 共享错误编号 |
+| `/Game/MHWI/Animations/LongSword/A_w03_00_###` | 全部 164 条有效太刀动作，保留源序号；未映射条目不表示已接入玩法 |
+| `/Game/MHWI/Animations/NativeFidelity/LongSword/A_w03_00_###`、`NativeFidelity/Common/A_co00_00_###` | 新采样平行库36段；正式Montage累计迁移30组引用，三色309/310/311依据共享骨轨证明复用Native308；原Skeleton和基础移动BlendSpace不变 |
+| `/Game/MHWI/Animations/Weapons/A_wg03_00_000..005` | swo001独立骨架的六段内部动画；正式DA的WeaponMotions及每招WeaponMotionEvents驱动，非整件武器挂点数据 |
+| `/Game/MHWI/Animations/Common/A_co00_00_001`、`203`、`090`、`130` | 正式纳刀待机、步行、跑步、翻滚；后三项使用同目录完整前缀。034/035 是攀爬上下行，037 是明显低姿态循环，均不再用于地面走跑；039/089 为保留的对照资源 |
+| `/Game/MHWI/Blueprints/ABP_MHWI_Hunter` | 父类 `UMHWIAnimInstance`；Speed 驱动纳刀/拔刀两个 BlendSpace，经 bSheathed 混合后进入 DefaultSlot |
+| `/Game/MHWI/Animations/BS_MHWI_Drawn`、`/Game/MHWI/Animations/BS_MHWI_Sheathed` | 基础速度混合与 0.14 秒输入平滑 |
+| `/Game/MHWI/Data/DA_MHWI_LongSword` | `UMHWIMovesetData`，32 个招式定义，包括姿态/颜色变体、两条气刃插入身份和翻滚踏步斩 |
+| `/Game/MHWI/Montages/M_*` | 太刀招式全身根运动 Montage；居合按气刃颜色选不同源动画 |
+| `/Game/MHWI/Materials/M_MHWI_Surface`、`MI_*` | 18 个原部件材质实例，连接原颜色/法线；71 张贴图保留来源目录，尚未还原完整原版 shader |
+
+训练场有三个原生 `AMHWITrainingTarget`，**当前地图默认均为被动木桩**，普通连招练习不会受到周期伤害；目标有真实属性血量，不使用仅显示的假命中计数。此前 `MHWI_CounterTarget` 默认每 4 秒攻击一次、造成 12 点伤害，容易被误认为自身攻击扣血，现已在[训练场修正](../Changes/CHG-20261022-005-mhwi-training-damage.md)关闭。
+
+需要见切/居合反击练习时，在场景中选中目标（如 `MHWI_CounterTarget`），于 Details 的 MHWI 分类勾选 `Enable Attacks`，再 Play。距离内会按 `AttackInterval` 周期、提前 `TelegraphSeconds` 显示预警并造成 `Damage`；不是目标被打时立即反伤。取消勾选即恢复被动。此修改仅改变当前训练地图和地图生成脚本的配置，原生 `AMHWITrainingTarget` 类本身的缺省值仍为 true；手工新增原生目标时应明确设置该属性。
+
+## 操作与派生
+
+| 输入 | 行为与前置条件 |
+| --- | --- |
+| WASD / 鼠标 / Shift | 移动/观察；纳刀空闲时奔跑 |
+| 原版手柄预设 | `bOriginalInputPreset`，默认关闭。开启后 RT=气刃修饰键，RT+Y→登龙突刺、RT+B→见切、Y+B→袈裟；同帧边沿聚合解析，但A02发现按住旧组合后无关新按键可再次发组合命令；键位仍保留，A03确认键鼠也进入组合解析，语义并非不变；全局仲裁/RT+A/跨帧窗仍属项目适配，需PIE |
+| E | 拔刀或纳刀 |
+| 左键 / 右键 | 纳刀连续左键：拔刀斩 → 纵斩 → 突刺 → 上挑 → 纵斩循环；持刀突刺后左键接上挑，上挑右键接突刺。B01删除了原项目右键无限循环的新增突刺出口 |
+| W + 左键 | 持刀前进斩WalkOnSlash，原生7的115→101专用入口 |
+| C + 移动输入 | 镜头水平朝向把移动输入转换到世界方向，相对选择前角色右轴决定左/右袈裟；无输入或侧向投影在死区内默认后退。袈裟期间不额外转身；之后 R 接气刃踏步斩，再接气刃 III |
+| V / 手柄D-pad Left | 气刃连段合法窗口进入投射器连射；方向随移动意图，源第36帧发射并扣弹药；随后R续气刃段。精确输入/伤害仍为项目适配 |
+| R | 拔刀后气刃 I → II → III → 大回旋；逐段消耗槽，大回旋命中升色并最终纳刀 |
+| 气刃 I/II 后左键或右键 | 分别插入突刺/上挑，使用独立 `SpiritComboThrust` / `SpiritComboRisingSlash` 身份；再按 R 继续气刃 II/III，保留普通突刺/上挑的其他出口 |
+| 气刃踏步后左键/右键；插入上挑后R | 两种输入都接气刃插入上挑；R先判断目标气刃III完整槽成本，够则III，不够后备I，I保留弱斩。插入突刺仅A接普通上挑，移除自定B出口 |
+| 攻击后 F | 见切：区分低槽/正常保护，消耗剩余槽；成功反击仍须回斩真实命中才补满槽并允许R回旋。B01将左键出口修为踏步斩；B11按原FSM补齐右键→突刺、R+A→登龙突刺（复用Light适配窗1.5–2.6667，精确帧仍属R07） |
+| 攻击后 Q | 特殊纳刀并定格持刀姿态最多 3.5 秒；左键居合二连，R 居合气刃，Space 翻滚 |
+| 居合气刃 | 命中反击窗口保留气刃等级；未成功反击消耗一级，采用 Iceborne 语义 |
+| G，升空后再按攻击 | 需白刃以上；气刃突刺命中后上升并进入物理滞空。空中左键/右键/R/G 请求下劈；173 自身播放到 25/60 秒才提交快速下砸和七段授权。B12补空中首击126 MV（COL #28，源碰撞25–112帧，hit lag 0.4），七段仍由HelmLand结算。无空中攻击或提交前过早落地，不结算七段、不降色 |
+| Space，随后左键 | 纳刀/拔刀分别使用相应根运动翻滚；只在设定窗口免伤。持刀翻滚窗口或结束后 0.15 秒内左键接 `RollStepSlash`；纳刀对应拔刀斩。中断、死亡、收刀和过期会清除恢复上下文 |
+
+气刃槽0–100；白/黄/红伤害系数1.05/1.1/1.2，基础持续195/135/60秒。B12已停止把`Gauge_No_Decay_Time_after_Spirit_Gauge_Upgrade=10`加到颜色T：回旋升色后颜色时长严格为195/135/60，10秒字段保留给Q衰减抑制（R10仍未取证）。Q当前没有自然衰减；该字段消费者的[审查R10/R11](../Reference/MHWI-Restoration-Review.md)疑问仍未完全关闭。气刃I/II/III/回旋消耗15/15/20/25，I不足槽可弱斩；B02确认气刃踏步20是强化消费：不足20时允许18弱斩且不扣槽，够20使用28并扣20，两者命中回槽10。数据均直接取原COL/W03P，消费语义由无槽记录和一手攻击表互证。居合二连真实命中回槽15秒、反击后命中30秒；登龙实际下劈提交后非红10秒/红15秒回槽，速率100/15每秒。取消窗仍为项目调校，完整伤害/部位/技能模型尚未还原。
+
+B01从原COL直接恢复14招既有窗口的动作基值/回槽，包括气刃III的14+19+34、居合二连18+13；三种袈裟左键出口改接突刺。`FMHWIHitWindow.SpiritLevelDamage`为空时兼容旧Damage，有配置时按该动作启动捕获的颜色选择基值，再应用现有倍率。居合气刃已有首击现为无/白/黄/红17/19/31/39；登龙已有七窗每段按白/黄/红10/15/25。这里只修已有简化伤害适配器的基值，尚无居合追加shell，也未实现原版完整伤害公式或登龙空间/延迟消费者。
+
+防御独立半开窗口：见切正常反击0..33/60、无敌0..45/60；起始槽不足10时无反击、仅0..13/60基础无敌，回斩实际扣血才满槽。居合斩5帧；居合气刃反击12帧，无敌无色12/有色14帧。见切/居合成功给1/2秒霸体，减伤50%但实际扣血，死亡仍发生；显式中断清霸体，普通派生保留。当前无回避性能/衣装扩窗，不能把这些基础窗扩称全部原作技能配置。
+
+## 调度、根运动与伤害契约
+
+实现入口：[MHWICharacter.h](../../Source/IntroCpp/MHWI/MHWICharacter.h)、[MHWICharacter.cpp](../../Source/IntroCpp/MHWI/MHWICharacter.cpp)、[动作数据](../../Source/IntroCpp/MHWI/MHWIMovesetData.h)。独立角色只有一个前台动作，不同时驱动旧 `AMyPlayerCharacter.Actions`。请求与事件契约见 [MHWI-001 / DAMAGE-001](../Interfaces.md)。
+
+- 基础移动由 CharacterMovement 驱动，移动动画锁根；所有动画锁根使用 REF_POSE 保留导入根骨旋转基底。攻击与翻滚保留 Root Motion。登龙上升 171 临时 Flying 保留垂直根轨迹；Air/Strike 的 172/173 忽略零根轨迹，改用 Falling 物理速度/重力。整条链只保存一次移动/根运动快照，着地、打断、死亡或退出时恢复。
+- 普通动作/派生在 Montage 0..0.12 秒内按镜头相对移动意图有限转向，默认最多 25°、360°/秒；只动相机无移动输入不转身。前后 Montage 区间求交，低帧跨过整个窗口仍处理。见切返回段另有 46..68/60 秒、45°预算；袈裟/翻滚不叠加通用转向。以上角度、速度和窗口是项目调校，不是已解码的原版常数。
+- 登龙阶段为 Rise → Air → 可选 Strike → Land；起跳命中、下劈提交与真实着地分别驱动，不能靠完整动画时长串联。`Landed()` 只记录着地事实/执行序号，Tick 在安全边界切段；Air/Strike 禁止从中立 `StartMove` 绕过合法链直接启动。这两条Montage禁用自动混出，长落差时暂停在尾帧保持姿态，由落地退出。
+- 命中、派生、反击以 Montage 秒数为准，源 TIML 帧按 60 FPS 转换。窗口检查使用前后帧区间交集，窗口内每个目标只扣一次；多段有独立去重集合，槽收益每窗口一次。
+- 普通近战使用随胶囊根位移的球形前向扇区扫掠；未制作原刀刃逐骨轨迹/原游戏 shell 系统。登龙突刺记录真实扣血目标并以弱引用沿合法空中派生传递，仅下劈提交获授权后，落地七个独立窗口才对标记目标结算延迟伤害并降色。打断/死亡/退出会清标记；本轮尚未穷举斜坡、低顶、目标顶部等碰撞场景。
+- `RequestInput` 活跃期间返回 true 只表示缓冲，不保证派生成功；0.3 秒缓冲仍需满足取消窗口、资源和命中/反击条件。缓冲记录实际收到输入的Montage位置，不能在结束回调中追溯命中已经关闭的历史窗口；低帧补算只检查真实跨越的尾段。`StartMove` 仅空闲时可启动，供蓝图/验证调用；正常操作经过 RequestInput。
+- 动作拥有执行序号和 Montage 实例身份；死亡、UnPossessed、EndPlay、外部结束按同一清理路径处理，避免旧回调结束新动作。
+- 属性伤害在扣血前经过 `IIncomingDamageResponse`，由当前翻滚/见切/居合窗口拦截；未实现接口的原角色保持既有路径。此为本地玩法，未做网络复制。
+- B12起每次命中先构造 `FMHWIResolvedHit`（MoveId/Window/ColRecordIndex/MV/颜色/弱斩/反击/FinalDamage），再按原公式扣血；`GetLastResolvedHit` 可蓝图读取。斩味/会心/部位阶段显式为 `Unavailable`，不伪造倍率。
+- 命中后按窗口 `HitLagSeconds` 冻结动作与武器表现时钟（不冻结槽/颜色计时）；`OnHitResolved(SourceTime, WindowIndex, ColRecordIndex)` 为后续音效/特效/相机提供唯一命中事件。当前仅登龙空中首击填 0.4 秒。
+- 受击 S/M/L 挂载时进入 `EMHWIControlState` 对应状态，拒绝新输入并清 Pending/Helm 请求；受击结束回 Free，死亡置 Dead；此全程锁定同时阻断B10受击恢复派生（A01）。`SetInputBlocked` 仅部分门控动作输入，遗漏NativeSourceInput撤销及内部提交检查（A04），也未门控移动/视角，完整菜单接入待完成。
+- 非登龙、非翻滚的地面动作不能在 `Falling` 状态启动；空中行为必须走显式分支，避免从中立输入绕过合法链。
+
+## B03基础循环采样迁移
+
+正式DA的idle/walk/run/sheathed_idle/sheathed_walk/sheathed_run及两张BlendSpace六样本现采用`/Game/MHWI/Animations/NativeFidelity/LongSword/A_w03_00_001`、`A_w03_00_004`和`Common/A_co00_00_001`、`A_co00_00_203`、`A_co00_00_090`。源采样/FBX合格证据、Skeleton/时长及导入来源经重新核对。保持REF_POSE强制锁根、既有倍率和180/420速度；这些速度/倍率/混合仍是项目适配。五段循环迁移及短移动冒烟通过，起停/转身/落地、原版速度/逐帧对照仍待开发。定向入口为[author_locomotion_fidelity.py](../../Scripts/MHWI/author_locomotion_fidelity.py)，详情见[B03记录](../Changes/CHG-20261024-009-mhwi-locomotion-animation.md)。
+
+## B05连接原生逻辑与来源修正
+
+原FSM名称/箭头/Action与MBD明确一致：左128/node8/Action82、右127/node9/Action83。B05已修正来源表及两个制作/生成入口；正式左右动画、窗口和操作没有安排修改。361→127@22、362→128@24的来源冲突由此消除，状态为待测试。原EXE代码区已只读取得；311前置LinkMotionPhase=1已收集，但退出/Phase1初值、重置、选择、后备及提交时钟尚未取得完整指令证据，新增连接0条。最新要求不测试；见[CHG-011](../Changes/CHG-20261024-011-mhwi-native-connector-logic.md)和[下一阶段通过准则](../Plans/MHWI-Connector-Acceptance.md)。
+
+## B04连接动画取证进度（历史）
+
+原`w03_00.mbd`已解析30连接节点32次引用的主段startFrame表；此前仅查FSM/TIML而遗漏MBD。已有129→101的48帧制作参数改为直接读原文件，正式动画原值未变。361/362分别指向127@22/128@24，与项目左右映射冲突；118另有目标112候选。连接退出、Phase1选择及混合消费者尚未查清，未新增连接播放，已有129的29/60退出仍属项目适配。每条状态见[连接台账](../Plans/MHWI-Connector-Progress.md)，实际验证见[CHG-010](../Changes/CHG-20261024-010-mhwi-connector-evidence.md)。
+
+## 来源与再制作
+
+2026-10-24 新增[完整源审计](../Reference/MHWI-Source-Fidelity-Audit.md)和[分阶段方案](../Plans/PLAN-20261023-001-mhwi-source-fidelity.md)。本次保留164动作的全部19类TIML、90个FSM节点和307条条件/连接；旧五类过滤器遗漏954个事件组。正式32招Montage仅覆盖原生30个连接节点的32次片段引用中的129，其余31次未调度。源输入位含义、主段入帧/优先级、角度索引和变速插值仍未完整解码，当前每招统一取消窗/0.3秒缓存、直接主段混合与固定转向均属项目适配。本次编辑器只读核对没有改变这些正式行为。
+
+[moveset_mapping.json](../../Scripts/MHWI/moveset_mapping.json) 保留源 FSM 条件、TIML 碰撞启停、MotionSpeed 和姿态推断。FSM ActionNo 与 LMT MotionNo 不同，不能混用。取消/反击/无敌帧尚未从原始标志完整解码；MotionSpeed 采用本地线性插值。武器来源矩阵见 [weapon_attachment.json](../../Scripts/MHWI/weapon_attachment.json)。
+
+2026-10-23 映射为 `M_ForesightSlash` → `/Game/MHWI/Animations/LongSword/A_w03_00_140`、`M_SpiritThrust` → `/Game/MHWI/Animations/LongSword/A_w03_00_170`；碰撞窗口分别为 70..80/60 秒、84..97/60 秒。左右袈裟按UE真实位移纠正为 `M_FadeSlashLeft` → 128/node8/action82、`M_FadeSlashRight` → 127/node9/action83（B05修正此前来源节点/Action写反，片段不换），来源/窗口/速度随片段迁移，不能用源root X符号直接当UE角色左右。持刀翻滚连接 `M_RollStepSlash` 使用完整 129（0..29/60 秒）接 101（48..150/60 秒），总长 2.183333 秒；早期通过源骨姿态端点扫描选择48；B04原MBD确认129→101的startFrame字段也为48，制作入口已直接读原表。新制作/端点核对入口为 [author_behavior_corrections.py](../../Scripts/MHWI/author_behavior_corrections.py)、[audit_behavior_links.py](../../Scripts/MHWI/audit_behavior_links.py)，后者不保存 Blender 源文件。定向修正可分别调用 `fade_direction_corrections()` / `aerial_montage_corrections()`，不会重建动画段。
+
+`UMHWIMovesetData` 的物理初值为向上 700、向前 200 cm/s、重力 1250 cm/s²、快速下降 3000 cm/s，提交时刻 25/60 秒。它们是项目初值，尚未证明与原版参数组、单位和倍率一一对应；当前重力通过默认世界 980 cm/s² 的比例换算，自定义重力体积需另验。Air/Strike 的转向调整攻击朝向，尚不重算水平漂移速度。
+
+[import_assets.py](../../Scripts/MHWI/import_assets.py) 分批导入，[export_common.py](../../Scripts/MHWI/export_common.py) 默认导出正式四条通用 FBX，也可在 `--` 后指定源片段，仅补充指定文件。[author_assets.py](../../Scripts/MHWI/author_assets.py) 制作基础材质、Montage、Data、角色和训练场。脚本可能重写同名新资产，执行前先保留人工编辑。已存在训练地图不会被 training_map() 重建。
+
+运行证据在 `Saved/MHWIImport`；[pie_behavior_corrections.py](../../Scripts/MHWI/pie_behavior_corrections.py) 提供 ground/direction/air/lifecycle 定向套件，读取正式 DA 并注入实际 Enhanced Input，报告 `PIE-behavior-<suite>.json`。旧 [pie_moveset.py](../../Scripts/MHWI/pie_moveset.py) 的自动登龙时序假设已过时，不能原样作为本轮回归通过依据；[pie_smoke.py](../../Scripts/MHWI/pie_smoke.py) 仅覆盖基础移动/根运动/扣血。执行与结果须以本轮变更记录为准，脚本存在或启动成功不代表通过。
+
+最终整套报告 `PIE-behavior-all.json` 在新二进制/磁盘重载资产上通过，覆盖普通RMB六连、三轮气刃插入、持刀/纳刀翻滚、17种袈裟输入（含同帧按下/松开）、普通/派生转向、空挥/无输入/提交前落地/主动七段、5000cm高落差尾帧保持、中断/死亡和取消窗口前后输入。记录410条断言（含重复逐帧采样，非410个独立场景）；10 FPS方向另通过104条。最终自然Air约1.407秒，主动下劈红刃168伤害分7次、降一级；这些是当前项目参数下的实测，非原版精确标定。
+
+完整原版特效/音效、染色层与毛发 shader、斜坡/空战/骑乘/飞翔爪、逐招原始取消帧和联网均未还原。当前是可继续调校的独立地面太刀模组。
+
+## 武器挂接现状（2026-10-22 修正）
+
+2026-10-24[源审计](../Reference/MHWI-Source-Fidelity-Audit.md)后已接入配套 `wg03_00` 六条内部动画，WeaponMesh在运行时使用AnimationSingleNode并按源事件切换，CDO的AnimClass仍无需设置。原库其余家族并非当前型号必用的动作。`bone_002`主要驱动手柄区域，不能代替整刀/刀鞘装配与交接。RefreshWeaponAttachment现经独立helper进行连续交接，纳刀直接攻击/大回旋收刀和最终手掌约束已补齐；历史45项不覆盖新实现，本次按用户要求不做最终UE运行调试。
+
+蓝图基姿态来源为 [attachment_fit.json](../../Scripts/MHWI/attachment_fit.json)，由 `author_assets.attachment_defaults()` 写入；运行位置还由 `FMHWIWeaponAttachmentRuntime` 的掌心/蒙皮参考点及交接窗口决定，不能继续视JSON为全部位置的唯一来源。[交接说明](../Reference/MHWI-Weapon-Transfer-Fitting.md)明确拟合/原始数据边界。原右手Roll=-90、背负局部位置(-12,-25,-15)/Yaw=-40及0.7比例作为基姿态保留，原FBX/SkeletalMesh尺度未重写。
+
+旧特殊纳刀曾让刀身/鞘口共挂左手；当前helper改为右掌握柄与左掌鞘口约束，按源蒙皮权重跟随内部动画，并对拔纳刀/居合做连续交接。旧 `pie_attachments.py` 的45项是历史拟合验证，固定原点重合/必须挂左腕已不再是新目标；[本次位置收尾](../Changes/CHG-20261024-005-mhwi-weapon-placement.md)已实现握点连续转移、派生不重置中间武器姿态及按最终混合结果锁定双掌；视觉验收由用户进行。未宣称全部动画每帧无穿插或已实现原生双手IK。
+
+## 动画映射修正（2026-10-22）
+
+本次用户对照指出气刃 II 与上挑互换，现为 `/Game/MHWI/Montages/M_SpiritII` → `A_w03_00_106`，`M_RisingSlash` → `A_w03_00_107`。气刃 II 源碰撞窗口为 33–41 帧，上挑为 22–29 帧；DataAsset 的命中秒数、取消入口与片段长度同步调整，保留两招各自伤害、消耗和派生语义。不是只交换 HUD 名称。源静态表的旧标签是推断，本次依据用户识别与 UE 姿态对照纠正。
+
+纳刀 BlendSpace 正式样本为 0 cm/s 的 001、180 cm/s 的 203、420 cm/s 的 090；203/090 的源平均水平速度约 135.04/365.51 cm/s，Sequence RateScale 为 1.332921/1.149071。保持 CharacterMovement 移动、REF_POSE 锁根和 0.14 秒混合平滑。034/035 的根轨迹为竖直攀爬，不能再按 LoopFrame=0 推断为地面走跑。
+
+局部修正使用 `author_assets.animation_corrections()`，保留其他动作调校。先用 MCP `animation.set_montage_sequence` 替换两条 Montage 的段，并用 `animation.set_blend_sample` 更新纳刀 BlendSpace 第 1/2 项，再运行该函数同步窗口与数据。`moveset()` 也采用新映射，但已存在 Montage 的序列需显式替换。
+
+[pie_animation_corrections.py](../../Scripts/MHWI/pie_animation_corrections.py) 使用真实 Enhanced Input 执行走跑、六次左键和完整气刃链，并将双腕/头部的运行姿态与修正后的源 Sequence 对照。验证结果、初次失败及回退见 [修正记录](../Changes/CHG-20261022-004-mhwi-animation-corrections.md)。预览脚本必须复制 Unreal Map 后制作临时数据，避免零消耗预览值残留到正式动作。
+
+训练场安全配置由 `author_assets.passive_training_targets()` 对当前已打开训练地图定向更新，禁止在 PIE 中保存默认值；新地图生成也将三个目标设为被动。[pie_training_damage.py](../../Scripts/MHWI/pie_training_damage.py) 的 `run('verify')` 不会强制关掉目标，先检查保存的默认值，再验证范围内站立、近战自身血量、目标真实扣血，以及运行夹具中显式开启目标攻击后的外部伤害与见切拦截。

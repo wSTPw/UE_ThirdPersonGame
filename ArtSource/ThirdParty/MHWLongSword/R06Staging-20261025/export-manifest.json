@@ -1,0 +1,409 @@
+{
+  "schema": 1,
+  "status": "authored_pending_next_stage_tests",
+  "tests_executed": false,
+  "source_blend": {
+    "path": "ArtSource/ThirdParty/MHWLongSword/Converted/MHW_Hunter_LongSword_Actions.blend",
+    "bytes": 398110688,
+    "sha256": "c7e6c46d63a16cf826af85c81ccdf4850ad735c09c0e903a3bff58ddcbc01329"
+  },
+  "source_lmt": {
+    "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+    "bytes": 3596020,
+    "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+  },
+  "clips": [
+    {
+      "clip": "w03_00_111",
+      "motion": 111,
+      "frame_count": 25,
+      "last_source_frame": 24,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_111.fbx",
+        "bytes": 2026924,
+        "sha256": "7d69e3c8094ca965778df851f9bc10d03fb00a8ef4a7133556db95f59f4d3934"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_114",
+      "motion": 114,
+      "frame_count": 37,
+      "last_source_frame": 36,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_114.fbx",
+        "bytes": 2157372,
+        "sha256": "ffb0dd2573aa99e2bf8d03e18b6319656dce7cb35684448fce1a10086cde47f7"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_117",
+      "motion": 117,
+      "frame_count": 23,
+      "last_source_frame": 22,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_117.fbx",
+        "bytes": 1986236,
+        "sha256": "770485a82c50f11e3f30492ac0a5940f4bcb5921b542681b163f25b1797fe519"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_118",
+      "motion": 118,
+      "frame_count": 15,
+      "last_source_frame": 14,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_118.fbx",
+        "bytes": 1872332,
+        "sha256": "7df1bc0365acfb4fbd5a25c80ddda28bc00a966494f88068380c5c54c99740b5"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_119",
+      "motion": 119,
+      "frame_count": 23,
+      "last_source_frame": 22,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_119.fbx",
+        "bytes": 1986236,
+        "sha256": "c6c4ef6a89f8a60a34e0159e7ba2ea5ac4e43158bad40308020776055d149ac0"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_120",
+      "motion": 120,
+      "frame_count": 19,
+      "last_source_frame": 18,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_120.fbx",
+        "bytes": 1904876,
+        "sha256": "a3abde5273777074721ec283ae250c91f57b7380e21920b5fa2aae589a63f0a7"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_121",
+      "motion": 121,
+      "frame_count": 23,
+      "last_source_frame": 22,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_121.fbx",
+        "bytes": 1986236,
+        "sha256": "308ec79aea75e6dbccbfa08198737537e354e838622dc12527ea7dc668a84bc2"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_122",
+      "motion": 122,
+      "frame_count": 11,
+      "last_source_frame": 10,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_122.fbx",
+        "bytes": 1774700,
+        "sha256": "042a9f3f672157cdb2eace3a93672fd1b80b4108fe9af7ffdc8447c765952a3a"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_123",
+      "motion": 123,
+      "frame_count": 21,
+      "last_source_frame": 20,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_123.fbx",
+        "bytes": 1945564,
+        "sha256": "8da0d6888477f4ccee35b9e22ee1fe44eebf58e1895ed526a53cd00337e7bbb6"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_124",
+      "motion": 124,
+      "frame_count": 21,
+      "last_source_frame": 20,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_124.fbx",
+        "bytes": 1945564,
+        "sha256": "6d2df9d45098606d2f0650bed11df1002be8130ea18500f55f52372fc0f1f313"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_125",
+      "motion": 125,
+      "frame_count": 29,
+      "last_source_frame": 28,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_125.fbx",
+        "bytes": 2110316,
+        "sha256": "0ce60d36a74ccfefceef994d694cbd82db4872e4ee9e9d18f69408d9ade4e1e8"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_129",
+      "motion": 129,
+      "frame_count": 30,
+      "last_source_frame": 29,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_129.fbx",
+        "bytes": 2130652,
+        "sha256": "00d816a20a13de1e2832ff4c63df4dcb88a40c1f82fe65562ac808e72befc60f"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_131",
+      "motion": 131,
+      "frame_count": 49,
+      "last_source_frame": 48,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_131.fbx",
+        "bytes": 2360028,
+        "sha256": "098c72d98ee7a26cda1c0f31b98187b500acdd6c76b0bae13f3f2aef81d3417d"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_132",
+      "motion": 132,
+      "frame_count": 45,
+      "last_source_frame": 44,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_132.fbx",
+        "bytes": 2292588,
+        "sha256": "f1e63b87a24542e58b880efac46f1d1896b50aa95966aa8a181f4cfd27b20d51"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_152",
+      "motion": 152,
+      "frame_count": 45,
+      "last_source_frame": 44,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_152.fbx",
+        "bytes": 2290924,
+        "sha256": "bb485adc55d780da5f9179b3a58f8d1f055ee5685b0548cd4c6457bbcf480566"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_357",
+      "motion": 357,
+      "frame_count": 55,
+      "last_source_frame": 54,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_357.fbx",
+        "bytes": 2436588,
+        "sha256": "3f4e3379bffe2d2c07acf8ef16e9cb41d169198a4abaac3228db9f3687ffd092"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_358",
+      "motion": 358,
+      "frame_count": 34,
+      "last_source_frame": 33,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_358.fbx",
+        "bytes": 2112268,
+        "sha256": "a8ab1157698f3f191377fdb6332453ef4239d1ea2e11536f96f8cd23a9103d56"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_359",
+      "motion": 359,
+      "frame_count": 23,
+      "last_source_frame": 22,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_359.fbx",
+        "bytes": 1986236,
+        "sha256": "9965c08324c960639084b5378b96508bcd1685123359d261b770a1d7a977b425"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_360",
+      "motion": 360,
+      "frame_count": 21,
+      "last_source_frame": 20,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_360.fbx",
+        "bytes": 1945564,
+        "sha256": "1735be4ff337cb20f116b541d850efbf7dd66c1310c857853ef6030260f4acc0"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_361",
+      "motion": 361,
+      "frame_count": 23,
+      "last_source_frame": 22,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_361.fbx",
+        "bytes": 1986236,
+        "sha256": "540358f1056441c1b3ef5f47e5cf3502129643fc55dfc982e2a1413bd9cf2851"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_362",
+      "motion": 362,
+      "frame_count": 25,
+      "last_source_frame": 24,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_362.fbx",
+        "bytes": 2026924,
+        "sha256": "6425843217df04d757a202a656fec8537ef144e160bda62283ebb9b3e0f97d92"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_363",
+      "motion": 363,
+      "frame_count": 43,
+      "last_source_frame": 42,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_363.fbx",
+        "bytes": 2255596,
+        "sha256": "e81e1a390eef1a5e63208b43a9cd8f196d6cf76e5a158a29dc516e44ae4165f6"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_364",
+      "motion": 364,
+      "frame_count": 31,
+      "last_source_frame": 30,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_364.fbx",
+        "bytes": 2148956,
+        "sha256": "0c4b1033044561304731be4d87de036f46bfcea8ae75d84c0f3d49d71b44f124"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_365",
+      "motion": 365,
+      "frame_count": 33,
+      "last_source_frame": 32,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_365.fbx",
+        "bytes": 2096924,
+        "sha256": "68fe2cb51e15f7d18bd6cbcf8068c915dca49c8e2985990b3cdad1172ec5b2ea"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_366",
+      "motion": 366,
+      "frame_count": 23,
+      "last_source_frame": 22,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_366.fbx",
+        "bytes": 1986236,
+        "sha256": "6e79e9144444265c97f205571da2eb35ef555d7eb7ecf5a0cbe3f527bd2b276e"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    },
+    {
+      "clip": "w03_00_367",
+      "motion": 367,
+      "frame_count": 49,
+      "last_source_frame": 48,
+      "loop_frame": -1,
+      "flags2": 0,
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Staging-20261025/w03_00_367.fbx",
+        "bytes": 2356652,
+        "sha256": "5610bf9762a5ffc5d18a97541d615e1ca8934f6a6f45f07684572a5310e7b9ea"
+      },
+      "tests_executed": false,
+      "status": "fbx_authored_not_imported_not_verified"
+    }
+  ],
+  "blocked": [],
+  "production_assets_written": false
+}

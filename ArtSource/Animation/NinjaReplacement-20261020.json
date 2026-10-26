@@ -1,0 +1,953 @@
+{
+  "date": "2026-10-20",
+  "status": "authored_and_saved_not_verified",
+  "user_constraint": "No verification after completion: no build, Blueprint compile check, PIE, automation, docs checker, diff checker, or asset readback.",
+  "sourceDirectory": "/Game/ARPG_Ninja/Animations",
+  "sourceSkeleton": "/Game/ARPG_Ninja/Demo/Mannequin/Character/Mesh/UE4_Mannequin_Skeleton",
+  "targetSkeleton": "/Game/MyStuff/Model/Robot/Y_Bot_Skeleton_RootOn",
+  "retargeter": "/Game/MyStuff/Animation/Ninja/Rig/RT_NinjaToYBot",
+  "sourceRig": "/Game/MyStuff/Animation/Ninja/Rig/IK_Ninja_Source",
+  "targetRig": "/Game/MyStuff/Animation/Ninja/Rig/IK_Ninja_YBot",
+  "sourceChains": [
+    {
+      "name": "Root",
+      "startBone": "Root",
+      "endBone": "Root"
+    },
+    {
+      "name": "Spine",
+      "startBone": "spine_01",
+      "endBone": "spine_03"
+    },
+    {
+      "name": "Neck",
+      "startBone": "neck_01",
+      "endBone": "neck_01"
+    },
+    {
+      "name": "Head",
+      "startBone": "head",
+      "endBone": "head"
+    },
+    {
+      "name": "LeftClavicle",
+      "startBone": "clavicle_l",
+      "endBone": "clavicle_l"
+    },
+    {
+      "name": "LeftArm",
+      "startBone": "UpperArm_L",
+      "endBone": "Hand_L"
+    },
+    {
+      "name": "LeftLeg",
+      "startBone": "Thigh_L",
+      "endBone": "ball_l"
+    },
+    {
+      "name": "LeftThumb",
+      "startBone": "thumb_01_l",
+      "endBone": "thumb_03_l"
+    },
+    {
+      "name": "LeftIndex",
+      "startBone": "index_01_l",
+      "endBone": "index_03_l"
+    },
+    {
+      "name": "LeftMiddle",
+      "startBone": "middle_01_l",
+      "endBone": "middle_03_l"
+    },
+    {
+      "name": "LeftRing",
+      "startBone": "ring_01_l",
+      "endBone": "ring_03_l"
+    },
+    {
+      "name": "LeftPinky",
+      "startBone": "pinky_01_l",
+      "endBone": "pinky_03_l"
+    },
+    {
+      "name": "RightClavicle",
+      "startBone": "clavicle_r",
+      "endBone": "clavicle_r"
+    },
+    {
+      "name": "RightArm",
+      "startBone": "UpperArm_R",
+      "endBone": "Hand_R"
+    },
+    {
+      "name": "RightLeg",
+      "startBone": "Thigh_R",
+      "endBone": "ball_r"
+    },
+    {
+      "name": "RightThumb",
+      "startBone": "thumb_01_r",
+      "endBone": "thumb_03_r"
+    },
+    {
+      "name": "RightIndex",
+      "startBone": "index_01_r",
+      "endBone": "index_03_r"
+    },
+    {
+      "name": "RightMiddle",
+      "startBone": "middle_01_r",
+      "endBone": "middle_03_r"
+    },
+    {
+      "name": "RightRing",
+      "startBone": "ring_01_r",
+      "endBone": "ring_03_r"
+    },
+    {
+      "name": "RightPinky",
+      "startBone": "pinky_01_r",
+      "endBone": "pinky_03_r"
+    }
+  ],
+  "targetChains": [
+    {
+      "name": "Root",
+      "startBone": "Root",
+      "endBone": "Root"
+    },
+    {
+      "name": "Spine",
+      "startBone": "Spine",
+      "endBone": "Spine2"
+    },
+    {
+      "name": "Neck",
+      "startBone": "Neck",
+      "endBone": "Neck"
+    },
+    {
+      "name": "Head",
+      "startBone": "Head",
+      "endBone": "Head"
+    },
+    {
+      "name": "LeftClavicle",
+      "startBone": "LeftShoulder",
+      "endBone": "LeftShoulder"
+    },
+    {
+      "name": "LeftArm",
+      "startBone": "LeftArm",
+      "endBone": "LeftHand"
+    },
+    {
+      "name": "LeftLeg",
+      "startBone": "LeftUpLeg",
+      "endBone": "LeftToeBase"
+    },
+    {
+      "name": "LeftThumb",
+      "startBone": "LeftHandThumb1",
+      "endBone": "LeftHandThumb3"
+    },
+    {
+      "name": "LeftIndex",
+      "startBone": "LeftHandIndex1",
+      "endBone": "LeftHandIndex3"
+    },
+    {
+      "name": "LeftMiddle",
+      "startBone": "LeftHandMiddle1",
+      "endBone": "LeftHandMiddle3"
+    },
+    {
+      "name": "LeftRing",
+      "startBone": "LeftHandRing1",
+      "endBone": "LeftHandRing3"
+    },
+    {
+      "name": "LeftPinky",
+      "startBone": "LeftHandPinky1",
+      "endBone": "LeftHandPinky3"
+    },
+    {
+      "name": "RightClavicle",
+      "startBone": "RightShoulder",
+      "endBone": "RightShoulder"
+    },
+    {
+      "name": "RightArm",
+      "startBone": "RightArm",
+      "endBone": "RightHand"
+    },
+    {
+      "name": "RightLeg",
+      "startBone": "RightUpLeg",
+      "endBone": "RightToeBase"
+    },
+    {
+      "name": "RightThumb",
+      "startBone": "RightHandThumb1",
+      "endBone": "RightHandThumb3"
+    },
+    {
+      "name": "RightIndex",
+      "startBone": "RightHandIndex1",
+      "endBone": "RightHandIndex3"
+    },
+    {
+      "name": "RightMiddle",
+      "startBone": "RightHandMiddle1",
+      "endBone": "RightHandMiddle3"
+    },
+    {
+      "name": "RightRing",
+      "startBone": "RightHandRing1",
+      "endBone": "RightHandRing3"
+    },
+    {
+      "name": "RightPinky",
+      "startBone": "RightHandPinky1",
+      "endBone": "RightHandPinky3"
+    }
+  ],
+  "sequences": [
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Idle1",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle1_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Idle2",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle2_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Idle_no_weapon",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle_no_weapon_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Walk_no_weapon_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_no_weapon_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Run_no_weapon_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_no_weapon_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Throw_A",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Throw_A_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Attack_ComboA1",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Attack_ComboA1_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Attack_ComboA2",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Attack_ComboA2_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Attack_ComboA3",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Attack_ComboA3_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Attack_ComboA4",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Attack_ComboA4_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Walk_Forward_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Forward_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Walk_Forward_Left_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Forward_Left_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Walk_Leftward_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Leftward_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Walk_Backward_Left_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Backward_Left_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Walk_Backward_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Backward_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Walk_Backward_Right_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Backward_Right_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Walk_Rightward_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Rightward_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Walk_Forward_Right_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Forward_Right_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Run_Forward_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Forward_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Run_Forward_Left_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Forward_Left_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Run_Leftward_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Leftward_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Run_Backward_Left_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Backward_Left_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Run_Backward_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Backward_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Run_Backward_Right_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Backward_Right_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Run_Rightward_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Rightward_IPC_YBot"
+    },
+    {
+      "source": "/Game/ARPG_Ninja/Animations/ARPG_Ninja_Anim_UE_Run_Forward_Right_IPC",
+      "target": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Forward_Right_IPC_YBot"
+    }
+  ],
+  "blendspaces": [
+    {
+      "assetPath": "/Game/MyStuff/Model/Robot/BS_Move",
+      "blendspaceAxes": [
+        {
+          "name": "Direction",
+          "min": -180,
+          "max": 180,
+          "gridNum": 8
+        },
+        {
+          "name": "Speed",
+          "min": 0,
+          "max": 525,
+          "gridNum": 3
+        }
+      ],
+      "samples": [
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle_no_weapon_YBot",
+          "x": -180,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle_no_weapon_YBot",
+          "x": -135,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle_no_weapon_YBot",
+          "x": -90,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle_no_weapon_YBot",
+          "x": -45,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle_no_weapon_YBot",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle_no_weapon_YBot",
+          "x": 45,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle_no_weapon_YBot",
+          "x": 90,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle_no_weapon_YBot",
+          "x": 135,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle_no_weapon_YBot",
+          "x": 180,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Backward_IPC_YBot",
+          "x": -180,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Backward_Left_IPC_YBot",
+          "x": -135,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Leftward_IPC_YBot",
+          "x": -90,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Forward_Left_IPC_YBot",
+          "x": -45,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_no_weapon_IPC_YBot",
+          "x": 0,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Forward_Right_IPC_YBot",
+          "x": 45,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Rightward_IPC_YBot",
+          "x": 90,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Backward_Right_IPC_YBot",
+          "x": 135,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Backward_IPC_YBot",
+          "x": 180,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Backward_IPC_YBot",
+          "x": -180,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Backward_Left_IPC_YBot",
+          "x": -135,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Leftward_IPC_YBot",
+          "x": -90,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Forward_Left_IPC_YBot",
+          "x": -45,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_no_weapon_IPC_YBot",
+          "x": 0,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Forward_Right_IPC_YBot",
+          "x": 45,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Rightward_IPC_YBot",
+          "x": 90,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Backward_Right_IPC_YBot",
+          "x": 135,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Backward_IPC_YBot",
+          "x": 180,
+          "y": 525
+        }
+      ],
+      "clearExisting": true
+    },
+    {
+      "assetPath": "/Game/MyStuff/Model/Robot/BS_LongSwordMove",
+      "blendspaceAxes": [
+        {
+          "name": "Direction",
+          "min": -180,
+          "max": 180,
+          "gridNum": 8
+        },
+        {
+          "name": "Speed",
+          "min": 0,
+          "max": 525,
+          "gridNum": 3
+        }
+      ],
+      "samples": [
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle1_YBot",
+          "x": -180,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle1_YBot",
+          "x": -135,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle1_YBot",
+          "x": -90,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle1_YBot",
+          "x": -45,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle1_YBot",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle1_YBot",
+          "x": 45,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle1_YBot",
+          "x": 90,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle1_YBot",
+          "x": 135,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle1_YBot",
+          "x": 180,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Backward_IPC_YBot",
+          "x": -180,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Backward_Left_IPC_YBot",
+          "x": -135,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Leftward_IPC_YBot",
+          "x": -90,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Forward_Left_IPC_YBot",
+          "x": -45,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Forward_IPC_YBot",
+          "x": 0,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Forward_Right_IPC_YBot",
+          "x": 45,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Rightward_IPC_YBot",
+          "x": 90,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Backward_Right_IPC_YBot",
+          "x": 135,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Backward_IPC_YBot",
+          "x": 180,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Backward_IPC_YBot",
+          "x": -180,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Backward_Left_IPC_YBot",
+          "x": -135,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Leftward_IPC_YBot",
+          "x": -90,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Forward_Left_IPC_YBot",
+          "x": -45,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Forward_IPC_YBot",
+          "x": 0,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Forward_Right_IPC_YBot",
+          "x": 45,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Rightward_IPC_YBot",
+          "x": 90,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Backward_Right_IPC_YBot",
+          "x": 135,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Backward_IPC_YBot",
+          "x": 180,
+          "y": 525
+        }
+      ],
+      "clearExisting": true
+    },
+    {
+      "assetPath": "/Game/MyStuff/Model/Robot/BS_StaffMove",
+      "blendspaceAxes": [
+        {
+          "name": "Direction",
+          "min": -180,
+          "max": 180,
+          "gridNum": 8
+        },
+        {
+          "name": "Speed",
+          "min": 0,
+          "max": 525,
+          "gridNum": 3
+        }
+      ],
+      "samples": [
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle2_YBot",
+          "x": -180,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle2_YBot",
+          "x": -135,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle2_YBot",
+          "x": -90,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle2_YBot",
+          "x": -45,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle2_YBot",
+          "x": 0,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle2_YBot",
+          "x": 45,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle2_YBot",
+          "x": 90,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle2_YBot",
+          "x": 135,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Idle2_YBot",
+          "x": 180,
+          "y": 0
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Backward_IPC_YBot",
+          "x": -180,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Backward_Left_IPC_YBot",
+          "x": -135,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Leftward_IPC_YBot",
+          "x": -90,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Forward_Left_IPC_YBot",
+          "x": -45,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Forward_IPC_YBot",
+          "x": 0,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Forward_Right_IPC_YBot",
+          "x": 45,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Rightward_IPC_YBot",
+          "x": 90,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Backward_Right_IPC_YBot",
+          "x": 135,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Walk_Backward_IPC_YBot",
+          "x": 180,
+          "y": 175
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Backward_IPC_YBot",
+          "x": -180,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Backward_Left_IPC_YBot",
+          "x": -135,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Leftward_IPC_YBot",
+          "x": -90,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Forward_Left_IPC_YBot",
+          "x": -45,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Forward_IPC_YBot",
+          "x": 0,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Forward_Right_IPC_YBot",
+          "x": 45,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Rightward_IPC_YBot",
+          "x": 90,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Backward_Right_IPC_YBot",
+          "x": 135,
+          "y": 525
+        },
+        {
+          "animationPath": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Run_Backward_IPC_YBot",
+          "x": 180,
+          "y": 525
+        }
+      ],
+      "clearExisting": true
+    }
+  ],
+  "sword": {
+    "montage": "/Game/MyStuff/Model/Robot/M_LongSwordAttack",
+    "sections": [
+      {
+        "sectionName": "Combo01",
+        "sequence": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Attack_ComboA1_YBot",
+        "startTime": 0,
+        "length": 0.9833333492279053,
+        "hitFrames": [
+          17,
+          31
+        ],
+        "hitTimes": [
+          0.2833333333333333,
+          0.5166666666666667
+        ],
+        "chain": [
+          0.45,
+          0.75
+        ],
+        "cancel": [
+          0.77,
+          0.95
+        ]
+      },
+      {
+        "sectionName": "Combo02",
+        "sequence": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Attack_ComboA2_YBot",
+        "startTime": 0.9833333492279053,
+        "length": 1.1666666269302368,
+        "hitFrames": [
+          16
+        ],
+        "hitTimes": [
+          0.26666666666666666
+        ],
+        "chain": [
+          0.35,
+          0.85
+        ],
+        "cancel": [
+          0.9,
+          1.1
+        ]
+      },
+      {
+        "sectionName": "Combo03",
+        "sequence": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Attack_ComboA3_YBot",
+        "startTime": 2.1500000953674316,
+        "length": 0.8666666746139526,
+        "hitFrames": [
+          11
+        ],
+        "hitTimes": [
+          0.18333333333333332
+        ],
+        "chain": [
+          0.25,
+          0.6
+        ],
+        "cancel": [
+          0.63,
+          0.83
+        ]
+      },
+      {
+        "sectionName": "Combo04",
+        "sequence": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Attack_ComboA4_YBot",
+        "startTime": 3.016666889190674,
+        "length": 1.1833332777023315,
+        "hitFrames": [
+          23
+        ],
+        "hitTimes": [
+          0.38333333333333336
+        ],
+        "chain": [
+          0.5,
+          0.9
+        ],
+        "cancel": [
+          0.93,
+          1.15
+        ]
+      }
+    ],
+    "comboData": "/Game/Data/ComboData/DA_LongSwordComboData",
+    "hits": [
+      {
+        "SectionName": "Combo01",
+        "BaseDamage": 15,
+        "DamageMultiplier": 1,
+        "AttackSphereRadius": 50,
+        "AttackForwardOffset": 50,
+        "KnockbackForce": 500,
+        "HitWindowStart": 0.45,
+        "HitWindowEnd": 0.75,
+        "SubHits": [
+          {
+            "DamageMultiplierOverride": 0.5,
+            "SphereRadiusOverride": 0,
+            "ForwardOffsetOverride": 0,
+            "KnockbackOverride": 0
+          },
+          {
+            "DamageMultiplierOverride": 0.5,
+            "SphereRadiusOverride": 0,
+            "ForwardOffsetOverride": 0,
+            "KnockbackOverride": 0
+          }
+        ]
+      },
+      {
+        "SectionName": "Combo02",
+        "BaseDamage": 20,
+        "DamageMultiplier": 1,
+        "AttackSphereRadius": 50,
+        "AttackForwardOffset": 50,
+        "KnockbackForce": 500,
+        "HitWindowStart": 0.35,
+        "HitWindowEnd": 0.85,
+        "SubHits": []
+      },
+      {
+        "SectionName": "Combo03",
+        "BaseDamage": 15,
+        "DamageMultiplier": 2,
+        "AttackSphereRadius": 50,
+        "AttackForwardOffset": 50,
+        "KnockbackForce": 500,
+        "HitWindowStart": 0.25,
+        "HitWindowEnd": 0.6,
+        "SubHits": []
+      },
+      {
+        "SectionName": "Combo04",
+        "BaseDamage": 25,
+        "DamageMultiplier": 2,
+        "AttackSphereRadius": 50,
+        "AttackForwardOffset": 50,
+        "KnockbackForce": 500,
+        "HitWindowStart": 0.5,
+        "HitWindowEnd": 0.9,
+        "SubHits": []
+      }
+    ],
+    "blendIn": 0.08,
+    "blendOut": 0.1,
+    "rootPolicy": "forceRootLock=true, AnimFirstFrame, enableRootMotion=false; preserve authored Root keys"
+  },
+  "cast": {
+    "montage": "/Game/MyStuff/Model/Robot/M_Attack_Fireball",
+    "sequence": "/Game/MyStuff/Animation/Ninja/Sequences/ARPG_Ninja_Anim_UE_Throw_A_YBot",
+    "slot": "UpperBodyOnly",
+    "commitTime": 0.18333333333333332,
+    "fireSocket": "LeftHand",
+    "weaponData": "/Game/Data/Items/Weapons/DA_WP_FireStaff",
+    "blendIn": 0.1,
+    "blendOut": 0.1
+  },
+  "retained": {
+    "drink": "/Game/MyStuff/Model/Robot/M_Drink",
+    "reason": "No drinking clip in new pack; jump/evade/climb/guard are not new gameplay features in this migration."
+  },
+  "backups": "Saved/NinjaAnimationReplacement-20261020/Before"
+}

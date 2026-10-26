@@ -1,0 +1,9 @@
+Using bundled DotNet SDK version
+Running UnrealHeaderTool IntroCppEditor
+Reflection code generated for IntroCppEditor
+[1/3] Compile [x64] InventoryComponent.cpp
+E:/Unreal Projects/IntorCpp/Source/IntroCpp/InventoryComponent.cpp(42): error C2065: 'MissingItem': undeclared identifier
+E:/Unreal Projects/IntorCpp/Source/IntroCpp/InventoryComponent.cpp(44): warning C4996: deprecated API
+[2/3] Link [x64] UnrealEditor-IntroCpp.dll
+UnrealBuildTool ERROR: CompilationResultException: Error: OtherCompilationError
+Result: Failed (OtherCompilationError)

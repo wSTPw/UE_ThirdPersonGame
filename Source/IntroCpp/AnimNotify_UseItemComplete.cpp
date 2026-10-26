@@ -36,7 +36,7 @@ void UAnimNotify_UseItemComplete::Notify(USkeletalMeshComponent* MeshComp, UAnim
 	{
 		// ★ 调用玩家的物品使用完成方法
 		// 该方法内部会执行：ItemAction 效果 + RemoveItemAt 扣减 + UI 刷新
-		PlayerChar->OnUseItemAnimFinished();
+		if (PlayerChar->Actions) PlayerChar->Actions->HandleNotify(MeshComp, Animation, EventReference, ECharacterActionEvent::ItemCommit);
 	}
 	// 如果 Cast 失败（Owner 不是 AMyPlayerCharacter），静默忽略
 	 // 这保证了此 Notify 放在任何 Montage 中都是安全的

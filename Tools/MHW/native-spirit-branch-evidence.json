@@ -1,0 +1,10 @@
+{
+  "source_url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTEYb4wGpijtIpFVopiYl1V83m48d7g1AHmTwOBKJ5RXdlz1sfxCyEmnhbgHLWQsGiXnodyBsUlPzc3/pubhtml/sheet?headers=false&gid=362236353",
+  "authors": "MoonBunnie and Deathcream",
+  "cached_json_sha256": "33a1d9a7542faef20139a2ca4c2717af056354481d724dc3107e5694aefc311e",
+  "cached_html_sha256": "c04bfad0138c514d15b343e6fe7556a0c3a43f3752994e875ce18dcf606bbee4",
+  "attack": "Spirit Jumping Slash",
+  "consumption_note": "Attempts to consume 20% spirit on activation for increased base Raw Damage.",
+  "scope": "Semantic corroboration only; all production numeric values read from original COL/W03P.",
+  "online_recheck": "web tool unavailable 2026-10-24; use previously retained source snapshot"
+}

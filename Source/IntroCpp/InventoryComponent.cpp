@@ -1,6 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "InventoryComponent.h"
+#include "Actions/CharacterActionComponent.h"
+#include "MyPlayerCharacter.h"
+#include "UObject/StrongObjectPtr.h"
+#include "Misc/ScopeExit.h"
 #include "Engine/World.h"
 #include "GameFramework/Actor.h"
 #include "Net/UnrealNetwork.h"
@@ -67,6 +71,111 @@ void UInventoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
     // - 重量超重减速效果
 }
 
+bool UInventoryComponent::CanMutateForAction() const
+{
+    if (bCommittingActionItem) return false;
+    const auto* Actions = GetOwner() ? GetOwner()->FindComponentByClass<UCharacterActionComponent>() : nullptr;
+    return !Actions || Actions->AllowsInventoryMutation();
+}
+
+bool UInventoryComponent::ReserveActionItem(bool bQuickSlot, int32 SlotIndex, FActionItemReservation& Out) const
+{
+    if (!CanMutateForAction() || !GetOwner() || !GetOwner()->HasAuthority()) return false;
+    const FItemInstance Item = bQuickSlot ? GetQuickSlot(SlotIndex) : GetItemAt(SlotIndex);
+    if (Item.IsEmpty()) return false;
+    Out.bQuickSlot = bQuickSlot;
+    Out.SlotIndex = SlotIndex;
+    Out.ItemID = Item.ItemID;
+    Out.Quantity = Item.Quantity;
+    Out.Revision = MutationRevision;
+    return true;
+}
+
+FActionItemCommitResult UInventoryComponent::CommitActionItem(const FActionItemReservation& Source, UItemDataBase* Data)
+{
+    FActionItemCommitResult Result;
+    if (bCommittingActionItem || Source.Revision != MutationRevision || !Data || !Data->bCanUse ||
+        Data->ItemID != Source.ItemID || Data->ItemType == EItemType::Weapon) return Result;
+    const FItemInstance Before = Source.bQuickSlot ? GetQuickSlot(Source.SlotIndex) : GetItemAt(Source.SlotIndex);
+    if (Before.IsEmpty() || Before.ItemID != Source.ItemID || Before.Quantity != Source.Quantity) return Result;
+    if (!GetOwner() || !GetOwner()->HasAuthority()) return Result;
+    TStrongObjectPtr<UAttributeComponent> Attributes(GetOwner()->FindComponentByClass<UAttributeComponent>());
+    if (Attributes.IsValid() && !Attributes->IsAlive()) return Result;
+
+    // Constructors and initialization belong to the protected transaction too.
+    // A custom native action may call back into the inventory before Execute.
+    TGuardValue<bool> CommitGuard(bCommittingActionItem, true);
+    TStrongObjectPtr<UItemDataBase> ItemDataGuard(Data);
+    TWeakObjectPtr<AActor> Instigator = GetOwner();
+
+    // Load EVERY effect before applying any of them; retain them across callbacks/GC.
+    TArray<TStrongObjectPtr<UItemAction>> Effects;
+    const auto EffectClasses = Data->ItemActionClasses;
+    for (const auto& SoftClass : EffectClasses)
+    {
+        UClass* Class = SoftClass.LoadSynchronous();
+        if (!Class || Class->HasAnyClassFlags(CLASS_Abstract)) return Result;
+        auto* Effect = NewObject<UItemAction>(this, Class);
+        if (!Effect) return Result;
+        Effects.Emplace(Effect);
+        Effect->InitializeFromItemData(Data);
+        if (!Instigator.IsValid() || Instigator->IsActorBeingDestroyed()) return Result;
+        if (Attributes.IsValid() && !Attributes->IsAlive()) return Result;
+    }
+
+    bool bNotificationsPending = Attributes.IsValid();
+    auto FlushAttributeNotifications = [&]()
+    {
+        if (bNotificationsPending)
+        {
+            bNotificationsPending = false;
+            Attributes->EndNotificationBatch();
+        }
+    };
+    ON_SCOPE_EXIT { FlushAttributeNotifications(); };
+    if (bNotificationsPending) Attributes->BeginNotificationBatch();
+
+    bool bConsume = Effects.IsEmpty() && Data->ItemType == EItemType::Consumable;
+    int32 FailedEffects = 0;
+    int32 ExecutedEffects = 0;
+    for (const auto& Effect : Effects)
+    {
+        // Do not run a later effect on an actor killed/destroyed by an earlier
+        // callback. An already applied effect still consumes the source once.
+        if (!Instigator.IsValid() || Instigator->IsActorBeingDestroyed() || (Attributes.IsValid() && !Attributes->IsAlive())) break;
+        const bool bApplied = Effect->Execute(this, Source.SlotIndex, Instigator.Get());
+        ++ExecutedEffects;
+        if (!bApplied) ++FailedEffects;
+        Result.bApplied |= bApplied;
+        bConsume |= bApplied;
+    }
+    // This records reported successes/failures; Legacy false may still hide
+    // external side effects and is never treated as a rollback guarantee.
+    Result.bPartial = Result.bApplied && (FailedEffects > 0 || ExecutedEffects < Effects.Num());
+    if (!bConsume) return Result;
+
+    // Public mutators are blocked for the entire execution, including reentrant delegates.
+    // Consume ONLY the original container; the hotbar is currently independent storage.
+    FItemInstance After(Before.ItemID, Before.Quantity - 1);
+    if (After.Quantity <= 0) After.Empty();
+    if (Source.bQuickSlot) QuickSlots[Source.SlotIndex] = After;
+    else Inventory[Source.SlotIndex] = After;
+    ++MutationRevision;
+    CurrentItemCount = 0;
+    for (const auto& Item : Inventory) if (!Item.IsEmpty()) ++CurrentItemCount;
+    UpdateWeight();
+    Result.ConsumedQuantity = 1;
+    // Attribute listeners now observe the committed source quantity and weight.
+    // CommitGuard remains active across both attribute and inventory delegates.
+    FlushAttributeNotifications();
+    const FItemInstance Used(Source.ItemID, 1);
+    OnItemRemoved.Broadcast(Used);
+    OnItemUsed.Broadcast(Used);
+    if (Source.bQuickSlot) OnQuickSlotChanged.Broadcast(Source.SlotIndex);
+    BroadcastInventoryUpdate();
+    return Result;
+}
+
 // ============================================================================
 //  AddItem — 添加物品到背包
 // ============================================================================
@@ -89,6 +198,8 @@ void UInventoryComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
  */
 bool UInventoryComponent::AddItem(FName ItemID, int32 Quantity)
 {
+    if (!CanMutateForAction()) return false;
+    ++MutationRevision;
     if (Quantity <= 0) return false;
 
     // 通过全局 Subsystem 获取物品静态配置数据（返回指针，nullptr 表示未注册此物品）
@@ -172,6 +283,8 @@ bool UInventoryComponent::AddItem(FName ItemID, int32 Quantity)
  */
 bool UInventoryComponent::RemoveItem(FName ItemID, int32 Quantity)
 {
+    if (!CanMutateForAction()) return false;
+    ++MutationRevision;
     if (Quantity <= 0) return false;
 
     int32 TotalRemoved = 0;
@@ -223,6 +336,8 @@ bool UInventoryComponent::RemoveItem(FName ItemID, int32 Quantity)
  */
 bool UInventoryComponent::RemoveItemAt(int32 SlotIndex, int32 Quantity)
 {
+    if (!CanMutateForAction()) return false;
+    ++MutationRevision;
     // 边界和有效性检查
     if (!Inventory.IsValidIndex(SlotIndex)) return false;
     if (Quantity <= 0) return false;
@@ -264,94 +379,18 @@ bool UInventoryComponent::RemoveItemAt(int32 SlotIndex, int32 Quantity)
 // ============================================================================
 
 /**
- * 使用指定槽位的物品——这是整个物品系统的核心执行入口。
- *
- * 【完整流程】
- * 1. 校验槽位有效且非空
- * 2. 通过 Subsystem 读取 ItemData，检查 bCanUse 标志
- * 3. 权限校验：必须在服务器端执行（HasAuthority）
- * 4. 加载 ItemActionClasses 中注册的所有 Action 类：
- *    a. LoadSynchronous() 同步加载 Action UClass
- *    b. NewObject<Action>(this, Class) 创建实例
- *    c. InitializeFromItemData(ItemData) 从 DataAsset 读取参数初始化 Action
- *    d. Execute(Inventory, SlotIndex, Instigator) 执行效果
- *    e. 任一 Action 返回 true → bConsumed = true
- * 5. 如果 bConsumed == true:
- *    → RemoveItemAt(SlotIndex, 1) 扣减一个数量
- *    → OnItemUsed 广播使用事件
- *    → BroadcastInventoryUpdate 刷新UI
- *
- * 【无 ActionClasses 的回退行为】
- * 如果 ItemActionClasses 为空列表但 ItemType==Consumable → 也标记为已消费
- * （兼容简单消耗品不需要自定义 Action 的情况）
+ * 玩家请求统一动作流程，动画提交时经 CommitActionItem 消费原来源。
+ * 没有动作组件的拥有者同步执行同一个提交后端。
  *
  * @param SlotIndex 要使用的物品所在槽位索引
- * @return          流程是否完整执行（true不代表一定消费了，false表示校验失败）
+ * @return 玩家返回请求是否已接受；同步路径返回是否已经消费。
  */
 bool UInventoryComponent::UseItem(int32 SlotIndex)
 {
-    // 基础校验
-    if (!Inventory.IsValidIndex(SlotIndex)) return false;
-
-    FItemInstance& Item = Inventory[SlotIndex];
-    if (Item.IsEmpty()) return false;
-
-    // 获取物品静态配置数据
-    UItemDataBase* ItemData = GetItemData(Item.ItemID);
-    if (!ItemData || !ItemData->bCanUse)
-    {
-        UE_LOG(LogTemp, Warning, TEXT("无法使用物品: %s（不可用或数据缺失）"), *Item.ItemID.ToString());
-        return false;
-    }
-
-    // ★ 强制在服务器执行（多人游戏时客户端不能直接修改服务端背包数据）
-    if (!GetOwner() || !GetOwner()->HasAuthority())
-    {
-        UE_LOG(LogTemp, Warning, TEXT("UseItem 必须在服务器上执行"));
-        return false;
-    }
-
-    // === 执行 ItemAction 列表（策略模式的核心循环）===
-    bool bConsumed = false;
-    if (ItemData->ItemActionClasses.Num() > 0)
-    {
-        AActor* Instigator = GetOwner();  // 触发者通常是拥有此组件的角色
-
-        for (const TSoftClassPtr<UItemAction>& SoftActionClass : ItemData->ItemActionClasses)
-        {
-            if (SoftActionClass.IsNull()) continue;  // 跳过空的引用
-
-            // 同步加载 Action 的 UClass（Action 类通常很小，同步加载开销可接受）
-            UClass* ActionClass = SoftActionClass.LoadSynchronous();
-            if (!ActionClass) continue;
-
-            // 创建 Action 实例（Outer=this 让 GC 随组件一起管理生命周期）
-            UItemAction* Action = NewObject<UItemAction>(this, ActionClass);
-            if (!Action) continue;
-
-            // 用物品数据初始化 Action 参数（子类会 Cast 到具体类型读取字段）
-            Action->InitializeFromItemData(ItemData);
-
-            // ★ 执行 Action —— 返回 true 表示该物品已被消费
-            bool bThisConsumed = Action->Execute(this, SlotIndex, Instigator);
-            bConsumed = bConsumed || bThisConsumed;  // 任一 Action 消费即标记为已消费
-        }
-    }
-    else
-    {
-        // 无自定义 Action 但是消耗品类型 → 直接标记为已消费（最简单的回退行为）
-        bConsumed = (ItemData->ItemType == EItemType::Consumable);
-    }
-
-    // === 如果被消费了，执行扣减和广播 ===
-    if (bConsumed)
-    {
-        RemoveItemAt(SlotIndex, 1);              // 数量 -1
-        OnItemUsed.Broadcast(FItemInstance(Item.ItemID, 1));  // 通知外部"使用了XX"
-        BroadcastInventoryUpdate();              // 刷新 UI 显示
-    }
-
-    return true;
+    if (auto* Actions = GetOwner() ? GetOwner()->FindComponentByClass<UCharacterActionComponent>() : nullptr)
+        return Actions->RequestUseItem(false, SlotIndex).IsAccepted();
+    FActionItemReservation Source;
+    return ReserveActionItem(false, SlotIndex, Source) && CommitActionItem(Source, GetItemData(Source.ItemID)).IsCommitted();
 }
 
 // ============================================================================
@@ -373,6 +412,8 @@ bool UInventoryComponent::UseItem(int32 SlotIndex)
  */
 void UInventoryComponent::DropItem(int32 SlotIndex)
 {
+    if (!CanMutateForAction()) return;
+    ++MutationRevision;
     if (!Inventory.IsValidIndex(SlotIndex)) return;
 
     FItemInstance Item = Inventory[SlotIndex];
@@ -447,6 +488,8 @@ void UInventoryComponent::DropItem(int32 SlotIndex)
 /** 简单的原地交换，TArray::Swap 是 O(1) 操作 */
 void UInventoryComponent::SwapItems(int32 SlotIndex1, int32 SlotIndex2)
 {
+    if (!CanMutateForAction()) return;
+    ++MutationRevision;
     if (!Inventory.IsValidIndex(SlotIndex1) || !Inventory.IsValidIndex(SlotIndex2)) return;
     if (SlotIndex1 == SlotIndex2) return;  // 自己和自己换没有意义
 
@@ -469,6 +512,8 @@ void UInventoryComponent::SwapItems(int32 SlotIndex1, int32 SlotIndex2)
  */
 void UInventoryComponent::SortItems()
 {
+    if (!CanMutateForAction()) return;
+    ++MutationRevision;
     // 分离非空物品
     TArray<FItemInstance> NonEmptyItems;
     for (const FItemInstance& Item : Inventory)
@@ -542,6 +587,8 @@ FItemInstance UInventoryComponent::GetItemAt(int32 SlotIndex) const
 
 void UInventoryComponent::SetItemAt(int32 SlotIndex, const FItemInstance& Item)
 {
+    if (!CanMutateForAction()) return;
+    ++MutationRevision;
     if (!Inventory.IsValidIndex(SlotIndex)) return;
 
     Inventory[SlotIndex] = Item;
@@ -618,7 +665,7 @@ void UInventoryComponent::BroadcastInventoryUpdate()
 UItemDataBase* UInventoryComponent::GetItemData(FName ItemID) const
 {
 	UWorld* World = GetWorld();
-	if (!World) return nullptr;
+	if (!World || !World->GetGameInstance()) return nullptr;
 
 	// 从 GameInstance 获取 Subsystem 单例，委托其懒加载 + 缓存机制
 	if (UItemDataSubsystem* Subsystem = World->GetGameInstance()->GetSubsystem<UItemDataSubsystem>())
@@ -632,7 +679,7 @@ UItemDataBase* UInventoryComponent::GetItemData(FName ItemID) const
 UWeaponData* UInventoryComponent::GetWeaponData(FName WeaponID) const
 {
 	UWorld* World = GetWorld();
-	if (!World) return nullptr;
+	if (!World || !World->GetGameInstance()) return nullptr;
 
 	if (UItemDataSubsystem* Subsystem = World->GetGameInstance()->GetSubsystem<UItemDataSubsystem>())
 	{
@@ -659,6 +706,8 @@ UWeaponData* UInventoryComponent::GetWeaponData(FName WeaponID) const
  */
 bool UInventoryComponent::EquipItem(int32 SlotIndex)
 {
+    if (!CanMutateForAction()) return false;
+    ++MutationRevision;
 	// 参数校验
 	if (!Inventory.IsValidIndex(SlotIndex))
 	{
@@ -708,6 +757,8 @@ bool UInventoryComponent::EquipItem(int32 SlotIndex)
  */
 void UInventoryComponent::UnequipItem()
 {
+    if (!CanMutateForAction()) return;
+    ++MutationRevision;
 	if (EquippedSlotIndex < 0)
 	{
 		return;  // 未装备，无需操作
@@ -764,6 +815,8 @@ FName UInventoryComponent::GetEquippedItemID() const
  */
 bool UInventoryComponent::SelectQuickSlot(int32 SlotIndex)
 {
+    if (!CanMutateForAction()) return false;
+    ++MutationRevision;
 	// 边界检查 [0, QUICK_SLOT_COUNT)
 	if (SlotIndex < 0 || SlotIndex >= QUICK_SLOT_COUNT)
 	{
@@ -790,153 +843,39 @@ bool UInventoryComponent::SelectQuickSlot(int32 SlotIndex)
 /**
  * 使用当前选中的快捷栏物品
  *
- * 根据 ItemType 分支处理：
- *
- * 【Weapon 分支】
- *   1. 在主背包 FindItemSlot 找该武器
- *   2. 找到了 → EquipItem(InvSlot) 装备它
- *   3. 没找到（可能全拖到快捷栏了）→ 先 AddItem 回背包，再用新位置 EquipItem
- *
- * 【Consumable 分支】
- *   1. 在主背包 FindItemSlot 找该消耗品
- *   2. 找到了 → UseItem(InvSlot)（内部执行 Action + RemoveItemAt）
- *      → 同步更新快捷栏数量（SlotItem.Quantity--）
- *      → 用完了 ClearQuickSlot，还有余量则 OnQuickSlotChanged 刷新数字
- *   3. 背包中没有（全部在快捷栏）→ 直接扣减快捷栏数量
- *      → 手动执行 ItemAction（因为不走 UseItem 通道了）
+ * 武器经统一许可后装备；消耗品预约快捷栏里的原始槽位。
+ * 背包与快捷栏各自拥有物品，绝不按同 ID 查找另一容器再同步扣除。
  *      → 用完清空 / 有余量刷新
  *
- * @return 操作是否成功
+ * @return 武器是否获准装备，或使用请求是否已接受。
  */
 bool UInventoryComponent::UseSelectedQuickSlot()
 {
-	// 基础校验
-	if (SelectedQuickSlotIndex < 0 || SelectedQuickSlotIndex >= QUICK_SLOT_COUNT)
-	{
-		return false;
-	}
-
-	FItemInstance& SlotItem = QuickSlots[SelectedQuickSlotIndex];
-	if (SlotItem.IsEmpty())
-	{
-		UE_LOG(LogTemp, Log, TEXT("[QuickSlot] Slot %d is empty, nothing to use"), SelectedQuickSlotIndex);
-		return false;
-	}
-
-	// 获取物品配置数据
-	UItemDataBase* ItemData = GetItemData(SlotItem.ItemID);
-	if (!ItemData)
-	{
-		UE_LOG(LogTemp, Warning, TEXT("[QuickSlot] Cannot find item data for %s"), *SlotItem.ItemID.ToString());
-		return false;
-	}
-
-	bool bSuccess = false;
-
-	switch (ItemData->ItemType)
-	{
-	case EItemType::Weapon:
-	{
-		// ===== 武器：需要在背包中有对应物品才能装备 =====
-		int32 InvSlot = FindItemSlot(SlotItem.ItemID);
-		if (InvSlot < 0)
-		{
-			// 背包中没有这把武器（可能用户把唯一的那个也拖进快捷栏了）
-			// → 先 AddItem 放回背包，再用新位置装备
-			if (AddItem(SlotItem.ItemID, SlotItem.Quantity))
-			{
-				InvSlot = FindItemSlot(SlotItem.ItemID);
-			}
-		}
-		if (InvSlot >= 0)
-		{
-			bSuccess = EquipItem(InvSlot);
-		}
-		else
-		{
-			UE_LOG(LogTemp, Warning, TEXT("[QuickSlot] 武器 %s 无法放入背包进行装备"), *SlotItem.ItemID.ToString());
-		}
-		break;
-	}
-
-	case EItemType::Consumable:
-	{
-		// ===== 消耗品：优先走背包标准 UseItem 通道 =====
-		int32 InvSlot = FindItemSlot(SlotItem.ItemID);
-		if (InvSlot >= 0)
-		{
-			// 背包里有 → 走标准通道（自动执行 Action + 扣减 + 广播）
-			bSuccess = UseItem(InvSlot);
-
-			if (bSuccess)
-			{
-				// ★ 同步快捷栏显示数量与背包一致
-				SlotItem.Quantity--;
-
-				// 快捷栏里的也用完了 → 清空该格
-				if (SlotItem.Quantity <= 0 || !HasItem(SlotItem.ItemID))
-				{
-					ClearQuickSlot(SelectedQuickSlotIndex);
-				}
-				else
-				{
-					// 还有剩余 → 广播更新让 UI 刷新数字显示
-					OnQuickSlotChanged.Broadcast(SelectedQuickSlotIndex);
-				}
-			}
-		}
-		else
-		{
-			// ★ 背包中没有该消耗品（全部在快捷栏中）→ 手动处理
-			SlotItem.Quantity--;
-			if (SlotItem.Quantity <= 0)
-			{
-				ClearQuickSlot(SelectedQuickSlotIndex);
-			}
-			else
-			{
-				OnQuickSlotChanged.Broadcast(SelectedQuickSlotIndex);
-			}
-
-			// 手动执行 ItemAction 效果（绕过 UseItem 因为背包里没这个东西）
-			if (ItemData->ItemActionClasses.Num() > 0)
-			{
-				AActor* Instigator = GetOwner();
-				for (const TSoftClassPtr<UItemAction>& SoftActionClass : ItemData->ItemActionClasses)
-				{
-					if (SoftActionClass.IsNull()) continue;
-					UClass* ActionClass = SoftActionClass.LoadSynchronous();
-					if (!ActionClass) continue;
-
-					UItemAction* Action = NewObject<UItemAction>(this, ActionClass);
-					if (!Action) continue;
-
-					Action->InitializeFromItemData(ItemData);
-					Action->Execute(this, SelectedQuickSlotIndex, Instigator);
-				}
-				bSuccess = true;
-			}
-			else if (ItemData->ItemType == EItemType::Consumable)
-			{
-				// 简单消耗品无 ActionClasses → 标记为已消费（数量已在上面扣了）
-				bSuccess = true;
-			}
-		}
-		break;
-	}
-
-	default:
-		// 其他类型（材料、任务物品等）暂不支持从快捷栏使用
-		UE_LOG(LogTemp, Log, TEXT("[QuickSlot] Item %s type (%d) not usable from quickslot"),
-			*SlotItem.ItemID.ToString(), (int32)ItemData->ItemType);
-		break;
-	}
-
-	return bSuccess;
+    const FItemInstance Item = GetQuickSlot(SelectedQuickSlotIndex);
+    if (Item.IsEmpty()) return false;
+    UItemDataBase* Data = GetItemData(Item.ItemID);
+    if (auto* Actions = GetOwner() ? GetOwner()->FindComponentByClass<UCharacterActionComponent>() : nullptr)
+    {
+        if (Data && Data->ItemType == EItemType::Weapon)
+        {
+            if (!Actions->CanChangeEquipment()) return false;
+            if (auto* Player = Cast<AMyPlayerCharacter>(GetOwner()))
+            {
+                Player->EquipWeapon(Cast<UWeaponData>(Data));
+                return true;
+            }
+            return false;
+        }
+        return Actions->RequestUseItem(true, SelectedQuickSlotIndex).IsAccepted();
+    }
+    FActionItemReservation Source;
+    return ReserveActionItem(true, SelectedQuickSlotIndex, Source) && CommitActionItem(Source, Data).IsCommitted();
 }
 
 bool UInventoryComponent::SetQuickSlot(int32 SlotIndex, const FItemInstance& Item)
 {
+    if (!CanMutateForAction()) return false;
+    ++MutationRevision;
 	if (SlotIndex < 0 || SlotIndex >= QUICK_SLOT_COUNT)
 	{
 		return false;
@@ -962,6 +901,8 @@ FItemInstance UInventoryComponent::GetQuickSlot(int32 SlotIndex) const
 
 void UInventoryComponent::ClearQuickSlot(int32 SlotIndex)
 {
+    if (!CanMutateForAction()) return;
+    ++MutationRevision;
 	if (SlotIndex < 0 || SlotIndex >= QUICK_SLOT_COUNT)
 	{
 		return;

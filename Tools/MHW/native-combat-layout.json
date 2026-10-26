@@ -1,0 +1,249 @@
+{
+  "schema": 1,
+  "upstream_url": "https://github.com/Synthlight/MHW-Editor/blob/master/Generated/MHW_Editor/Structs/Weapons/Collision.cs",
+  "upstream_sha256": "cb4809b14bce6e183cc208e1c29dbf21ec32a999c31201656b42271f875614c2",
+  "attack_type": 1,
+  "record_size": 218,
+  "fields": [
+    {
+      "name": "Index",
+      "type": "UInt32"
+    },
+    {
+      "name": "Attack_Type",
+      "type": "UInt32"
+    },
+    {
+      "name": "Motion_Value",
+      "type": "Single"
+    },
+    {
+      "name": "Fixed_Damage",
+      "type": "Single"
+    },
+    {
+      "name": "Part_Modifier",
+      "type": "Single"
+    },
+    {
+      "name": "Elemental_Modifier",
+      "type": "Single"
+    },
+    {
+      "name": "Status_Modifier",
+      "type": "Single"
+    },
+    {
+      "name": "Stun",
+      "type": "Single"
+    },
+    {
+      "name": "Exhaust",
+      "type": "Single"
+    },
+    {
+      "name": "Mount",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_1",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_2",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_3",
+      "type": "Byte"
+    },
+    {
+      "name": "Soften_Value",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_4",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_5",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_6",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_7",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_8",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_9",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_10",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_11",
+      "type": "Single"
+    },
+    {
+      "name": "Flinch_Value",
+      "type": "UInt32"
+    },
+    {
+      "name": "Unk_12",
+      "type": "UInt32"
+    },
+    {
+      "name": "Mind_s_Eye",
+      "type": "Byte"
+    },
+    {
+      "name": "Unk_13",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_14",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_15",
+      "type": "Byte"
+    },
+    {
+      "name": "Unk_16",
+      "type": "Single"
+    },
+    {
+      "name": "Hit_Lag_Speed_Multiplier_a_",
+      "type": "Single"
+    },
+    {
+      "name": "Hit_Lag_a_",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_17",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_18",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_19",
+      "type": "Single"
+    },
+    {
+      "name": "Hit_Lag_Speed_Multiplier_b_",
+      "type": "Single"
+    },
+    {
+      "name": "Hit_Lag_b_",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_20",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_21",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_22",
+      "type": "UInt32"
+    },
+    {
+      "name": "Unk_23",
+      "type": "SByte"
+    },
+    {
+      "name": "Unk_24",
+      "type": "Byte"
+    },
+    {
+      "name": "Unk_25",
+      "type": "UInt32"
+    },
+    {
+      "name": "Unk_26",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_27",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_28",
+      "type": "Single"
+    },
+    {
+      "name": "Lingering_Hurtbox",
+      "type": "Byte"
+    },
+    {
+      "name": "Frame_Delay",
+      "type": "Single"
+    },
+    {
+      "name": "No_Sharpness_Consumed",
+      "type": "UInt32"
+    },
+    {
+      "name": "Unk_30",
+      "type": "UInt16"
+    },
+    {
+      "name": "Energy_Gen",
+      "type": "Single"
+    },
+    {
+      "name": "Conditional_Motion_value_change_replace",
+      "type": "Single"
+    },
+    {
+      "name": "Conditional_element_modifier_change_replace",
+      "type": "Single"
+    },
+    {
+      "name": "Unk_31",
+      "type": "UInt32"
+    },
+    {
+      "name": "Unk_32",
+      "type": "UInt32"
+    },
+    {
+      "name": "Unk_33",
+      "type": "UInt32"
+    },
+    {
+      "name": "Unk_34",
+      "type": "UInt32"
+    },
+    {
+      "name": "Unk_35",
+      "type": "UInt32"
+    },
+    {
+      "name": "Unk_36",
+      "type": "UInt32"
+    },
+    {
+      "name": "Unk_37",
+      "type": "UInt32"
+    },
+    {
+      "name": "Unk_38",
+      "type": "UInt16"
+    }
+  ]
+}

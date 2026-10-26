@@ -1,0 +1,568 @@
+{
+  "schema": 1,
+  "tests_executed": false,
+  "clips": [
+    {
+      "clip": "w03_00_010",
+      "bank": "w03_00",
+      "motion": 10,
+      "frame_count": 111,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_010.fbx",
+        "bytes": 3236876,
+        "sha256": "9efefc10c49f5a4692debacf650db6f5098fab90ca3909173d19e3e2760e3427"
+      }
+    },
+    {
+      "clip": "w03_00_011",
+      "bank": "w03_00",
+      "motion": 11,
+      "frame_count": 81,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_011.fbx",
+        "bytes": 2837548,
+        "sha256": "01a301b413373bd46a7be76512e6cbf2d523057785bd2afe08a36148f19374b4"
+      }
+    },
+    {
+      "clip": "w03_00_012",
+      "bank": "w03_00",
+      "motion": 12,
+      "frame_count": 77,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_012.fbx",
+        "bytes": 2781164,
+        "sha256": "967f3f9797c245939eeab3ee9f8f6ff97524c3193074ae8b108d597f6b92cf62"
+      }
+    },
+    {
+      "clip": "w03_00_013",
+      "bank": "w03_00",
+      "motion": 13,
+      "frame_count": 77,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_013.fbx",
+        "bytes": 2778652,
+        "sha256": "71e30371291b1bed69f70081a142363015cc40fc1b15c97805b6a17fd1e37775"
+      }
+    },
+    {
+      "clip": "w03_00_061",
+      "bank": "w03_00",
+      "motion": 61,
+      "frame_count": 53,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_061.fbx",
+        "bytes": 2424780,
+        "sha256": "ba2b0b14470f8b24bb7ddfaed4037f974bb4765be7700337be34fda3cf744929"
+      }
+    },
+    {
+      "clip": "w03_00_062",
+      "bank": "w03_00",
+      "motion": 62,
+      "frame_count": 73,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_062.fbx",
+        "bytes": 2692316,
+        "sha256": "7f75af90d71548b2300aa1185590bbbc51615a6a5f5e6c95d7be5ddd677b08e6"
+      }
+    },
+    {
+      "clip": "w03_00_063",
+      "bank": "w03_00",
+      "motion": 63,
+      "frame_count": 43,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_063.fbx",
+        "bytes": 2263692,
+        "sha256": "f84ee219cb0ae67a6d4af059c91c06f89f078f58ddd99e087776edb2b91355ce"
+      }
+    },
+    {
+      "clip": "w03_00_113",
+      "bank": "w03_00",
+      "motion": 113,
+      "frame_count": 45,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_113.fbx",
+        "bytes": 2294540,
+        "sha256": "025bd6f158fec4edb7e7a9061d814efda5649bc42ca22ce173bd9f159e7ed368"
+      }
+    },
+    {
+      "clip": "w03_00_115",
+      "bank": "w03_00",
+      "motion": 115,
+      "frame_count": 33,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_115.fbx",
+        "bytes": 2096620,
+        "sha256": "fddc2a6b2871da5c13bb80174e84eaf67b0bb09bbc763bf1cf0d2a6c95f2299a"
+      }
+    },
+    {
+      "clip": "w03_00_116",
+      "bank": "w03_00",
+      "motion": 116,
+      "frame_count": 43,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_116.fbx",
+        "bytes": 2258012,
+        "sha256": "7bc6fe98dc636c41aad1beddc4d0d234ec068c1d14cfab3a4358f24ec6ffff8d"
+      }
+    },
+    {
+      "clip": "w03_00_126",
+      "bank": "w03_00",
+      "motion": 126,
+      "frame_count": 29,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_126.fbx",
+        "bytes": 2110316,
+        "sha256": "5506da4622cea2f4e409fe81e1745ce00cf42ab488222a17ba74c8778a50c556"
+      }
+    },
+    {
+      "clip": "w03_00_130",
+      "bank": "w03_00",
+      "motion": 130,
+      "frame_count": 50,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_130.fbx",
+        "bytes": 2369884,
+        "sha256": "d68a6b25c9100ce0567f41e9ef5ada7ed09cfb9411c8875a9a35b14c87ad4103"
+      }
+    },
+    {
+      "clip": "w03_00_151",
+      "bank": "w03_00",
+      "motion": 151,
+      "frame_count": 25,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_151.fbx",
+        "bytes": 2026924,
+        "sha256": "af4eab19846ac9a07e638c071eb4ef0802b7f5a1533656c01681f5b34b9ab2e8"
+      }
+    },
+    {
+      "clip": "w03_00_221",
+      "bank": "w03_00",
+      "motion": 221,
+      "frame_count": 99,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_221.fbx",
+        "bytes": 3069164,
+        "sha256": "20b4f67b21b9df510734f6ec41f12b2ae5a39847c82e814847a390934fc67075"
+      }
+    },
+    {
+      "clip": "w03_00_332",
+      "bank": "w03_00",
+      "motion": 332,
+      "frame_count": 134,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_332.fbx",
+        "bytes": 3521020,
+        "sha256": "f5a53f1cad4f49c805d3f3a665a0083dc99c4f124c7e31e3cf549042cac6b3a0"
+      }
+    },
+    {
+      "clip": "w03_00_333",
+      "bank": "w03_00",
+      "motion": 333,
+      "frame_count": 134,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_333.fbx",
+        "bytes": 3526620,
+        "sha256": "17ebbe62cffff69ba69f716dbf66550f16efe884cb5ffa6f3e65b66265567da6"
+      }
+    },
+    {
+      "clip": "w03_00_334",
+      "bank": "w03_00",
+      "motion": 334,
+      "frame_count": 134,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_334.fbx",
+        "bytes": 3528572,
+        "sha256": "7ef5e71fafcd85aa4aefdba9074ecf615695114a323fac0667141a6048ae3bab"
+      }
+    },
+    {
+      "clip": "w03_00_338",
+      "bank": "w03_00",
+      "motion": 338,
+      "frame_count": 134,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_338.fbx",
+        "bytes": 3517804,
+        "sha256": "286d28e24e61f9533d246686c8da8ac36f42eefd56a0441f1a8c59b859e2030f"
+      }
+    },
+    {
+      "clip": "w03_00_339",
+      "bank": "w03_00",
+      "motion": 339,
+      "frame_count": 134,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_339.fbx",
+        "bytes": 3525484,
+        "sha256": "8fff31b458c31f2f13b2d5e5bc6e4bb4681229ea146570c8f7b91ed136375840"
+      }
+    },
+    {
+      "clip": "w03_00_340",
+      "bank": "w03_00",
+      "motion": 340,
+      "frame_count": 134,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_340.fbx",
+        "bytes": 3524460,
+        "sha256": "206e4774c8d4364285f9c6180c468c135df8e6e4711e6203da7bbf5fd7527879"
+      }
+    },
+    {
+      "clip": "w03_00_341",
+      "bank": "w03_00",
+      "motion": 341,
+      "frame_count": 134,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_341.fbx",
+        "bytes": 3524252,
+        "sha256": "777f699da9464776b522d96abbfb6c78f11408d0ff352c2401eda1dc23b3bee1"
+      }
+    },
+    {
+      "clip": "w03_00_342",
+      "bank": "w03_00",
+      "motion": 342,
+      "frame_count": 134,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_342.fbx",
+        "bytes": 3523644,
+        "sha256": "96b02de0edde628e57d40e8105df3f24619dce121ade635cc6b8c17c5aceb989"
+      }
+    },
+    {
+      "clip": "w03_00_343",
+      "bank": "w03_00",
+      "motion": 343,
+      "frame_count": 134,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_343.fbx",
+        "bytes": 3530268,
+        "sha256": "e4ad91ef894c6697cbd9aa25ab0c3fc40fbb15c94423d108b7295aebd4f6def1"
+      }
+    },
+    {
+      "clip": "w03_00_344",
+      "bank": "w03_00",
+      "motion": 344,
+      "frame_count": 134,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_344.fbx",
+        "bytes": 3521020,
+        "sha256": "c19331cc87336aea5b28b4bc0d1901a739e3ca302725d846bad7e122ec4fb1d6"
+      }
+    },
+    {
+      "clip": "w03_00_345",
+      "bank": "w03_00",
+      "motion": 345,
+      "frame_count": 134,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_345.fbx",
+        "bytes": 3526620,
+        "sha256": "1e80fdcc4fd3291c462a24bf3b463e393744e054b50fa00ad61b8927e5b39f10"
+      }
+    },
+    {
+      "clip": "w03_00_346",
+      "bank": "w03_00",
+      "motion": 346,
+      "frame_count": 134,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_346.fbx",
+        "bytes": 3528572,
+        "sha256": "ab8d656242cad62e6336e1ac397bccda5e3705a67675bf837ce69c087592e032"
+      }
+    },
+    {
+      "clip": "w03_00_347",
+      "bank": "w03_00",
+      "motion": 347,
+      "frame_count": 134,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_347.fbx",
+        "bytes": 3523980,
+        "sha256": "6ab24921690db3d94c3e5ad2030d6b4d2cd6ac9b4e629bae0b5090d3c7b09d43"
+      }
+    },
+    {
+      "clip": "w03_00_348",
+      "bank": "w03_00",
+      "motion": 348,
+      "frame_count": 134,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_348.fbx",
+        "bytes": 3527244,
+        "sha256": "3f8ecfd4e07fe5d7e5ee41e4f5fc7dce7c889615600c129efa181f863c9ba996"
+      }
+    },
+    {
+      "clip": "w03_00_349",
+      "bank": "w03_00",
+      "motion": 349,
+      "frame_count": 134,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+        "bytes": 3596020,
+        "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/w03_00_349.fbx",
+        "bytes": 3526060,
+        "sha256": "3f8da4b197de06aeb808ab91b49e46ef529bcbc6374009565819e30ec129e465"
+      }
+    },
+    {
+      "clip": "co00_00_070",
+      "bank": "co00_00",
+      "motion": 70,
+      "frame_count": 50,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/common/mot/co00_00/co00_00.lmt",
+        "bytes": 5916664,
+        "sha256": "589f12e1353a0344e1ec826b2b3c64b3e4abc6fd0de9e32e6012e45eae6512e1"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/co00_00_070.fbx",
+        "bytes": 2380204,
+        "sha256": "de9dac5c9993428a3a77b52eab3f808f3770f1650d2b188eef725ed222de2410"
+      }
+    },
+    {
+      "clip": "co00_00_071",
+      "bank": "co00_00",
+      "motion": 71,
+      "frame_count": 71,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/common/mot/co00_00/co00_00.lmt",
+        "bytes": 5916664,
+        "sha256": "589f12e1353a0344e1ec826b2b3c64b3e4abc6fd0de9e32e6012e45eae6512e1"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/co00_00_071.fbx",
+        "bytes": 2665260,
+        "sha256": "39981a8d624120af9767f6f7e20defbcef01a954f11f4ee06e2d610beffac66a"
+      }
+    },
+    {
+      "clip": "co00_00_072",
+      "bank": "co00_00",
+      "motion": 72,
+      "frame_count": 33,
+      "loop_frame": -1,
+      "source": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/common/mot/co00_00/co00_00.lmt",
+        "bytes": 5916664,
+        "sha256": "589f12e1353a0344e1ec826b2b3c64b3e4abc6fd0de9e32e6012e45eae6512e1"
+      },
+      "fbx": {
+        "path": "ArtSource/ThirdParty/MHWLongSword/R06Remaining-20261025/co00_00_072.fbx",
+        "bytes": 2100492,
+        "sha256": "1f082258e2ebff41b5d119f64cc7fd13a98a809533250799936c716b4b511ce4"
+      }
+    }
+  ],
+  "blocked": [
+    {
+      "clip": "co00_00_181",
+      "reason": "Mirroring requires native joint-remapping context"
+    }
+  ],
+  "source_blend": {
+    "path": "ArtSource/ThirdParty/MHWLongSword/Converted/MHW_Hunter_LongSword_Actions.blend",
+    "bytes": 398110688,
+    "sha256": "c7e6c46d63a16cf826af85c81ccdf4850ad735c09c0e903a3bff58ddcbc01329"
+  },
+  "status": "authored_not_tested",
+  "required_common_motions": [
+    70,
+    71,
+    72
+  ],
+  "ancillary_boundary": "Mirrored walk/sit reaction variants are not requested by B10 source owners; keep prior blocked authoring evidence."
+}

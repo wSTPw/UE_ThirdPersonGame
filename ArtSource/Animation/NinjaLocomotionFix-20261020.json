@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-20",
+  "status": "saved_pending_runtime",
+  "basedOn": "NinjaRootMotion-20261020.json",
+  "animBlueprint": {
+    "assetPath": "/Game/MyStuff/Model/Robot/ABP_Move",
+    "graphName": "AnimGraph",
+    "nodeId": "9E7554DD43E41E259DEAA38AF0EF6903",
+    "properties": {
+      "Node.bUpdateBasePoseFirst": true
+    },
+    "retained": {
+      "Node.bBlendRootMotionBasedOnRootBone": true,
+      "RootMotionMode": "RootMotionFromEverything"
+    }
+  },
+  "blendspaces": [
+    {
+      "assetPath": "/Game/MyStuff/Model/Robot/BS_Move",
+      "properties": {
+        "InterpolationParam[0].InterpolationTime": 0.1,
+        "InterpolationParam[0].DampingRatio": 1,
+        "InterpolationParam[0].MaxSpeed": 0,
+        "InterpolationParam[0].InterpolationType": "BSIT_SpringDamper",
+        "InterpolationParam[1].InterpolationTime": 0.16,
+        "InterpolationParam[1].DampingRatio": 1,
+        "InterpolationParam[1].MaxSpeed": 0,
+        "InterpolationParam[1].InterpolationType": "BSIT_SpringDamper",
+        "TargetWeightInterpolationSpeedPerSec": 8,
+        "bTargetWeightInterpolationEaseInOut": true
+      }
+    },
+    {
+      "assetPath": "/Game/MyStuff/Model/Robot/BS_LongSwordMove",
+      "properties": {
+        "InterpolationParam[0].InterpolationTime": 0.1,
+        "InterpolationParam[0].DampingRatio": 1,
+        "InterpolationParam[0].MaxSpeed": 0,
+        "InterpolationParam[0].InterpolationType": "BSIT_SpringDamper",
+        "InterpolationParam[1].InterpolationTime": 0.16,
+        "InterpolationParam[1].DampingRatio": 1,
+        "InterpolationParam[1].MaxSpeed": 0,
+        "InterpolationParam[1].InterpolationType": "BSIT_SpringDamper",
+        "TargetWeightInterpolationSpeedPerSec": 8,
+        "bTargetWeightInterpolationEaseInOut": true
+      }
+    },
+    {
+      "assetPath": "/Game/MyStuff/Model/Robot/BS_StaffMove",
+      "properties": {
+        "InterpolationParam[0].InterpolationTime": 0.1,
+        "InterpolationParam[0].DampingRatio": 1,
+        "InterpolationParam[0].MaxSpeed": 0,
+        "InterpolationParam[0].InterpolationType": "BSIT_SpringDamper",
+        "InterpolationParam[1].InterpolationTime": 0.16,
+        "InterpolationParam[1].DampingRatio": 1,
+        "InterpolationParam[1].MaxSpeed": 0,
+        "InterpolationParam[1].InterpolationType": "BSIT_SpringDamper",
+        "TargetWeightInterpolationSpeedPerSec": 8,
+        "bTargetWeightInterpolationEaseInOut": true
+      }
+    }
+  ],
+  "rootCause": "Shared cached pose first updated by the full-pose-weight upper-body branch with zero root-motion weight; SaveCachedPose selects first context on equal pose weights. Update base pose first preserves locomotion root weight.",
+  "evidence": {
+    "sourceForwardRunRootEndCm": 275,
+    "retargetedForwardRunRootEndCm": 283.6444091796875,
+    "previousBasePoseFirst": false,
+    "previousInputSmoothingSeconds": 0,
+    "previousWeightInterpolationSpeed": 0
+  },
+  "backups": "Saved/NinjaLocomotionFix-20261020/Before",
+  "verification": "No post-completion PIE, tests, compile checks or asset readback."
+}

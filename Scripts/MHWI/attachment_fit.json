@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "status": "persisted_and_fresh_pie_verified",
+  "transforms": {
+    "weapon_relative_transform": {
+      "location": [
+        -7,
+        2,
+        8.4
+      ],
+      "rotation": [
+        0,
+        0,
+        -90
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "scabbard_relative_transform": {
+      "location": [
+        -12,
+        -25,
+        -15
+      ],
+      "rotation": [
+        0,
+        -40,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "sheathed_weapon_relative_transform": {
+      "location": [
+        -12,
+        -25,
+        -15
+      ],
+      "rotation": [
+        0,
+        -40,
+        0
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "special_scabbard_relative_transform": {
+      "location": [
+        -0.11881795049884936,
+        1.9229001433450554,
+        12.98974246584684
+      ],
+      "rotation": [
+        -2.6873895912887487,
+        -85.558832848311,
+        117.79412376293614
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    },
+    "special_weapon_relative_transform": {
+      "location": [
+        -0.11881795049884936,
+        1.9229001433450554,
+        12.98974246584684
+      ],
+      "rotation": [
+        -2.6873895912887487,
+        -85.558832848311,
+        117.79412376293614
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ]
+    }
+  },
+  "bones": {
+    "weapon_bone": "bone_012",
+    "scabbard_bone": "bone_002",
+    "sheathed_weapon_bone": "bone_002",
+    "special_scabbard_bone": "bone_008"
+  },
+  "special_fit": {
+    "left_grip": [
+      -252.0805845353797,
+      8.914903250610783,
+      63.60725133943094
+    ],
+    "right_grip": [
+      -221.29688646467537,
+      -40.732264397102014,
+      81.98703515418792
+    ],
+    "mouth_source_y": 21,
+    "hilt_grip_source_y": -66.4852031270127,
+    "method": "two measured hold-pose palm points; fixed wrist-local transform"
+  },
+  "verified_on": "2026-10-22",
+  "notes": [
+    "Imported mesh longitudinal axis is component +Y. Wrist roll -90 maps it outward.",
+    "Component scale 0.7 is project fitting, not claimed as original game runtime scale.",
+    "Back sword/sheath share upper-spine mount and transforms.",
+    "Special hold uses two measured palm points and the source sheath mouth at component y=21.",
+    "Fresh-PIE evidence: Saved/MHWIImport/PIE-attachments.json, 45 checks."
+  ]
+}

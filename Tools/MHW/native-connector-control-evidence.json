@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "scope": "generic_VM_and_parameter_metadata_only",
+  "exe_sha256": "c2ebbbd2c49f216d484e31a5219bed419eb1e5e7d206d02cba040a3ab79d90ea",
+  "text_sha256": "9b48a8490df702ba9dc1cb95ffd387358ae2a639aa9675ad90719bd997124ebe",
+  "facts": [
+    {
+      "id": "generic_transition_gate",
+      "scope": "generic_FSM_VM_only",
+      "instruction_va": "0x1423fc998",
+      "return_path_va": "0x1423fc9a4",
+      "finding": "The dword at the evaluated drive context +0x30 must be zero before conditions are evaluated; otherwise this path returns false.",
+      "linkmotion_writer": null,
+      "linkmotion_release_predicate": null
+    },
+    {
+      "id": "named_callback_slots",
+      "scope": "generic_process_binding_only",
+      "finding": "Binding resolves update/state/exit and stores their function objects at container +0x20/+0x28/+0x30.",
+      "bindings": [
+        {
+          "name": "update",
+          "string_va": "0x143519144",
+          "store_va": "0x142458e2e"
+        },
+        {
+          "name": "state",
+          "string_va": "0x143525448",
+          "store_va": "0x142458e41"
+        },
+        {
+          "name": "exit",
+          "string_va": "0x143525450",
+          "store_va": "0x142458e54"
+        }
+      ]
+    },
+    {
+      "id": "state_result_not_completion",
+      "scope": "generic_VM_callsite_only",
+      "call_va": "0x1423feb6a",
+      "next_va": "0x1423feb6f",
+      "finding": "The state dispatch return is not used as a completion boolean at this loop callsite; transition evaluation is a separate call at 0x1423feb85.",
+      "concrete_state_target": null
+    },
+    {
+      "id": "optional_core_hook",
+      "scope": "generic_VM_callsite_only",
+      "load_va": "0x1423fea76",
+      "call_va": "0x1423fea93",
+      "finding": "This branch calls an optional function pointer from Core +0xd0 before the update slot dispatch. Its concrete target/writer is not resolved.",
+      "concrete_hook_target": null
+    },
+    {
+      "id": "generic_gate_release",
+      "scope": "generic_FSM_VM_only",
+      "nonzero_gate_va": "0x1423febc9",
+      "nonnegative_check_va": "0x1423febd8",
+      "decrement_va": "0x1423febe4",
+      "store_value_va": "0x1423febef",
+      "positive_branch_va": "0x1423febf6",
+      "clear_gate_va": "0x1423fec08",
+      "finding": "On this reached VM path, a nonzero drive +0x30 and a nonnegative ordered +0x34 value enter subtraction of singleton +0x94. A positive result skips clearing; the other result clears drive +0x30 and updates owner +0x2c bits. Negative or unordered initial values skip this path. Units, all branch predecessors, and LinkMotion use remain unresolved.",
+      "linkmotion_writer": null,
+      "linkmotion_release_predicate": null,
+      "time_unit": null
+    },
+    {
+      "id": "generic_gate_reset",
+      "scope": "generic_drive_initialization_only",
+      "function_va": "0x1423fec80",
+      "clear_gate_va": "0x1423fecdb",
+      "reset_value_va": "0x1423fecde",
+      "finding": "This generic drive setup/reset path clears +0x30 and writes float -1 to +0x34. This is not proof of LinkMotion completion or Phase reset.",
+      "weapon_specific": false
+    },
+    {
+      "id": "local_phase_parameter_field",
+      "scope": "local_parameter_metadata_only",
+      "type_name_va": "0x1433c6598",
+      "type_registration_va": "0x1401e15c0",
+      "dti_va": "0x145000fc0",
+      "vtable_va": "0x1431c93d0",
+      "get_dti_va": "0x140f0c750",
+      "property_name_va": "0x1433c6708",
+      "property_name_load_va": "0x141920387",
+      "field_address_va": "0x141920399",
+      "field_offset": "0x10c",
+      "finding": "Local nTimelineParam::PlMotionCommon type registration, vtable DTI getter and property registration associate mLinkMotionPhase with object +0x10c. This qualifies the local layout, not a selection consumer."
+    },
+    {
+      "id": "local_phase_parameter_zeroing",
+      "scope": "local_parameter_initialization_only",
+      "constructor_va": "0x14191f5b0",
+      "constructor_zero_store_va": "0x14191f619",
+      "vtable_slot5_va": "0x141921cb0",
+      "slot5_zero_store_va": "0x141921d99",
+      "finding": "Constructor and vtable slot 5 each zero a qword at +0x10c, covering the Phase field. Slot 5 invocation timing and action-entry/missing-track reset are unresolved. Fresh parameter initialization is not a missing-track fallback rule.",
+      "action_entry_reset": null,
+      "phase1_selection": null,
+      "missing_track_fallback": null
+    }
+  ],
+  "weapon_exit_rule": null,
+  "phase_selection_rule": null,
+  "tests_executed": false,
+  "evidence": "Saved/MHWIRestoration/B06-20261025/native-call-path.json"
+}

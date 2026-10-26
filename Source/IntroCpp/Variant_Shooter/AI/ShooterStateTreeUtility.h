@@ -40,7 +40,7 @@ struct FStateTreeLineOfSightToTargetConditionInstanceData
 	UPROPERTY(EditAnywhere, Category = "Condition")
 	bool bMustHaveLineOfSight = true;
 };
-STATETREE_POD_INSTANCEDATA(FStateTreeLineOfSightToTargetConditionInstanceData);
+UE_STATETREE_ZEROED_TRIVIALLY_COPIED_NO_DESTRUCTOR_INSTANCEDATA(FStateTreeLineOfSightToTargetConditionInstanceData);
 
 /**
  *  StateTree condition to check if the character is grounded

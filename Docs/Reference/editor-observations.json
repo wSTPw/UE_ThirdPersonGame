@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "observed_on": "2026-10-17",
+  "purpose": "Read-only editor observations for the technical documentation baseline; not a live configuration source.",
+  "world_settings": {
+    "success": true,
+    "defaultGameMode": "None",
+    "killZ": -1048575,
+    "globalGravityZ": 0,
+    "enableWorldBoundsChecks": true,
+    "enableNavigationSystem": true,
+    "worldName": "MyLevel"
+  },
+  "default_pawn": {
+    "success": true,
+    "path": "/Game/FirstPerson/Blueprints/BP_FirstPersonGameMode",
+    "propertyName": "DefaultPawnClass",
+    "type": "TSubclassOf<APawn>",
+    "value": "/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter.BP_FirstPersonCharacter_C"
+  },
+  "player_blueprint": {
+    "parentClass": "MyPlayerCharacter",
+    "components": [
+      {
+        "name": "CollisionCylinder",
+        "class": "CapsuleComponent",
+        "origin": "native",
+        "relativeLocation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "name": "Arrow",
+        "class": "ArrowComponent",
+        "origin": "native",
+        "relativeLocation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "name": "CharMoveComp",
+        "class": "CharacterMovementComponent",
+        "origin": "native"
+      },
+      {
+        "name": "CharacterMesh0",
+        "class": "SkeletalMeshComponent",
+        "origin": "native",
+        "relativeLocation": {
+          "x": 9.657144595109912e-8,
+          "y": 7.815970093361102e-14,
+          "z": -90
+        }
+      },
+      {
+        "name": "SpringArm",
+        "class": "SpringArmComponent",
+        "origin": "native",
+        "relativeLocation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "name": "Camera",
+        "class": "CameraComponent",
+        "origin": "native",
+        "relativeLocation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        }
+      },
+      {
+        "name": "InventoryComponent",
+        "class": "InventoryComponent",
+        "origin": "native"
+      },
+      {
+        "name": "AttributeComponent",
+        "class": "AttributeComponent",
+        "origin": "native"
+      }
+    ],
+    "fieldsNotFound": {
+      "paths": [
+        "variables"
+      ],
+      "note": "These select/omit paths matched nothing in the result and were ignored."
+    }
+  },
+  "player_defaults": {
+    "success": true,
+    "candidates": 3,
+    "loaded": 3,
+    "matched": 3,
+    "countOnly": false,
+    "scanTruncated": false,
+    "unloadableAssets": [],
+    "rows": [
+      {
+        "assetPath": "/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter.BP_FirstPersonCharacter",
+        "assetName": "BP_FirstPersonCharacter",
+        "className": "Blueprint",
+        "packagePath": "/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter",
+        "readFrom": "/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter.Default__BP_FirstPersonCharacter_C",
+        "props": {
+          "AutoPossessPlayer": "Disabled"
+        },
+        "missingProperties": [
+          "InputMapping",
+          "IA_Move",
+          "IA_Jump",
+          "IA_UseItem",
+          "InventoryUIClass",
+          "StatusBarUIClass"
+        ],
+        "suspect": true
+      },
+      {
+        "assetPath": "/Game/MyStuff/BP/BP_MyPlayer.BP_MyPlayer",
+        "assetName": "BP_MyPlayer",
+        "className": "Blueprint",
+        "packagePath": "/Game/MyStuff/BP/BP_MyPlayer",
+        "readFrom": "/Game/MyStuff/BP/BP_MyPlayer.Default__BP_MyPlayer_C",
+        "props": {
+          "AutoPossessPlayer": "Disabled",
+          "InputMapping": "/Game/MyStuff/MyInput/IMC_MyPlayer.IMC_MyPlayer",
+          "IA_Move": "/Game/Input/Actions/IA_Move.IA_Move",
+          "IA_Jump": "/Game/Input/Actions/IA_Jump.IA_Jump",
+          "IA_UseItem": "/Game/MyStuff/MyInput/IA_Use.IA_Use",
+          "InventoryUIClass": "/Game/MyStuff/MyUI/UW_InventoryUI.UW_InventoryUI_C",
+          "StatusBarUIClass": "/Game/MyStuff/MyUI/WB_StatusBar.WB_StatusBar_C"
+        },
+        "missingProperties": [],
+        "suspect": false
+      },
+      {
+        "assetPath": "/Game/MyStuff/BP_MyPlayer.BP_MyPlayer",
+        "assetName": "BP_MyPlayer",
+        "className": "ObjectRedirector",
+        "packagePath": "/Game/MyStuff/BP_MyPlayer",
+        "props": {},
+        "missingProperties": [
+          "AutoPossessPlayer",
+          "InputMapping",
+          "IA_Move",
+          "IA_Jump",
+          "IA_UseItem",
+          "InventoryUIClass",
+          "StatusBarUIClass"
+        ],
+        "suspect": true
+      }
+    ],
+    "returned": 3,
+    "startIndex": 0,
+    "limit": 200,
+    "hasMore": false,
+    "dirtiedPackages": false
+  },
+  "placed_players": {
+    "success": true,
+    "worldName": "MyLevel",
+    "totalActors": 37,
+    "streamingSkipped": 0,
+    "actors": [
+      {
+        "name": "BP_MyPlayer_C_1",
+        "label": "BP_MyPlayer1",
+        "class": "BP_MyPlayer_C",
+        "path": "/Game/MyStuff/MyLevel.MyLevel:PersistentLevel.BP_MyPlayer_C_1",
+        "folderPath": "None",
+        "editorHidden": false,
+        "location": {
+          "x": 228.37576946390857,
+          "y": 267.41228920962214,
+          "z": 87.50000521894711
+        },
+        "rotation": {
+          "pitch": 0,
+          "yaw": 0,
+          "roll": 0
+        },
+        "components": [
+          {
+            "name": "CollisionCylinder",
+            "class": "CapsuleComponent"
+          },
+          {
+            "name": "Arrow",
+            "class": "ArrowComponent"
+          },
+          {
+            "name": "CharMoveComp",
+            "class": "CharacterMovementComponent"
+          },
+          {
+            "name": "CharacterMesh0",
+            "class": "SkeletalMeshComponent"
+          },
+          {
+            "name": "SpringArm",
+            "class": "SpringArmComponent"
+          },
+          {
+            "name": "Camera",
+            "class": "CameraComponent"
+          },
+          {
+            "name": "InventoryComponent",
+            "class": "InventoryComponent"
+          },
+          {
+            "name": "AttributeComponent",
+            "class": "AttributeComponent"
+          },
+          {
+            "name": "CameraProxyMeshComponent_0",
+            "class": "CameraProxyMeshComponent"
+          },
+          {
+            "name": "DrawFrustumComponent_0",
+            "class": "DrawFrustumComponent"
+          }
+        ]
+      }
+    ],
+    "count": 1,
+    "limit": 10,
+    "pageOffset": 0,
+    "hasMore": false,
+    "total": 1,
+    "totalKnown": true,
+    "returnedActors": 1
+  },
+  "placed_player_possession": {
+    "success": true,
+    "path": "/Game/MyStuff/MyLevel.MyLevel:PersistentLevel.BP_MyPlayer_C_1",
+    "propertyName": "AutoPossessPlayer",
+    "type": "TEnumAsByte<EAutoReceiveInput::Type>",
+    "value": "Player0"
+  },
+  "item_assets": {
+    "success": true,
+    "candidates": 5,
+    "loaded": 5,
+    "matched": 5,
+    "countOnly": false,
+    "scanTruncated": false,
+    "unloadableAssets": [],
+    "rows": [
+      {
+        "assetPath": "/Game/Data/Items/DA_Gold_Coin.DA_Gold_Coin",
+        "assetName": "DA_Gold_Coin",
+        "className": "ItemDataBase",
+        "packagePath": "/Game/Data/Items/DA_Gold_Coin",
+        "props": {
+          "ItemID": "Gold_Coin",
+          "ItemType": "Miscellaneous",
+          "bCanUse": false,
+          "ItemActionClasses": ""
+        },
+        "missingProperties": [
+          "WeaponAnimType",
+          "MeleeComboData"
+        ],
+        "suspect": true
+      },
+      {
+        "assetPath": "/Game/Data/Items/DA_HP_Potion.DA_HP_Potion",
+        "assetName": "DA_HP_Potion",
+        "className": "ConsumableData",
+        "packagePath": "/Game/Data/Items/DA_HP_Potion",
+        "props": {
+          "ItemID": "Potion_HP",
+          "ItemType": "Consumable",
+          "bCanUse": true,
+          "ItemActionClasses": "(\"/Script/IntroCpp.ItemAction_Heal\")"
+        },
+        "missingProperties": [
+          "WeaponAnimType",
+          "MeleeComboData"
+        ],
+        "suspect": true
+      },
+      {
+        "assetPath": "/Game/Data/Items/DA_MP_Potion.DA_MP_Potion",
+        "assetName": "DA_MP_Potion",
+        "className": "ConsumableData",
+        "packagePath": "/Game/Data/Items/DA_MP_Potion",
+        "props": {
+          "ItemID": "Potion_MP",
+          "ItemType": "Consumable",
+          "bCanUse": true,
+          "ItemActionClasses": "(\"/Script/IntroCpp.ItemAction_RestoreMana\")"
+        },
+        "missingProperties": [
+          "WeaponAnimType",
+          "MeleeComboData"
+        ],
+        "suspect": true
+      },
+      {
+        "assetPath": "/Game/Data/Items/Weapons/DA_WP_FireStaff.DA_WP_FireStaff",
+        "assetName": "DA_WP_FireStaff",
+        "className": "WeaponData",
+        "packagePath": "/Game/Data/Items/Weapons/DA_WP_FireStaff",
+        "props": {
+          "ItemID": "WP_FireStaff",
+          "ItemType": "Weapon",
+          "bCanUse": false,
+          "ItemActionClasses": "",
+          "WeaponAnimType": "Staff",
+          "MeleeComboData": null
+        },
+        "missingProperties": [],
+        "suspect": true
+      },
+      {
+        "assetPath": "/Game/Data/Items/Weapons/DA_WP_LongSword.DA_WP_LongSword",
+        "assetName": "DA_WP_LongSword",
+        "className": "WeaponData",
+        "packagePath": "/Game/Data/Items/Weapons/DA_WP_LongSword",
+        "props": {
+          "ItemID": "LongSword",
+          "ItemType": "Weapon",
+          "bCanUse": false,
+          "ItemActionClasses": "",
+          "WeaponAnimType": "LongSword",
+          "MeleeComboData": "/Game/Data/ComboData/DA_LongSwordComboData.DA_LongSwordComboData"
+        },
+        "missingProperties": [],
+        "suspect": false
+      }
+    ],
+    "returned": 5,
+    "startIndex": 0,
+    "limit": 200,
+    "hasMore": false,
+    "dirtiedPackages": false,
+    "paramsNotRead": {
+      "params": [
+        "valueFormat"
+      ],
+      "note": "The editor received these parameters and this action never read them, so they had no effect. project(action=\"describe_action\") lists what it takes."
+    }
+  },
+  "enemy_defaults": {
+    "success": true,
+    "candidates": 1,
+    "loaded": 1,
+    "matched": 1,
+    "countOnly": false,
+    "scanTruncated": false,
+    "unloadableAssets": [],
+    "rows": [
+      {
+        "assetPath": "/Game/MyStuff/BP/BP_Enemy_Dummy.BP_Enemy_Dummy",
+        "assetName": "BP_Enemy_Dummy",
+        "className": "Blueprint",
+        "packagePath": "/Game/MyStuff/BP/BP_Enemy_Dummy",
+        "readFrom": "/Game/MyStuff/BP/BP_Enemy_Dummy.Default__BP_Enemy_Dummy_C",
+        "props": {
+          "AIControllerClass": null,
+          "EnemyData": "/Game/Data/Enemys/DA_Enemy_Dummy.DA_Enemy_Dummy",
+          "AutoPossessAI": "PlacedInWorldOrSpawned"
+        },
+        "missingProperties": [],
+        "suspect": true
+      }
+    ],
+    "returned": 1,
+    "startIndex": 0,
+    "limit": 200,
+    "hasMore": false,
+    "dirtiedPackages": false
+  }
+}

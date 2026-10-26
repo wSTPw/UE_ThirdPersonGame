@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "Animation/AnimInstance.h"
 #include "EWeaponTypes.h"
+#include "Actions/LocomotionAnimContext.h"
 #include "MyAnimInstance.generated.h"
 
 /**
@@ -19,6 +20,10 @@ class INTROCPP_API UMyAnimInstance : public UAnimInstance
 	GENERATED_BODY()
 
 public:
+    virtual void NativeUpdateAnimation(float DeltaSeconds) override;
+
+    UPROPERTY(BlueprintReadOnly, Transient, Category="Locomotion")
+    FLocomotionAnimContext LocomotionContext;
 	/** 当前装备武器对应的动画类型。由角色在 EquipWeapon/UnequipWeapon 时设置。None = 空手。 */
 	UPROPERTY(BlueprintReadOnly, Category = "Locomotion")
 	EWeaponAnimType CurrentWeaponAnimType = EWeaponAnimType::None;

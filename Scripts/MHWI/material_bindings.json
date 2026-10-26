@@ -1,0 +1,248 @@
+{
+  "Ch_Pl_Standard_Mt__4": {
+    "hash": "874079271",
+    "textures": {
+      "tAlbedoMap__disclosure": "pl\\m_equip\\pl001_0000\\arm\\mod\\m_arm001_0000_BML",
+      "tNormalMap__disclosure": "pl\\m_equip\\pl001_0000\\arm\\mod\\m_arm001_0000_NM",
+      "tDetailNormalMap__disclosure": "Assets\\default_tex\\null_NM",
+      "tRMTMap__disclosure": "pl\\m_equip\\pl001_0000\\arm\\mod\\m_arm001_0000_RMT",
+      "tEmissiveMap__disclosure": "Assets\\default_tex\\null_black",
+      "tColorMaskMap__disclosure": "pl\\m_equip\\pl001_0000\\arm\\mod\\m_arm001_0000_CMM",
+      "tFxMap__disclosure": "Assets\\default_tex\\null_black",
+      "tFurMap__disclosure": "Assets\\default_tex\\noise_LIN",
+      "tFurVelocityMap__disclosure": "Assets\\default_tex\\null_black",
+      "tPanoramaMap__disclosure": "Assets\\default_tex\\null_gray_LIN",
+      "tAlbedoBlendMap__disclosure": "Assets\\default_tex\\snow_Col_CMM"
+    }
+  },
+  "Ch_Pl_Standard_Mt__2": {
+    "hash": "3715809554",
+    "textures": {
+      "tAlbedoMap__disclosure": "pl\\m_equip\\pl001_0000\\body\\mod\\m_body001_0000_BML",
+      "tNormalMap__disclosure": "pl\\m_equip\\pl001_0000\\body\\mod\\m_body001_0000_NM",
+      "tDetailNormalMap__disclosure": "Assets\\default_tex\\null_NM",
+      "tRMTMap__disclosure": "pl\\m_equip\\pl001_0000\\body\\mod\\m_body001_0000_RMT",
+      "tEmissiveMap__disclosure": "Assets\\default_tex\\null_black",
+      "tColorMaskMap__disclosure": "pl\\m_equip\\pl001_0000\\body\\mod\\m_body001_0000_CMM",
+      "tFxMap__disclosure": "Assets\\default_tex\\null_black",
+      "tFurMap__disclosure": "Assets\\default_tex\\noise_LIN",
+      "tFurVelocityMap__disclosure": "Assets\\default_tex\\null_black",
+      "tPanoramaMap__disclosure": "Assets\\default_tex\\null_gray_LIN",
+      "tAlbedoBlendMap__disclosure": "Assets\\default_tex\\snow_Col_CMM"
+    }
+  },
+  "Ch_Standard_Mt__2": {
+    "hash": "295159593",
+    "textures": {
+      "tAlbedoMap__disclosure": "pl\\common_tex\\face\\parts_BML",
+      "tNormalMap__disclosure": "pl\\common_tex\\face\\parts_NM",
+      "tEmissiveMap__disclosure": "Assets\\default_tex\\NoImage\\NoImage_EM",
+      "tRMTMap__disclosure": "pl\\common_tex\\face\\parts_RMT"
+    }
+  },
+  "Ch_Pl_Standard_Mt__3": {
+    "hash": "2860380548",
+    "textures": {
+      "tAlbedoMap__disclosure": "pl\\m_equip\\pl001_0000\\helm\\mod\\m_helm001_0000_BML",
+      "tNormalMap__disclosure": "pl\\m_equip\\pl001_0000\\helm\\mod\\m_helm001_0000_NM",
+      "tDetailNormalMap__disclosure": "Assets\\default_tex\\null_NM",
+      "tRMTMap__disclosure": "pl\\m_equip\\pl001_0000\\helm\\mod\\m_helm001_0000_RMT",
+      "tEmissiveMap__disclosure": "Assets\\default_tex\\null_black",
+      "tColorMaskMap__disclosure": "pl\\m_equip\\pl001_0000\\helm\\mod\\m_helm001_0000_CMM",
+      "tFxMap__disclosure": "Assets\\default_tex\\null_black",
+      "tFurMap__disclosure": "Assets\\default_tex\\noise_LIN",
+      "tFurVelocityMap__disclosure": "Assets\\default_tex\\null_black",
+      "tPanoramaMap__disclosure": "Assets\\default_tex\\null_gray_LIN",
+      "tAlbedoBlendMap__disclosure": "Assets\\default_tex\\snow_Col_CMM"
+    }
+  },
+  "Ch_Pl_Standard_Mt__9": {
+    "hash": "1252530330",
+    "textures": {
+      "tAlbedoMap__disclosure": "pl\\m_equip\\pl001_0000\\leg\\mod\\m_leg001_0000_BML",
+      "tNormalMap__disclosure": "pl\\m_equip\\pl001_0000\\leg\\mod\\m_leg001_0000_NM",
+      "tDetailNormalMap__disclosure": "Assets\\default_tex\\null_NM",
+      "tRMTMap__disclosure": "pl\\m_equip\\pl001_0000\\leg\\mod\\m_leg001_0000_RMT",
+      "tEmissiveMap__disclosure": "Assets\\default_tex\\null_black",
+      "tColorMaskMap__disclosure": "pl\\m_equip\\pl001_0000\\leg\\mod\\m_leg001_0000_CMM",
+      "tFxMap__disclosure": "Assets\\default_tex\\null_black",
+      "tFurMap__disclosure": "Assets\\default_tex\\noise_LIN",
+      "tFurVelocityMap__disclosure": "Assets\\default_tex\\null_black",
+      "tPanoramaMap__disclosure": "Assets\\default_tex\\null_gray_LIN",
+      "tAlbedoBlendMap__disclosure": "Assets\\default_tex\\snow_Col_CMM"
+    }
+  },
+  "Ch_Pl_Standard_Mt__6": {
+    "hash": "3658941707",
+    "textures": {
+      "tAlbedoMap__disclosure": "pl\\m_equip\\pl001_0000\\wst\\mod\\m_wst001_0000_BML",
+      "tNormalMap__disclosure": "pl\\m_equip\\pl001_0000\\wst\\mod\\m_wst001_0000_NM",
+      "tDetailNormalMap__disclosure": "Assets\\default_tex\\null_NM",
+      "tRMTMap__disclosure": "pl\\m_equip\\pl001_0000\\wst\\mod\\m_wst001_0000_RMT",
+      "tEmissiveMap__disclosure": "Assets\\default_tex\\null_black",
+      "tColorMaskMap__disclosure": "pl\\m_equip\\pl001_0000\\wst\\mod\\m_wst001_0000_CMM",
+      "tFxMap__disclosure": "Assets\\default_tex\\null_black",
+      "tFurMap__disclosure": "Assets\\default_tex\\noise_LIN",
+      "tFurVelocityMap__disclosure": "Assets\\default_tex\\null_black",
+      "tPanoramaMap__disclosure": "Assets\\default_tex\\null_gray_LIN",
+      "tAlbedoBlendMap__disclosure": "Assets\\default_tex\\snow_Col_CMM"
+    }
+  },
+  "Ch_Wp_Mt__3": {
+    "hash": "1534560571",
+    "textures": {
+      "tAlbedoMap__disclosure": "wp\\swo\\swo001\\mod\\swo001_BML",
+      "tNormalMap__disclosure": "wp\\swo\\swo001\\mod\\swo001_NM",
+      "tRMTMap__disclosure": "wp\\swo\\swo001\\mod\\swo001_RMT",
+      "tEmissiveMap__disclosure": "Assets\\default_tex\\null_black",
+      "tColorMaskMap__disclosure": "Assets\\default_tex\\null_black",
+      "tFxMap__disclosure": "wp\\swo\\swo001\\mod\\swo001_XM",
+      "tPanoramaMap__disclosure": "Assets\\default_tex\\null_gray_LIN",
+      "tFurMap__disclosure": "Assets\\default_tex\\noise_LIN",
+      "tFurVelocityMap__disclosure": "Assets\\default_tex\\null_black",
+      "tAlbedoBlendMap__disclosure": "Assets\\default_tex\\snow_Col_CMM",
+      "tDisplacementMap__disclosure": "Assets\\default_tex\\null_black",
+      "tFacePaintMap__disclosure": "Assets\\default_tex\\null_black",
+      "tMaskMap__disclosure": "Assets\\default_tex\\null_black"
+    }
+  },
+  "Ch_Skin_Mt__2": {
+    "hash": "2250158481",
+    "textures": {
+      "tAlbedoMap__disclosure": "pl\\common_tex\\pl\\hand\\hand000_BM",
+      "tNormalMap__disclosure": "pl\\common_tex\\pl\\hand\\hand000_NM",
+      "tDetailNormalMap__disclosure": "Assets\\default_tex\\null_NM",
+      "tColorMaskMap__disclosure": "Assets\\default_tex\\null_black",
+      "tSkinMap__disclosure": "Assets\\default_tex\\skin_BM"
+    }
+  },
+  "Ch_PL_Eye_Mt__3": {
+    "hash": "1753441542",
+    "textures": {
+      "tAlbedoMap__disclosure": "pl\\common_tex\\face\\eye_BM",
+      "tNormalMap__disclosure": "pl\\common_tex\\face\\eye_NM",
+      "tEmissiveMap__disclosure": "Assets\\default_tex\\NoImage\\NoImage_EM",
+      "tRMTMap__disclosure": "pl\\common_tex\\face\\eye_RMT",
+      "tDetailNormalMap__disclosure": "Assets\\default_tex\\null_NM"
+    }
+  },
+  "Ch_PL_Eye_Mt__2": {
+    "hash": "528766352",
+    "textures": {
+      "tAlbedoMap__disclosure": "pl\\common_tex\\face\\eye_BM",
+      "tNormalMap__disclosure": "pl\\common_tex\\face\\eye_NM",
+      "tEmissiveMap__disclosure": "Assets\\default_tex\\NoImage\\NoImage_EM",
+      "tRMTMap__disclosure": "pl\\common_tex\\face\\eye_RMT",
+      "tDetailNormalMap__disclosure": "Assets\\default_tex\\null_NM"
+    }
+  },
+  "Ch_EditFace_Mt__2": {
+    "hash": "746263924",
+    "textures": {
+      "tAlbedoMap__disclosure": "pl\\m_face\\face001\\mod\\m_face001_4set_BM",
+      "tRMTMap__disclosure": "pl\\m_face\\face001\\mod\\m_face001_RMT",
+      "tSkinMap__disclosure": "Assets\\default_tex\\skin2_BM",
+      "tAddNormalMap__disclosure": "pl\\common_tex\\face\\m_face000_facial_NM",
+      "tAddNormalMaskMap__disclosure": "pl\\common_tex\\face\\facial_CMM",
+      "tFaceNormalMap__disclosure": "pl\\m_face\\face001\\mod\\m_face001_edit_NM",
+      "tFacePaintMap__disclosure": "pl\\common_tex\\face\\m_facePaintMap_BM_LIN",
+      "tFaceMayuMap__disclosure": "pl\\common_tex\\face\\m_face000_mayu_BM_LIN"
+    }
+  },
+  "Ch_Pl_Standard_Mt__11": {
+    "hash": "2308397168",
+    "textures": {
+      "tAlbedoMap__disclosure": "pl\\common_tex\\pl\\hand\\hand002_BML",
+      "tNormalMap__disclosure": "pl\\common_tex\\pl\\hand\\hand002_NM",
+      "tDetailNormalMap__disclosure": "Assets\\default_tex\\null_NM",
+      "tRMTMap__disclosure": "pl\\common_tex\\pl\\hand\\hand002_RMT",
+      "tEmissiveMap__disclosure": "Assets\\default_tex\\null_black",
+      "tColorMaskMap__disclosure": "pl\\common_tex\\pl\\hand\\hand002_CMM",
+      "tFxMap__disclosure": "Assets\\default_tex\\null_black",
+      "tFurMap__disclosure": "Assets\\default_tex\\noise_LIN",
+      "tFurVelocityMap__disclosure": "Assets\\default_tex\\null_black",
+      "tPanoramaMap__disclosure": "Assets\\default_tex\\null_gray_LIN",
+      "tAlbedoBlendMap__disclosure": "Assets\\default_tex\\snow_Col_CMM"
+    }
+  },
+  "Ch_FakeSphere__2": {
+    "hash": "409931188",
+    "textures": {
+      "tAlbedoMap__disclosure": "Assets\\default_tex\\null_white",
+      "tNormalMap__disclosure": "Assets\\default_tex\\null_NM",
+      "tEmissiveMap__disclosure": "Assets\\default_tex\\null_black",
+      "tRMTMap__disclosure": "Assets\\default_tex\\hogehoge_RMT",
+      "tSphereMap__disclosure": "Assets\\default_tex\\fake_env001_BML"
+    }
+  },
+  "Ch_Pl_Standard_Mt__14": {
+    "hash": "4194151679",
+    "textures": {
+      "tAlbedoMap__disclosure": "pl\\common_tex\\pl\\cage\\cage001_BML",
+      "tNormalMap__disclosure": "pl\\common_tex\\pl\\cage\\cage001_NM",
+      "tDetailNormalMap__disclosure": "Assets\\default_tex\\null_NM",
+      "tRMTMap__disclosure": "pl\\common_tex\\pl\\cage\\cage001_RMT",
+      "tEmissiveMap__disclosure": "pl\\common_tex\\pl\\cage\\cage001_EM",
+      "tColorMaskMap__disclosure": "Assets\\default_tex\\null_black",
+      "tFxMap__disclosure": "Assets\\default_tex\\null_black",
+      "tFurMap__disclosure": "Assets\\default_tex\\noise_LIN",
+      "tFurVelocityMap__disclosure": "Assets\\default_tex\\null_black",
+      "tPanoramaMap__disclosure": "Assets\\default_tex\\null_gray_LIN",
+      "tAlbedoBlendMap__disclosure": "Assets\\default_tex\\snow_Col_CMM"
+    }
+  },
+  "Ch_Pl_Standard_Mt__22": {
+    "hash": "1001609737",
+    "textures": {
+      "tAlbedoMap__disclosure": "pl\\common_tex\\pl\\slinger\\slinger001_BML",
+      "tNormalMap__disclosure": "pl\\common_tex\\pl\\slinger\\slinger001_NM",
+      "tDetailNormalMap__disclosure": "Assets\\default_tex\\null_NM",
+      "tRMTMap__disclosure": "pl\\common_tex\\pl\\slinger\\slinger001_RMT",
+      "tEmissiveMap__disclosure": "Assets\\default_tex\\null_black",
+      "tColorMaskMap__disclosure": "pl\\common_tex\\pl\\slinger\\slinger001_CMM",
+      "tFxMap__disclosure": "Assets\\default_tex\\null_black",
+      "tFurMap__disclosure": "Assets\\default_tex\\noise_LIN",
+      "tFurVelocityMap__disclosure": "Assets\\default_tex\\null_black",
+      "tPanoramaMap__disclosure": "Assets\\default_tex\\null_gray_LIN",
+      "tAlbedoBlendMap__disclosure": "Assets\\default_tex\\snow_Col_CMM"
+    }
+  },
+  "Ch_Pl_Standard_Mt__15": {
+    "hash": "2398788713",
+    "textures": {
+      "tAlbedoMap__disclosure": "pl\\common_tex\\pl\\knife\\knife001_BML",
+      "tNormalMap__disclosure": "pl\\common_tex\\pl\\knife\\knife001_NM",
+      "tDetailNormalMap__disclosure": "Assets\\default_tex\\null_NM",
+      "tRMTMap__disclosure": "pl\\common_tex\\pl\\knife\\knife001_RMT",
+      "tEmissiveMap__disclosure": "Assets\\default_tex\\null_black",
+      "tColorMaskMap__disclosure": "Assets\\default_tex\\null_black",
+      "tFxMap__disclosure": "Assets\\default_tex\\null_black",
+      "tFurMap__disclosure": "Assets\\default_tex\\noise_LIN",
+      "tFurVelocityMap__disclosure": "Assets\\default_tex\\null_black",
+      "tPanoramaMap__disclosure": "Assets\\default_tex\\null_gray_LIN",
+      "tAlbedoBlendMap__disclosure": "Assets\\default_tex\\snow_Col_CMM"
+    }
+  },
+  "Ch_PL_Hair_Mt__2": {
+    "hash": "1722492137",
+    "textures": {
+      "tAlbedoMap__disclosure": "pl\\common_tex\\face\\hige_BM",
+      "tNormalMap__disclosure": "pl\\common_tex\\face\\hige_NM",
+      "tRMTMap__disclosure": "pl\\common_tex\\face\\hige_RMT",
+      "tDetailNormalMap__disclosure": "Assets\\default_tex\\null_NM",
+      "tFurMap__disclosure": "Assets\\default_tex\\noise_LIN",
+      "tFurVelocityMap__disclosure": "Assets\\default_tex\\null_fur_CMM"
+    }
+  },
+  "Ch_PL_Hair_Mt__3": {
+    "hash": "296490111",
+    "textures": {
+      "tAlbedoMap__disclosure": "pl\\common_tex\\face\\hige_BM",
+      "tNormalMap__disclosure": "pl\\common_tex\\face\\hige_NM",
+      "tRMTMap__disclosure": "pl\\common_tex\\face\\hige_RMT",
+      "tDetailNormalMap__disclosure": "Assets\\default_tex\\null_NM",
+      "tFurMap__disclosure": "Assets\\default_tex\\noise_LIN",
+      "tFurVelocityMap__disclosure": "Assets\\default_tex\\null_fur_CMM"
+    }
+  }
+}

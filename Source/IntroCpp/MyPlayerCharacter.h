@@ -13,6 +13,7 @@
 #include "ComboAttackData.h"  // UComboAttackData（连击系统配置缓存）
 #include "MyAnimInstance.h"   // UMyAnimInstance（locomotion 动画类型通信）
 #include "Components/StaticMeshComponent.h"
+#include "Actions/CharacterActionComponent.h"
 #include "MyPlayerCharacter.generated.h"
 
 UCLASS()
@@ -92,6 +93,9 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
     UInventoryComponent* InventoryComponent;
 
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Actions")
+    TObjectPtr<UCharacterActionComponent> Actions;
+
     // ==============================================
 	// 属性组件（HP/MP管理）
     // ==============================================
@@ -133,7 +137,8 @@ public:
 	// ==============================================
 
 	/** 当前缓存的武器数据（由 InventoryComponent.Equip 时传入，指针引用不拷贝） */
-	UWeaponData* CurrentWeaponData = nullptr;
+	UPROPERTY(Transient)
+	TObjectPtr<UWeaponData> CurrentWeaponData;
 
 	/** 当前装备的 ItemID（用于日志/调试等需要重新查 Subsystem 时） */
 	FName CurrentWeaponID = NAME_None;
@@ -150,21 +155,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attack")
 	TMap<EWeaponAnimType, UAnimMontage*> AttackMontageMap;
 
-	/** 是否正在攻击中（防止连发） */
+	/** Compatibility mirror written by Actions; requests must query the component. */
 	bool bIsAttacking = false;
 
 	/** 设置攻击状态，同步推送到 AnimInstance */
 	void SetAttacking(bool bInAttacking);
 
-	/** 是否正在使用物品中（播放使用动画期间，防止重复触发） */
+	/** Compatibility mirror written by Actions. */
 	bool bIsUsingItem = false;
-
-	/**
-	 * ★ AnimNotify 模式：播放使用动画时暂存的数据
-	 * 由 UseHeldItem() 设置 → OnUseItemAnimFinished() 读取并清空
-	 */
-	UItemDataBase* PendingUseItemData = nullptr;       // 待使用的物品数据
-	int32 PendingUseSlotIdx = -1;                       // 对应的快捷栏槽位
 
 	/** 装备中的武器网格体组件（动态创建，挂到手部 Socket，复用为通用手持物品模型） */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Equipment")
@@ -209,7 +207,7 @@ public:
 
 	// ---- 发射 / 近战 ----
 
-	/** 从手部发射投射物或执行近战判定（被 AnimNotify 调用） */
+	/** Legacy unkeyed entry: warns and rejects. Use Actions + identified notify. */
 	UFUNCTION(BlueprintCallable, Category = "Attack")
 	void FireFromHand();
 
@@ -223,22 +221,20 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Equipment")
 	void UseHeldItem();
 
-	/**
-	 * AnimNotify 回调：使用动画播放到"执行帧"时由 AnimNotify_UseItemComplete 调用
-	 * 读取 PendingUseItemData/PendingUseSlotIdx 执行实际效果 + 重置状态
-	 */
+	/** Legacy unkeyed item notification: warns and rejects. */
 	void OnUseItemAnimFinished();
 
-	/** 执行物品使用的实际效果：只消耗 1 个，同步快捷栏，刷新手部模型 */
+	/** Legacy direct effect entry: rejects calls without execution identity. */
 	void ExecuteItemUseEffect(UItemDataBase* ItemData, int32 SlotIndex);
 
-	/** 执行物品的 ItemAction 效果（仅在未走 UseItem 路径时调用，避免双重执行） */
+	/** Legacy direct effect entry: rejects calls without execution identity. */
 	void ExecuteItemActions(UItemDataBase* ItemData, int32 SlotIndex);
 
 	/** 刷新手部模型显示（重新评估选中槽位应显示的物品/武器） */
 	void RefreshHeldItemDisplay();
 
 	/** 快捷栏内容变化回调（拖放/数量变化时触发，仅刷新当前选中槽位的手部模型） */
+	UFUNCTION()
 	void OnQuickSlotContentChanged(int32 SlotIndex);
 
 	// ==============================================
@@ -246,106 +242,9 @@ public:
 	// ==============================================
 
 private:
-
-	// ---- 连击状态变量 ----
-
-	/** 当前正在执行第几段攻击（0-based，0 = 第一段）*/
-	int32 CurrentComboIndex = 0;
-
-	/** 是否处于输入窗口期内（true = 此时按键会被缓冲等待）*/
-	bool bIsInComboWindow = false;
-
-	/** 是否有缓冲的攻击输入（在窗口期内提前按下了但还没消费）*/
-	bool bHasBufferedInput = false;
-
-	/** 当前段内的子判定计数器（SubHits 多判定场景时递增，普通场景恒为 0）*/
-	int32 CurrentSubHitIndex = 0;
-
-	// ---- Timer 句柄 ----
-
-	/** 连击全局超时 Timer（超时未按键 → 强制 ResetCombo 回 Idle）*/
-	FTimerHandle ComboResetTimer;
-
-	/** 输入窗口开启延迟 Timer（预备期结束后才开放按键响应）*/
-	FTimerHandle WindowOpenTimer;
-
-	/** 单次攻击冷却 Timer（PlaySingleAttack 使用，到期设 bIsAttacking=false）*/
-	FTimerHandle AttackCooldownTimer;
-
-	// ---- 数据缓存 ----
-
-	/**
-	 * 当前武器的连击配置缓存
-	 *
-	 * 在 EquipWeapon() 时从 WeaponData->MeleeComboData.LoadSynchronous() 预加载，
-	 * 避免首次 Attack() 时同步加载导致卡帧。
-	 * 切换/卸下武器时清空。
-	 * 使用 TWeakObjectPtr 避免阻止 GC 回收无效数据。
-	 */
-	TWeakObjectPtr<UComboAttackData> ActiveComboDataCache;
-
-	// ---- 核心连击方法 ----
-
-	/** 确保连击数据已就绪并缓存到 ActiveComboDataCache，失败返回 false */
-	bool EnsureComboDataReady();
-
-	/**
-	 * 开始播放当前段的攻击动画
-	 *
-	 * 执行操作：
-	 *   1. PlayAnimMontage(ComboMontage, 1.0f, SectionName) 跳转到对应 Section
-	 *   2. 设置 bIsAttacking = true, 重置窗口/缓冲/子判定状态
-	 *   3. 启动 ComboResetTimer（全局超时）
-	 *   4. 启动 WindowOpenTimer（延迟 HitWindowStart 秒后开放输入）
-	 *   5. 注册 MontageEnded 回调 → OnAttackMontageEnded_Combo()
-	 */
-	void StartComboHit();
-
-	/** 推进到下一段攻击：Idx++ / 循环回第一段 / 或结束连击 */
-	void AdvanceToNextHit();
-
-	/**
-	 * 完整重置所有连击状态回到初始 Idle 状态
-	 *
-	 * @param bInterrupted  是否被外部因素打断（受伤/切换武器/闪避等）
-	 *                      打断和自然结束的蓝图回调参数不同
-	 */
-	void ResetCombo(bool bInterrupted = false);
-
 	void UpdateLocomotionAnimType();
 
-	/**
-	 * 尝试进入连击系统（仅近战武器生效）。
-	 * 连击数据完整 → 走连击状态机，返回 true。
-	 * 连击数据不全 → 静默降级，返回 false（让调用方走 PlaySingleAttack）。
-	 */
-	bool TryComboAttack();
 
-	/** 在连击窗口内按下攻击键 → 立即 JumpToSection 到下一段（跳过收刀） */
-	void ExecuteBufferedCombo();
-
-	/** 统一的单次攻击（远程武器 / 近战无连击数据 都用这个路径） */
-	void PlaySingleAttack();
-
-	/**
-	 * 降级近战判定（无 ComboAttackData 时的 MeleeHitCheck 替代）。
-	 * 使用固定默认参数做一次 SphereTrace + ApplyDamage + 击退。
-	 */
-	void SimpleMeleeHit();
-
-	// ---- Timer 回调（UFUNCTION，供 TimerManager 调用）----
-
-	/** 窗口开启 Timer 到期 → 设置 bIsInComboWindow = true，开始接受按键缓冲 */
-	UFUNCTION()
-	void OnComboWindowOpen();
-
-	/** 全局超时 Timer 到期 → 强制 ResetCombo + bIsAttacking = false */
-	UFUNCTION()
-	void OnComboResetTimeout();
-
-	/** Montage 播放结束回调 → 检查缓冲输入决定衔接(AdvanceToNextHit)或结束(ResetCombo) */
-	UFUNCTION()
-	void OnAttackMontageEnded_Combo(UAnimMontage* Montage, bool bInterrupted);
 
 	// ---- AnimNotify 回调（由 Notify 类调用，需 public）----
 
@@ -357,10 +256,10 @@ public:
 	// ---- 外部查询接口（给 UI、其他系统使用）----
 
 	/** 获取当前正在执行的连击段数（0-based，Idle 时为 0）*/
-	int32 GetCurrentComboIndex() const { return CurrentComboIndex; }
+	int32 GetCurrentComboIndex() const { return Actions ? Actions->GetSnapshot().ComboIndex : 0; }
 
 	/** 是否正处于连击攻击过程中（任意段都在算）*/
-	bool IsInComboAttack() const { return CurrentComboIndex > 0 || bIsAttacking; }
+	bool IsInComboAttack() const { return Actions && Actions->GetSnapshot().Kind == ECharacterActionKind::Melee; }
 
 	// ---- 蓝图扩展点（BlueprintImplementableEvent）----
 
@@ -383,7 +282,7 @@ public:
 	/**
 	 * 连击段推进时的蓝图扩展点
 	 *
-	 * 在 AdvanceToNextHit() 成功推进后调用。
+	 * 在 Actions 成功开始下一段后调用。
 	 * 蓝图中可添加：段切换特效、音效变化、连击数字弹出等反馈。
 	 *
 	 * @param NewComboIndex 推进后的新段数索引（0-based）
@@ -395,7 +294,7 @@ public:
 	/**
 	 * 连击重置时的蓝图扩展点
 	 *
-	 * 在 ResetCombo() 中调用（超时/中断/正常结束都会触发）。
+	 * 在 Actions 统一结束近战执行时调用。
 	 * 蓝图中可清理连击相关 UI、停止连击音效等。
 	 *
 	 * @param bWasInterrupted 是否被外部因素打断（受伤、切武器等）

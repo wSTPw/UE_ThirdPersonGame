@@ -1,0 +1,23 @@
+{
+  "skill_name": "introcpp-context-router",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "修复快捷栏使用最后一瓶药水后事件里 ItemID 丢失的问题。",
+      "expected_output": "Routes first to inventory and item-data context, then inspects only relevant source and interface contracts.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "调查 MyLevel 中敌人的 StateTree 为什么没有运行，先不要改资产。",
+      "expected_output": "Routes to enemy AI and entry context, uses exact asset paths and read-only UE-MCP evidence without scanning unrelated systems.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "更新项目首页文档中的一个错别字。",
+      "expected_output": "Avoids loading gameplay system context and performs documentation-proportional validation.",
+      "files": []
+    }
+  ]
+}

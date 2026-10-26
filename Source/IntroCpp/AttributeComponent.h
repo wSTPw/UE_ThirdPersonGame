@@ -103,6 +103,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Attributes")
 	void UseMana(float ManaAmount);
 
+	/** Atomic local validation and spend; false never changes mana. */
+	UFUNCTION(BlueprintCallable, Category = "Attributes")
+	bool TrySpendMana(float ManaAmount);
+
 	// 恢复魔法值（正数=回复）
 	UFUNCTION(BlueprintCallable, Category = "Attributes")
 	void RestoreMana(float ManaAmount);
@@ -160,7 +164,16 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Attributes")
 	float GetMaxMana() const { return MaxMana; }
 
+	// Game-thread transaction boundary: publish HP/MP changes after inventory commit.
+	void BeginNotificationBatch();
+	void EndNotificationBatch();
+
 private:
+	int32 NotificationBatchDepth = 0;
+	bool bHealthNotificationPending = false;
+	bool bManaNotificationPending = false;
+	void NotifyHealthChanged();
+	void NotifyManaChanged();
 	// 受伤计时器
 	float TimeSinceLastDamage = 0.0f;
 };
