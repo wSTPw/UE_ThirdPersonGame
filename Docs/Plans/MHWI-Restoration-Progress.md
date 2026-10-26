@@ -5,8 +5,9 @@
 - 基线：[原33项审查](../Reference/MHWI-Restoration-Review.md)保留历史；本轮新增R34/R35，当前台账35项。
 - 最新复验：**[B13/B14/B15更新验收](../Reference/MHWI-Acceptance-Update-20261026.md)记录的A05/A06已由B16完成修复：登龙接触预排七段、正式DA清落地旧窗并归零首击hit lag；UE 5.8 Editor构建、保存读回与22项离线检查通过，未运行PIE。35项总状态数量不变，运行验收由用户操作。**
 - B17取证收尾：**PLAN-001内可完成的离线安装、归档资源、表解析和函数快照复核已完成**；EXE指纹相符，48/48归档资源与19/19续查函数复验匹配，发现5项当前`nativePC`覆盖。十项条目仍有明确静态语义或运行缺口，状态不升级。见[B17逐项报告](../Reference/MHWI-Forensic-Completion-20261026.md)及[CHG-009](../Changes/CHG-20261026-009-mhwi-forensic-completion.md)。
+- B19动画覆盖交接：**R06修复武器One0=0播放前拒绝、A01/A04代表性路径，之前两次构建Succeeded、14项PIE通过；R28六候选读回与移动事实数据层、R30选择覆盖与IK数据层已落地，ABP过渡/IK节点未接。87项逐项处置完成，不能写成全部动画已生效。** 见[B19方案](PLAN-20261026-006-mhwi-animation-coverage.md)与[CHG-20261027-001](../Changes/CHG-20261027-001-mhwi-animation-coverage.md)。
 - B18专项取证与方案：R28六条候选 LMT 头字段已读取；R30 八个 IK 资源与归档指纹匹配，四条链映射到 225 骨 rig 连续父子链。见[报告](../Reference/MHWI-R28-R30-Evidence-20261026.md)、[R28方案](PLAN-20261026-004-mhwi-locomotion-transitions.md)、[R30方案](PLAN-20261026-005-mhwi-equipment-ik.md)。候选动画语义和原生 IK 坐标/solver 仍未闭合，两个台账状态不升级。
-- B19武器碰撞专项：太刀39/39条`CollisionTimelineObject`轨与`wp03.col`时间UID匹配，55个表头引用连接到52条攻击记录及13组几何参数；续查将`CLND`类型1追到节点工厂类`cCollNodePl`及读取函数，但未把`CLGM`组映射到`cGeometryJoint`或骨骼变换。原作数据目前不能直接作为忠实刀刃碰撞实现依据，下一步应转项目自己的武器/骨骼扫掠方案。指定安装覆盖仅在52条`Flinch_Value`上与归档不同。见[碰撞取证报告](../Reference/MHWI-Weapon-Collision-Evidence-20261026.md)与[CHG-20261027-001](../Changes/CHG-20261027-001-mhwi-collision-loader-trace.md)。R18仍保持取证中。
+- B19武器碰撞专项：太刀39/39条`CollisionTimelineObject`轨与`wp03.col`时间UID匹配，55个表头引用连接到52条攻击记录及13组几何参数；续查将`CLND`类型1追到节点工厂类`cCollNodePl`及读取函数，但未把`CLGM`组映射到`cGeometryJoint`或骨骼变换。原作数据目前不能直接作为忠实刀刃碰撞实现依据，下一步应转项目自己的武器/骨骼扫掠方案。指定安装覆盖仅在52条`Flinch_Value`上与归档不同。见[碰撞取证报告](../Reference/MHWI-Weapon-Collision-Evidence-20261026.md)与[CHG-20261027-002](../Changes/CHG-20261027-002-mhwi-collision-loader-trace.md)。R18仍保持取证中。
 - 前次验收：**2026-10-26静态验收发现4项问题，R06因受击恢复输入被锁降为部分完成；B15已关闭A03键盘设备混用与键盘无关键重发，A01、手柄A02、A04仍开放。现为6项历史已验证、1项开发完成、17项部分完成、10项取证中、1项待开发。运行调试由用户操作。** 见[验收报告与操作清单](../Reference/MHWI-Acceptance-20261026.md)。
 - B13续查保存点（历史）：**输入缓存/执行双许可、转向20行表、耐力扣除链、7部位/12肉质行及IK管理器加载器已保存；B17后续静态复核见新报告。** 原保存点见[B13报告](../Reference/MHWI-Outstanding-Evidence-20261026.md)。
 - B13取证批次（历史）：**B13离线消费者证据已归档；R10/R13/R19/R21/R29若干子链闭合，十项整体仍取证中。10秒属颜色暂停、0.4秒属shell延迟；B12的R11/R31依据需纠正，玩法未修复。** 见[逐项证据与缺口](../Reference/MHWI-Outstanding-Evidence-20261026.md)。
@@ -65,7 +66,7 @@ B01当时未修气刃踏步18/28消费者，已由B02补证并纠正；居合追
 | R03 袈裟A出口 | S2 | 已验证 | 原nodes7/8/9、三袈裟Routes | B01三袈裟A→突刺已保存/真实通过；连接与精确窗仍属R06/R07 |
 | R04 见切后续 | S2 | 开发完成；已编译，未运行 | 原node28、ForesightSlash.Routes | B01已修Light→踏步并真实通过；B11按原○→node4、R+△→node45补齐B→突刺与R+A→登龙突刺，复用Light适配窗1.5–2.6667；精确输入位仍属R07 |
 | R05 居合气刃额外出口 | S2 | 部分完成 | 原node65唯一显式出口R+△→76(357/367)→45；DA两条适配路线 | B12复核：Spirit→SpiritIII、SpecialSheathe→SpecialSheathe无源，已标`ProjectAdaptation`并由原版预设跳过；成功反击前置/公共边界仍未知 |
-| R06 连接过程缺失 | S3 | 部分完成；静态发现回归，未运行 | 真实Step/Creep/Shot拥有者；专用入口全分支；原生混合门控/曲线/独立时钟；32新增资产 | B10开发交付/B12历史编译保留；本次A01确认受击锁阻断真实Step来源续段，需修复；node86无入边保持；32连接行为验证仍缺 |
+| R06 连接过程缺失 | S3 | 部分完成；代表性修复已运行 | `ApplyNativeBlend`、真实Step来源、菜单缓存；32引用/32新增/公共181/182 | B19武器One0=0走项目UE BlendIn后备、A01/A04修复；两次构建Succeeded、代表性14项PIE通过。原生mode0、N53/N60完整来源、332/333/334前置、common181/182及逐条运行仍开放；N86不可达保持 |
 | R07 精确取消窗 | S2/S3 | 取证中 | PlMotionInput原mask/trigger/phase | B17复核对象为actor+e480；137命令ID执行许可、独立缓存许可、202/203全局位、缓存写/清及成功写控制器已连线。FSM属性→命令ID/输入位及逐招窗口仍未解码；见B17报告 |
 | R08 输入缓存语义 | S2 | 部分完成 | `ResolveKeyboardFrameInputEdges`；单槽PendingInput | B15键盘同帧边沿按新手势解析，组合需本帧新成员，无关键不重发；静态模型覆盖按下/按住/松开/同帧释放，未运行。手柄A02仍在；跨帧队列、来源优先级、逐条过期未实施，0.3s仍项目常量 |
 | R09 转向/方向 | S2/S3 | 取证中 | 原角度索引及动作参数消费者 | B17确认20行/stride0x20加载至公共+0x90，trigger bit11经索引+0x110到角差门限、可选反向条件及yaw插值提交；动作索引映射、坐标来源与运行插值仍开放 |
@@ -87,9 +88,9 @@ B01当时未修气刃踏步18/28消费者，已由B02补证并纠正；居合追
 | R25 射击/飞翔爪 | S6 | 部分完成 | node66–74 ActionNo104–112已调度；node63/爪缺 | B12证据修正：九方向强化射击已实现（源帧36发射）；缺拔刀投射器ActionNo44的motion绑定、弹药类型/部位/耐力、爪资产 |
 | R26 环境动作 | S6 | 部分完成 | `StartResolvedMove` Falling门控；源节点已列 | B12禁止非登龙/非翻滚地面动作在Falling启动；空中气刃/滑坡/墙/攀爬/骑乘片段与地形资产仍缺 |
 | R27 道具与菜单 | S5 | 部分完成 | `SetInputBlocked`/`IsInputBlocked`；RequestInput/StartMove门控 | B12新增阻断接口并清Pending/Helm请求；A04发现NativeSourceInput未清且内部提交可绕过阻断，移动/视角也未门控；猎人使用道具/磨刀动作、背包契约解耦仍缺 |
-| R28 基础移动 | S3/S5 | 部分完成 | 原LMT、NativeFidelity manifest、正式DA/BlendSpace | B03五段循环、六DA/六样本已迁移；B18解析005/006/007/008/014/015的帧/轨道/header translation；语义绑定、资格导入和原作速度/姿态对照待后续；[方案](PLAN-20261026-004-mhwi-locomotion-transitions.md) |
+| R28 基础移动 | S3/S5 | 部分完成；候选未接入 | 六候选UE读回、AnimInstance移动事实；正式DA/BlendSpace | B19确认六候选Skeleton/时长/RootMotion/REF_POSE并新增只读加减速/落地/转向数据；005/006/007/008/014/015未接ABP过渡，左右转身/落地语义不猜配。原LMT资格与运行回归未闭合；[B19交接](../Changes/CHG-20261027-001-mhwi-animation-coverage.md) |
 | R29 特殊纳刀等待 | S3/S7 | 取证中 | 306的73/80事件及原等待消费者 | B17复核Action98请求306、99不再请求motion并按秒消费3.5秒；LMT/TIML为272/271帧、loop129，73/80事件存在。全局播放/循环/持刀姿态链未闭合，73冻结仍为适配 |
-| R30 装配/IK | S3/S7 | 取证中 | 四条原IK链、225骨rig、装配/坐标/蒙皮 | B18验证四条链映射到项目 rig 连续父子骨、8项归档资源SHA一致；solver坐标/manager字段/CTM仍未解码；项目IK方案明确为近似适配，0.7/0.16s仍为拟合 |
+| R30 装配/IK | S3/S7 | 取证中；项目数据层已落地 | DA选择覆盖、IK Profile类型、四链目标快照 | B19正式32招只选择0/1/2/3，004/005保留无入口；新增四链Profile类型与游戏线程目标/Alpha，未创建Profile资产或ABP TwoBoneIK节点。原生solver坐标/manager/CTM仍解码不足，不能称四链已生效；[B19交接](../Changes/CHG-20261027-001-mhwi-animation-coverage.md) |
 | R31 声画/时钟 | S3/S7 | 部分完成 | `HitLagSeconds`/`PendingHitLag`；`OnHitResolved` | B16已将正式DA下劈首击hit lag归零并保存读回，A05静态问题关闭；表现冻结的运行效果及真实hitstop/音效/刀光/相机仍缺，PIE待用户执行。 |
 | R32 确定性重建 | S0 | 部分完成 | 源指纹、生成/迁移入口 | 本轮确认Tools/MHW、Scripts/MHWI、Docs、Content/MHWI均已有Git跟踪；全量确定性重建、Saved/本地布局依赖和当前资产语义仍未完成。 |
 | R33 独立还原基准 | S0/S7 | 部分完成 | `verify_native_baseline.py`（51项静态）；历史PIE保留 | B12新增源/DA独立静态基准并PASS；未覆盖PIE/行为矩阵，期望只覆盖本轮相关值 |

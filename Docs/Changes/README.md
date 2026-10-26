@@ -4,7 +4,8 @@
 
 | ID | 日期 | 主题 | 状态 |
 | --- | --- | --- | --- |
-| CHG-20261027-001 | 2026-10-27 | [MHWI碰撞加载工厂追踪与可用性裁决](CHG-20261027-001-mhwi-collision-loader-trace.md) | completed（静态追到 `cCollNodePl`）；几何/Bone映射未闭合，原作数据暂不可直接作为实现依据 |
+| CHG-20261027-002 | 2026-10-27 | [MHWI碰撞加载工厂追踪与可用性裁决](CHG-20261027-002-mhwi-collision-loader-trace.md) | completed（静态追到 `cCollNodePl`）；几何/Bone映射未闭合，原作数据暂不可直接作为实现依据 |
+| CHG-20261027-001 | 2026-10-27 | [R06/R28/R30动画全集覆盖处理与交接](CHG-20261027-001-mhwi-animation-coverage.md) | partial，R06修复及14项PIE通过；R28/R30数据层与逐项处置，全部运行覆盖未完成 |
 | CHG-20261026-011 | 2026-10-26 | [MHWI太刀武器碰撞静态取证](CHG-20261026-011-mhwi-weapon-collision-evidence.md) | completed（离线关联完成）；形状/骨骼空间/运行时消费者未闭合，R18保持取证中 |
 | CHG-20261026-010 | 2026-10-26 | [MHWI R28/R30补充取证与实施方案](CHG-20261026-010-mhwi-r28-r30-forensics-and-plans.md) | completed（取证/方案）；玩法未实施，原生solver语义保留 |
 | CHG-20261026-009 | 2026-10-26 | [MHWI台账离线取证收尾](CHG-20261026-009-mhwi-forensic-completion.md) | completed（离线静态范围）；48项资源和19个函数快照复核通过，十项玩法语义/运行边界保留 |

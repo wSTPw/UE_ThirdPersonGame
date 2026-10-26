@@ -543,6 +543,7 @@ void AMHWICharacter::SetInputBlocked(bool bBlocked)
     bInputBlocked = bBlocked;
     if (!bBlocked) return;
     PendingInput.Reset();
+    NativeSourceInput.Reset();
     bBufferedInsideWindow = false;
     bHelmSlamRequested = false;
     FrameInputEdges.Reset();
@@ -767,8 +768,13 @@ bool AMHWICharacter::RequestInput(EMHWIInput Input)
 {
     LastRequestedInput = Input;
     ++InputRequestSerial;
-    if (bEnding || bFinishing || bDispatchingHits || bInputBlocked || IsGestureLocked()
+    if (bEnding || bFinishing || bDispatchingHits || bInputBlocked
         || !Attributes->IsAlive() || !Moveset) return false;
+    // A real source owner has its own narrow recovery permissions. Let it
+    // validate the command before the generic Flinch lock; arbitrary inputs are
+    // still rejected by RequestNativeSourceInput.
+    if (NativeSourceMontage) return RequestNativeSourceInput(Input);
+    if (IsGestureLocked()) return false;
     // Aerial Helm stages own their input: PC LMB/RMB/Ctrl, their chords, and
     // the corresponding gamepad commands all become one slam request.
     if (HelmPhase == EHelmPhase::Rise || HelmPhase == EHelmPhase::Air || HelmPhase == EHelmPhase::Strike)
@@ -794,7 +800,6 @@ bool AMHWICharacter::RequestInput(EMHWIInput Input)
         }
         return true;
     }
-    if (NativeSourceMontage) return RequestNativeSourceInput(Input);
     if (CurrentMove.IsNone() || bSpecialSheathHeld)
     {
         FName NextMove;
@@ -825,7 +830,7 @@ bool AMHWICharacter::RequestInput(EMHWIInput Input)
 
 bool AMHWICharacter::StartResolvedMove(FName MoveId)
 {
-    if (bEnding || bFinishing || bDispatchingHits || !Moveset || !Attributes->IsAlive()) return false;
+    if (bInputBlocked || bEnding || bFinishing || bDispatchingHits || !Moveset || !Attributes->IsAlive()) return false;
     const int32 SourceAction = MHWI::Native::SlingerActionFromMove(MoveId);
     if (SourceAction != INDEX_NONE) return StartNativeSource({3, SourceAction}, ENativeSourceKind::Slinger);
     if (bSheathed && MHWI::IsRollMove(MoveId) && MoveId != MHWI::Roll) return false;

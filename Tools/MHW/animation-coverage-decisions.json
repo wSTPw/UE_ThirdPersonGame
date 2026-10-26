@@ -1,0 +1,66 @@
+{
+  "R28-CANDIDATE-005": {
+    "status": "asset_readback_not_connected",
+    "note": "UE readback confirms hunter Skeleton, 1.0000s, root motion and REF_POSE. No ABP transition is connected; original LMT qualification and final state semantics remain open."
+  },
+  "R28-CANDIDATE-006": {
+    "status": "asset_readback_not_connected",
+    "note": "UE readback confirms hunter Skeleton, 1.1667s, root motion and REF_POSE. Left/right turn assignment is not connected because no reliable final mapping was accepted."
+  },
+  "R28-CANDIDATE-007": {
+    "status": "asset_readback_not_connected",
+    "note": "UE readback confirms hunter Skeleton, 1.1667s, root motion and REF_POSE. Left/right turn assignment is not connected because no reliable final mapping was accepted."
+  },
+  "R28-CANDIDATE-008": {
+    "status": "asset_readback_not_connected",
+    "note": "UE readback confirms hunter Skeleton, 0.9500s, root motion and REF_POSE. No stop-state ABP connection was completed."
+  },
+  "R28-CANDIDATE-014": {
+    "status": "asset_readback_not_connected",
+    "note": "UE readback confirms hunter Skeleton, 1.0500s, root motion and REF_POSE. No landing-state ABP connection was completed."
+  },
+  "R28-CANDIDATE-015": {
+    "status": "asset_readback_not_connected",
+    "note": "UE readback confirms hunter Skeleton, 0.9500s, root motion and REF_POSE. No landing-state ABP connection was completed."
+  },
+  "R30-WG03-000": {
+    "status": "selection_path_found_pending_runtime",
+    "note": "DA/default selection 0 exists; no new per-clip PIE was added in this handoff."
+  },
+  "R30-WG03-001": {
+    "status": "selection_path_found_pending_runtime",
+    "note": "DA/default selection 1 exists; no new per-clip PIE was added in this handoff."
+  },
+  "R30-WG03-002": {
+    "status": "selection_path_found_pending_runtime",
+    "note": "DA event selection 2 exists; no new per-clip PIE was added in this handoff."
+  },
+  "R30-WG03-003": {
+    "status": "selection_path_found_pending_runtime",
+    "note": "DA event selection 3 exists; no new per-clip PIE was added in this handoff."
+  },
+  "R30-WG03-004": {
+    "status": "no_native_selection_keep_asset",
+    "note": "All 32 DA moves were enumerated: no event/default selects 4. Keep the asset; do not invent a native trigger."
+  },
+  "R30-WG03-005": {
+    "status": "no_native_selection_keep_asset",
+    "note": "All 32 DA moves were enumerated: no event/default selects 5. Keep the asset; do not invent a native trigger."
+  },
+  "R30-IK-LARM": {
+    "status": "data_layer_only_not_connected",
+    "note": "Profile type and component-space target producer exist in source, but no Profile asset or ABP TwoBoneIK node was authored; native solver remains unresolved."
+  },
+  "R30-IK-RARM": {
+    "status": "data_layer_only_not_connected",
+    "note": "Profile type and component-space target producer exist in source, but no Profile asset or ABP TwoBoneIK node was authored; native solver remains unresolved."
+  },
+  "R30-IK-LFOOT": {
+    "status": "data_layer_only_not_connected",
+    "note": "Profile type and floor-trace target producer exist in source, but no Profile asset or ABP TwoBoneIK node was authored; native solver remains unresolved."
+  },
+  "R30-IK-RFOOT": {
+    "status": "data_layer_only_not_connected",
+    "note": "Profile type and floor-trace target producer exist in source, but no Profile asset or ABP TwoBoneIK node was authored; native solver remains unresolved."
+  }
+}

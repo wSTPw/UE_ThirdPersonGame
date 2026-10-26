@@ -1,10 +1,10 @@
 # PLAN-20261026-005：MHWI 武器装配与四链 IK
 
-- 状态：draft
+- 状态：partial，完成选择覆盖与IK数据层；Profile资产和ABP节点未落地
 - 日期：2026-10-26
 - 用户需求：完成 R30 装配/IK 取证并形成可实施方案，厘清已实现的武器内部动画与尚未实现的 IK 消费。
 - 关联模块 / 接口 / 问题：R30、R-ANIM-007；`FMHWIWeaponAttachmentRuntime`、`UMHWIAnimInstance`、`ABP_MHWI_Hunter`
-- 实施记录：尚未实现
+- 实施记录：[B19交接](../Changes/CHG-20261027-001-mhwi-animation-coverage.md)
 - 证据：[R28/R30 补充取证](../Reference/MHWI-R28-R30-Evidence-20261026.md)、[武器交接拟合](../Reference/MHWI-Weapon-Transfer-Fitting.md)、[B17 原生消费者取证](../Reference/MHWI-Outstanding-Evidence-20261026.md)
 
 ## 现状与目标

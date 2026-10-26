@@ -6,8 +6,9 @@
 
 | ID | 主题 | 状态 | 变更记录 |
 | --- | --- | --- | --- |
-| [PLAN-20261026-005](PLAN-20261026-005-mhwi-equipment-ik.md) | R30 武器装配与四链 IK | draft，项目近似方案；原生 solver 空间未解 | [B18取证与方案](../Changes/CHG-20261026-010-mhwi-r28-r30-forensics-and-plans.md) |
-| [PLAN-20261026-004](PLAN-20261026-004-mhwi-locomotion-transitions.md) | R28 基础移动过渡动画 | draft，候选语义与资格仍待核验 | [B18取证与方案](../Changes/CHG-20261026-010-mhwi-r28-r30-forensics-and-plans.md) |
+| [PLAN-20261026-006](PLAN-20261026-006-mhwi-animation-coverage.md) | R06/R28/R30动画全集覆盖处理 | partial，R06修复与14项PIE通过；R28/R30数据层与逐项处置，未全接入 | [B19交接](../Changes/CHG-20261027-001-mhwi-animation-coverage.md) |
+| [PLAN-20261026-005](PLAN-20261026-005-mhwi-equipment-ik.md) | R30 武器装配与四链 IK | partial，选择覆盖与IK数据层；Profile资产和ABP节点未落地 | [B19交接](../Changes/CHG-20261027-001-mhwi-animation-coverage.md) |
+| [PLAN-20261026-004](PLAN-20261026-004-mhwi-locomotion-transitions.md) | R28 基础移动过渡动画 | partial，六候选读回与移动事实数据层；ABP过渡未接入 | [B19交接](../Changes/CHG-20261027-001-mhwi-animation-coverage.md) |
 | [PLAN-20261026-002](PLAN-20261026-002-mhwi-evidenced-mechanics.md) | B14已取证机制实施 | implemented-scope，A06补排及A05正式DA迁移完成；完整构建/22项离线检查通过，未PIE | [CHG-005](../Changes/CHG-20261026-005-mhwi-evidenced-mechanics.md) |
 | [PLAN-20261026-003](PLAN-20261026-003-mhwi-keyboard-adaptation.md) | B15 MHWI原游戏PC键盘适配 | implemented-scope，代码与49项静态检查完成；后续编译修复成功、未PIE，手柄A02保留 | [B15记录](../Changes/CHG-20261026-006-mhwi-keyboard-adaptation.md) |
 | [PLAN-20261026-001](PLAN-20261026-001-mhwi-outstanding-evidence.md) | B13/B17剩余原生消费者取证 | partial，B17完成离线静态复核和十项归纳；语义/运行边界未关闭，未运行 | [B13记录](../Changes/CHG-20261026-004-mhwi-outstanding-evidence.md)、[B17记录](../Changes/CHG-20261026-009-mhwi-forensic-completion.md) |

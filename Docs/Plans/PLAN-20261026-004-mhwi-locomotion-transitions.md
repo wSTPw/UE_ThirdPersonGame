@@ -1,10 +1,10 @@
 # PLAN-20261026-004：MHWI 基础移动过渡动画
 
-- 状态：draft
+- 状态：partial，完成六候选读回与移动事实数据层；ABP过渡未接入
 - 日期：2026-10-26
 - 用户需求：完成 R28 剩余基础移动工作；先以原始资源取证，再规划状态转换与过渡动画接入。
 - 关联模块 / 接口 / 问题：R28、R-COMBAT-012；`UMHWIAnimInstance`、`ABP_MHWI_Hunter`、`BS_MHWI_Drawn`、`BS_MHWI_Sheathed`
-- 实施记录：尚未实现
+- 实施记录：[B19交接](../Changes/CHG-20261027-001-mhwi-animation-coverage.md)
 - 证据：[R28/R30 补充取证](../Reference/MHWI-R28-R30-Evidence-20261026.md)、[源保真审计](../Reference/MHWI-Source-Fidelity-Audit.md)
 
 ## 现状与目标

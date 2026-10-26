@@ -175,7 +175,19 @@ void AMHWICharacter::NativeSourceEnded(UAnimMontage* Montage, bool bInterrupted,
 
 bool AMHWICharacter::RequestNativeSourceInput(EMHWIInput Input)
 {
-    if (NativeSourceKind == ENativeSourceKind::None || !NativeSourceMontage || IsGestureLocked()) return false;
+    if (NativeSourceKind == ENativeSourceKind::None || !NativeSourceMontage) return false;
+    if (NativeSourceKind == ENativeSourceKind::Impact)
+    {
+        // A01: only this source's authored recovery routes may pass Flinch.
+        // Dead and unrelated control states never become generic free input.
+        if (ControlState != EMHWIControlState::Free
+            && ControlState != EMHWIControlState::FlinchSmall
+            && ControlState != EMHWIControlState::FlinchMedium
+            && ControlState != EMHWIControlState::FlinchLarge) return false;
+    }
+    else if (IsGestureLocked()) return false;
+    FName LegalMove;
+    if (!ResolveNativeSourceInput(Input, LegalMove)) return false;
     UAnimInstance* Anim = GetMesh()->GetAnimInstance();
     const FAnimMontageInstance* Instance = Anim ? Anim->GetMontageInstanceForID(NativeSourceInstanceId) : nullptr;
     MHWI::Native::FMotionSample Sample;
