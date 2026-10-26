@@ -49,3 +49,8 @@ ue-mcp.local.yml
 /Tools/MHW/BlenderAddons/
 /Tools/MHW/Runtime/
 /Tools/MHW/*.log
+
+# Python 缓存：脚本每次运行都会重新生成，字节内容不稳定，不入库
+__pycache__/
+*.pyc
+*.pyo
