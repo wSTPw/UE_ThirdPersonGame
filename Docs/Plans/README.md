@@ -6,6 +6,7 @@
 
 | ID | 主题 | 状态 | 变更记录 |
 | --- | --- | --- | --- |
+| [PLAN-20261026-003](PLAN-20261026-003-mhwi-keyboard-adaptation.md) | B15 MHWI原游戏PC键盘适配 | implemented-scope，代码与49项静态检查完成；未编译/PIE，手柄A02保留 | [B15记录](../Changes/CHG-20261026-006-mhwi-keyboard-adaptation.md) |
 | [PLAN-20261026-001](PLAN-20261026-001-mhwi-outstanding-evidence.md) | B13剩余原生消费者取证 | partial，子链归档；十项完整缺口未关闭，未运行 | [B13记录](../Changes/CHG-20261026-004-mhwi-outstanding-evidence.md) |
 | [PLAN-20261025-005](PLAN-20261025-005-mhwi-r06-remaining.md) | B10完成R06剩余三项及资源/台账交付 | implemented，开发完成；未编译/测试 | [B10记录](../Changes/CHG-20261025-005-mhwi-r06-remaining.md) |
 | [PLAN-20261025-004](PLAN-20261025-004-mhwi-r06-completion.md) | B09真实来源、主段保护与统一入帧 | partial，完整R06未完成；未编译/测试 | [B09记录](../Changes/CHG-20261025-004-mhwi-r06-source-clock.md) |

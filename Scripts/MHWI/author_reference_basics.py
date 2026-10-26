@@ -75,16 +75,20 @@ def apply_to_copies(original, plan=None):
             raise RuntimeError('Expected single gain-only window: ' + name)
         windows[0].set_editor_property('spirit_gain', record['spirit_gain'])
         obj.set_editor_property('damage_windows', windows)
-    for name, values in [('IaiSpiritSlash', plan['iai_first_hit']), ('HelmLand', plan['helm_hit'])]:
+    for name, values in [('IaiSpiritSlash', plan['iai_first_hit'])]:
         obj = moves[names[name]]
         windows = [w.copy() for w in obj.get_editor_property('damage_windows')]
-        if len(windows) != (1 if name == 'IaiSpiritSlash' else 7):
+        if len(windows) != 1:
             raise RuntimeError('Unexpected existing hit count for ' + name)
         values = {int(k): v for k, v in values.items()}
         for window in windows:
-            window.set_editor_property('damage', values[0 if name == 'IaiSpiritSlash' else 1]['damage'])
+            window.set_editor_property('damage', values[0]['damage'])
             window.set_editor_property('spirit_level_damage', {k: v['damage'] for k, v in values.items()})
         obj.set_editor_property('damage_windows', windows)
+    # B14 moved shell damage out of landing montage windows. Rebuilding must not
+    # reintroduce the old seven adapters; source shell values remain in native.run().
+    if len(moves[names['HelmLand']].get_editor_property('damage_windows')) != 0:
+        raise RuntimeError('HelmLand must use the B14 delayed-shell queue, not direct windows')
     for name, source in plan['spirit_costs'].items():
         moves[names[name]].set_editor_property('spirit_cost', source['value'])
     for change in plan['route_changes']:
@@ -178,5 +182,5 @@ def run(save=False):
     (OUT / ('authored.json' if save else 'preview.json')).write_text(
         json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     return dict(saved=save, idempotent=True, protected_fields_unchanged=True,
-                source_attack_moves=len(plan['attacks']), color_moves=2,
+                source_attack_moves=len(plan['attacks']), color_moves=1,
                 route_changes=len(plan['route_changes']), step_cost=plan['spirit_step_cost']['value'])

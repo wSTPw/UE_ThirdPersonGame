@@ -384,7 +384,9 @@
         "Tools/MHW/native-outstanding-evidence.json",
         "Scripts/MHWI/extract_native_parts.py",
         "Tools/MHW/native-parts-layout.json",
-        "Tools/MHW/native-outstanding-followup.json"
+        "Tools/MHW/native-outstanding-followup.json",
+        "Scripts/MHWI/verify_keyboard_adaptation.py",
+        "Scripts/MHWI/pie_keyboard_adaptation.py"
       ],
       "interface_ids": [
         "DAMAGE-001",
@@ -401,7 +403,8 @@
         "MHWI-010",
         "MHWI-011",
         "MHWI-012",
-        "MHWI-013"
+        "MHWI-013",
+        "MHWI-014"
       ],
       "asset_roots": [
         "/Game/MHWI"
@@ -430,7 +433,9 @@
         "Scripts/MHWI/audit_weapon_placement_sources.py",
         "Scripts/MHWI/verify_reference_basics.py",
         "Scripts/MHWI/pie_reference_basics.py",
-        "Scripts/MHWI/pie_spirit_branches.py"
+        "Scripts/MHWI/pie_spirit_branches.py",
+        "Scripts/MHWI/verify_keyboard_adaptation.py",
+        "Scripts/MHWI/pie_keyboard_adaptation.py"
       ]
     }
   ]

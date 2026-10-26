@@ -23,6 +23,7 @@
 #include "InputCoreTypes.h"
 #include "Misc/ScopeExit.h"
 #include "UObject/ConstructorHelpers.h"
+#include <initializer_list>
 
 namespace MHWI
 {
@@ -39,6 +40,7 @@ namespace MHWI
     static const FName SpecialSheathe(TEXT("SpecialSheathe"));
     static const FName ForesightSlash(TEXT("ForesightSlash"));
     static const FName SpiritRoundslash(TEXT("SpiritRoundslash"));
+    static const FName IaiSpiritSlash(TEXT("IaiSpiritSlash"));
     static const FName Roll(TEXT("Roll"));
     static bool IsRollMove(FName Move)
     { return Move == Roll || Move == FName(TEXT("RollLeft")) || Move == FName(TEXT("RollRight")) || Move == FName(TEXT("RollBack")); }
@@ -67,7 +69,7 @@ namespace MHWI
         return Move == HelmAir || Move == HelmStrike;
     }
 
-    /** LMB / RMB / R / G all normalize to one air slam request. */
+    /** PC attack buttons/chords and gamepad equivalents normalize to one air slam. */
     static bool IsHelmSlamInput(EMHWIInput Input)
     {
         return Input == EMHWIInput::Light || Input == EMHWIInput::Thrust
@@ -147,6 +149,7 @@ void AMHWICharacter::BeginPlay()
     AddTickPrerequisiteComponent(GetMesh());
     AddTickPrerequisiteComponent(WeaponMesh);
     InitializeNativeRuntimeMoves();
+    ResetSpiritGaugeDecayClock();
     Attributes->OnCharacterDeath.AddDynamic(this, &AMHWICharacter::HandleDeath);
     Attributes->OnDamaged.AddDynamic(this, &AMHWICharacter::HandleDamaged);
     if (GetMesh()->GetAnimInstance())
@@ -171,6 +174,7 @@ void AMHWICharacter::BuildInputMapping()
     LookAction->ValueType = EInputActionValueType::Axis2D;
     LookAction->AccumulationBehavior = EInputActionAccumulationBehavior::Cumulative;
     SprintAction = NewObject<UInputAction>(this, TEXT("MHWI_Sprint"));
+    KeyboardSprintAction = NewObject<UInputAction>(this, TEXT("MHWI_KeyboardSprint"));
     auto MapDirection = [this](FKey Key, bool bY, bool bNegative)
     {
         FEnhancedActionKeyMapping& Mapping = RuntimeMapping->MapKey(MoveAction, Key);
@@ -192,10 +196,13 @@ void AMHWICharacter::BuildInputMapping()
     UInputModifierScalar* PadScale = NewObject<UInputModifierScalar>(RuntimeMapping);
     PadScale->Scalar = FVector(2.2f, 1.8f, 1.f);
     PadLook.Modifiers.Add(PadScale);
-    RuntimeMapping->MapKey(SprintAction, EKeys::LeftShift);
+    RuntimeMapping->MapKey(KeyboardSprintAction, EKeys::LeftShift);
     RuntimeMapping->MapKey(SprintAction, EKeys::Gamepad_LeftThumbstick);
-    const FKey Keyboard[] = { EKeys::LeftMouseButton, EKeys::RightMouseButton, EKeys::R, EKeys::F,
-        EKeys::G, EKeys::Q, EKeys::SpaceBar, EKeys::E, EKeys::C, EKeys::V };
+    // MHWI PC: Ctrl is the Spirit modifier. Direct Foresight/Helm/Fade/Special
+    // Sheathe shortcuts are intentionally absent; their official chords are
+    // resolved from device-specific keyboard edges below.
+    const FKey Keyboard[] = { EKeys::LeftMouseButton, EKeys::RightMouseButton, EKeys::LeftControl,
+        EKeys::Invalid, EKeys::Invalid, EKeys::Invalid, EKeys::SpaceBar, EKeys::E, EKeys::Invalid, EKeys::V };
     FKey Gamepad[] = { EKeys::Gamepad_FaceButton_Top, EKeys::Gamepad_FaceButton_Right,
         EKeys::Gamepad_RightShoulder, EKeys::Gamepad_LeftShoulder, EKeys::Gamepad_RightTrigger,
         EKeys::Gamepad_LeftTrigger, EKeys::Gamepad_FaceButton_Bottom, EKeys::Gamepad_FaceButton_Left, EKeys::Gamepad_DPad_Up, EKeys::Gamepad_DPad_Left };
@@ -211,10 +218,16 @@ void AMHWICharacter::BuildInputMapping()
     }
     for (int32 Index = 0; Index < UE_ARRAY_COUNT(Keyboard); ++Index)
     {
+        // Keep the legacy action names on the gamepad path: existing PIE and
+        // debugging tools inject them directly and must not silently become PC input.
         UInputAction* Action = NewObject<UInputAction>(this, FName(*FString::Printf(TEXT("MHWI_Command_%d"), Index)));
         CommandActions.Add(Action);
-        RuntimeMapping->MapKey(Action, Keyboard[Index]);
         if (Gamepad[Index].IsValid()) RuntimeMapping->MapKey(Action, Gamepad[Index]);
+
+        UInputAction* KeyboardAction = NewObject<UInputAction>(this,
+            FName(*FString::Printf(TEXT("MHWI_KeyboardCommand_%d"), Index)));
+        KeyboardCommandActions.Add(KeyboardAction);
+        if (Keyboard[Index].IsValid()) RuntimeMapping->MapKey(KeyboardAction, Keyboard[Index]);
     }
 }
 
@@ -244,6 +257,8 @@ void AMHWICharacter::UnPossessed()
     if (InstalledInputSubsystem.IsValid() && RuntimeMapping) InstalledInputSubsystem->RemoveMappingContext(RuntimeMapping);
     InstalledInputSubsystem.Reset();
     bSprintHeld = false;
+    bKeyboardSpiritHeld = bKeyboardLightHeld = bKeyboardThrustHeld = bKeyboardEvadeHeld = false;
+    KeyboardFrameInputEdges.Reset();
     MoveInput = FVector2D::ZeroVector;
     InterruptMove();
     Super::UnPossessed();
@@ -261,11 +276,20 @@ void AMHWICharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
         Input->BindAction(SprintAction, ETriggerEvent::Started, this, &AMHWICharacter::SprintStarted);
         Input->BindAction(SprintAction, ETriggerEvent::Completed, this, &AMHWICharacter::SprintStopped);
         Input->BindAction(SprintAction, ETriggerEvent::Canceled, this, &AMHWICharacter::SprintStopped);
+        Input->BindAction(KeyboardSprintAction, ETriggerEvent::Started, this, &AMHWICharacter::KeyboardSprintStarted);
+        Input->BindAction(KeyboardSprintAction, ETriggerEvent::Completed, this, &AMHWICharacter::SprintStopped);
+        Input->BindAction(KeyboardSprintAction, ETriggerEvent::Canceled, this, &AMHWICharacter::SprintStopped);
         for (int32 Index = 0; Index < CommandActions.Num(); ++Index)
         {
             Input->BindAction(CommandActions[Index], ETriggerEvent::Started, this, &AMHWICharacter::CommandStarted, static_cast<EMHWIInput>(Index));
             Input->BindAction(CommandActions[Index], ETriggerEvent::Completed, this, &AMHWICharacter::CommandReleased, static_cast<EMHWIInput>(Index));
             Input->BindAction(CommandActions[Index], ETriggerEvent::Canceled, this, &AMHWICharacter::CommandReleased, static_cast<EMHWIInput>(Index));
+        }
+        for (int32 Index = 0; Index < KeyboardCommandActions.Num(); ++Index)
+        {
+            Input->BindAction(KeyboardCommandActions[Index], ETriggerEvent::Started, this, &AMHWICharacter::KeyboardCommandStarted, static_cast<EMHWIInput>(Index));
+            Input->BindAction(KeyboardCommandActions[Index], ETriggerEvent::Completed, this, &AMHWICharacter::KeyboardCommandReleased, static_cast<EMHWIInput>(Index));
+            Input->BindAction(KeyboardCommandActions[Index], ETriggerEvent::Canceled, this, &AMHWICharacter::KeyboardCommandReleased, static_cast<EMHWIInput>(Index));
         }
     }
     else
@@ -368,7 +392,15 @@ void AMHWICharacter::Look(const FInputActionValue& Value)
 
 void AMHWICharacter::SprintStarted() { bSprintHeld = true; RefreshMovement(); }
 void AMHWICharacter::SprintStopped() { bSprintHeld = false; RefreshMovement(); }
-void AMHWICharacter::CommandStarted(EMHWIInput Input)
+void AMHWICharacter::KeyboardSprintStarted()
+{
+    SprintStarted();
+    // PC Shift is Sprint while sheathed and Sheathe while drawn. The ordinary
+    // input route still decides whether the current action may sheath.
+    if (!bSheathed) RequestInput(EMHWIInput::ToggleSheathe);
+}
+
+void AMHWICharacter::SampleMoveInputForCommand()
 {
     // Enhanced Input fires Started delegates before Triggered/Completed. A
     // simultaneous move + command must use this frame's evaluated action value,
@@ -377,6 +409,11 @@ void AMHWICharacter::CommandStarted(EMHWIInput Input)
         if (const UEnhancedPlayerInput* PlayerInput = Cast<UEnhancedPlayerInput>(PC->PlayerInput))
             if (MoveAction)
                 MoveInput = PlayerInput->GetActionValue(MoveAction).Get<FVector2D>().GetClampedToMaxSize(1.f);
+}
+
+void AMHWICharacter::CommandStarted(EMHWIInput Input)
+{
+    SampleMoveInputForCommand();
     if (Input == EMHWIInput::Light) bLightHeld = true;
     else if (Input == EMHWIInput::Thrust) bThrustHeld = true;
     else if (Input == EMHWIInput::Spirit) bSpiritHeld = true;
@@ -395,6 +432,28 @@ void AMHWICharacter::CommandReleased(EMHWIInput Input)
     if (Input == EMHWIInput::Light) bLightHeld = false;
     else if (Input == EMHWIInput::Thrust) bThrustHeld = false;
     else if (Input == EMHWIInput::Spirit) bSpiritHeld = false;
+}
+
+void AMHWICharacter::KeyboardCommandStarted(EMHWIInput Input)
+{
+    // PC RMB is a drawn-only thrust. E is Sheathe/Use Item in the original;
+    // this training sandbox has no item action, so sheathed E must not draw.
+    // These device-local filters leave gamepad and direct RequestInput unchanged.
+    if (bSheathed && (Input == EMHWIInput::Thrust || Input == EMHWIInput::ToggleSheathe)) return;
+    SampleMoveInputForCommand();
+    if (Input == EMHWIInput::Light) bKeyboardLightHeld = true;
+    else if (Input == EMHWIInput::Thrust) bKeyboardThrustHeld = true;
+    else if (Input == EMHWIInput::Spirit) bKeyboardSpiritHeld = true;
+    else if (Input == EMHWIInput::Evade) bKeyboardEvadeHeld = true;
+    KeyboardFrameInputEdges.AddUnique(Input);
+}
+
+void AMHWICharacter::KeyboardCommandReleased(EMHWIInput Input)
+{
+    if (Input == EMHWIInput::Light) bKeyboardLightHeld = false;
+    else if (Input == EMHWIInput::Thrust) bKeyboardThrustHeld = false;
+    else if (Input == EMHWIInput::Spirit) bKeyboardSpiritHeld = false;
+    else if (Input == EMHWIInput::Evade) bKeyboardEvadeHeld = false;
 }
 
 void AMHWICharacter::ResolveFrameInputEdges()
@@ -429,6 +488,56 @@ void AMHWICharacter::ResolveFrameInputEdges()
     for (const EMHWIInput Edge : Edges) RequestInput(Edge);
 }
 
+void AMHWICharacter::ResolveKeyboardFrameInputEdges()
+{
+    if (KeyboardFrameInputEdges.IsEmpty()) return;
+    TArray<EMHWIInput> Edges = MoveTemp(KeyboardFrameInputEdges);
+    KeyboardFrameInputEdges.Reset();
+    // Include a key pressed and released inside one frame, without allowing an
+    // unrelated edge to retrigger an older held chord (the keyboard A02 guard).
+    const bool bSpirit = bKeyboardSpiritHeld || Edges.Contains(EMHWIInput::Spirit);
+    const bool bLight = bKeyboardLightHeld || Edges.Contains(EMHWIInput::Light);
+    const bool bThrust = bKeyboardThrustHeld || Edges.Contains(EMHWIInput::Thrust);
+    const bool bEvade = bKeyboardEvadeHeld || Edges.Contains(EMHWIInput::Evade);
+    auto HasNewMember = [&Edges](std::initializer_list<EMHWIInput> Members)
+    {
+        for (const EMHWIInput Member : Members)
+            if (Edges.Contains(Member)) return true;
+        return false;
+    };
+    auto ConsumeAttackEdges = [&Edges](bool bIncludeEvade)
+    {
+        Edges.Remove(EMHWIInput::Spirit);
+        Edges.Remove(EMHWIInput::Light);
+        Edges.Remove(EMHWIInput::Thrust);
+        if (bIncludeEvade) Edges.Remove(EMHWIInput::Evade);
+    };
+
+    // One keyboard attack gesture per frame. The priority for three or more
+    // simultaneous attack keys is a project adapter, not claimed native order.
+    if (bSpirit && bEvade && HasNewMember({EMHWIInput::Spirit, EMHWIInput::Evade}))
+    {
+        ConsumeAttackEdges(true);
+        RequestInput(EMHWIInput::SpecialSheathe);
+    }
+    else if (bSpirit && bLight && HasNewMember({EMHWIInput::Spirit, EMHWIInput::Light}))
+    {
+        ConsumeAttackEdges(false);
+        RequestInput(EMHWIInput::HelmBreaker);
+    }
+    else if (bSpirit && bThrust && HasNewMember({EMHWIInput::Spirit, EMHWIInput::Thrust}))
+    {
+        ConsumeAttackEdges(false);
+        RequestInput(EMHWIInput::Foresight);
+    }
+    else if (bLight && bThrust && HasNewMember({EMHWIInput::Light, EMHWIInput::Thrust}))
+    {
+        ConsumeAttackEdges(false);
+        RequestInput(EMHWIInput::FadeSlash);
+    }
+    for (const EMHWIInput Edge : Edges) RequestInput(Edge);
+}
+
 void AMHWICharacter::SetInputBlocked(bool bBlocked)
 {
     bInputBlocked = bBlocked;
@@ -437,6 +546,7 @@ void AMHWICharacter::SetInputBlocked(bool bBlocked)
     bBufferedInsideWindow = false;
     bHelmSlamRequested = false;
     FrameInputEdges.Reset();
+    KeyboardFrameInputEdges.Reset();
 }
 
 void AMHWICharacter::RefreshMovement()
@@ -655,10 +765,12 @@ bool AMHWICharacter::ResolveInput(EMHWIInput Input, FName& OutMove, float* OutCa
 
 bool AMHWICharacter::RequestInput(EMHWIInput Input)
 {
+    LastRequestedInput = Input;
+    ++InputRequestSerial;
     if (bEnding || bFinishing || bDispatchingHits || bInputBlocked || IsGestureLocked()
         || !Attributes->IsAlive() || !Moveset) return false;
-    // Aerial Helm stages own their input: LMB / RMB / R / G all become one slam
-    // request; other commands must not start ground moves in midair.
+    // Aerial Helm stages own their input: PC LMB/RMB/Ctrl, their chords, and
+    // the corresponding gamepad commands all become one slam request.
     if (HelmPhase == EHelmPhase::Rise || HelmPhase == EHelmPhase::Air || HelmPhase == EHelmPhase::Strike)
     {
         if (!MHWI::IsHelmSlamInput(Input)) return false;
@@ -787,6 +899,7 @@ bool AMHWICharacter::StartResolvedMove(FName MoveId)
     if (bWeakSpiritAttack)
         CapturedDamageMultiplier *= CapturedWeakMultiplier;
     bHitConfirmed = bCounterConfirmed = bRaisedLevelThisAction = false;
+    bRoundslashHitLatched = false;
     bSpecialSheathHeld = false;
     bMoveStartedSheathed = bWasBackMounted;
     SpecialSheathElapsed = 0.f;
@@ -796,6 +909,7 @@ bool AMHWICharacter::StartResolvedMove(FName MoveId)
 
     if (MHWI::IsRollMove(MoveId))
     {
+        RollProtectionFramesRemaining = SelectEvasionProtectionFrames();
         bRollStartedDrawn = bWasDrawn;
         // Roll keeps the original free-form start direction; Fade Slash does not.
         if (MoveId == MHWI::Roll && !MoveInput.IsNearlyZero() && Controller)
@@ -808,6 +922,7 @@ bool AMHWICharacter::StartResolvedMove(FName MoveId)
     }
     else
     {
+        RollProtectionFramesRemaining = 0.f;
         bRollStartedDrawn = false;
         ClearRollRecovery();
     }
@@ -834,8 +949,9 @@ bool AMHWICharacter::StartResolvedMove(FName MoveId)
     Anim->Montage_SetEndDelegate(EndDelegate, ActiveMontage);
     if (Serial != ExecutionSerial || bEnding) return false;
     ApplyStageMovement(MoveId, NewDefinition);
-    SpiritGauge = FMath::Clamp(SpiritGauge - NewDefinition.SpiritCost + NewDefinition.SpiritGainOnStart, 0.f, 100.f);
-    if (NewDefinition.bConsumeAllGauge) SpiritGauge = 0.f;
+    float NewGauge = SpiritGauge - NewDefinition.SpiritCost + NewDefinition.SpiritGainOnStart;
+    if (NewDefinition.bConsumeAllGauge) NewGauge = 0.f;
+    SetSpiritGauge(NewGauge);
     if (NewDefinition.bUnsheathAtStart) bSheathed = false;
     // A roll never changes the sheathe state by itself: a sheathed dodge must
     // still resolve its next neutral Light to DrawSlash, not a drawn entry.
@@ -866,6 +982,7 @@ void AMHWICharacter::Tick(float DeltaSeconds)
     Super::Tick(DeltaSeconds);
     ON_SCOPE_EXIT { if (!bEnding) RefreshWeaponAttachment(DeltaSeconds); };
     if (bEnding || !Attributes->IsAlive()) return;
+    ResolveKeyboardFrameInputEdges();
     if (bOriginalInputPreset) ResolveFrameInputEdges();
     // Hit stop freezes the action/weapon presentation clock only. Resource and
     // colour timers below still run, so a hit lag can never extend the gauge.
@@ -873,22 +990,38 @@ void AMHWICharacter::Tick(float DeltaSeconds)
     if (bHitLagThisFrame) PendingHitLag = FMath::Max(0.f, PendingHitLag - DeltaSeconds);
     else UpdateSourceWeaponPose(DeltaSeconds);
     CounterArmorRemaining = FMath::Max(0.f, CounterArmorRemaining - DeltaSeconds);
+    RollProtectionFramesRemaining = FMath::Max(0.f, RollProtectionFramesRemaining - DeltaSeconds * 60.f);
     bool bResourceChanged = false;
     if (SpiritLevel > 0)
     {
-        const float PausedSeconds = FMath::Min(DeltaSeconds, SpiritDecayPauseRemaining);
+        // Native order: subtract the pause first; only an expired pause permits
+        // colour-T to advance. A long frame is not split into invented substeps.
         SpiritDecayPauseRemaining = FMath::Max(0.f, SpiritDecayPauseRemaining - DeltaSeconds);
-        SpiritTimeRemaining = FMath::Max(0.f, SpiritTimeRemaining - (DeltaSeconds - PausedSeconds));
-        if (SpiritTimeRemaining <= 0.f) { SetSpiritLevel(SpiritLevel - 1); bResourceChanged = true; }
+        if (SpiritDecayPauseRemaining <= 0.f)
+        {
+            SpiritTimeRemaining = FMath::Max(0.f, SpiritTimeRemaining - DeltaSeconds);
+            if (SpiritTimeRemaining <= 0.f) { SetSpiritLevel(SpiritLevel - 1); bResourceChanged = true; }
+        }
     }
     if (GaugeRegenSeconds > 0.f)
     {
         const float EffectiveSeconds = FMath::Min(DeltaSeconds, GaugeRegenSeconds);
         GaugeRegenSeconds = FMath::Max(0.f, GaugeRegenSeconds - DeltaSeconds);
-        SpiritGauge = FMath::Min(100.f, SpiritGauge + EffectiveSeconds
+        SetSpiritGauge(SpiritGauge + EffectiveSeconds
             * (Moveset ? FMath::Max(0.f, Moveset->GaugeRegenPerSecond) : 0.f));
         bResourceChanged = true;
     }
+    else if (Moveset && Moveset->SpiritGaugeDecayTimeScale > 0.f && Moveset->SpiritGaugeDecayFraction > 0.f)
+    {
+        SpiritGaugeDecayCountdown -= DeltaSeconds / Moveset->SpiritGaugeDecayTimeScale;
+        if (SpiritGaugeDecayCountdown < 0.f)
+        {
+            ResetSpiritGaugeDecayClock();
+            SetSpiritGauge(SpiritGauge - 100.f * Moveset->SpiritGaugeDecayFraction);
+            bResourceChanged = true;
+        }
+    }
+    TickDelayedShells(DeltaSeconds);
     if (bResourceChanged) OnStateChanged.Broadcast();
     if (bEnding || !Attributes->IsAlive()) return;
 
@@ -1078,23 +1211,19 @@ void AMHWICharacter::SweepWindow(int32 WindowIndex, const FMHWIHitWindow& Window
     const FVector Start = PreviousActorLocation + Up;
     const FVector End = GetActorLocation() + Forward * Reach + Up;
     TSet<TWeakObjectPtr<AActor>> Candidates;
-    if (CurrentMove == MHWI::HelmLand)
+    TMap<TWeakObjectPtr<AActor>, FVector> ContactLocations;
+    GetWorld()->SweepMultiByObjectType(Results, Start, End, FQuat::Identity, Objects, FCollisionShape::MakeSphere(Radius), Params);
+    for (int32 Side = -1; Side <= 1; Side += 2)
     {
-        // The original delayed-hit behavior must not depend on whether the capsule
-        // lands on the ground, a target's top, or beside the marked target.
-        Candidates = HelmMarkedTargets;
+        TArray<FHitResult> SideHits;
+        GetWorld()->SweepMultiByObjectType(SideHits, GetActorLocation() + Forward * Reach * 0.3f + Up,
+            End + Right * Window.SideExtent * Side, FQuat::Identity, Objects, FCollisionShape::MakeSphere(Radius), Params);
+        Results.Append(SideHits);
     }
-    else
+    for (const FHitResult& Hit : Results)
     {
-        GetWorld()->SweepMultiByObjectType(Results, Start, End, FQuat::Identity, Objects, FCollisionShape::MakeSphere(Radius), Params);
-        for (int32 Side = -1; Side <= 1; Side += 2)
-        {
-            TArray<FHitResult> SideHits;
-            GetWorld()->SweepMultiByObjectType(SideHits, GetActorLocation() + Forward * Reach * 0.3f + Up,
-                End + Right * Window.SideExtent * Side, FQuat::Identity, Objects, FCollisionShape::MakeSphere(Radius), Params);
-            Results.Append(SideHits);
-        }
-        for (const FHitResult& Hit : Results) Candidates.Add(Hit.GetActor());
+        Candidates.Add(Hit.GetActor());
+        if (!ContactLocations.Contains(Hit.GetActor())) ContactLocations.Add(Hit.GetActor(), Hit.ImpactPoint);
     }
     const uint32 Serial = ExecutionSerial;
     TSet<TWeakObjectPtr<AActor>>& Actors = HitActors.FindOrAdd(WindowIndex);
@@ -1121,6 +1250,8 @@ void AMHWICharacter::SweepWindow(int32 WindowIndex, const FMHWIHitWindow& Window
         const float* LevelDamage = Window.SpiritLevelDamage.Find(CapturedSpiritLevel);
         const float BaseDamage = LevelDamage ? *LevelDamage : Window.Damage;
         const float FinalDamage = FMath::Max(0.f, BaseDamage) * CapturedDamageMultiplier * CounterMultiplier;
+        const FVector* FoundContact = ContactLocations.Find(Candidate);
+        const FVector ContactLocation = FoundContact ? *FoundContact : Target->GetActorLocation();
         // R22: publish a structured result before applying damage. FinalDamage is
         // deliberately identical to the previous expression; unresolved stages
         // stay Unavailable rather than receiving invented multipliers.
@@ -1134,10 +1265,12 @@ void AMHWICharacter::SweepWindow(int32 WindowIndex, const FMHWIHitWindow& Window
         LastResolvedHit.WeakMultiplier = CapturedWeakMultiplier;
         LastResolvedHit.CounterMultiplier = CounterMultiplier;
         LastResolvedHit.FinalDamage = FinalDamage;
+        LastResolvedHit.ContactLocation = ContactLocation;
         TargetAttributes->ApplyDamage(FinalDamage, this);
         if (Serial != ExecutionSerial || bEnding || bPendingDeath || bPendingInterruption) return;
         if (!IsValid(TargetAttributes) || TargetAttributes->GetCurrentHealth() >= HealthBefore) continue;
-        if (CurrentMove == MHWI::SpiritThrust) HelmMarkedTargets.Add(Target);
+        if (CurrentMove == MHWI::HelmStrike) ScheduleHelmShell(Target, ContactLocation);
+        else if (CurrentMove == MHWI::IaiSpiritSlash) ScheduleIaiShell(Target, ContactLocation);
         bHitConfirmed = true;
         // R31: one hit event and one presentation-only stop per confirmed hit.
         PendingHitLag = FMath::Max(PendingHitLag, FMath::Max(0.f, Window.HitLagSeconds));
@@ -1145,18 +1278,21 @@ void AMHWICharacter::SweepWindow(int32 WindowIndex, const FMHWIHitWindow& Window
         if (!WindowsThatGrantedGauge.Contains(WindowIndex))
         {
             WindowsThatGrantedGauge.Add(WindowIndex);
-            SpiritGauge = FMath::Clamp(SpiritGauge + Window.SpiritGain, 0.f, 100.f);
+            SetSpiritGauge(SpiritGauge + Window.SpiritGain);
         }
-        if (bCounterConfirmed && ActiveDefinition.bCounterRestoresGaugeOnHit) SpiritGauge = 100.f;
+        if (bCounterConfirmed && ActiveDefinition.bCounterRestoresGaugeOnHit) SetSpiritGauge(100.f);
         const float RegenDuration = bCounterConfirmed && ActiveDefinition.CounterGaugeRegenOnHitSeconds >= 0.f
             ? ActiveDefinition.CounterGaugeRegenOnHitSeconds : ActiveDefinition.GaugeRegenOnHitSeconds;
         GaugeRegenSeconds = FMath::Max(GaugeRegenSeconds, RegenDuration);
-        if (ActiveDefinition.bRaiseSpiritOnHit && !bRaisedLevelThisAction)
+        if (CurrentMove == MHWI::SpiritRoundslash && ActiveDefinition.bRaiseSpiritOnHit)
+        {
+            // Action69 contact only latches eligibility. The exit/update commit,
+            // not this damage callback, clears Q and raises/refreshes the colour.
+            bRoundslashHitLatched = true;
+        }
+        else if (ActiveDefinition.bRaiseSpiritOnHit && !bRaisedLevelThisAction)
         {
             bRaisedLevelThisAction = true;
-            // R11: the 10 s W03P field is a gauge no-decay window, not a colour-T
-            // extension. Do not add it to SpiritTimeRemaining until R10 proves the
-            // native Q consumer; the field stays reserved on the data asset.
             SetSpiritLevel(SpiritLevel + 1);
         }
         OnStateChanged.Broadcast();
@@ -1243,6 +1379,9 @@ void AMHWICharacter::FinishMove(bool bInterrupted, bool bStopMontage, bool bCont
     UAnimMontage* OldMontage = ActiveMontage;
     const bool bHadMove = !CurrentMove.IsNone() || !NativeSourceMove.IsNone();
     const FName FinishedMove = CurrentMove;
+    if (FinishedMove == MHWI::IaiSpiritSlash) IaiDelayedHit.Reset();
+    CommitRoundslash();
+    RollProtectionFramesRemaining = 0.f;
     // HelmLand's level spend (colour loss) requires this chain's real down-slam.
     const bool bAuthorizedHelmLand = FinishedMove != MHWI::HelmLand || bHelmSlamAuthorized;
     if (bHadMove)
@@ -1286,7 +1425,6 @@ void AMHWICharacter::FinishMove(bool bInterrupted, bool bStopMontage, bool bCont
     WindowsThatGrantedGauge.Reset();
     if (!bContinueHelm)
     {
-        HelmMarkedTargets.Reset();
         // Restores the one aerial snapshot (movement mode, gravity, root motion)
         // exactly once when the chain leaves its legal stages.
         ResetHelmChain();
@@ -1621,6 +1759,12 @@ bool AMHWICharacter::HandleIncomingDamage(float DamageAmount, AActor* DamageInst
 {
     if (bEnding || !Attributes->IsAlive() || DamageAmount <= 0.f || !ActiveMontage) return false;
     if (bNativeConnector) return false; // Main-action defense windows have not started.
+    if (MHWI::IsRollMove(CurrentMove))
+    {
+        // PLP protection is a floating-point actor-frame countdown assigned at
+        // action entry, not the legacy montage-second interval.
+        return ActiveDefinition.bInvulnerable && RollProtectionFramesRemaining > 0.f;
+    }
     UAnimInstance* Anim = GetMesh()->GetAnimInstance();
     FAnimMontageInstance* Instance = Anim ? Anim->GetMontageInstanceForID(ActiveMontageInstanceId) : nullptr;
     const float Position = Instance ? Instance->GetPosition() : CurrentPosition;
@@ -1634,7 +1778,7 @@ bool AMHWICharacter::HandleIncomingDamage(float DamageAmount, AActor* DamageInst
         if (!bCounterConfirmed)
             CounterArmorRemaining = FMath::Max(CounterArmorRemaining, ActiveDefinition.CounterHyperArmorSeconds);
         bCounterConfirmed = true;
-        if (!ActiveDefinition.bCounterOnlyForIai && !ActiveDefinition.bCounterRestoresGaugeOnHit) SpiritGauge = 100.f;
+        if (!ActiveDefinition.bCounterOnlyForIai && !ActiveDefinition.bCounterRestoresGaugeOnHit) SetSpiritGauge(100.f);
         OnStateChanged.Broadcast();
         return true;
     }
@@ -1681,6 +1825,8 @@ void AMHWICharacter::HandleDamaged(float DamageAmount, AActor* DamageInstigator)
 void AMHWICharacter::HandleDeath()
 {
     CounterArmorRemaining = GaugeRegenSeconds = SpiritDecayPauseRemaining = 0.f;
+    RollProtectionFramesRemaining = 0.f;
+    ClearDelayedShells();
     PendingHitLag = 0.f;
     ControlState = EMHWIControlState::Dead;
     if (bDispatchingHits) { bPendingDeath = true; return; }
@@ -1689,6 +1835,131 @@ void AMHWICharacter::HandleDeath()
     GetCharacterMovement()->DisableMovement();
     SetActorEnableCollision(false);
     if (!bEnding) OnStateChanged.Broadcast();
+}
+
+void AMHWICharacter::ResetSpiritGaugeDecayClock()
+{
+    SpiritGaugeDecayCountdown = Moveset ? FMath::Max(0.f, Moveset->SpiritGaugeDecayFraction) : 0.05f;
+}
+
+void AMHWICharacter::SetSpiritGauge(float NewValue)
+{
+    SpiritGauge = FMath::Clamp(FMath::IsFinite(NewValue) ? NewValue : 0.f, 0.f, 100.f);
+    ResetSpiritGaugeDecayClock();
+}
+
+float AMHWICharacter::SelectEvasionProtectionFrames() const
+{
+    if (!Moveset) return 13.f;
+    if (bEvasionMantleActive) return FMath::Max(0.f, Moveset->EvasionMantleProtectionFrames);
+    const int32 Level = FMath::Clamp(EvadeWindowLevel, 0, 5);
+    return Moveset->EvasionProtectionFrames.IsValidIndex(Level)
+        ? FMath::Max(0.f, Moveset->EvasionProtectionFrames[Level]) : 13.f;
+}
+
+void AMHWICharacter::CommitRoundslash()
+{
+    if (CurrentMove != MHWI::SpiritRoundslash)
+    {
+        bRoundslashHitLatched = false;
+        return;
+    }
+    if (!bRoundslashHitLatched) return;
+    bRoundslashHitLatched = false;
+    // Destruction/death cleanup is not asserted to be the native Action69 exit.
+    if (bEnding || ControlState == EMHWIControlState::Dead || !Attributes->IsAlive()) return;
+    bRaisedLevelThisAction = true;
+    SetSpiritLevel(SpiritLevel + 1, true);
+    // The native commit writes Q directly; it does not route through gauge_change.
+    SpiritGauge = 0.f;
+}
+
+void AMHWICharacter::ScheduleHelmShell(AActor* Target, const FVector& ContactLocation)
+{
+    if (!IsValid(Target) || !Moveset || CapturedSpiritLevel <= 0) return;
+    if (HelmDelayedHits.IsEmpty()) HelmShellScheduledCount = 0;
+    const int32 Limit = FMath::Max(0, Moveset->HelmShellHitLimit);
+    if (HelmShellScheduledCount >= Limit
+        || !Moveset->HelmShellDamageByLevel.IsValidIndex(CapturedSpiritLevel)) return;
+    const float MotionValue = Moveset->HelmShellDamageByLevel[CapturedSpiritLevel];
+    if (MotionValue <= 0.f) return;
+    FMHWIDelayedHitRuntime Hit;
+    Hit.Target = Target;
+    Hit.RelativeContact = Target->GetActorTransform().InverseTransformPosition(ContactLocation);
+    Hit.RemainingSeconds = HelmDelayedHits.IsEmpty() ? FMath::Max(0.f, Moveset->HelmShellFirstDelay)
+        : HelmDelayedHits.Last().RemainingSeconds + FMath::Max(0.f, Moveset->HelmShellInterval);
+    Hit.MotionValue = MotionValue;
+    Hit.DamageMultiplier = CapturedDamageMultiplier;
+    Hit.HitIndex = HelmShellScheduledCount++;
+    HelmDelayedHits.Add(MoveTemp(Hit));
+}
+
+void AMHWICharacter::ScheduleIaiShell(AActor* Target, const FVector& ContactLocation)
+{
+    if (!IsValid(Target) || !Moveset || IaiDelayedHit.IsSet() || CapturedSpiritLevel <= 0
+        || !Moveset->IaiShellDamageByLevel.IsValidIndex(CapturedSpiritLevel)) return;
+    const float MotionValue = Moveset->IaiShellDamageByLevel[CapturedSpiritLevel];
+    if (MotionValue <= 0.f) return;
+    FMHWIDelayedHitRuntime Hit;
+    Hit.Target = Target;
+    Hit.RelativeContact = Target->GetActorTransform().InverseTransformPosition(ContactLocation);
+    Hit.RemainingSeconds = FMath::Max(0.f, Moveset->IaiShellDelay);
+    Hit.MotionValue = MotionValue;
+    Hit.DamageMultiplier = CapturedDamageMultiplier;
+    Hit.HitIndex = 0;
+    IaiDelayedHit = MoveTemp(Hit);
+}
+
+void AMHWICharacter::TickDelayedShells(float DeltaSeconds)
+{
+    const float Advance = FMath::Max(0.f, DeltaSeconds);
+    for (FMHWIDelayedHitRuntime& Hit : HelmDelayedHits) Hit.RemainingSeconds -= Advance;
+    while (!HelmDelayedHits.IsEmpty() && HelmDelayedHits[0].RemainingSeconds <= 0.f)
+    {
+        const FMHWIDelayedHitRuntime Hit = HelmDelayedHits[0];
+        HelmDelayedHits.RemoveAt(0, 1, false);
+        EmitDelayedShell(Hit, MHWI::HelmStrike);
+        if (bEnding || !Attributes->IsAlive()) return;
+    }
+    if (!IaiDelayedHit.IsSet()) return;
+    IaiDelayedHit->RemainingSeconds -= Advance;
+    if (IaiDelayedHit->RemainingSeconds > 0.f) return;
+    const FMHWIDelayedHitRuntime Hit = IaiDelayedHit.GetValue();
+    IaiDelayedHit.Reset();
+    // Action102 alone owns this pending second hit; its exit clears it.
+    if (CurrentMove == MHWI::IaiSpiritSlash) EmitDelayedShell(Hit, MHWI::IaiSpiritSlash);
+}
+
+void AMHWICharacter::EmitDelayedShell(const FMHWIDelayedHitRuntime& Hit, FName SourceMove)
+{
+    AActor* Target = Hit.Target.Get();
+    if (!IsValid(Target) || bEnding || !Attributes->IsAlive()) return;
+    UAttributeComponent* TargetAttributes = Target->FindComponentByClass<UAttributeComponent>();
+    if (!TargetAttributes || !TargetAttributes->IsAlive()) return;
+    const FVector ContactLocation = Target->GetActorTransform().TransformPosition(Hit.RelativeContact);
+    const float FinalDamage = FMath::Max(0.f, Hit.MotionValue) * FMath::Max(0.f, Hit.DamageMultiplier);
+    LastResolvedHit = FMHWIResolvedHit();
+    LastResolvedHit.MoveId = SourceMove;
+    LastResolvedHit.MotionValueBase = Hit.MotionValue;
+    LastResolvedHit.ColorMultiplier = Hit.DamageMultiplier;
+    LastResolvedHit.FinalDamage = FinalDamage;
+    LastResolvedHit.bDelayedShell = true;
+    LastResolvedHit.ShellHitIndex = Hit.HitIndex;
+    LastResolvedHit.ContactLocation = ContactLocation;
+    const float HealthBefore = TargetAttributes->GetCurrentHealth();
+    TargetAttributes->ApplyDamage(FinalDamage, this);
+    if (bEnding || !Attributes->IsAlive() || !IsValid(TargetAttributes)
+        || TargetAttributes->GetCurrentHealth() >= HealthBefore) return;
+    // No montage source time or melee COL record is invented for a delayed shell.
+    OnHitResolved.Broadcast(-1.f, INDEX_NONE, INDEX_NONE);
+    OnStateChanged.Broadcast();
+}
+
+void AMHWICharacter::ClearDelayedShells()
+{
+    HelmDelayedHits.Reset();
+    HelmShellScheduledCount = 0;
+    IaiDelayedHit.Reset();
 }
 
 void AMHWICharacter::SetSpiritLevel(int32 NewLevel, bool bPauseDecay)
@@ -1727,6 +1998,8 @@ void AMHWICharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
     bEnding = true;
     CounterArmorRemaining = GaugeRegenSeconds = SpiritDecayPauseRemaining = 0.f;
+    RollProtectionFramesRemaining = 0.f;
+    ClearDelayedShells();
     ++ExecutionSerial;
     if (Attributes)
     {

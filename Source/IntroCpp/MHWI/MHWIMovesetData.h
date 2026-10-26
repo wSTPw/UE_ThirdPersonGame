@@ -31,8 +31,8 @@ struct INTROCPP_API FMHWIHitWindow
     /** Source COL record index, or INDEX_NONE when this window has no single source record. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 ColRecordIndex = INDEX_NONE;
     /**
-     * Source COL Hit_Lag_a in seconds. This is a presentation clock, not a second
-     * damage window; 0 keeps the existing no-hit-stop behavior.
+     * Presentation-only hit-stop. Zero is the compatibility default. Do not
+     * derive this field from W03P delayed-shell timers; those are separate clocks.
      */
     UPROPERTY(EditAnywhere, BlueprintReadWrite) float HitLagSeconds = 0.f;
 };
@@ -63,6 +63,12 @@ struct INTROCPP_API FMHWIResolvedHit
     UPROPERTY(BlueprintReadOnly) float WeakMultiplier = 1.f;
     UPROPERTY(BlueprintReadOnly) float CounterMultiplier = 1.f;
     UPROPERTY(BlueprintReadOnly) float FinalDamage = 0.f;
+    /** True only for a contact-scheduled delayed shell, never a direct montage window. */
+    UPROPERTY(BlueprintReadOnly) bool bDelayedShell = false;
+    /** Zero-based delayed sequence index; INDEX_NONE for direct hits. */
+    UPROPERTY(BlueprintReadOnly) int32 ShellHitIndex = INDEX_NONE;
+    /** Direct contact, or the saved relative contact evaluated at delayed emission. */
+    UPROPERTY(BlueprintReadOnly) FVector ContactLocation = FVector::ZeroVector;
     UPROPERTY(BlueprintReadOnly) EMHWIDamageStageStatus Sharpness = EMHWIDamageStageStatus::Unavailable;
     UPROPERTY(BlueprintReadOnly) EMHWIDamageStageStatus Affinity = EMHWIDamageStageStatus::Unavailable;
     UPROPERTY(BlueprintReadOnly) EMHWIDamageStageStatus Part = EMHWIDamageStageStatus::Unavailable;
@@ -195,9 +201,25 @@ public:
     UPROPERTY(EditAnywhere, BlueprintReadWrite) float RunSpeed = 420.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite) float BaseDamageMultiplier = 1.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite) float InputBufferSeconds = 0.3f;
+    /** Action99 wait in Actor seconds; the 73/80/129 animation policy remains separate. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite) float SpecialSheathHoldSeconds = 3.5f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite) float GaugeRegenPerSecond = 100.f / 15.f;
+    /** W03P 0x51d: colour-T pause assigned by a qualified Roundslash commit, not Q decay. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite) float SpiritDecayPauseOnRaiseSeconds = 10.f;
+    /** W03P 0x499/0x49d: countdown -= dt / scale; one 0.05 Q step per expiry. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite) float SpiritGaugeDecayTimeScale = 120.f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite) float SpiritGaugeDecayFraction = 0.05f;
+    /** Action91/92 contact-scheduled shell timing and colour-indexed base values. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite) float HelmShellFirstDelay = 0.4f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite) float HelmShellInterval = 0.05f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite) int32 HelmShellHitLimit = 7;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite) TArray<float> HelmShellDamageByLevel = {0.f, 10.f, 15.f, 25.f};
+    /** Action102: one second hit after 0.5 s; level zero emits no valid shell. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite) float IaiShellDelay = 0.5f;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite) TArray<float> IaiShellDamageByLevel = {0.f, 55.f, 72.f, 86.f};
+    /** PLP protection row, in floating-point source frames rather than montage seconds. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite) TArray<float> EvasionProtectionFrames = {13.f, 15.f, 17.f, 19.f, 22.f, 25.f};
+    UPROPERTY(EditAnywhere, BlueprintReadWrite) float EvasionMantleProtectionFrames = 30.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite) float CounterArmorDamageMultiplier = 0.5f;
     /**
      * Helm Breaker aerial motion. Project tuning, not verified original-game

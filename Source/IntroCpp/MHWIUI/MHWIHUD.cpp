@@ -112,22 +112,23 @@ void AMHWIHUD::DrawHUD()
 	if (bShowControls && bAlive)
 	{
 		const float ControlsX = Width - 346.0f;
-		const float ControlsY = Height - 331.0f;
-		Rect(ControlsX, ControlsY, 322.0f, 307.0f, Panel);
-		Label(TEXT("TRAINING CONTROLS"), ControlsX + 14.0f, ControlsY + 10.0f, Accent);
+		const float ControlsY = Height - 352.0f;
+		Rect(ControlsX, ControlsY, 322.0f, 328.0f, Panel);
+		Label(TEXT("PC TRAINING CONTROLS"), ControlsX + 14.0f, ControlsY + 10.0f, Accent);
 		const TCHAR* Controls[] = {
 			TEXT("WASD Move    Mouse Look"),
 			TEXT("LMB Slash    RMB Thrust"),
 			TEXT("W + LMB Advancing Slash"),
-			TEXT("C Fade (camera-rel); A/D sides"),
-			TEXT("R Spirit     F Foresight"),
-			TEXT("V / D-pad Left Slinger Burst"),
-			TEXT("G Hit Helm; Air LMB/RMB/R/G Slam"),
-			TEXT("Q Special Sheathe"),
-			TEXT("  > LMB Iai / R Iai Spirit"),
-			TEXT("F counter hit > R Roundslash"),
-			TEXT("E Draw / Sheathe"),
-			TEXT("Space Evade  Shift Sprint")
+			TEXT("LMB + RMB Fade; A/D sides"),
+			TEXT("Ctrl Spirit Blade"),
+			TEXT("Ctrl + LMB Helm; Air attack Slam"),
+			TEXT("Ctrl + RMB Foresight"),
+			TEXT("Ctrl + Space Special Sheathe"),
+			TEXT("  > LMB Iai / Ctrl Iai Spirit"),
+			TEXT("Counter hit > Ctrl Roundslash"),
+			TEXT("V Slinger Burst"),
+			TEXT("E Sheathe (drawn)"),
+			TEXT("Space Evade  Shift Sprint/Sheathe")
 		};
 		for (int32 Index = 0; Index < UE_ARRAY_COUNT(Controls); ++Index)
 		{

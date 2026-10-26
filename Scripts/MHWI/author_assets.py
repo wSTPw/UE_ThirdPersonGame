@@ -373,17 +373,9 @@ def moveset():
         definitions[name].set_editor_property('turn_end_time', 25.0 / 60.0)
         definitions[name].set_editor_property('turn_max_angle', 120.0)
         definitions[name].set_editor_property('turn_speed', 720.0)
-    # Original helm-breaker uses delayed shell damage. Model its seven commits at landing,
-    # rather than pretending the single broad source collision interval means seven blade sweeps.
-    seven = []
-    for frame in [3, 5, 7, 9, 11, 13, 15]:
-        hit = unreal.MHWIHitWindow()
-        hit.set_editor_property('start_time', frame / 60.0)
-        hit.set_editor_property('end_time', (frame + 0.5) / 60.0)
-        hit.set_editor_property('damage', 20.0)
-        hit.set_editor_property('spirit_gain', 0.0)
-        seven.append(hit)
-    definitions['HelmLand'].set_editor_property('damage_windows', seven)
+    # Delayed helm shells belong to the SpiritHelmBreaker contact queue, not to
+    # seven fabricated landing windows. The B14 runtime owns their timing and MV.
+    definitions['HelmLand'].set_editor_property('damage_windows', [])
     definitions['HelmLand'].set_editor_property('spend_spirit_level', True)
     # Apply the same source-qualified B01 fields as the targeted migration.
     # This pass does not infer missing native timings or rebuild animation links.

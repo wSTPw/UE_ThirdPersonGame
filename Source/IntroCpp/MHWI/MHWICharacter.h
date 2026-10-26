@@ -73,12 +73,16 @@ public:
     UPROPERTY(BlueprintAssignable, Category="MHWI|Combat") FMHWIHitResolved OnHitResolved;
 
     UFUNCTION(BlueprintCallable, Category="MHWI") bool RequestInput(EMHWIInput Input);
+    /** Monotonic count of received command attempts, including rejected requests. */
+    UFUNCTION(BlueprintPure, Category="MHWI|Input") uint32 GetInputRequestSerial() const { return InputRequestSerial; }
+    /** Last command passed to RequestInput; this is not proof that a move started. */
+    UFUNCTION(BlueprintPure, Category="MHWI|Input") EMHWIInput GetLastRequestedInput() const { return LastRequestedInput; }
     UFUNCTION(BlueprintCallable, Category="MHWI") bool StartMove(FName MoveId);
     UFUNCTION(BlueprintCallable, Category="MHWI") void InterruptMove();
     /**
-     * Original-gamepad chord preset. Keyboard shortcuts remain unchanged; the
-     * gamepad uses RT as the Spirit modifier and derives RT+Y / RT+B / Y+B.
-     * Arbitration between simultaneously true chords is a project adapter.
+     * Original-gamepad chord preset. PC keyboard/mouse has an independent
+     * official-style Ctrl chord path and is not affected by this flag.
+     * Arbitration between simultaneously true gamepad chords is a project adapter.
      */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MHWI|Input") bool bOriginalInputPreset = false;
     /** External UI/menu gate. Setting it clears any buffered command. */
@@ -106,6 +110,9 @@ public:
     /** Training adapter ammunition/damage; original ammo types/parts remain R25. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MHWI|Slinger", meta=(ClampMin="0")) int32 SlingerAmmo = 30;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MHWI|Slinger", meta=(ClampMin="0")) float SlingerBurstDamage = 1.f;
+    /** Training-only selectors for the sourced PLP table, not an equipment/skill system. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MHWI|Defense", meta=(ClampMin="0", ClampMax="5")) int32 EvadeWindowLevel = 0;
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MHWI|Defense") bool bEvasionMantleActive = false;
     /** Project cancel adapters, in source seconds; exact original masks remain R07. */
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MHWI|Timing", meta=(ClampMin="0")) float ImpactCancelStart = 0.f;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MHWI|Timing", meta=(ClampMin="0")) float RecoilCancelStart = 10.f / 60.f;
@@ -119,6 +126,10 @@ public:
     UFUNCTION(BlueprintPure, Category="MHWI") float GetGaugeRegenTimeRemaining() const { return GaugeRegenSeconds; }
     UFUNCTION(BlueprintPure, Category="MHWI") float GetSpiritDecayPauseRemaining() const { return SpiritDecayPauseRemaining; }
     UFUNCTION(BlueprintPure, Category="MHWI") float GetSpiritGaugeAtMoveStart() const { return CapturedSpiritGauge; }
+    UFUNCTION(BlueprintPure, Category="MHWI") float GetSpiritGaugeDecayCountdown() const { return SpiritGaugeDecayCountdown; }
+    UFUNCTION(BlueprintPure, Category="MHWI") float GetRollProtectionFramesRemaining() const { return RollProtectionFramesRemaining; }
+    UFUNCTION(BlueprintPure, Category="MHWI") int32 GetPendingHelmShellCount() const { return HelmDelayedHits.Num(); }
+    UFUNCTION(BlueprintPure, Category="MHWI") int32 GetPendingIaiShellCount() const { return IaiDelayedHit.IsSet() ? 1 : 0; }
 
 protected:
     virtual void BeginPlay() override;
@@ -128,7 +139,9 @@ private:
     UPROPERTY(Transient) TObjectPtr<UInputAction> MoveAction;
     UPROPERTY(Transient) TObjectPtr<UInputAction> LookAction;
     UPROPERTY(Transient) TObjectPtr<UInputAction> SprintAction;
+    UPROPERTY(Transient) TObjectPtr<UInputAction> KeyboardSprintAction;
     UPROPERTY(Transient) TArray<TObjectPtr<UInputAction>> CommandActions;
+    UPROPERTY(Transient) TArray<TObjectPtr<UInputAction>> KeyboardCommandActions;
     UPROPERTY(Transient) TObjectPtr<UAnimMontage> ActiveMontage;
     UPROPERTY(Transient) FMHWIMoveDefinition ActiveDefinition;
     /** CDO hard references retain connector assets during cooking. */
@@ -174,6 +187,22 @@ private:
     float GaugeRegenSeconds = 0.f;
     float CounterArmorRemaining = 0.f;
     float SpiritDecayPauseRemaining = 0.f;
+    /** Native normalized countdown; initial 0.05 gives the first decay after 120*0.05 seconds. */
+    float SpiritGaugeDecayCountdown = 0.05f;
+    float RollProtectionFramesRemaining = 0.f;
+    bool bRoundslashHitLatched = false;
+    struct FMHWIDelayedHitRuntime
+    {
+        TWeakObjectPtr<AActor> Target;
+        FVector RelativeContact = FVector::ZeroVector;
+        float RemainingSeconds = 0.f;
+        float MotionValue = 0.f;
+        float DamageMultiplier = 1.f;
+        int32 HitIndex = INDEX_NONE;
+    };
+    TArray<FMHWIDelayedHitRuntime> HelmDelayedHits;
+    int32 HelmShellScheduledCount = 0;
+    TOptional<FMHWIDelayedHitRuntime> IaiDelayedHit;
     float CapturedSpiritGauge = 0.f;
     FMHWIWeaponAttachmentRuntime WeaponAttachmentRuntime;
     float PendingExpiresAt = 0.f;
@@ -185,9 +214,9 @@ private:
     FVector2D MoveInput = FVector2D::ZeroVector;
     TMap<int32, TSet<TWeakObjectPtr<AActor>>> HitActors;
     TSet<int32> WindowsThatGrantedGauge;
-    /** Delayed helm damage belongs to thrust-confirmed targets, independent of landing height. */
-    TSet<TWeakObjectPtr<AActor>> HelmMarkedTargets;
     TOptional<EMHWIInput> PendingInput;
+    uint32 InputRequestSerial = 0;
+    EMHWIInput LastRequestedInput = EMHWIInput::Light;
     TWeakObjectPtr<UEnhancedInputLocalPlayerSubsystem> InstalledInputSubsystem;
     uint32 ExecutionSerial = 0;
     int32 ActiveMontageInstanceId = INDEX_NONE;
@@ -200,6 +229,12 @@ private:
     bool bLightHeld = false;
     bool bThrustHeld = false;
     TArray<EMHWIInput> FrameInputEdges;
+    /** PC input is device-separated so the gamepad preset cannot reinterpret it. */
+    bool bKeyboardSpiritHeld = false;
+    bool bKeyboardLightHeld = false;
+    bool bKeyboardThrustHeld = false;
+    bool bKeyboardEvadeHeld = false;
+    TArray<EMHWIInput> KeyboardFrameInputEdges;
     EMHWIControlState ControlState = EMHWIControlState::Free;
     /** Hit-stop countdown; presentation clock only, never a resource timer. */
     float PendingHitLag = 0.f;
@@ -262,10 +297,16 @@ private:
     void Look(const FInputActionValue& Value);
     void SprintStarted();
     void SprintStopped();
+    void KeyboardSprintStarted();
+    void SampleMoveInputForCommand();
     void CommandStarted(EMHWIInput Input);
     void CommandReleased(EMHWIInput Input);
+    void KeyboardCommandStarted(EMHWIInput Input);
+    void KeyboardCommandReleased(EMHWIInput Input);
     /** Resolves one frame's edges after every Started/Completed callback ran. */
     void ResolveFrameInputEdges();
+    /** Official-style PC chords; a chord needs a new member edge this frame. */
+    void ResolveKeyboardFrameInputEdges();
     bool IsGestureLocked() const { return ControlState != EMHWIControlState::Free; }
     /** Camera-yaw-relative world direction from the current MoveInput; zero when idle. */
     FVector GetMoveIntentWorldDirection() const;
@@ -318,7 +359,16 @@ private:
     void UpdateSourceWeaponPose(float DeltaSeconds);
     float EvaluateSourcePlayRate(float Position) const;
     void EnterSpecialSheathHold();
+    void SetSpiritGauge(float NewValue);
+    void ResetSpiritGaugeDecayClock();
     void SetSpiritLevel(int32 NewLevel, bool bPauseDecay = false);
+    void CommitRoundslash();
+    float SelectEvasionProtectionFrames() const;
+    void ScheduleHelmShell(AActor* Target, const FVector& ContactLocation);
+    void ScheduleIaiShell(AActor* Target, const FVector& ContactLocation);
+    void TickDelayedShells(float DeltaSeconds);
+    void EmitDelayedShell(const FMHWIDelayedHitRuntime& Hit, FName SourceMove);
+    void ClearDelayedShells();
 
     /** Direction correction windows; values come from FMHWIMoveDefinition. */
     void ApplyTurnWindows(float FromPosition, float ToPosition);

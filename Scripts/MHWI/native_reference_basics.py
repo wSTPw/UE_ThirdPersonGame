@@ -45,6 +45,13 @@ def load_sources():
         raise ValueError('Combat layout changed; qualify the new layout before applying')
     for name, source in pin['files'].items():
         path = ROOT / source['project_path']
+        if not path.is_file():
+            # Fresh workspaces may retain only the fingerprint-identical parameter
+            # bundle. Resolve that copy without requiring an original game install.
+            candidate = ROOT / 'ArtSource/ThirdParty/MHWLongSword/NativeParameters/nativePC' / name
+            if candidate.is_file():
+                path = candidate
+                source['project_path'] = path.relative_to(ROOT).as_posix()
         if path.stat().st_size != source['bytes'] or sha(path) != source['sha256']:
             raise ValueError('Original source fingerprint mismatch: ' + name)
     return pin
