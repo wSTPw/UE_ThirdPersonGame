@@ -324,6 +324,7 @@
         "Scripts/MHWI/author_transition_calibration.py",
         "Scripts/MHWI/transition_calibration.json",
         "Scripts/MHWI/author_native_parameters.py",
+        "Scripts/MHWI/author_b14_evidenced_mechanics.py",
         "Scripts/MHWI/build_native_action_database.py",
         "Scripts/MHWI/extract_native_longsword_params.py",
         "Scripts/MHWI/extract_native_equipment_params.py",
@@ -386,6 +387,7 @@
         "Tools/MHW/native-parts-layout.json",
         "Tools/MHW/native-outstanding-followup.json",
         "Scripts/MHWI/verify_keyboard_adaptation.py",
+        "Scripts/MHWI/verify_evidenced_mechanics.py",
         "Scripts/MHWI/pie_keyboard_adaptation.py"
       ],
       "interface_ids": [
@@ -435,6 +437,7 @@
         "Scripts/MHWI/pie_reference_basics.py",
         "Scripts/MHWI/pie_spirit_branches.py",
         "Scripts/MHWI/verify_keyboard_adaptation.py",
+        "Scripts/MHWI/verify_evidenced_mechanics.py",
         "Scripts/MHWI/pie_keyboard_adaptation.py"
       ]
     }

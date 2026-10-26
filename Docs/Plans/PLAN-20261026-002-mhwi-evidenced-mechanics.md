@@ -1,11 +1,11 @@
 # PLAN-20261026-002：B14 已取证太刀机制实施
 
-- 状态：in-progress
+- 状态：implemented-scope（B14源码、A06补排及正式DA迁移已完成；静态校验/构建通过，PIE待用户运行）
 - 日期：2026-10-26
 - 用户需求：查看 MHWI 与开发台账，只开发原游戏证据已经明确的部分；本机不运行原游戏，未取证且实现方式不清楚的部分不擅自修改，并报告来源、依据与跳过项。
 - 关联模块 / 接口 / 问题：`mhwi-longsword`；MHWI-003/005/007/008/010；台账 R10/R11/R13/R16/R19/R21/R29/R31；R-COMBAT-017/018。
 - 前置证据：[B13 原生消费者](../Reference/MHWI-Outstanding-Evidence-20261026.md)、[总台账](MHWI-Restoration-Progress.md)。
-- 实施记录：CHG-20261026-005（文件名拟为 `CHG-20261026-005-mhwi-evidenced-mechanics.md`）**尚未创建**，编号已按 §B14 预留；实际结果待补录。该方案代码已于 `4b5361c` 提交，编译错误另见 [CHG-20261026-007](../Changes/CHG-20261026-007-mhwi-build-fix.md)。
+- 实施记录：[CHG-20261026-005](../Changes/CHG-20261026-005-mhwi-evidenced-mechanics.md)。B14其余机制源码来自`4b5361c`；本批修复登龙一次接触七段补排并保存正式DA。编译修复历史见[CHG-20261026-007](../Changes/CHG-20261026-007-mhwi-build-fix.md)。
 
 ## 现状与目标
 
@@ -88,3 +88,9 @@ B13 已把若干参数字段追到原生消费者，但正式玩法尚未迁移�
 ## 文档同步清单
 
 完成后更新 `Docs/Systems/MHWI-LongSword.md`、`Docs/Interfaces.md`、`Docs/Plans/MHWI-Restoration-Progress.md`、`Docs/Known-Issues.md`、`Docs/Reference/modules.json`、方案/变更索引及工作日志；新增 B14 实际变更记录和验证报告。方案状态按实际结果改为 implemented 或 partial，不把未运行项写成已验证。
+
+## B16实施复验（2026-10-26）
+
+接续更新验收的A05/A06：`ScheduleHelmShell`在一次合格接触后按`firstDelay + index * interval`预排至`HelmShellHitLimit`，固定目标弱引用、目标相对接触点、颜色MV及动作倍率；已有到期循环低帧时逐条排空。正式`DA_MHWI_LongSword`现已清空`HelmLand`旧七窗并把`SpiritHelmBreaker`首击`HitLagSeconds`置0，B14迁移脚本保存并读回。脚本补上自身目录到`sys.path`，可由UE-MCP Python入口驱动。
+
+UE 5.8 Editor完整构建与22项离线DA/源参数检查通过；保存报告磁盘SHA与当前资产SHA相同。未运行PIE/自动化，运行验收仍由用户执行。原取消、多目标目标选择、刀刃/部位空间和真实表现hitstop继续开放，不提升R19/R31整体状态。

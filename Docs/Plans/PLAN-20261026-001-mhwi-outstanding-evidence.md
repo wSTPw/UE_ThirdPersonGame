@@ -1,6 +1,6 @@
 # PLAN-20261026-001：MHWI剩余原生证据
 
-- 状态：partial；子链取证归档，完整十项仍开放
+- 状态：partial；B17完成本方案的离线静态复核与报告，十项语义/运行边界仍开放
 - 日期：2026-10-26
 - 用户需求：完成未取证部分；原安装为 `F:/PCprogram/Steam/steamapps/common/Monster Hunter World`，运行调试由用户操作。
 - 关联：R07/R09/R10/R13/R18/R19/R20/R21/R29/R30，以及相关部分完成条目的证据缺口。
@@ -39,6 +39,10 @@
 ## 本批结果
 
 见[B13报告](../Reference/MHWI-Outstanding-Evidence-20261026.md)及[CHG-004](../Changes/CHG-20261026-004-mhwi-outstanding-evidence.md)。Q/回旋/shell/普通回避/等待子链已归档；R07/R09/R18/R20/R30与其他余项继续开放。B12的颜色暂停及0.4秒hit lag依据被推翻，玩法未修复。
+
+## B17离线取证收尾（2026-10-26）
+
+本方案计划内的离线安装复核、资源提取/哈希、参数与部位解析、固定函数快照复验及十项证据归纳已完成，结果见[B17报告](../Reference/MHWI-Forensic-Completion-20261026.md)与[CHG-009](../Changes/CHG-20261026-009-mhwi-forensic-completion.md)。EXE指纹匹配，48项资源48/48匹配，19个续查函数19/19匹配。报告发现5个相关资源由当前`nativePC`覆盖；归档原件与覆盖已分别记录。台账R07/R09/R10/R13/R18/R19/R20/R21/R29/R30保持“取证中”，因为条件映射、伤害/空间下游和运行时序仍无充分证据。没有修改玩法，也没有启动UE或游戏。
 
 ## 续查保存
 

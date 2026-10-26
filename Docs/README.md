@@ -12,8 +12,10 @@
 | 查询Ninja新动画替换、重定向、片段映射与窗口 | [Ninja动画配置](Systems/Ninja-Animation-Configuration.md)，2026-10-20制作，按用户要求未做完工后验证 |
 | 查询MHW太刀、配套猎人模型及源素材转换 | [MHWI太刀训练模组](Systems/MHWI-LongSword.md)、[源素材](../ArtSource/ThirdParty/MHWLongSword/README.md)，独立地图与动作数据；验证见变更记录 |
 | 查询MHWI武器独立动画、完整TIML/FSM和逐帧还原缺口 | [源保真调查](Reference/MHWI-Source-Fidelity-Audit.md)、[阶段方案](Plans/PLAN-20261023-001-mhwi-source-fidelity.md)；2026-10-24只读调查，未修改正式玩法 |
-| 查看Content/MHWI原版还原进度与交接 | [逐项开发台账](Plans/MHWI-Restoration-Progress.md)、[B10三项开发交付](Reference/MHWI-R06-Remaining-Development.md)；[2026-10-26验收](Reference/MHWI-Acceptance-20261026.md)：6项历史已验证/1项开发完成/17项部分完成/10项取证/1项待开发；R06受击恢复回归待修；[32引用台账](Plans/MHWI-Connector-Progress.md)，B12历史编译成功，运行由用户操作 |
-| 查询剩余原生消费者及B12证据更正 | [B13取证](Reference/MHWI-Outstanding-Evidence-20261026.md)：Q/回旋/shell/回避/等待子链；10秒属颜色暂停、0.4秒属shell延迟，玩法待修；取消/转向/耐力/空间/IK仍开放 |
+| 查看Content/MHWI原版还原进度与交接 | [逐项开发台账](Plans/MHWI-Restoration-Progress.md)、[B10三项开发交付](Reference/MHWI-R06-Remaining-Development.md)；[B13/B14/B15验收及B16复验](Reference/MHWI-Acceptance-Update-20261026.md)：A05/A06已静态修复，B14构建/正式DA保存读回/22项离线检查通过，未PIE；35项总状态不变，运行由用户操作 |
+| 查询R28基础移动与R30装配/IK补充取证及方案 | [B18取证报告](Reference/MHWI-R28-R30-Evidence-20261026.md)、[R28移动过渡方案](Plans/PLAN-20261026-004-mhwi-locomotion-transitions.md)、[R30四链IK方案](Plans/PLAN-20261026-005-mhwi-equipment-ik.md)；候选动作与骨链已有源依据，原生语义/solver 未完全闭合 |
+| 查询MHWI全部离线静态取证结论 | [B17取证收尾](Reference/MHWI-Forensic-Completion-20261026.md)：EXE指纹匹配、48/48资源和19/19函数快照复验；发现5项`nativePC`覆盖，分别记录原版归档与当前覆盖；十项台账边界仍待语义闭合/运行观测 |
+| 查询剩余原生消费者及B12证据更正 | [B13取证](Reference/MHWI-Outstanding-Evidence-20261026.md)：Q/回旋/shell/回避/等待子链；10秒属颜色暂停、0.4秒属shell延迟；[B14实施记录](Changes/CHG-20261026-005-mhwi-evidenced-mechanics.md)；取消/转向/耐力/空间/IK及完整运行验收仍开放 |
 | 查询源采样修复、独立武器轨道及公开帧表校准 | [实施现状](Reference/MHWI-Native-Fidelity-Implementation.md)、[实施方案](Plans/PLAN-20261024-001-mhwi-native-fidelity-implementation.md)；36段平行库、27处Montage迁移，完整装配和取消仍有缺口 |
 | 批量读取原游戏太刀参数/输入条件/IK，避免逐动画抄数值 | [原始参数批处理](Reference/MHWI-Native-Parameter-Pipeline.md)、[批处理方案](Plans/PLAN-20261024-003-mhwi-native-parameter-pipeline.md)；425字段/164动作/4条IK链，21处属性白名单导入 |
 | 查询MHWI太刀原版动作、派生、转向和登龙依据 | [行为资料核对](Reference/MHWI-LongSword-Behavior-Research.md)、[实施方案](Plans/PLAN-20261022-002-mhwi-longsword-behavior.md)、[本轮实施记录](Changes/CHG-20261023-001-mhwi-behavior-implementation.md)；七项核心行为及四套/低帧回归完成，精确标定边界单列 |

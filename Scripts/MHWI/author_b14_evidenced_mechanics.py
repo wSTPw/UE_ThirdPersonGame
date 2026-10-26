@@ -11,6 +11,11 @@ import hashlib
 import json
 import shutil
 import struct
+import sys
+
+SCRIPT_DIR = str(Path(__file__).resolve().parent)
+if SCRIPT_DIR not in sys.path:
+    sys.path.insert(0, SCRIPT_DIR)
 
 import native_reference_basics as native
 from author_reference_basics import snapshot

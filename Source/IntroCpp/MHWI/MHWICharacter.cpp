@@ -1883,15 +1883,26 @@ void AMHWICharacter::ScheduleHelmShell(AActor* Target, const FVector& ContactLoc
         || !Moveset->HelmShellDamageByLevel.IsValidIndex(CapturedSpiritLevel)) return;
     const float MotionValue = Moveset->HelmShellDamageByLevel[CapturedSpiritLevel];
     if (MotionValue <= 0.f) return;
-    FMHWIDelayedHitRuntime Hit;
-    Hit.Target = Target;
-    Hit.RelativeContact = Target->GetActorTransform().InverseTransformPosition(ContactLocation);
-    Hit.RemainingSeconds = HelmDelayedHits.IsEmpty() ? FMath::Max(0.f, Moveset->HelmShellFirstDelay)
-        : HelmDelayedHits.Last().RemainingSeconds + FMath::Max(0.f, Moveset->HelmShellInterval);
-    Hit.MotionValue = MotionValue;
-    Hit.DamageMultiplier = CapturedDamageMultiplier;
-    Hit.HitIndex = HelmShellScheduledCount++;
-    HelmDelayedHits.Add(MoveTemp(Hit));
+    const int32 FirstHitIndex = HelmShellScheduledCount;
+    const FVector RelativeContact = Target->GetActorTransform().InverseTransformPosition(ContactLocation);
+    const float FirstDelay = FMath::Max(0.f, Moveset->HelmShellFirstDelay);
+    const float Interval = FMath::Max(0.f, Moveset->HelmShellInterval);
+
+    // One confirmed aerial contact owns the full delayed sequence. Snapshot every
+    // segment now so a low frame rate cannot lose later hits when the contact
+    // window has already passed; TickDelayedShells drains every due entry.
+    for (int32 HitIndex = FirstHitIndex; HitIndex < Limit; ++HitIndex)
+    {
+        FMHWIDelayedHitRuntime Hit;
+        Hit.Target = Target;
+        Hit.RelativeContact = RelativeContact;
+        Hit.RemainingSeconds = FirstDelay + (HitIndex - FirstHitIndex) * Interval;
+        Hit.MotionValue = MotionValue;
+        Hit.DamageMultiplier = CapturedDamageMultiplier;
+        Hit.HitIndex = HitIndex;
+        HelmDelayedHits.Add(MoveTemp(Hit));
+        ++HelmShellScheduledCount;
+    }
 }
 
 void AMHWICharacter::ScheduleIaiShell(AActor* Target, const FVector& ContactLocation)
