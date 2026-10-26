@@ -4,6 +4,7 @@
 
 | ID | 日期 | 主题 | 状态 |
 | --- | --- | --- | --- |
+| CHG-20261027-001 | 2026-10-27 | [R06/R28/R30动画全集覆盖处理与交接](CHG-20261027-001-mhwi-animation-coverage.md) | partial，R06修复及14项PIE通过；R28/R30数据层与逐项处置，全部运行覆盖未完成 |
 | CHG-20261026-010 | 2026-10-26 | [MHWI R28/R30补充取证与实施方案](CHG-20261026-010-mhwi-r28-r30-forensics-and-plans.md) | completed（取证/方案）；玩法未实施，原生solver语义保留 |
 | CHG-20261026-009 | 2026-10-26 | [MHWI台账离线取证收尾](CHG-20261026-009-mhwi-forensic-completion.md) | completed（离线静态范围）；48项资源和19个函数快照复核通过，十项玩法语义/运行边界保留 |
 | CHG-20261026-008 | 2026-10-26 | [MHWI B13/B14/B15更新验收](CHG-20261026-008-mhwi-update-acceptance.md) | completed，审查完成；整体验收不通过，A05正式DA未迁移/A06登龙缺补排；49项静态及B13初始重建PASS，未运行 |

@@ -1,6 +1,6 @@
 # R06连接动画逐条开发台账
 
-更新：2026-10-26静态验收。**R06部分完成：B12受击锁阻断B10真实Step来源恢复派生，A01待修。** B10来源/专用入口/混合代码仍存在，B12历史编译成功；本轮未编译或运行，运行调试由用户操作。见[验收报告](../Reference/MHWI-Acceptance-20261026.md)。
+更新：2026-10-27 B19。**R06仍部分完成：已修武器One0=0播放前拒绝、真实受击来源合法恢复和菜单来源缓存/内部提交阻断；此前两次构建Succeeded，代表性PIE 14/14通过。** 项目UE BlendIn后备不等于原生mode0完成；N53/N60完整来源、332/333/334真实Action78前置、common181/182及32引用逐条运行仍开放，N86继续不可达。见[B19交接](../Changes/CHG-20261027-001-mhwi-animation-coverage.md)。
 
 关联：[B10现状](../Reference/MHWI-R06-Remaining-Development.md)、[B10记录](../Changes/CHG-20261025-005-mhwi-r06-remaining.md)、[CSV](MHWI-Connector-Progress.csv)、[后续验收要求](MHWI-Connector-Acceptance.md)。B04至B09历史保留，不改写为此次通过。
 

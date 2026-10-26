@@ -186,8 +186,19 @@ bool AMHWICharacter::ApplyNativeBlend(UAnimMontage* Montage,
     if (!Blend.IsSet()) return true;
     MHWI::Native::FMotionSample Sample;
     MHWI::Native::FDirectBlendSettings Settings;
-    if (!MHWI::Native::ReadMotion(Montage, 0.f, Sample)
-        || !MHWI::Native::ResolveDirectBlendSettings(Sample.Bank, Blend.GetValue(), Settings)) return false;
+    if (!MHWI::Native::ReadMotion(Montage, 0.f, Sample)) return false;
+    if (!MHWI::Native::ResolveDirectBlendSettings(Sample.Bank, Blend.GetValue(), Settings))
+    {
+        // ProjectAdaptation: all serialized weapon main/connector defaults are
+        // mode0, whose native MotionTree/request consumer is still unresolved.
+        // Do not reject the animation before playback, and do not pretend the
+        // native mode1 pose proxy or automatic tail fade applies. Use the raw
+        // interpolation frame count only as a documented UE BlendIn duration.
+        if (Sample.Bank != FName(TEXT("w03_00")) || Blend->One0 != 0) return false;
+        NativeBlendFrames = -1.f;
+        Montage->BlendIn.SetBlendTime(FMath::Max(0, Blend->InterpolationPoint) / 60.f);
+        return true;
+    }
     // R06 weapon requests go directly to bank12 leaves. wp03_tree.at has
     // only bank1 node IDs 1000..11ff; no node injects request bits100/200 here.
     // MBD mode(one0)=1 adds request bit2, +30/+34 curve selectors remain zero.

@@ -1,7 +1,11 @@
 #include "MHWIAnimInstance.h"
 #include "MHWICharacter.h"
+#include "MHWIEquipmentIKProfile.h"
+#include "MHWIWeaponAttachment.h"
 #include "AttributeComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Components/SkeletalMeshComponent.h"
+#include "Engine/World.h"
 #include "Animation/AnimInstanceProxy.h"
 #include "Animation/AnimNodeBase.h"
 #include "Animation/AnimSequence.h"
@@ -154,13 +158,95 @@ void UMHWIAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
     const AMHWICharacter* Character = Cast<AMHWICharacter>(TryGetPawnOwner());
     if (!Character) return;
     const FVector Velocity = Character->GetVelocity();
+    const float PreviousSpeed = Speed;
+    const bool bWasInAir = bInAir;
     Speed = Velocity.Size2D();
     const FVector LocalVelocity = Character->GetActorRotation().UnrotateVector(Velocity);
     Direction = FMath::RadiansToDegrees(FMath::Atan2(LocalVelocity.Y, LocalVelocity.X));
     bSheathed = Character->IsSheathed();
     bSprinting = Character->IsSprinting();
-    bInAir = Character->GetCharacterMovement()->IsFalling();
+    const UCharacterMovementComponent* Movement = Character->GetCharacterMovement();
+    bInAir = Movement && Movement->IsFalling();
+    bJustLanded = bWasInAir && !bInAir;
+    const FVector Acceleration = Movement ? Movement->GetCurrentAcceleration() : FVector::ZeroVector;
+    bAccelerating = Acceleration.SizeSquared2D() > 1.f && Speed > 1.f;
+    bDecelerating = !bAccelerating && PreviousSpeed > 30.f && Speed < PreviousSpeed - 1.f;
+    TurnDirection = 0.f;
+    if (PreviousVelocity.SizeSquared2D() > 30.f * 30.f && Speed > 30.f)
+    {
+        const FVector From = PreviousVelocity.GetSafeNormal2D();
+        const FVector To = Velocity.GetSafeNormal2D();
+        const float Cosine = FMath::Clamp(FVector::DotProduct(From, To), -1.f, 1.f);
+        if (Cosine < 0.5f)
+        {
+            const float Sign = FMath::Sign(FVector::CrossProduct(From, To).Z);
+            TurnDirection = Sign * FMath::RadiansToDegrees(FMath::Acos(Cosine));
+        }
+    }
+    PreviousVelocity = Velocity;
     bDead = Character->Attributes && !Character->Attributes->IsAlive();
     bInAction = !Character->GetCurrentMove().IsNone();
     bSpecialSheathHold = Character->IsSpecialSheathHolding();
+    UpdateEquipmentIK(*Character);
+}
+
+void UMHWIAnimInstance::UpdateEquipmentIK(const AMHWICharacter& Character)
+{
+    check(IsInGameThread());
+    LeftArmIKAlpha = RightArmIKAlpha = LeftFootIKAlpha = RightFootIKAlpha = 0.f;
+    USkeletalMeshComponent* Mesh = Character.GetMesh();
+    if (!EquipmentIKProfile || !Mesh || bDead || bInAir) return;
+
+    auto JointGoal = [Mesh](const FMHWIEquipmentIKChain& Chain, FVector& Out)
+    {
+        if (Chain.MidBone.IsNone() || !Mesh->DoesSocketExist(Chain.MidBone)) return false;
+        Out = Mesh->GetSocketTransform(Chain.MidBone, RTS_Component).GetLocation() + Chain.JointTargetOffset;
+        return true;
+    };
+    const FMHWIEquipmentIKChain& LA = EquipmentIKProfile->LeftArm;
+    const FMHWIEquipmentIKChain& RA = EquipmentIKProfile->RightArm;
+    const FMHWIEquipmentIKChain& LF = EquipmentIKProfile->LeftFoot;
+    const FMHWIEquipmentIKChain& RF = EquipmentIKProfile->RightFoot;
+    const bool bValidArms = JointGoal(LA, LeftArmJointTarget) && JointGoal(RA, RightArmJointTarget)
+        && !LA.RootBone.IsNone() && !LA.EndBone.IsNone() && !RA.RootBone.IsNone() && !RA.EndBone.IsNone()
+        && Mesh->DoesSocketExist(LA.RootBone) && Mesh->DoesSocketExist(LA.EndBone)
+        && Mesh->DoesSocketExist(RA.RootBone) && Mesh->DoesSocketExist(RA.EndBone);
+
+    const FTransform MeshWorld = Mesh->GetComponentTransform();
+    const bool bHandPose = !bInAction || bSpecialSheathHold;
+    if (bValidArms && bHandPose && Character.WeaponMesh && Character.ScabbardMesh)
+    {
+        FMHWIWeaponAttachmentSettings Settings;
+        const FVector GripPoint = bSpecialSheathHold ? Settings.SpecialGripPoint : Settings.DrawnGripPoint;
+        const FVector LocalGrip = FMHWIWeaponAttachmentRuntime::AnimatedGripPoint(Character.WeaponMesh, GripPoint);
+        const FVector WorldGrip = Character.WeaponMesh->GetComponentTransform().TransformPosition(LocalGrip);
+        RightArmEffector = MeshWorld.InverseTransformPosition(WorldGrip);
+        RightArmIKAlpha = (!bSheathed || bSpecialSheathHold) ? EquipmentIKProfile->ArmAlpha : 0.f;
+
+        if (bSpecialSheathHold)
+        {
+            const FVector WorldMouth = Character.ScabbardMesh->GetComponentTransform().TransformPosition(Settings.ScabbardMouthPoint);
+            LeftArmEffector = MeshWorld.InverseTransformPosition(WorldMouth);
+            LeftArmIKAlpha = EquipmentIKProfile->ArmAlpha;
+        }
+    }
+
+    if (!Character.GetWorld()) return;
+    auto FootGoal = [&](const FMHWIEquipmentIKChain& Chain, FVector& Effector, FVector& Joint, float& Alpha)
+    {
+        if (!JointGoal(Chain, Joint) || Chain.RootBone.IsNone() || Chain.EndBone.IsNone()
+            || !Mesh->DoesSocketExist(Chain.RootBone) || !Mesh->DoesSocketExist(Chain.EndBone)) return;
+        const FVector FootWorld = Mesh->GetSocketTransform(Chain.EndBone, RTS_World).GetLocation();
+        const FVector Start = FootWorld + FVector(0.f, 0.f, EquipmentIKProfile->FootTraceUp);
+        const FVector End = FootWorld - FVector(0.f, 0.f, EquipmentIKProfile->FootTraceDown);
+        FHitResult Hit;
+        FCollisionQueryParams Params(SCENE_QUERY_STAT(MHWIEquipmentIK), false);
+        Params.AddIgnoredActor(&Character);
+        if (!Character.GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, Params)) return;
+        const FVector Target = Hit.ImpactPoint + FVector(0.f, 0.f, EquipmentIKProfile->FootSoleOffsetZ);
+        Effector = MeshWorld.InverseTransformPosition(Target);
+        Alpha = bInAction ? 0.f : EquipmentIKProfile->FootAlpha;
+    };
+    FootGoal(LF, LeftFootEffector, LeftFootJointTarget, LeftFootIKAlpha);
+    FootGoal(RF, RightFootEffector, RightFootJointTarget, RightFootIKAlpha);
 }

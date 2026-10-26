@@ -67,6 +67,8 @@ struct INTROCPP_API FMHWIWeaponAttachmentRuntime
     void Reset();
     /** Visual equipment state, independent of the action's gameplay sheathe flag. */
     bool IsBackMounted() const { return bHaveExecution && LastBackAmount >= 0.95f; }
+    /** Project fitted material grip in Weapon component space, for game-thread IK goals. */
+    static FVector AnimatedGripPoint(USkeletalMeshComponent* Weapon, const FVector& ReferencePoint);
 
 private:
     struct FPiece
@@ -87,7 +89,6 @@ private:
     FVector LastGripPoint = FVector(0.f, -12.f, 0.f);
     FVector EntryGripPoint = FVector(0.f, -12.f, 0.f);
     float GripHandoffElapsed = 0.f;
-    static FVector AnimatedGripPoint(USkeletalMeshComponent* Weapon, const FVector& ReferencePoint);
     static void Apply(USkeletalMeshComponent* Hunter, USkeletalMeshComponent* Piece,
         FPiece& State, FName Socket, const FTransform& DesiredWorld, uint8 Mode,
         uint32 ExecutionSerial, float DeltaSeconds, float BlendSeconds, float SourceBlend = -1.f,
