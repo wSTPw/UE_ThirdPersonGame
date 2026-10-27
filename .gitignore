@@ -6,6 +6,8 @@
 Binaries/
 DerivedDataCache/
 Intermediate/
+# Saved/ 整目录排除（含 MHWIRestoration 批次输出与备份）。
+# 注意：被忽略目录内的文件无法用 ! 反选，需要入库的证据 JSON 请归档到已跟踪的 Tools/MHW/ 下。
 Saved/
 
 # --- IDE ---

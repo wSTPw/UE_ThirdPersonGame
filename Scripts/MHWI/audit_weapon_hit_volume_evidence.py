@@ -25,7 +25,8 @@ ORIGINAL_COL = ROOT / "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/col
 PROJECT_OVERLAY_COL = ROOT / "ArtSource/ThirdParty/MHWLongSword/NativeParameters/nativePC/hm/wp/wp03/collision/wp03.col"
 B17_CAPTURED_COL = ROOT / "Saved/MHWIRestoration/B17-20261026/active-nativePC/hm/wp/wp03/collision/wp03.col"
 EXPECTED_LMT_SHA256 = "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
-DEFAULT_OUTPUT = ROOT / "Saved/MHWIRestoration/B19-20261026/weapon-hit-volume-evidence.json"
+# 输出到已跟踪的 Tools/MHW/：Saved/ 被 .gitignore 整目录排除，写在那里会静默丢失版本记录。
+DEFAULT_OUTPUT = ROOT / "Tools/MHW/weapon-hit-volume-evidence.json"
 DEFAULT_GAME_ROOT = Path(r"F:\PCprogram\Steam\steamapps\common\Monster Hunter World")
 GEOMETRY_INNER_FORMAT = "<BBffffhhffffffHIhffffH"
 

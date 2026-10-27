@@ -12,7 +12,8 @@ from pathlib import Path
 from trace_outstanding_evidence import Evidence
 
 ROOT = Path(__file__).resolve().parents[2]
-OUTPUT = ROOT / 'Saved/MHWIRestoration/B19-20261026/weapon-collision-loader-chain.json'
+# 输出到已跟踪的 Tools/MHW/：Saved/ 被 .gitignore 整目录排除，写在那里会静默丢失版本记录。
+OUTPUT = ROOT / 'Tools/MHW/weapon-collision-loader-chain.json'
 
 
 def rip_target(ins: dict) -> int:

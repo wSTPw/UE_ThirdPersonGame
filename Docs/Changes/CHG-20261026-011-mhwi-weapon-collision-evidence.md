@@ -29,7 +29,7 @@
 
 | 检查/命令 | 环境 | 实际结果 | 证据路径 |
 | --- | --- | --- | --- |
-| `python Scripts/MHWI/audit_weapon_hit_volume_evidence.py` | 仓库Python与指定游戏安装 | 完成；39条动作碰撞轨全部匹配，13组几何参数、55个表头引用/52条攻击记录；安装覆盖SHA与B17快照相同，几何和UID映射相同，仅52条记录`Flinch_Value`不同，208个变化字节均属该字段 | `Saved/MHWIRestoration/B19-20261026/weapon-hit-volume-evidence.json`（本机忽略目录） |
+| `python Scripts/MHWI/audit_weapon_hit_volume_evidence.py` | 仓库Python与指定游戏安装 | 完成；39条动作碰撞轨全部匹配，13组几何参数、55个表头引用/52条攻击记录；安装覆盖SHA与B17快照相同，几何和UID映射相同，仅52条记录`Flinch_Value`不同，208个变化字节均属该字段 | `Tools/MHW/weapon-hit-volume-evidence.json`（已入库；运行原始输出在 `Saved/MHWIRestoration/B19-20261026/`，该目录被 .gitignore 整目录排除） |
 | `python Scripts/MHWI/trace_outstanding_evidence.py --function 0x1424661d0 --function 0x142466d70 --call 0x142466d70` | 固定版EXE指纹和分析`.text`；仅读，不执行游戏代码 | 抽取类初始化器、`cGeometryJoint`构造器及直接调用引用；确认构造器/vtable结构。未闭合该类与太刀`.col`记录的装载映射 | `Saved/MHWIRestoration/B13-20261026/fn-*.json`、`call-0x142466d70.json`（本机忽略目录） |
 | `python Scripts/Docs/check_docs.py` | 仓库文档检查 | PASS：125个Markdown、1073条本地链接、12个模块及编辑器快照JSON；检查范围不包含C++ ABI、玩法或资产验证 | 命令输出 |
 | `git -c filter.lfs.process= -c filter.lfs.required=false diff --check` | 仓库工作区 | 退出码0；无空白错误。Git提示一个已有文档下次触及时会LF转CRLF | 命令输出 |

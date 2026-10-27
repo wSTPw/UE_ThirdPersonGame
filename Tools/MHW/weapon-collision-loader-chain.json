@@ -1,0 +1,86 @@
+{
+  "status": "read_only_static_trace",
+  "source": {
+    "schema": 1,
+    "exe": {
+      "path": "F:/PCprogram/Steam/steamapps/common/Monster Hunter World/MonsterHunterWorld.exe",
+      "sha256": "c2ebbbd2c49f216d484e31a5219bed419eb1e5e7d206d02cba040a3ab79d90ea"
+    },
+    "text": {
+      "path": "Saved/MHWIRestoration/B05-20261024/analysis-text.bin",
+      "sha256": "9b48a8490df702ba9dc1cb95ffd387358ae2a639aa9675ad90719bd997124ebe",
+      "boundary": "local non-executable analysis bytes; no install modification or original game execution"
+    },
+    "scope": "Local non-executable analysis section only. Hash-qualified read; never execute native bytes or alter original image.",
+    "addresses": {
+      "vm_tick": "0x1423fe8d0",
+      "condition_evaluator": "0x1423fc990",
+      "callback_binding": "0x142458dd0",
+      "name_lookup": "0x142400150",
+      "callback_dispatch": "0x1423ffaf0",
+      "node_exit": "0x1423fe680",
+      "context_setup": "0x1423fd1a0",
+      "drive_reset": "0x1423fec80",
+      "phase_type_registration": "0x1401e15c0",
+      "phase_property_registration": "0x14191f7d0",
+      "phase_parameter_constructor": "0x14191f5b0",
+      "phase_parameter_get_dti": "0x140f0c750",
+      "phase_parameter_zeroing": "0x141921cb0"
+    },
+    "explicit_leaf_ranges": [
+      {
+        "begin": "0x142400150",
+        "end": "0x1424001ac",
+        "next_unwind_entry": "0x1424001b0",
+        "evidence": "Call target in binding function; observed terminal rets at 0x1424001a7 and 0x1424001ab, then int3 padding before next pdata entry. Fixed-version explicit range, not 256-byte fallback; pending next-stage boundary review."
+      },
+      {
+        "begin": "0x140f0c750",
+        "end": "0x140f0c758",
+        "evidence": "Vtable 0x1431c93d0 slot 4 target; lea rax to local DTI 0x145000fc0, then ret at 0x140f0c757 and int3 padding. Fixed-version leaf range; pending boundary review."
+      },
+      {
+        "begin": "0x141921cb0",
+        "end": "0x141921e7a",
+        "next_unwind_entry": "0x141921e80",
+        "evidence": "Vtable 0x1431c93d0 slot 5 target; observed straight-line zero/store sequence, ret at 0x141921e79, then padding before next pdata entry. Fixed-version explicit leaf range; pending review. Invocation timing not established."
+      }
+    ]
+  },
+  "native_code_executed": false,
+  "clnd_type_1": {
+    "factory_table": "0x143f94a18",
+    "factory_object": "0x144c9a0d8",
+    "storage_section": ".data",
+    "storage_is_pe_zero_fill": true,
+    "static_initializer": "0x140009890",
+    "class_name": "cCollNodePl",
+    "class_size_bytes": 88,
+    "vtable": "0x142f14c90",
+    "vtable_slot_plus_8_creator": "0x140294370",
+    "instance_constructor": "0x1419c2680",
+    "instance_vtable": "0x142f14cc0",
+    "instance_reader_slot_plus_0x28": "0x140294530",
+    "instance_reader_wrapper": "0x140294530",
+    "instance_reader": "0x1419c2fe0",
+    "clnd_reader": "0x1419c30b0"
+  },
+  "clgm_static_evidence": {
+    "writer": "0x1419c13d0",
+    "record_writer": "0x1419c14a0",
+    "record_size_bytes": 72,
+    "record_field_semantics_decoded": false
+  },
+  "geometry_candidate": {
+    "type_name": "nCollision::cGeometryJoint",
+    "constructor": "0x142466d70",
+    "mapped_from_wp03_clgm": false,
+    "bone_binding_or_transform_proven": false
+  },
+  "decision": {
+    "original_geometry_reusable_as_project_implementation": false,
+    "reason": "The trace resolves CLND type 1 to a collision-node factory, but does not map the 13 wp03.col CLGM groups or their 72-byte fields to a concrete geometry object or bone-space transform.",
+    "project_owned_collision_path_needed_for_current_implementation": true
+  },
+  "scope": "Pinned offline static evidence only; no game process, debugger, plugin, or runtime observation was used."
+}

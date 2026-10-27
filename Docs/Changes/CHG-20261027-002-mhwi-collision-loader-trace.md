@@ -28,7 +28,7 @@
 
 | 检查/命令 | 环境 | 实际结果 | 证据路径 |
 | --- | --- | --- | --- |
-| `python Scripts/MHWI/trace_weapon_collision_loader.py` | 固定 EXE 与 `.text` 指纹；离线静态读取 | 通过；type 1 表项指向静态初始化为 `cCollNodePl` 的节点工厂，读取链到 `0x1419c2fe0`；没有证明 geometry/bone 映射 | `Saved/MHWIRestoration/B19-20261026/weapon-collision-loader-chain.json` |
+| `python Scripts/MHWI/trace_weapon_collision_loader.py` | 固定 EXE 与 `.text` 指纹；离线静态读取 | 通过；type 1 表项指向静态初始化为 `cCollNodePl` 的节点工厂，读取链到 `0x1419c2fe0`；没有证明 geometry/bone 映射 | `Tools/MHW/weapon-collision-loader-chain.json`（已入库；运行原始输出在 `Saved/MHWIRestoration/B19-20261026/`，该目录被 .gitignore 整目录排除） |
 | `python Scripts/MHWI/trace_outstanding_evidence.py --function 0x140009890 --function 0x14191a5c0 --function 0x1419c30b0 --function 0x1419c2fe0 --function 0x1419c13d0 --function 0x1419c14a0 --call 0x142466d70` | 固定版 `.text` 静态反汇编 | 通过；复核初始化、索引分发、CLND 读取、CLGM 定长记录读写及独立 `cGeometryJoint` 构造器引用 | `Saved/MHWIRestoration/B13-20261026/fn-*`、`call-0x142466d70.json` |
 | `python Scripts/Docs/check_docs.py` | 仓库文档链接/结构检查 | 通过；127 Markdown、1089 本地链接、12 modules 与 editor snapshot JSON 检查通过 | 命令输出 |
 | `git diff --check` | Git 工作区 | 通过，退出码 0；仅提示 Ledger 文件行尾转换，不影响检查 | 命令输出 |
