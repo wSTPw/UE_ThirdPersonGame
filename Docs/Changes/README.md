@@ -4,6 +4,7 @@
 
 | ID | 日期 | 主题 | 状态 |
 | --- | --- | --- | --- |
+| CHG-20261030-001 | 2026-10-30 | [删除旧UEBridgeMCP插件遗留归档](CHG-20261030-001-mhwi-retire-legacy-bridge.md) | completed（清理）；唯一副本永久删除，当前UE_MCP_Bridge未受影响 |
 | CHG-20261028-001 | 2026-10-28 | [MHWI太刀/刀鞘原版父骨选择、背部配置与导入坐标修复](CHG-20261028-001-mhwi-native-equipment-mount.md) | partial，源码和编译完成，用户验收待进行；未执行自动PIE握持验收，原生旋转补偿/扩展状态保留 |
 | CHG-20261027-007 | 2026-10-27 | [MHWI太刀攻击姿态右手握点约束](CHG-20261027-007-mhwi-hand-grip-ik.md) | completed（项目适配）；Editor构建通过；38项动画消费者PIE及30 FPS武器交接PIE 3750项检查通过 |
 | CHG-20261027-006 | 2026-10-27 | [MHWI忠实还原重构审查提案与官方方案先行约定](CHG-20261027-006-mhwi-fidelity-refactor-proposal.md) | completed（文档/规则）；提出有来源候选及决策门，未选架构、未改玩法代码/资产 |

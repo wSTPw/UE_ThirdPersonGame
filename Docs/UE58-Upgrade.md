@@ -29,7 +29,7 @@
 - 为 UI 的 FReply 补齐 SlateCore 依赖。
 - 为快捷栏动态委托回调补齐 UFUNCTION，修复游戏地图 BeginPlay 中的委托绑定错误。
 - 移除触发 UE 5.8 启动 ensure 的弃用配置 `r.Mobile.VirtualTextures`。
-- 按用户要求卸载旧 UEBridgeMCP 插件及项目启用项。旧源码和 Git 元数据的恢复归档在 `Saved/Upgrade-UE58/UEBridgeMCP-retired.zip`。
+- 按用户要求卸载旧 UEBridgeMCP 插件及项目启用项。旧源码和 Git 元数据曾归档在 `Saved/Upgrade-UE58/UEBridgeMCP-retired.zip`；该归档已于 2026-10-30 经用户确认**永久删除**，此后本仓库不再保留旧插件副本，若要回退旧桥接需重新获取上游源码（见 [CHG-20261030-001](Changes/CHG-20261030-001-mhwi-retire-legacy-bridge.md)）。
 - 安装新 `Plugins/UE_MCP_Bridge` 1.4.7 与对应 Node 服务端；通过 package-lock.json 固定依赖。
 - 配置项目级 `.codex/config.toml`。服务端使用项目本地依赖，绝对路径需在移动工作区后更新。
 
