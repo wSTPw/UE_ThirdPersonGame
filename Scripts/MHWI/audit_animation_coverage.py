@@ -18,17 +18,18 @@ def load_json(path, default=None):
     return json.loads(path.read_text(encoding='utf-8-sig'))
 
 
-def main():
+def main(output_dir=None):
+    output = Path(output_dir) if output_dir else OUT
     policy = load_json(ROOT / 'Tools/MHW/native-link-motion-policy.json')
     decisions = load_json(DECISIONS_PATH, {})
-    weapon_report = load_json(OUT / 'weapon-motion-coverage.json', {})
+    weapon_report = load_json(output / 'weapon-motion-coverage.json', {})
     rows = []
 
     def add(group, item, asset, status, note):
         row = {'group': group, 'id': item, 'asset': asset, 'status': status, 'note': note}
         decision = decisions.get(item)
         if decision:
-            row.update({key: value for key, value in decision.items() if key in {'status', 'note', 'verification'}})
+            row.update({key: value for key, value in decision.items() if key in {'asset', 'status', 'note', 'verification'}})
         rows.append(row)
 
     for ref in policy['references']:
@@ -106,8 +107,8 @@ def main():
         'missing_assets': missing_assets,
         'rows': rows,
     }
-    OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / 'animation-coverage.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
+    output.mkdir(parents=True, exist_ok=True)
+    (output / 'animation-coverage.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     lines = ['# R06 / R28 / R30 动画覆盖台账', '',
              '静态处置清单；不是运行通过证明。', '',
              '| 对象 | ID | 状态 | 资产 | 说明 |', '| --- | --- | --- | --- | --- |']
@@ -115,13 +116,16 @@ def main():
         lines.append('| {group} | {id} | {status} | `{asset}` | {note} |'.format(**row))
     lines += ['', '缺资产：' + (', '.join(missing_assets) if missing_assets else '无'),
               '', '计数：' + json.dumps(report['counts_by_group'], ensure_ascii=False)]
-    (OUT / 'animation-coverage.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
+    (output / 'animation-coverage.md').write_text('\n'.join(lines) + '\n', encoding='utf-8')
     print(json.dumps({'rows': len(rows), 'counts_by_group': report['counts_by_group'],
                       'counts_by_status': report['counts_by_status'], 'missing_assets': missing_assets,
-                      'output': str(OUT / 'animation-coverage.json')}, ensure_ascii=False, indent=2))
+                      'output': str(output / 'animation-coverage.json')}, ensure_ascii=False, indent=2))
     if missing_assets:
         raise SystemExit(1)
 
 
 if __name__ == '__main__':
-    main()
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output', type=Path, help='Independent batch output; defaults to the original B19 directory')
+    main(parser.parse_args().output)

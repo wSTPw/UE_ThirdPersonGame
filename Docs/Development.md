@@ -60,9 +60,9 @@ PIE 的已验证启动命令见 [升级记录](UE58-Upgrade.md)。MCP 安装、�
 
 - [B04连接原值校验](../Scripts/MHWI/verify_connector_source.py)：`python Scripts/MHWI/verify_connector_source.py`，固定MBD/FSM/LMT、全字节往返、损坏/歧义拒绝、32引用和349资产哈希保护。`before-assets.json`为本批基线，后续资产修改后不能直接把此旧保护报告当当前通过；逐条进度见[连接台账](Plans/MHWI-Connector-Progress.md)。本批未新增连接，未执行PIE。
 
-## 当前验收安排（2026-10-26）
+## 历史验收安排（2026-10-26；B20已获调试授权）
 
-用户要求验收开发台账，运行调试由用户操作。本轮只做静态审查、离线源/快照基准与文档/diff检查；不启动编辑器、不编译或运行PIE/自动化。结果与用户操作清单见[验收报告](Reference/MHWI-Acceptance-20261026.md)。下文的“不测试”是B06当时批次安排，不能覆盖当前要求。
+该历史批次用户要求验收开发台账，运行调试由用户操作。本轮只做静态审查、离线源/快照基准与文档/diff检查；不启动编辑器、不编译或运行PIE/自动化。结果与用户操作清单见[验收报告](Reference/MHWI-Acceptance-20261026.md)。下文的“不测试”是B06当时批次安排，不能覆盖当前要求。
 
 ## B06之后的历史验证安排
 
@@ -75,3 +75,7 @@ B06[链式函数读取器](../Scripts/MHWI/trace_native_connections.py)只提取
 - [audit_ledger_sources.py](../Scripts/MHWI/audit_ledger_sources.py)：只读导出固定指纹的59条近战、16条shell、90个FSM节点及307条件树，保留记录/字段偏移；不启动UE，不代表玩法通过。
 - [author_b12_ledger_sweep.py](../Scripts/MHWI/author_b12_ledger_sweep.py)：正式DA的登龙空中126首击与居合适配位写入；`run(save=False)`预览、`save=True`备份/保存/读回，带幂等和全字段保护。编辑器驱动为`Saved/MHWIRestoration/B12-20261026/b12_author_driver.py`。
 - [verify_native_baseline.py](../Scripts/MHWI/verify_native_baseline.py)：51项静态基准，重读COL/shell/W03P/FSM并核对DA快照；`python Scripts/MHWI/verify_native_baseline.py --da Saved/MHWIRestoration/B12-20261026/authored.json`。非PIE，不覆盖行为矩阵。
+
+## B20定向动画开发与调试（2026-10-27）
+
+用户已授权实际调试。`Scripts/MHWI/author_remaining_animation.py`提供合格六段导入/CDO绑定及`verify_assets/finalize`实际读回；四链图配置见`Tools/MHW/b20-animation-graph.json`。`pie_remaining_animation.py`验证生产移动、翻滚出口、IK实际骨骼和门控；`pie_r06_impact_matrix.py`验证两种姿态S/M/L到Light/Spirit。它们异步运行，以Saved/MHWIRestoration/B20-20261027报告passed和时间戳判定；不能并行占用同一个PIE世界。多视角截图冻结不算动作时序测试，瞬态Profile/地形夹具不保存正式资产。详见[B20报告](Reference/MHWI-B20-Animation-Development-20261027.md)。

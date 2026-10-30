@@ -1,0 +1,284 @@
+{
+  "schema": 2,
+  "batch": "B20-20261027",
+  "asset": "/Game/MHWI/Blueprints/ABP_MHWI_Hunter",
+  "purpose": "Delivered asset configuration/readback manifest; GUIDs identify this asset, not a standalone rebuild recipe.",
+  "nodes": {
+    "RightArm": "380D91FF40C76345ED6D66B59EAFD82A",
+    "LeftArm": "C23DD0714BA3261A2A45DFA01BA21CBC",
+    "LeftFoot": "E3BB80A34C6BD69FEFB316936258DF76",
+    "RightFoot": "7B760B88423DDB4892874AA156E5415F",
+    "ToComponent": "ABE2DD654DC910D847D14CBD87FA1111",
+    "ToLocal": "944332404C46C577C67FF7BDAF87EC0A",
+    "LeftArmEffector": "B62E080645F921F241833BB3C7BCFE0C",
+    "LeftArmJointTarget": "4ADE08E24AAC399747A47BAA5E54CD16",
+    "LeftArmIKAlpha": "6383820C41EE03502A4E8B979F872873",
+    "RightArmEffector": "179E54DD468344F1169FCB88C9A10574",
+    "RightArmJointTarget": "C65296364F4E6FE85C06C491453CAD7B",
+    "RightArmIKAlpha": "CB3B83EB4274096424339C97726F2C0E",
+    "LeftFootEffector": "9F1DA3F449508925E290569113036468",
+    "LeftFootJointTarget": "5A567ED3472F04891ED3EB9A56933025",
+    "LeftFootIKAlpha": "87E6E96D46E888FFBCAED09C856933CB",
+    "RightFootEffector": "3E32AD35467D565686EC6DAEFFA8C877",
+    "RightFootJointTarget": "081AA76C47A8ABB7149B8AB7B67F5CBF",
+    "RightFootIKAlpha": "36D055954C3322C4CDBEDF9657818085",
+    "TransitionEvaluator": "3461AED646D7CD11978AA5888A52D19A",
+    "TransitionBlend": "4FFB33A440032BE81C5C41A40D0F5CB0",
+    "TransitionSequence": "F6CE93E4469ACA3FE30714A6482BF7C6",
+    "TransitionTime": "E865ACA24933227BABA47FB39C423E9F",
+    "TransitionActive": "CC080719488954C200647884EC15E06A"
+  },
+  "pose_order": [
+    "BaseBlendSpaceOrTransition",
+    "DefaultSlot",
+    "LocalToComponent",
+    "LeftFoot",
+    "RightFoot",
+    "RightArm",
+    "LeftArm",
+    "ComponentToLocal",
+    "Output"
+  ],
+  "chains": {
+    "RightArm": {
+      "root_bone": "bone_010",
+      "mid_bone": "bone_011",
+      "end_bone": "bone_012",
+      "effector_location_space": "BCS_BoneSpace",
+      "effector_target": "bone_012",
+      "joint_target_location_space": "BCS_BoneSpace",
+      "joint_target": "bone_011",
+      "allow_stretching": false,
+      "maintain_effector_rel_rot": true
+    },
+    "LeftArm": {
+      "root_bone": "bone_006",
+      "mid_bone": "bone_007",
+      "end_bone": "bone_008",
+      "effector_location_space": "BCS_BoneSpace",
+      "effector_target": "bone_008",
+      "joint_target_location_space": "BCS_BoneSpace",
+      "joint_target": "bone_007",
+      "allow_stretching": false,
+      "maintain_effector_rel_rot": true
+    },
+    "LeftFoot": {
+      "root_bone": "bone_014",
+      "mid_bone": "bone_015",
+      "end_bone": "bone_016",
+      "effector_location_space": "BCS_BoneSpace",
+      "effector_target": "bone_016",
+      "joint_target_location_space": "BCS_BoneSpace",
+      "joint_target": "bone_015",
+      "allow_stretching": false,
+      "maintain_effector_rel_rot": true
+    },
+    "RightFoot": {
+      "root_bone": "bone_018",
+      "mid_bone": "bone_019",
+      "end_bone": "bone_020",
+      "effector_location_space": "BCS_BoneSpace",
+      "effector_target": "bone_020",
+      "joint_target_location_space": "BCS_BoneSpace",
+      "joint_target": "bone_019",
+      "allow_stretching": false,
+      "maintain_effector_rel_rot": true
+    }
+  },
+  "transition": {
+    "motions": [
+      5,
+      6,
+      7,
+      8,
+      14,
+      15
+    ],
+    "angle_gate_degrees": 70,
+    "should_loop": false,
+    "teleport_to_explicit_time": true,
+    "extract_root_motion": false
+  },
+  "connections": [
+    {
+      "fromNodeId": "54899E784C99BA2096837E8CD672CD5C",
+      "fromPin": "Pose",
+      "toNodeId": "636D214C46CD37E7E832B38FCBAE74B9",
+      "toPin": "BlendPose_1"
+    },
+    {
+      "fromNodeId": "B11C44CD452DA288DBDA31AD255FF7CC",
+      "fromPin": "Pose",
+      "toNodeId": "636D214C46CD37E7E832B38FCBAE74B9",
+      "toPin": "BlendPose_0"
+    },
+    {
+      "fromNodeId": "636D214C46CD37E7E832B38FCBAE74B9",
+      "fromPin": "Pose",
+      "toNodeId": "4FFB33A440032BE81C5C41A40D0F5CB0",
+      "toPin": "BlendPose_1"
+    },
+    {
+      "fromNodeId": "8FC916E24AE1EC2744EC719378AEBE42",
+      "fromPin": "Pose",
+      "toNodeId": "ABE2DD654DC910D847D14CBD87FA1111",
+      "toPin": "LocalPose"
+    },
+    {
+      "fromNodeId": "11108D4F42A50D34BE3DA290D412438A",
+      "fromPin": "Speed",
+      "toNodeId": "54899E784C99BA2096837E8CD672CD5C",
+      "toPin": "X"
+    },
+    {
+      "fromNodeId": "11108D4F42A50D34BE3DA290D412438A",
+      "fromPin": "Speed",
+      "toNodeId": "B11C44CD452DA288DBDA31AD255FF7CC",
+      "toPin": "X"
+    },
+    {
+      "fromNodeId": "0232EA6B496D76CEEE32B0896806C8F8",
+      "fromPin": "bSheathed",
+      "toNodeId": "636D214C46CD37E7E832B38FCBAE74B9",
+      "toPin": "bActiveValue"
+    },
+    {
+      "fromNodeId": "380D91FF40C76345ED6D66B59EAFD82A",
+      "fromPin": "Pose",
+      "toNodeId": "C23DD0714BA3261A2A45DFA01BA21CBC",
+      "toPin": "ComponentPose"
+    },
+    {
+      "fromNodeId": "C23DD0714BA3261A2A45DFA01BA21CBC",
+      "fromPin": "Pose",
+      "toNodeId": "944332404C46C577C67FF7BDAF87EC0A",
+      "toPin": "ComponentPose"
+    },
+    {
+      "fromNodeId": "E3BB80A34C6BD69FEFB316936258DF76",
+      "fromPin": "Pose",
+      "toNodeId": "7B760B88423DDB4892874AA156E5415F",
+      "toPin": "ComponentPose"
+    },
+    {
+      "fromNodeId": "7B760B88423DDB4892874AA156E5415F",
+      "fromPin": "Pose",
+      "toNodeId": "380D91FF40C76345ED6D66B59EAFD82A",
+      "toPin": "ComponentPose"
+    },
+    {
+      "fromNodeId": "ABE2DD654DC910D847D14CBD87FA1111",
+      "fromPin": "ComponentPose",
+      "toNodeId": "E3BB80A34C6BD69FEFB316936258DF76",
+      "toPin": "ComponentPose"
+    },
+    {
+      "fromNodeId": "944332404C46C577C67FF7BDAF87EC0A",
+      "fromPin": "Pose",
+      "toNodeId": "3292484C48899EFFBE035FAD01D316D9",
+      "toPin": "Result"
+    },
+    {
+      "fromNodeId": "B62E080645F921F241833BB3C7BCFE0C",
+      "fromPin": "LeftArmEffector",
+      "toNodeId": "C23DD0714BA3261A2A45DFA01BA21CBC",
+      "toPin": "EffectorLocation"
+    },
+    {
+      "fromNodeId": "4ADE08E24AAC399747A47BAA5E54CD16",
+      "fromPin": "LeftArmJointTarget",
+      "toNodeId": "C23DD0714BA3261A2A45DFA01BA21CBC",
+      "toPin": "JointTargetLocation"
+    },
+    {
+      "fromNodeId": "6383820C41EE03502A4E8B979F872873",
+      "fromPin": "LeftArmIKAlpha",
+      "toNodeId": "C23DD0714BA3261A2A45DFA01BA21CBC",
+      "toPin": "Alpha"
+    },
+    {
+      "fromNodeId": "179E54DD468344F1169FCB88C9A10574",
+      "fromPin": "RightArmEffector",
+      "toNodeId": "380D91FF40C76345ED6D66B59EAFD82A",
+      "toPin": "EffectorLocation"
+    },
+    {
+      "fromNodeId": "C65296364F4E6FE85C06C491453CAD7B",
+      "fromPin": "RightArmJointTarget",
+      "toNodeId": "380D91FF40C76345ED6D66B59EAFD82A",
+      "toPin": "JointTargetLocation"
+    },
+    {
+      "fromNodeId": "CB3B83EB4274096424339C97726F2C0E",
+      "fromPin": "RightArmIKAlpha",
+      "toNodeId": "380D91FF40C76345ED6D66B59EAFD82A",
+      "toPin": "Alpha"
+    },
+    {
+      "fromNodeId": "9F1DA3F449508925E290569113036468",
+      "fromPin": "LeftFootEffector",
+      "toNodeId": "E3BB80A34C6BD69FEFB316936258DF76",
+      "toPin": "EffectorLocation"
+    },
+    {
+      "fromNodeId": "5A567ED3472F04891ED3EB9A56933025",
+      "fromPin": "LeftFootJointTarget",
+      "toNodeId": "E3BB80A34C6BD69FEFB316936258DF76",
+      "toPin": "JointTargetLocation"
+    },
+    {
+      "fromNodeId": "87E6E96D46E888FFBCAED09C856933CB",
+      "fromPin": "LeftFootIKAlpha",
+      "toNodeId": "E3BB80A34C6BD69FEFB316936258DF76",
+      "toPin": "Alpha"
+    },
+    {
+      "fromNodeId": "3E32AD35467D565686EC6DAEFFA8C877",
+      "fromPin": "RightFootEffector",
+      "toNodeId": "7B760B88423DDB4892874AA156E5415F",
+      "toPin": "EffectorLocation"
+    },
+    {
+      "fromNodeId": "081AA76C47A8ABB7149B8AB7B67F5CBF",
+      "fromPin": "RightFootJointTarget",
+      "toNodeId": "7B760B88423DDB4892874AA156E5415F",
+      "toPin": "JointTargetLocation"
+    },
+    {
+      "fromNodeId": "36D055954C3322C4CDBEDF9657818085",
+      "fromPin": "RightFootIKAlpha",
+      "toNodeId": "7B760B88423DDB4892874AA156E5415F",
+      "toPin": "Alpha"
+    },
+    {
+      "fromNodeId": "3461AED646D7CD11978AA5888A52D19A",
+      "fromPin": "Pose",
+      "toNodeId": "4FFB33A440032BE81C5C41A40D0F5CB0",
+      "toPin": "BlendPose_0"
+    },
+    {
+      "fromNodeId": "4FFB33A440032BE81C5C41A40D0F5CB0",
+      "fromPin": "Pose",
+      "toNodeId": "8FC916E24AE1EC2744EC719378AEBE42",
+      "toPin": "Source"
+    },
+    {
+      "fromNodeId": "F6CE93E4469ACA3FE30714A6482BF7C6",
+      "fromPin": "LocomotionTransitionSequence",
+      "toNodeId": "3461AED646D7CD11978AA5888A52D19A",
+      "toPin": "Sequence"
+    },
+    {
+      "fromNodeId": "E865ACA24933227BABA47FB39C423E9F",
+      "fromPin": "LocomotionTransitionTime",
+      "toNodeId": "3461AED646D7CD11978AA5888A52D19A",
+      "toPin": "ExplicitTime"
+    },
+    {
+      "fromNodeId": "CC080719488954C200647884EC15E06A",
+      "fromPin": "bLocomotionTransitionActive",
+      "toNodeId": "4FFB33A440032BE81C5C41A40D0F5CB0",
+      "toPin": "bActiveValue"
+    }
+  ]
+}

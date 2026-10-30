@@ -1,43 +1,59 @@
 {
   "R28-CANDIDATE-005": {
-    "status": "asset_readback_not_connected",
-    "note": "UE readback confirms hunter Skeleton, 1.0000s, root motion and REF_POSE. No ABP transition is connected; original LMT qualification and final state semantics remain open."
+    "asset": "Content/MHWI/Animations/NativeFidelity/LongSword/A_w03_00_005.uasset",
+    "status": "source_qualified_connected_runtime_verified",
+    "note": "B20: WALK small-angle entry. Qualified source/FBX roundtrip and actual SequenceEvaluator; UE state/physics adaptation remains distinct from the native FSM.",
+    "verification": "B20-20261027/PIE-animation-consumers.json + PIE-animation-15fps.json; assets-final-readback.json; native-locomotion-evidence.json"
   },
   "R28-CANDIDATE-006": {
-    "status": "asset_readback_not_connected",
-    "note": "UE readback confirms hunter Skeleton, 1.1667s, root motion and REF_POSE. Left/right turn assignment is not connected because no reliable final mapping was accepted."
+    "asset": "Content/MHWI/Animations/NativeFidelity/LongSword/A_w03_00_006.uasset",
+    "status": "source_qualified_connected_runtime_verified",
+    "note": "B20: WALK negative horizontal cross-sign turn. Qualified source/FBX roundtrip and actual SequenceEvaluator; UE state/physics adaptation remains distinct from the native FSM.",
+    "verification": "B20-20261027/PIE-animation-consumers.json + PIE-animation-15fps.json; assets-final-readback.json; native-locomotion-evidence.json"
   },
   "R28-CANDIDATE-007": {
-    "status": "asset_readback_not_connected",
-    "note": "UE readback confirms hunter Skeleton, 1.1667s, root motion and REF_POSE. Left/right turn assignment is not connected because no reliable final mapping was accepted."
+    "asset": "Content/MHWI/Animations/NativeFidelity/LongSword/A_w03_00_007.uasset",
+    "status": "source_qualified_connected_runtime_verified",
+    "note": "B20: WALK positive horizontal cross-sign turn. Qualified source/FBX roundtrip and actual SequenceEvaluator; UE state/physics adaptation remains distinct from the native FSM.",
+    "verification": "B20-20261027/PIE-animation-consumers.json + PIE-animation-15fps.json; assets-final-readback.json; native-locomotion-evidence.json"
   },
   "R28-CANDIDATE-008": {
-    "status": "asset_readback_not_connected",
-    "note": "UE readback confirms hunter Skeleton, 0.9500s, root motion and REF_POSE. No stop-state ABP connection was completed."
+    "asset": "Content/MHWI/Animations/NativeFidelity/LongSword/A_w03_00_008.uasset",
+    "status": "source_qualified_connected_runtime_verified",
+    "note": "B20: WALK_END Action2. Qualified source/FBX roundtrip and actual SequenceEvaluator; UE state/physics adaptation remains distinct from the native FSM.",
+    "verification": "B20-20261027/PIE-animation-consumers.json + PIE-animation-15fps.json; assets-final-readback.json; native-locomotion-evidence.json"
   },
   "R28-CANDIDATE-014": {
-    "status": "asset_readback_not_connected",
-    "note": "UE readback confirms hunter Skeleton, 1.0500s, root motion and REF_POSE. No landing-state ABP connection was completed."
+    "asset": "Content/MHWI/Animations/NativeFidelity/LongSword/A_w03_00_014.uasset",
+    "status": "source_qualified_connected_runtime_verified",
+    "note": "B20: DODGE_TO_MOVE Action65; not landing. Qualified source/FBX roundtrip and actual SequenceEvaluator; UE state/physics adaptation remains distinct from the native FSM.",
+    "verification": "B20-20261027/PIE-animation-consumers.json + PIE-animation-15fps.json; assets-final-readback.json; native-locomotion-evidence.json"
   },
   "R28-CANDIDATE-015": {
-    "status": "asset_readback_not_connected",
-    "note": "UE readback confirms hunter Skeleton, 0.9500s, root motion and REF_POSE. No landing-state ABP connection was completed."
+    "asset": "Content/MHWI/Animations/NativeFidelity/LongSword/A_w03_00_015.uasset",
+    "status": "source_qualified_connected_runtime_verified",
+    "note": "B20: DODGE_TO_TURN Action66; not landing. Qualified source/FBX roundtrip and actual SequenceEvaluator; UE state/physics adaptation remains distinct from the native FSM.",
+    "verification": "B20-20261027/PIE-animation-consumers.json + PIE-animation-15fps.json; assets-final-readback.json; native-locomotion-evidence.json"
   },
   "R30-WG03-000": {
-    "status": "selection_path_found_pending_runtime",
-    "note": "DA/default selection 0 exists; no new per-clip PIE was added in this handoff."
+    "status": "existing_selection_runtime_verified",
+    "note": "B20: actual formal DA enumeration and 30 FPS Enhanced Input/SingleNode source-pose/contact/interrupt/death regression observed internal0/1/2/3. Hold73 is the existing project adaptation, not native event80 closure.",
+    "verification": "B20-20261027/weapon-motion-coverage.json + PIE-weapon-transfer-30fps.json"
   },
   "R30-WG03-001": {
-    "status": "selection_path_found_pending_runtime",
-    "note": "DA/default selection 1 exists; no new per-clip PIE was added in this handoff."
+    "status": "existing_selection_runtime_verified",
+    "note": "B20: actual formal DA enumeration and 30 FPS Enhanced Input/SingleNode source-pose/contact/interrupt/death regression observed internal0/1/2/3. Hold73 is the existing project adaptation, not native event80 closure.",
+    "verification": "B20-20261027/weapon-motion-coverage.json + PIE-weapon-transfer-30fps.json"
   },
   "R30-WG03-002": {
-    "status": "selection_path_found_pending_runtime",
-    "note": "DA event selection 2 exists; no new per-clip PIE was added in this handoff."
+    "status": "existing_selection_runtime_verified",
+    "note": "B20: actual formal DA enumeration and 30 FPS Enhanced Input/SingleNode source-pose/contact/interrupt/death regression observed internal0/1/2/3. Hold73 is the existing project adaptation, not native event80 closure.",
+    "verification": "B20-20261027/weapon-motion-coverage.json + PIE-weapon-transfer-30fps.json"
   },
   "R30-WG03-003": {
-    "status": "selection_path_found_pending_runtime",
-    "note": "DA event selection 3 exists; no new per-clip PIE was added in this handoff."
+    "status": "existing_selection_runtime_verified",
+    "note": "B20: actual formal DA enumeration and 30 FPS Enhanced Input/SingleNode source-pose/contact/interrupt/death regression observed internal0/1/2/3. Hold73 is the existing project adaptation, not native event80 closure.",
+    "verification": "B20-20261027/weapon-motion-coverage.json + PIE-weapon-transfer-30fps.json"
   },
   "R30-WG03-004": {
     "status": "no_native_selection_keep_asset",
@@ -48,19 +64,33 @@
     "note": "All 32 DA moves were enumerated: no event/default selects 5. Keep the asset; do not invent a native trigger."
   },
   "R30-IK-LARM": {
-    "status": "data_layer_only_not_connected",
-    "note": "Profile type and component-space target producer exist in source, but no Profile asset or ABP TwoBoneIK node was authored; native solver remains unresolved."
+    "status": "project_solver_connected_runtime_verified",
+    "note": "B20: saved Profile and actual TwoBoneIK after DefaultSlot; end/mid bone-relative offsets. Actual elbow/terrain response measured; native solver, limits and CTM remain unresolved.",
+    "verification": "B20-20261027/PIE-animation-consumers.json + PIE-animation-15fps.json; assets-final-readback.json"
   },
   "R30-IK-RARM": {
-    "status": "data_layer_only_not_connected",
-    "note": "Profile type and component-space target producer exist in source, but no Profile asset or ABP TwoBoneIK node was authored; native solver remains unresolved."
+    "status": "project_solver_connected_runtime_verified",
+    "note": "B20: saved Profile and actual TwoBoneIK after DefaultSlot; end/mid bone-relative offsets. Actual elbow/terrain response measured; native solver, limits and CTM remain unresolved.",
+    "verification": "B20-20261027/PIE-animation-consumers.json + PIE-animation-15fps.json; assets-final-readback.json"
   },
   "R30-IK-LFOOT": {
-    "status": "data_layer_only_not_connected",
-    "note": "Profile type and floor-trace target producer exist in source, but no Profile asset or ABP TwoBoneIK node was authored; native solver remains unresolved."
+    "status": "project_solver_connected_runtime_verified",
+    "note": "B20: saved Profile and actual TwoBoneIK after DefaultSlot; end/mid bone-relative offsets. Actual elbow/terrain response measured; native solver, limits and CTM remain unresolved.",
+    "verification": "B20-20261027/PIE-animation-consumers.json + PIE-animation-15fps.json; assets-final-readback.json"
   },
   "R30-IK-RFOOT": {
-    "status": "data_layer_only_not_connected",
-    "note": "Profile type and floor-trace target producer exist in source, but no Profile asset or ABP TwoBoneIK node was authored; native solver remains unresolved."
+    "status": "project_solver_connected_runtime_verified",
+    "note": "B20: saved Profile and actual TwoBoneIK after DefaultSlot; end/mid bone-relative offsets. Actual elbow/terrain response measured; native solver, limits and CTM remain unresolved.",
+    "verification": "B20-20261027/PIE-animation-consumers.json + PIE-animation-15fps.json; assets-final-readback.json"
+  },
+  "R06-COMMON-181": {
+    "status": "excluded_nonrequired_failed_attempt",
+    "note": "B10 explicitly classified this as an ancillary failed export, not a required missing resource. No cross-bank alias or invented source context.",
+    "verification": "Docs/Reference/MHWI-R06-Remaining-Development.md; Docs/Changes/CHG-20261025-005-mhwi-r06-remaining.md"
+  },
+  "R06-COMMON-182": {
+    "status": "excluded_nonrequired_failed_attempt",
+    "note": "B10 explicitly classified this as an ancillary failed export, not a required missing resource. No cross-bank alias or invented source context.",
+    "verification": "Docs/Reference/MHWI-R06-Remaining-Development.md; Docs/Changes/CHG-20261025-005-mhwi-r06-remaining.md"
   }
 }

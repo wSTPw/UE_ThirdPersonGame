@@ -7,6 +7,7 @@
 
 class AMHWICharacter;
 class UMHWIEquipmentIKProfile;
+class UAnimSequence;
 
 /** Locomotion graph reads these values; the character alone owns combat state. */
 UCLASS(Blueprintable, BlueprintType)
@@ -37,7 +38,18 @@ public:
     UPROPERTY(BlueprintReadOnly, Category="MHWI|Locomotion") float TurnDirection = 0.f;
     FVector PreviousVelocity = FVector::ZeroVector;
 
-    /** R30 project IK profile and game-thread component-space goal snapshots. */
+    /** Source-qualified WALK entry/turn/end clips, consumed by the AnimGraph evaluator. */
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="MHWI|Locomotion") TMap<int32, TObjectPtr<UAnimSequence>> LocomotionTransitionClips;
+    /** W03P file 0x18c -> parameter +0x348 -> WALK entry angle gate (degrees). */
+    UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="MHWI|Locomotion") float LocomotionTurnThresholdDegrees = 70.f;
+    UPROPERTY(BlueprintReadOnly, Category="MHWI|Locomotion") TObjectPtr<UAnimSequence> LocomotionTransitionSequence;
+    UPROPERTY(BlueprintReadOnly, Category="MHWI|Locomotion") float LocomotionTransitionTime = 0.f;
+    UPROPERTY(BlueprintReadOnly, Category="MHWI|Locomotion") int32 LocomotionTransitionMotion = INDEX_NONE;
+    UPROPERTY(BlueprintReadOnly, Category="MHWI|Locomotion") bool bLocomotionTransitionActive = false;
+
+    /** R30 project IK profile. Effector/joint vectors are OFFSETS relative to
+     * the evaluated end/mid bone, respectively. This preserves the base pose
+     * and avoids feeding last frame's solved positions back into the solver. */
     UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="MHWI|IK") TObjectPtr<UMHWIEquipmentIKProfile> EquipmentIKProfile;
     UPROPERTY(BlueprintReadOnly, Category="MHWI|IK") FVector LeftArmEffector = FVector::ZeroVector;
     UPROPERTY(BlueprintReadOnly, Category="MHWI|IK") FVector RightArmEffector = FVector::ZeroVector;
@@ -52,6 +64,11 @@ public:
     UPROPERTY(BlueprintReadOnly, Category="MHWI|IK") float LeftFootIKAlpha = 0.f;
     UPROPERTY(BlueprintReadOnly, Category="MHWI|IK") float RightFootIKAlpha = 0.f;
 protected:
+    void UpdateLocomotionTransition(const AMHWICharacter& Character, float DeltaSeconds, float PreviousSpeed);
+    bool bWasLocomotionEligible = false;
+    bool bHadLocomotionIntent = false;
+    FVector LastLocomotionIntent = FVector::ZeroVector;
+    int32 LastNaturalRollCompletionSerial = 0;
     void UpdateEquipmentIK(const AMHWICharacter& Character);
     virtual FAnimInstanceProxy* CreateAnimInstanceProxy() override;
     virtual void DestroyAnimInstanceProxy(FAnimInstanceProxy* InProxy) override;

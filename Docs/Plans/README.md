@@ -6,6 +6,9 @@
 
 | ID | 主题 | 状态 | 变更记录 |
 | --- | --- | --- | --- |
+| [PLAN-20261028-001](PLAN-20261028-001-mhwi-native-equipment-mount.md) | MHWI太刀/刀鞘原版挂接骨选择与导入坐标修复 | implemented-scope / partial-native，源码与UE 5.8构建完成；最终握持验收由用户操作 | [本轮记录](../Changes/CHG-20261028-001-mhwi-native-equipment-mount.md) |
+| [PLAN-20261027-002](PLAN-20261027-002-mhwi-fidelity-refactor.md) | MHWI忠实还原目标下的结构审查与重构选型 | draft；原作忠实度已确认，组件/模块/Game Feature/GAS/动画层等候选待用户选择，未实施 |
+| [PLAN-20261027-001](PLAN-20261027-001-mhwi-remaining-animation-development.md) | B20翻滚入口、R28六段过渡与R30四链实装/调试 | implemented-scope / partial-native，6轮PIE通过；原生全来源与solver边界保留 | [B20记录](../Changes/CHG-20261027-004-mhwi-roll-locomotion-ik.md) |
 | [PLAN-20261026-006](PLAN-20261026-006-mhwi-animation-coverage.md) | R06/R28/R30动画全集覆盖处理 | partial，R06修复与14项PIE通过；R28/R30数据层与逐项处置，未全接入 | [B19交接](../Changes/CHG-20261027-001-mhwi-animation-coverage.md) |
 | [PLAN-20261026-005](PLAN-20261026-005-mhwi-equipment-ik.md) | R30 武器装配与四链 IK | partial，选择覆盖与IK数据层；Profile资产和ABP节点未落地 | [B19交接](../Changes/CHG-20261027-001-mhwi-animation-coverage.md) |
 | [PLAN-20261026-004](PLAN-20261026-004-mhwi-locomotion-transitions.md) | R28 基础移动过渡动画 | partial，六候选读回与移动事实数据层；ABP过渡未接入 | [B19交接](../Changes/CHG-20261027-001-mhwi-animation-coverage.md) |

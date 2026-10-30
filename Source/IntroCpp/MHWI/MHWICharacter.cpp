@@ -1,5 +1,6 @@
 #include "MHWICharacter.h"
 #include "MHWIAnimInstance.h"
+#include "MHWILinkAnimation.h"
 #include "AttributeComponent.h"
 #include "Animation/AnimMontage.h"
 #include "Animation/AnimInstance.h"
@@ -558,36 +559,19 @@ void AMHWICharacter::RefreshMovement()
 
 void AMHWICharacter::RefreshWeaponAttachment(float DeltaSeconds)
 {
-    FMHWIWeaponAttachmentSettings Settings;
-    Settings.WeaponBone = WeaponBone;
-    Settings.ScabbardBone = ScabbardBone;
-    Settings.SheathedWeaponBone = SheathedWeaponBone;
-    Settings.SpecialScabbardBone = SpecialScabbardBone;
-    Settings.WeaponRelativeTransform = WeaponRelativeTransform;
-    Settings.ScabbardRelativeTransform = ScabbardRelativeTransform;
-    Settings.SheathedWeaponRelativeTransform = SheathedWeaponRelativeTransform;
-    Settings.SpecialScabbardRelativeTransform = SpecialScabbardRelativeTransform;
-    Settings.SpecialWeaponRelativeTransform = SpecialWeaponRelativeTransform;
     FMHWIWeaponAttachmentContext Context;
-    Context.CurrentMove = bNativeConnector ? NAME_None : CurrentMove;
-    Context.MontagePosition = CurrentPosition;
     Context.bSheathed = bSheathed;
-    Context.bSpecialSheathHeld = bSpecialSheathHeld;
-    Context.bMoveStartedSheathed = bMoveStartedSheathed;
-    Context.bUnsheathAtStart = ActiveDefinition.bUnsheathAtStart;
-    if (ActiveDefinition.bSheathAtEnd && CurrentMove == MHWI::SpiritRoundslash)
+    if (UMHWIAnimInstance* Anim = Cast<UMHWIAnimInstance>(GetMesh()->GetAnimInstance()))
     {
-        // An explicit internal sheathed state anchors PROJECT equipment fitting.
-        // It is not decoded as a native whole-equipment socket command.
-        for (const FMHWIWeaponMotionEvent& Event : ActiveDefinition.WeaponMotionEvents)
-            if (Event.MotionNo == 0 && FMath::IsFinite(Event.Time) && Event.Time > 0.f)
-            {
-                Context.ReturnToSheathTime = Event.Time;
-                break;
-            }
+        if (!Anim->ReadNativeBaseMotion(Context.Base)) Context.Base = {};
+        UAnimMontage* Carrier = ActiveMontage ? ActiveMontage.Get() : NativeSourceMontage.Get();
+        const int32 InstanceId = ActiveMontage ? ActiveMontageInstanceId : NativeSourceInstanceId;
+        const FAnimMontageInstance* Instance = Anim->GetMontageInstanceForID(InstanceId);
+        if (Carrier && Instance && Instance->Montage == Carrier
+            && !MHWI::Native::ReadMotion(Carrier, Instance->GetPosition(), Context.Action))
+            Context.Action = {};
     }
-    Context.ExecutionSerial = ExecutionSerial;
-    WeaponAttachmentRuntime.Update(GetMesh(), WeaponMesh, ScabbardMesh, Settings, Context, DeltaSeconds);
+    WeaponAttachmentRuntime.Update(GetMesh(), WeaponMesh, ScabbardMesh, Context, DeltaSeconds);
 }
 
 void AMHWICharacter::SetSourceWeaponMotion(int32 MotionNo, float Position)
@@ -830,7 +814,9 @@ bool AMHWICharacter::RequestInput(EMHWIInput Input)
 
 bool AMHWICharacter::StartResolvedMove(FName MoveId)
 {
-    if (bInputBlocked || bEnding || bFinishing || bDispatchingHits || !Moveset || !Attributes->IsAlive()) return false;
+    LastMoveStartFailure.Reset();
+    auto Reject = [this](const TCHAR* Reason) { LastMoveStartFailure = Reason; return false; };
+    if (bInputBlocked || bEnding || bFinishing || bDispatchingHits || !Moveset || !Attributes->IsAlive()) return Reject(TEXT("control/lifecycle gate"));
     const int32 SourceAction = MHWI::Native::SlingerActionFromMove(MoveId);
     if (SourceAction != INDEX_NONE) return StartNativeSource({3, SourceAction}, ENativeSourceKind::Slinger);
     if (bSheathed && MHWI::IsRollMove(MoveId) && MoveId != MHWI::Roll) return false;
@@ -843,15 +829,15 @@ bool AMHWICharacter::StartResolvedMove(FName MoveId)
     const FMHWIMoveDefinition* Definition = Moveset->Moves.Find(MoveId);
     UAnimInstance* Anim = GetMesh()->GetAnimInstance();
     if (!Definition || !Anim || !FMath::IsFinite(Definition->PlayRate) || Definition->PlayRate <= 0.f
-        || !FMath::IsFinite(Definition->SpiritCost) || Definition->SpiritCost < 0.f) return false;
+        || !FMath::IsFinite(Definition->SpiritCost) || Definition->SpiritCost < 0.f) return Reject(TEXT("definition/play rate/cost"));
     UAnimMontage* SelectedMontage = Definition->Montage;
     if (bSheathed && Definition->SheathedMontage) SelectedMontage = Definition->SheathedMontage;
     if (const TObjectPtr<UAnimMontage>* Variant = Definition->SpiritLevelMontages.Find(SpiritLevel)) SelectedMontage = *Variant;
     if (!SelectedMontage || !GetMesh()->GetSkeletalMeshAsset()
-        || SelectedMontage->GetSkeleton() != GetMesh()->GetSkeletalMeshAsset()->GetSkeleton()) return false;
+        || SelectedMontage->GetSkeleton() != GetMesh()->GetSkeletalMeshAsset()->GetSkeleton()) return Reject(TEXT("montage/skeleton"));
     // Capture the old action and actual source clock before FinishMove clears it.
     FNativeLinkStart NativeStart;
-    if (!PrepareNativeLink(MoveId, SelectedMontage, NativeStart)) return false;
+    if (!PrepareNativeLink(MoveId, SelectedMontage, NativeStart)) return Reject(TEXT("native entry plan"));
     int32 SelectedBodyMotion = INDEX_NONE;
     const int32 SelectedTimelineMotion = MHWI::Native::ReadMainMotion(SelectedMontage, SelectedBodyMotion)
         ? MHWI::Native::GetTimelineMotion(MoveId, SpiritLevel, SelectedBodyMotion) : INDEX_NONE;
@@ -891,7 +877,7 @@ bool AMHWICharacter::StartResolvedMove(FName MoveId)
     if (!BeginNativeLink(NativeStart))
     {
         FinishMove(true, true);
-        return false;
+        return Reject(TEXT("native motion carrier/blend"));
     }
     PreviousPosition = CurrentPosition = bNativeConnector ? 0.f : NativeInitialPosition;
     NextWeaponMotionEvent = 0;
@@ -944,7 +930,7 @@ bool AMHWICharacter::StartResolvedMove(FName MoveId)
         && Anim->Montage_Play(ActiveMontage, StartRate, EMontagePlayReturnType::MontageLength, StartPosition) <= 0.f)
     {
         FinishMove(true, true);
-        return false;
+        return Reject(TEXT("montage playback"));
     }
     NativeRetiringMontage = nullptr;
     if (FAnimMontageInstance* Instance = Anim->GetActiveInstanceForMontage(ActiveMontage))
@@ -1399,6 +1385,7 @@ void AMHWICharacter::FinishMove(bool bInterrupted, bool bStopMontage, bool bCont
     ++ExecutionSerial;
     if (MHWI::IsRollMove(FinishedMove) && !bInterrupted && bRollStartedDrawn)
     {
+        ++NaturalRollCompletionSerial;
         MHWI::Native::ReadMotion(OldMontage, CurrentPosition, NativeRollRecoverySample);
         NativeRollRecoveryNode = NativeActionNode;
     }

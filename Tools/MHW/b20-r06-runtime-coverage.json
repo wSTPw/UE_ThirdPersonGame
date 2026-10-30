@@ -1,0 +1,3129 @@
+{
+  "schema": 1,
+  "passed": true,
+  "scope": "Adjudicate actual B20 prefix/main samples against pinned original references.\n\nOne sampled pipeline does not certify every incoming identity or human-input\nprecondition. The orphan N86 is verified as a static negative, never played.\n",
+  "original_source_pins": {
+    "mbd": {
+      "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.mbd",
+      "sha256": "eb4744e6ba98aae1d79bab0fdd9526e2d12e57f654d294a23376697cc2e82268"
+    },
+    "fsm": {
+      "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/wp03_action.fsm",
+      "sha256": "b817b1cd16a6f653ad2c60f88b30967f56185a7c4b3a3d5927b3f9334e633b18"
+    },
+    "lmt": {
+      "path": "ArtSource/ThirdParty/MHWLongSword/nativePC/hm/wp/wp03/mot/w03_00/w03_00.lmt",
+      "sha256": "2406ee8f61fe7ba21008f200881be6d339c93af07a9ff7ada9260f0c58a8c42b"
+    },
+    "layout": {
+      "path": "Saved/MHWIImport/SourceFidelity-20261023/timing-FreeHK-upstream/MHW-Free-HyperKinetics-main/struct/mbd.py",
+      "sha256": "e30d6406c0c52357dbb7deadb02b2c2f390119453ed3f4a1692b189ce4762b4e",
+      "url": "https://github.com/AsteriskAmpersand/MHW-Free-HyperKinetics/blob/main/struct/mbd.py"
+    },
+    "mapping": {
+      "path": "Scripts/MHWI/moveset_mapping.json",
+      "sha256": "30163d9a5f3fd661ec15dbf2aafda31a225116ccd57402e9bf279e4b29e7b65c"
+    }
+  },
+  "reports": [
+    {
+      "path": "Saved/MHWIRestoration/B20-20261027/PIE-r06-connections.json",
+      "sha256": "6cc26073ded91d25ca69b667796eb7f39ffc8ea9a2c431b26978e352592fe4de"
+    },
+    {
+      "path": "Saved/MHWIRestoration/B20-20261027/PIE-r06-impact-matrix.json",
+      "sha256": "cc6ad2a9799166e3970f71ace8e6614c6a2e58003691a17b83e93030f49e517a"
+    }
+  ],
+  "runtime_references": 31,
+  "static_negative_references": 1,
+  "total_references": 32,
+  "rows": [
+    {
+      "id": "R06-N29-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 2,
+      "observed_previous_identities": [
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          85
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 2,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            85
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              85
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/85",
+            "bank": "w03_00",
+            "motion": "101",
+            "frame": "71.004",
+            "phase": "0",
+            "first": "111",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "111",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "306",
+            "serial": "12",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "18.000",
+            "instance": "307",
+            "serial": "12",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "expected_mbd_frame": 18,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            7
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              7
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/7",
+            "bank": "w03_00",
+            "motion": "101",
+            "frame": "71.003",
+            "phase": "0",
+            "first": "111",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "111",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "431",
+            "serial": "269",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "18.000",
+            "instance": "432",
+            "serial": "269",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "expected_mbd_frame": 18,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N30-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 2,
+      "observed_previous_identities": [
+        [
+          3,
+          11
+        ],
+        [
+          3,
+          12
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 2,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            11
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              11
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/11",
+            "bank": "w03_00",
+            "motion": "104",
+            "frame": "60.008",
+            "phase": "0",
+            "first": "117",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "117",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "309",
+            "serial": "17",
+            "gauge_start": "8.000",
+            "gauge": "8.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "17.000",
+            "instance": "310",
+            "serial": "17",
+            "gauge_start": "8.000",
+            "gauge": "8.000"
+          },
+          "expected_mbd_frame": 17,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            12
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              12
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/12",
+            "bank": "w03_00",
+            "motion": "104",
+            "frame": "60.001",
+            "phase": "0",
+            "first": "117",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "117",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "489",
+            "serial": "376",
+            "gauge_start": "0.000",
+            "gauge": "0.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "17.000",
+            "instance": "490",
+            "serial": "376",
+            "gauge_start": "0.000",
+            "gauge": "0.000"
+          },
+          "expected_mbd_frame": 17,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N31-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          79
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            79
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              79
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/80",
+            "previous": "3/79",
+            "bank": "w03_00",
+            "motion": "105",
+            "frame": "39.152",
+            "phase": "0",
+            "first": "119",
+            "main": "107"
+          },
+          "prefix": {
+            "move": "RisingSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "119",
+            "timeline": "107",
+            "frame": "0.000",
+            "instance": "312",
+            "serial": "22",
+            "gauge_start": "8.000",
+            "gauge": "8.000"
+          },
+          "first_main": {
+            "move": "RisingSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "107",
+            "timeline": "107",
+            "frame": "22.000",
+            "instance": "313",
+            "serial": "22",
+            "gauge_start": "8.000",
+            "gauge": "8.000"
+          },
+          "expected_mbd_frame": 22,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N32-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 2,
+      "observed_previous_identities": [
+        [
+          3,
+          71
+        ],
+        [
+          3,
+          79
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 2,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            79
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              79
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/79",
+            "bank": "w03_00",
+            "motion": "105",
+            "frame": "39.004",
+            "phase": "0",
+            "first": "120",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "120",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "315",
+            "serial": "27",
+            "gauge_start": "8.000",
+            "gauge": "8.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "18.000",
+            "instance": "316",
+            "serial": "27",
+            "gauge_start": "8.000",
+            "gauge": "8.000"
+          },
+          "expected_mbd_frame": 18,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            71
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              71
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/71",
+            "bank": "w03_00",
+            "motion": "112",
+            "frame": "39.000",
+            "phase": "0",
+            "first": "120",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "120",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "434",
+            "serial": "274",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "18.000",
+            "instance": "435",
+            "serial": "274",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "expected_mbd_frame": 18,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N33-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          71
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            71
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              71
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/67",
+            "previous": "3/71",
+            "bank": "w03_00",
+            "motion": "112",
+            "frame": "39.005",
+            "phase": "0",
+            "first": "121",
+            "main": "106"
+          },
+          "prefix": {
+            "move": "SpiritII",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "121",
+            "timeline": "106",
+            "frame": "0.000",
+            "instance": "319",
+            "serial": "36",
+            "gauge_start": "31.000",
+            "gauge": "16.000"
+          },
+          "first_main": {
+            "move": "SpiritII",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "106",
+            "timeline": "106",
+            "frame": "23.000",
+            "instance": "320",
+            "serial": "36",
+            "gauge_start": "31.000",
+            "gauge": "16.000"
+          },
+          "expected_mbd_frame": 23,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N34-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 10,
+      "observed_previous_identities": [
+        [
+          3,
+          67
+        ],
+        [
+          3,
+          104
+        ],
+        [
+          3,
+          105
+        ],
+        [
+          3,
+          106
+        ],
+        [
+          3,
+          107
+        ],
+        [
+          3,
+          108
+        ],
+        [
+          3,
+          109
+        ],
+        [
+          3,
+          110
+        ],
+        [
+          3,
+          111
+        ],
+        [
+          3,
+          112
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 10,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            67
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              67
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/67",
+            "bank": "w03_00",
+            "motion": "106",
+            "frame": "63.001",
+            "phase": "0",
+            "first": "122",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "122",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "323",
+            "serial": "45",
+            "gauge_start": "24.000",
+            "gauge": "24.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "10.000",
+            "instance": "324",
+            "serial": "45",
+            "gauge_start": "24.000",
+            "gauge": "24.000"
+          },
+          "expected_mbd_frame": 10,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            104
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              104
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/104",
+            "bank": "w03_00",
+            "motion": "338",
+            "frame": "45.008",
+            "phase": "0",
+            "first": "122",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "122",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "447",
+            "serial": "295",
+            "gauge_start": "8.000",
+            "gauge": "8.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "10.000",
+            "instance": "448",
+            "serial": "295",
+            "gauge_start": "8.000",
+            "gauge": "8.000"
+          },
+          "expected_mbd_frame": 10,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            105
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              105
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/105",
+            "bank": "w03_00",
+            "motion": "340",
+            "frame": "45.003",
+            "phase": "0",
+            "first": "122",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "122",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "452",
+            "serial": "305",
+            "gauge_start": "16.000",
+            "gauge": "16.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "10.000",
+            "instance": "453",
+            "serial": "305",
+            "gauge_start": "16.000",
+            "gauge": "16.000"
+          },
+          "expected_mbd_frame": 10,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            106
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              106
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/106",
+            "bank": "w03_00",
+            "motion": "339",
+            "frame": "45.004",
+            "phase": "0",
+            "first": "122",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "122",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "457",
+            "serial": "315",
+            "gauge_start": "24.000",
+            "gauge": "24.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "10.000",
+            "instance": "458",
+            "serial": "315",
+            "gauge_start": "24.000",
+            "gauge": "24.000"
+          },
+          "expected_mbd_frame": 10,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            107
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              107
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/107",
+            "bank": "w03_00",
+            "motion": "341",
+            "frame": "45.000",
+            "phase": "0",
+            "first": "122",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "122",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "461",
+            "serial": "321",
+            "gauge_start": "9.000",
+            "gauge": "9.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "10.000",
+            "instance": "462",
+            "serial": "321",
+            "gauge_start": "9.000",
+            "gauge": "9.000"
+          },
+          "expected_mbd_frame": 10,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            108
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              108
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/108",
+            "bank": "w03_00",
+            "motion": "343",
+            "frame": "45.000",
+            "phase": "0",
+            "first": "122",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "122",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "466",
+            "serial": "331",
+            "gauge_start": "17.000",
+            "gauge": "17.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "10.000",
+            "instance": "467",
+            "serial": "331",
+            "gauge_start": "17.000",
+            "gauge": "17.000"
+          },
+          "expected_mbd_frame": 10,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            109
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              109
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/109",
+            "bank": "w03_00",
+            "motion": "342",
+            "frame": "45.004",
+            "phase": "0",
+            "first": "122",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "122",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "471",
+            "serial": "341",
+            "gauge_start": "25.000",
+            "gauge": "25.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "10.000",
+            "instance": "472",
+            "serial": "341",
+            "gauge_start": "25.000",
+            "gauge": "25.000"
+          },
+          "expected_mbd_frame": 10,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            110
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              110
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/110",
+            "bank": "w03_00",
+            "motion": "344",
+            "frame": "45.000",
+            "phase": "0",
+            "first": "122",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "122",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "475",
+            "serial": "347",
+            "gauge_start": "5.000",
+            "gauge": "5.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "10.000",
+            "instance": "476",
+            "serial": "347",
+            "gauge_start": "5.000",
+            "gauge": "5.000"
+          },
+          "expected_mbd_frame": 10,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            111
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              111
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/111",
+            "bank": "w03_00",
+            "motion": "346",
+            "frame": "45.007",
+            "phase": "0",
+            "first": "122",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "122",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "480",
+            "serial": "357",
+            "gauge_start": "8.000",
+            "gauge": "8.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "10.000",
+            "instance": "481",
+            "serial": "357",
+            "gauge_start": "8.000",
+            "gauge": "8.000"
+          },
+          "expected_mbd_frame": 10,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            112
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              112
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/112",
+            "bank": "w03_00",
+            "motion": "345",
+            "frame": "45.001",
+            "phase": "0",
+            "first": "122",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "122",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "485",
+            "serial": "367",
+            "gauge_start": "11.000",
+            "gauge": "11.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "10.000",
+            "instance": "486",
+            "serial": "367",
+            "gauge_start": "11.000",
+            "gauge": "11.000"
+          },
+          "expected_mbd_frame": 10,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N35-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          72
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            72
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              72
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/72",
+            "bank": "w03_00",
+            "motion": "107",
+            "frame": "43.001",
+            "phase": "0",
+            "first": "123",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "123",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "326",
+            "serial": "50",
+            "gauge_start": "24.000",
+            "gauge": "24.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "20.000",
+            "instance": "327",
+            "serial": "50",
+            "gauge_start": "24.000",
+            "gauge": "24.000"
+          },
+          "expected_mbd_frame": 20,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N36-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          72
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            72
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              72
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/68",
+            "previous": "3/72",
+            "bank": "w03_00",
+            "motion": "107",
+            "frame": "43.000",
+            "phase": "0",
+            "first": "124",
+            "main": "108"
+          },
+          "prefix": {
+            "move": "SpiritIII",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "124",
+            "timeline": "108",
+            "frame": "0.000",
+            "instance": "330",
+            "serial": "59",
+            "gauge_start": "47.000",
+            "gauge": "27.000"
+          },
+          "first_main": {
+            "move": "SpiritIII",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "108",
+            "timeline": "108",
+            "frame": "9.000",
+            "instance": "331",
+            "serial": "59",
+            "gauge_start": "47.000",
+            "gauge": "27.000"
+          },
+          "expected_mbd_frame": 9,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N37-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          72
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            72
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              72
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/81",
+            "previous": "3/72",
+            "bank": "w03_00",
+            "motion": "107",
+            "frame": "43.000",
+            "phase": "0",
+            "first": "125",
+            "main": "102"
+          },
+          "prefix": {
+            "move": "OverheadSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "125",
+            "timeline": "102",
+            "frame": "0.000",
+            "instance": "333",
+            "serial": "64",
+            "gauge_start": "27.000",
+            "gauge": "27.000"
+          },
+          "first_main": {
+            "move": "OverheadSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "102",
+            "timeline": "102",
+            "frame": "28.000",
+            "instance": "334",
+            "serial": "64",
+            "gauge_start": "27.000",
+            "gauge": "27.000"
+          },
+          "expected_mbd_frame": 28,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N39-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          80
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            80
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              80
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/81",
+            "previous": "3/80",
+            "bank": "w03_00",
+            "motion": "107",
+            "frame": "43.000",
+            "phase": "0",
+            "first": "125",
+            "main": "102"
+          },
+          "prefix": {
+            "move": "OverheadSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "125",
+            "timeline": "102",
+            "frame": "0.000",
+            "instance": "337",
+            "serial": "69",
+            "gauge_start": "27.000",
+            "gauge": "27.000"
+          },
+          "first_main": {
+            "move": "OverheadSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "102",
+            "timeline": "102",
+            "frame": "28.000",
+            "instance": "338",
+            "serial": "69",
+            "gauge_start": "27.000",
+            "gauge": "27.000"
+          },
+          "expected_mbd_frame": 28,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N40-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 2,
+      "observed_previous_identities": [
+        [
+          3,
+          11
+        ],
+        [
+          3,
+          12
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 2,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            11
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              11
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/71",
+            "previous": "3/11",
+            "bank": "w03_00",
+            "motion": "104",
+            "frame": "60.006",
+            "phase": "0",
+            "first": "118",
+            "main": "112"
+          },
+          "prefix": {
+            "move": "SpiritComboThrust",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "118",
+            "timeline": "112",
+            "frame": "0.000",
+            "instance": "340",
+            "serial": "74",
+            "gauge_start": "12.000",
+            "gauge": "12.000"
+          },
+          "first_main": {
+            "move": "SpiritComboThrust",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "112",
+            "timeline": "112",
+            "frame": "14.000",
+            "instance": "341",
+            "serial": "74",
+            "gauge_start": "12.000",
+            "gauge": "12.000"
+          },
+          "expected_mbd_frame": 14,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            12
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              12
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/71",
+            "previous": "3/12",
+            "bank": "w03_00",
+            "motion": "104",
+            "frame": "60.002",
+            "phase": "0",
+            "first": "118",
+            "main": "112"
+          },
+          "prefix": {
+            "move": "SpiritComboThrust",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "118",
+            "timeline": "112",
+            "frame": "0.000",
+            "instance": "492",
+            "serial": "381",
+            "gauge_start": "0.000",
+            "gauge": "0.000"
+          },
+          "first_main": {
+            "move": "SpiritComboThrust",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "112",
+            "timeline": "112",
+            "frame": "14.000",
+            "instance": "493",
+            "serial": "381",
+            "gauge_start": "0.000",
+            "gauge": "0.000"
+          },
+          "expected_mbd_frame": 14,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N42-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          80
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            80
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              80
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/80",
+            "bank": "w03_00",
+            "motion": "107",
+            "frame": "43.004",
+            "phase": "0",
+            "first": "123",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "123",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "344",
+            "serial": "79",
+            "gauge_start": "12.000",
+            "gauge": "12.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "20.000",
+            "instance": "345",
+            "serial": "79",
+            "gauge_start": "12.000",
+            "gauge": "12.000"
+          },
+          "expected_mbd_frame": 20,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N44-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          34
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            34
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              34
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/85",
+            "previous": "3/34",
+            "bank": "w03_00",
+            "motion": "221",
+            "frame": "10.061",
+            "phase": "0",
+            "first": "114",
+            "main": "101"
+          },
+          "prefix": {
+            "move": "StepSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "114",
+            "timeline": "101",
+            "frame": "0.000",
+            "instance": "364",
+            "serial": "114",
+            "gauge_start": "20.000",
+            "gauge": "20.000"
+          },
+          "first_main": {
+            "move": "StepSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "101",
+            "timeline": "101",
+            "frame": "33.000",
+            "instance": "365",
+            "serial": "114",
+            "gauge_start": "20.000",
+            "gauge": "20.000"
+          },
+          "expected_mbd_frame": 33,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N52-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 5,
+      "observed_previous_identities": [
+        [
+          3,
+          20
+        ],
+        [
+          3,
+          21
+        ],
+        [
+          3,
+          22
+        ]
+      ],
+      "ambiguous_candidate_sets": [
+        [
+          [
+            3,
+            18
+          ],
+          [
+            3,
+            19
+          ]
+        ]
+      ],
+      "sample_count": 4,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": null,
+          "previous_identity_candidates": [
+            [
+              3,
+              18
+            ],
+            [
+              3,
+              19
+            ]
+          ],
+          "exact_previous_identity": false,
+          "entry": {
+            "target": "3/85",
+            "previous": "3/18",
+            "bank": "w03_00",
+            "motion": "11",
+            "frame": "36.004",
+            "phase": "0",
+            "first": "129",
+            "main": "101"
+          },
+          "prefix": {
+            "move": "RollStepSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "129",
+            "timeline": "101",
+            "frame": "0.000",
+            "instance": "347",
+            "serial": "84",
+            "gauge_start": "12.000",
+            "gauge": "12.000"
+          },
+          "first_main": {
+            "move": "RollStepSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "101",
+            "timeline": "101",
+            "frame": "48.000",
+            "instance": "348",
+            "serial": "84",
+            "gauge_start": "12.000",
+            "gauge": "12.000"
+          },
+          "expected_mbd_frame": 48,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            20
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              20
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/85",
+            "previous": "3/20",
+            "bank": "w03_00",
+            "motion": "12",
+            "frame": "36.001",
+            "phase": "0",
+            "first": "129",
+            "main": "101"
+          },
+          "prefix": {
+            "move": "RollStepSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "129",
+            "timeline": "101",
+            "frame": "5.000",
+            "instance": "437",
+            "serial": "279",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "first_main": {
+            "move": "RollStepSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "101",
+            "timeline": "101",
+            "frame": "48.000",
+            "instance": "438",
+            "serial": "279",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "expected_mbd_frame": 48,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            21
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              21
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/85",
+            "previous": "3/21",
+            "bank": "w03_00",
+            "motion": "13",
+            "frame": "36.000",
+            "phase": "0",
+            "first": "129",
+            "main": "101"
+          },
+          "prefix": {
+            "move": "RollStepSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "129",
+            "timeline": "101",
+            "frame": "5.000",
+            "instance": "440",
+            "serial": "284",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "first_main": {
+            "move": "RollStepSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "101",
+            "timeline": "101",
+            "frame": "48.000",
+            "instance": "441",
+            "serial": "284",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "expected_mbd_frame": 48,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            22
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              22
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/85",
+            "previous": "3/22",
+            "bank": "w03_00",
+            "motion": "10",
+            "frame": "36.004",
+            "phase": "0",
+            "first": "129",
+            "main": "101"
+          },
+          "prefix": {
+            "move": "RollStepSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "129",
+            "timeline": "101",
+            "frame": "5.000",
+            "instance": "443",
+            "serial": "289",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "first_main": {
+            "move": "RollStepSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "101",
+            "timeline": "101",
+            "frame": "48.000",
+            "instance": "444",
+            "serial": "289",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "expected_mbd_frame": 48,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N53-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 54,
+      "observed_previous_identities": [
+        [
+          3,
+          32
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-impact-matrix.json",
+          "previous_identity": [
+            3,
+            32
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              32
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/85",
+            "previous": "3/32",
+            "bank": "w03_00",
+            "motion": "63",
+            "frame": "2.000",
+            "phase": "0",
+            "first": "131",
+            "main": "101"
+          },
+          "prefix": {
+            "move": "StepSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "131",
+            "timeline": "101",
+            "frame": "0.000",
+            "instance": "36",
+            "serial": "69",
+            "gauge_start": "42.000",
+            "gauge": "42.000"
+          },
+          "first_main": {
+            "move": "StepSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "101",
+            "timeline": "101",
+            "frame": "48.000",
+            "instance": "37",
+            "serial": "69",
+            "gauge_start": "42.000",
+            "gauge": "42.000"
+          },
+          "expected_mbd_frame": 48,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N60-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 12,
+      "observed_previous_identities": [
+        [
+          3,
+          32
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-impact-matrix.json",
+          "previous_identity": [
+            3,
+            32
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              32
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/11",
+            "previous": "3/32",
+            "bank": "w03_00",
+            "motion": "63",
+            "frame": "2.000",
+            "phase": "0",
+            "first": "152",
+            "main": "104"
+          },
+          "prefix": {
+            "move": "SpiritI",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "152",
+            "timeline": "104",
+            "frame": "0.000",
+            "instance": "39",
+            "serial": "74",
+            "gauge_start": "68.000",
+            "gauge": "53.000"
+          },
+          "first_main": {
+            "move": "SpiritI",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "104",
+            "timeline": "104",
+            "frame": "44.000",
+            "instance": "40",
+            "serial": "74",
+            "gauge_start": "68.000",
+            "gauge": "53.000"
+          },
+          "expected_mbd_frame": 44,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N60-P1",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 12,
+      "observed_previous_identities": [
+        [
+          3,
+          30
+        ],
+        [
+          3,
+          31
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 2,
+      "samples": [
+        {
+          "report": "PIE-r06-impact-matrix.json",
+          "previous_identity": [
+            3,
+            30
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              30
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/11",
+            "previous": "3/30",
+            "bank": "w03_00",
+            "motion": "61",
+            "frame": "2.482",
+            "phase": "1",
+            "first": "132",
+            "main": "104"
+          },
+          "prefix": {
+            "move": "SpiritI",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "132",
+            "timeline": "104",
+            "frame": "0.000",
+            "instance": "27",
+            "serial": "54",
+            "gauge_start": "52.000",
+            "gauge": "37.000"
+          },
+          "first_main": {
+            "move": "SpiritI",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "104",
+            "timeline": "104",
+            "frame": "44.000",
+            "instance": "28",
+            "serial": "54",
+            "gauge_start": "52.000",
+            "gauge": "37.000"
+          },
+          "expected_mbd_frame": 44,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-impact-matrix.json",
+          "previous_identity": [
+            3,
+            31
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              31
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/11",
+            "previous": "3/31",
+            "bank": "w03_00",
+            "motion": "62",
+            "frame": "2.000",
+            "phase": "1",
+            "first": "132",
+            "main": "104"
+          },
+          "prefix": {
+            "move": "SpiritI",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "132",
+            "timeline": "104",
+            "frame": "0.000",
+            "instance": "33",
+            "serial": "64",
+            "gauge_start": "47.000",
+            "gauge": "32.000"
+          },
+          "first_main": {
+            "move": "SpiritI",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "104",
+            "timeline": "104",
+            "frame": "44.000",
+            "instance": "34",
+            "serial": "64",
+            "gauge_start": "47.000",
+            "gauge": "32.000"
+          },
+          "expected_mbd_frame": 44,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N76-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          102
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            102
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              102
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/87",
+            "previous": "3/102",
+            "bank": "w03_00",
+            "motion": "309",
+            "frame": "71.291",
+            "phase": "0",
+            "first": "357",
+            "main": "170"
+          },
+          "prefix": {
+            "move": "SpiritThrust",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "357",
+            "timeline": "170",
+            "frame": "0.000",
+            "instance": "409",
+            "serial": "210",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "first_main": {
+            "move": "SpiritThrust",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "170",
+            "timeline": "170",
+            "frame": "50.000",
+            "instance": "410",
+            "serial": "210",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "expected_mbd_frame": 50,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N76-P1",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          102
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            102
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              102
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/87",
+            "previous": "3/102",
+            "bank": "w03_00",
+            "motion": "311",
+            "frame": "71.611",
+            "phase": "1",
+            "first": "367",
+            "main": "170"
+          },
+          "prefix": {
+            "move": "SpiritThrust",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "367",
+            "timeline": "170",
+            "frame": "0.000",
+            "instance": "427",
+            "serial": "264",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "first_main": {
+            "move": "SpiritThrust",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "170",
+            "timeline": "170",
+            "frame": "66.000",
+            "instance": "428",
+            "serial": "264",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "expected_mbd_frame": 66,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N77-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          101
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            101
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              101
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/81",
+            "previous": "3/101",
+            "bank": "w03_00",
+            "motion": "307",
+            "frame": "61.002",
+            "phase": "0",
+            "first": "358",
+            "main": "102"
+          },
+          "prefix": {
+            "move": "OverheadSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "358",
+            "timeline": "102",
+            "frame": "0.000",
+            "instance": "350",
+            "serial": "89",
+            "gauge_start": "12.000",
+            "gauge": "12.000"
+          },
+          "first_main": {
+            "move": "OverheadSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "102",
+            "timeline": "102",
+            "frame": "33.000",
+            "instance": "351",
+            "serial": "89",
+            "gauge_start": "12.000",
+            "gauge": "12.000"
+          },
+          "expected_mbd_frame": 33,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N78-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          101
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            101
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              101
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/79",
+            "previous": "3/101",
+            "bank": "w03_00",
+            "motion": "307",
+            "frame": "61.005",
+            "phase": "0",
+            "first": "359",
+            "main": "105"
+          },
+          "prefix": {
+            "move": "Thrust",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "359",
+            "timeline": "105",
+            "frame": "0.000",
+            "instance": "353",
+            "serial": "94",
+            "gauge_start": "12.000",
+            "gauge": "12.000"
+          },
+          "first_main": {
+            "move": "Thrust",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "105",
+            "timeline": "105",
+            "frame": "22.000",
+            "instance": "354",
+            "serial": "94",
+            "gauge_start": "12.000",
+            "gauge": "12.000"
+          },
+          "expected_mbd_frame": 22,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N79-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          101
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            101
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              101
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/84",
+            "previous": "3/101",
+            "bank": "w03_00",
+            "motion": "307",
+            "frame": "61.001",
+            "phase": "0",
+            "first": "360",
+            "main": "103"
+          },
+          "prefix": {
+            "move": "FadeSlash",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "360",
+            "timeline": "103",
+            "frame": "0.000",
+            "instance": "356",
+            "serial": "99",
+            "gauge_start": "12.000",
+            "gauge": "12.000"
+          },
+          "first_main": {
+            "move": "FadeSlash",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "103",
+            "timeline": "103",
+            "frame": "20.000",
+            "instance": "357",
+            "serial": "99",
+            "gauge_start": "12.000",
+            "gauge": "12.000"
+          },
+          "expected_mbd_frame": 20,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N80-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          101
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            101
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              101
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/83",
+            "previous": "3/101",
+            "bank": "w03_00",
+            "motion": "307",
+            "frame": "64.001",
+            "phase": "0",
+            "first": "361",
+            "main": "127"
+          },
+          "prefix": {
+            "move": "FadeSlashRight",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "361",
+            "timeline": "127",
+            "frame": "0.000",
+            "instance": "399",
+            "serial": "185",
+            "gauge_start": "9.000",
+            "gauge": "9.000"
+          },
+          "first_main": {
+            "move": "FadeSlashRight",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "127",
+            "timeline": "127",
+            "frame": "22.000",
+            "instance": "400",
+            "serial": "185",
+            "gauge_start": "9.000",
+            "gauge": "9.000"
+          },
+          "expected_mbd_frame": 22,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N81-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          101
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            101
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              101
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/82",
+            "previous": "3/101",
+            "bank": "w03_00",
+            "motion": "307",
+            "frame": "64.003",
+            "phase": "0",
+            "first": "362",
+            "main": "128"
+          },
+          "prefix": {
+            "move": "FadeSlashLeft",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "362",
+            "timeline": "128",
+            "frame": "0.000",
+            "instance": "402",
+            "serial": "190",
+            "gauge_start": "9.000",
+            "gauge": "9.000"
+          },
+          "first_main": {
+            "move": "FadeSlashLeft",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "128",
+            "timeline": "128",
+            "frame": "24.000",
+            "instance": "403",
+            "serial": "190",
+            "gauge_start": "9.000",
+            "gauge": "9.000"
+          },
+          "expected_mbd_frame": 24,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N82-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          101
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            101
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              101
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/11",
+            "previous": "3/101",
+            "bank": "w03_00",
+            "motion": "307",
+            "frame": "51.003",
+            "phase": "0",
+            "first": "363",
+            "main": "104"
+          },
+          "prefix": {
+            "move": "SpiritI",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "363",
+            "timeline": "104",
+            "frame": "0.000",
+            "instance": "360",
+            "serial": "108",
+            "gauge_start": "35.000",
+            "gauge": "20.000"
+          },
+          "first_main": {
+            "move": "SpiritI",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "104",
+            "timeline": "104",
+            "frame": "42.000",
+            "instance": "361",
+            "serial": "108",
+            "gauge_start": "35.000",
+            "gauge": "20.000"
+          },
+          "expected_mbd_frame": 42,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N83-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          101
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            101
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              101
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/87",
+            "previous": "3/101",
+            "bank": "w03_00",
+            "motion": "307",
+            "frame": "51.005",
+            "phase": "0",
+            "first": "364",
+            "main": "170"
+          },
+          "prefix": {
+            "move": "SpiritThrust",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "364",
+            "timeline": "170",
+            "frame": "0.000",
+            "instance": "416",
+            "serial": "230",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "first_main": {
+            "move": "SpiritThrust",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "170",
+            "timeline": "170",
+            "frame": "30.000",
+            "instance": "417",
+            "serial": "230",
+            "gauge_start": "23.000",
+            "gauge": "23.000"
+          },
+          "expected_mbd_frame": 30,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N84-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          104
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            104
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              104
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/67",
+            "previous": "3/104",
+            "bank": "w03_00",
+            "motion": "338",
+            "frame": "45.002",
+            "phase": "0",
+            "first": "365",
+            "main": "106"
+          },
+          "prefix": {
+            "move": "SpiritII",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "365",
+            "timeline": "106",
+            "frame": "0.000",
+            "instance": "369",
+            "serial": "124",
+            "gauge_start": "28.000",
+            "gauge": "13.000"
+          },
+          "first_main": {
+            "move": "SpiritII",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "106",
+            "timeline": "106",
+            "frame": "32.000",
+            "instance": "370",
+            "serial": "124",
+            "gauge_start": "28.000",
+            "gauge": "13.000"
+          },
+          "expected_mbd_frame": 32,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N85-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 2,
+      "observed_previous_identities": [
+        [
+          3,
+          105
+        ],
+        [
+          3,
+          106
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 2,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            105
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              105
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/67",
+            "previous": "3/105",
+            "bank": "w03_00",
+            "motion": "340",
+            "frame": "45.004",
+            "phase": "0",
+            "first": "365",
+            "main": "106"
+          },
+          "prefix": {
+            "move": "SpiritII",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "365",
+            "timeline": "106",
+            "frame": "0.000",
+            "instance": "374",
+            "serial": "134",
+            "gauge_start": "21.000",
+            "gauge": "6.000"
+          },
+          "first_main": {
+            "move": "SpiritII",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "106",
+            "timeline": "106",
+            "frame": "32.000",
+            "instance": "375",
+            "serial": "134",
+            "gauge_start": "21.000",
+            "gauge": "6.000"
+          },
+          "expected_mbd_frame": 32,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        },
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            106
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              106
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/67",
+            "previous": "3/106",
+            "bank": "w03_00",
+            "motion": "339",
+            "frame": "45.004",
+            "phase": "0",
+            "first": "365",
+            "main": "106"
+          },
+          "prefix": {
+            "move": "SpiritII",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "365",
+            "timeline": "106",
+            "frame": "0.000",
+            "instance": "380",
+            "serial": "147",
+            "gauge_start": "37.000",
+            "gauge": "22.000"
+          },
+          "first_main": {
+            "move": "SpiritII",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "106",
+            "timeline": "106",
+            "frame": "32.000",
+            "instance": "381",
+            "serial": "147",
+            "gauge_start": "37.000",
+            "gauge": "22.000"
+          },
+          "expected_mbd_frame": 32,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N86-P0",
+      "status": "static_unreachable_negative_verified",
+      "native_identity_record_count": 0,
+      "observed_previous_identities": [],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 0,
+      "samples": [],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N87-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          109
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            109
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              109
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/68",
+            "previous": "3/109",
+            "bank": "w03_00",
+            "motion": "342",
+            "frame": "45.002",
+            "phase": "0",
+            "first": "366",
+            "main": "108"
+          },
+          "prefix": {
+            "move": "SpiritIII",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "366",
+            "timeline": "108",
+            "frame": "0.000",
+            "instance": "396",
+            "serial": "180",
+            "gauge_start": "29.000",
+            "gauge": "9.000"
+          },
+          "first_main": {
+            "move": "SpiritIII",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "108",
+            "timeline": "108",
+            "frame": "14.000",
+            "instance": "397",
+            "serial": "180",
+            "gauge_start": "29.000",
+            "gauge": "9.000"
+          },
+          "expected_mbd_frame": 14,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N88-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          107
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            107
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              107
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/68",
+            "previous": "3/107",
+            "bank": "w03_00",
+            "motion": "341",
+            "frame": "45.000",
+            "phase": "0",
+            "first": "366",
+            "main": "108"
+          },
+          "prefix": {
+            "move": "SpiritIII",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "366",
+            "timeline": "108",
+            "frame": "0.000",
+            "instance": "385",
+            "serial": "157",
+            "gauge_start": "30.000",
+            "gauge": "10.000"
+          },
+          "first_main": {
+            "move": "SpiritIII",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "108",
+            "timeline": "108",
+            "frame": "14.000",
+            "instance": "386",
+            "serial": "157",
+            "gauge_start": "30.000",
+            "gauge": "10.000"
+          },
+          "expected_mbd_frame": 14,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    },
+    {
+      "id": "R06-N89-P0",
+      "status": "representative_pipeline_runtime_verified",
+      "native_identity_record_count": 1,
+      "observed_previous_identities": [
+        [
+          3,
+          108
+        ]
+      ],
+      "ambiguous_candidate_sets": [],
+      "sample_count": 1,
+      "samples": [
+        {
+          "report": "PIE-r06-connections.json",
+          "previous_identity": [
+            3,
+            108
+          ],
+          "previous_identity_candidates": [
+            [
+              3,
+              108
+            ]
+          ],
+          "exact_previous_identity": true,
+          "entry": {
+            "target": "3/68",
+            "previous": "3/108",
+            "bank": "w03_00",
+            "motion": "343",
+            "frame": "45.001",
+            "phase": "0",
+            "first": "366",
+            "main": "108"
+          },
+          "prefix": {
+            "move": "SpiritIII",
+            "connector": "1",
+            "bank": "w03_00",
+            "body": "366",
+            "timeline": "108",
+            "frame": "0.000",
+            "instance": "391",
+            "serial": "170",
+            "gauge_start": "41.000",
+            "gauge": "21.000"
+          },
+          "first_main": {
+            "move": "SpiritIII",
+            "connector": "0",
+            "bank": "w03_00",
+            "body": "108",
+            "timeline": "108",
+            "frame": "14.000",
+            "instance": "392",
+            "serial": "170",
+            "gauge_start": "41.000",
+            "gauge": "21.000"
+          },
+          "expected_mbd_frame": 14,
+          "same_execution_new_instance": true,
+          "no_second_charge_observed": true
+        }
+      ],
+      "boundary": "Representative actual project route and MBD clock only; no blanket full incoming-owner, original mode0, or native input-window certification"
+    }
+  ],
+  "remaining": "N53/N60 other owners/phase boundaries, Action78 predecessor for332/333/334, native mode0 MotionTree and R07 input semantics remain separate open work"
+}

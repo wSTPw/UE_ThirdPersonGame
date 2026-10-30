@@ -4,7 +4,12 @@
 
 | ID | 日期 | 主题 | 状态 |
 | --- | --- | --- | --- |
+| CHG-20261028-001 | 2026-10-28 | [MHWI太刀/刀鞘原版父骨选择、背部配置与导入坐标修复](CHG-20261028-001-mhwi-native-equipment-mount.md) | partial，源码和编译完成，用户验收待进行；未执行自动PIE握持验收，原生旋转补偿/扩展状态保留 |
+| CHG-20261027-007 | 2026-10-27 | [MHWI太刀攻击姿态右手握点约束](CHG-20261027-007-mhwi-hand-grip-ik.md) | completed（项目适配）；Editor构建通过；38项动画消费者PIE及30 FPS武器交接PIE 3750项检查通过 |
+| CHG-20261027-006 | 2026-10-27 | [MHWI忠实还原重构审查提案与官方方案先行约定](CHG-20261027-006-mhwi-fidelity-refactor-proposal.md) | completed（文档/规则）；提出有来源候选及决策门，未选架构、未改玩法代码/资产 |
 | CHG-20261027-005 | 2026-10-27 | [武器碰撞/加载链证据JSON归档到已跟踪目录](CHG-20261027-005-mhwi-evidence-json-archive.md) | completed（归档）；副本入库、脚本输出改到Tools/MHW，取证结论未复现 |
+| CHG-20261027-004 | 2026-10-27 | [翻滚阻断、六段过渡与四链IK实装及调试](CHG-20261027-004-mhwi-roll-locomotion-ik.md) | partial，项目消费者实装；6轮PIE通过、完整原生边界保留 |
+| CHG-20261027-003 | 2026-10-27 | [R06/R28/R30专项验收](CHG-20261027-003-mhwi-r06-r28-r30-acceptance.md) | completed（审查）；三项完整交付不通过，87行/75动画文件存在性核对，历史运行报告缺失，未启动UE/PIE |
 | CHG-20261027-002 | 2026-10-27 | [MHWI碰撞加载工厂追踪与可用性裁决](CHG-20261027-002-mhwi-collision-loader-trace.md) | completed（静态追到 `cCollNodePl`）；几何/Bone映射未闭合，原作数据暂不可直接作为实现依据 |
 | CHG-20261027-001 | 2026-10-27 | [R06/R28/R30动画全集覆盖处理与交接](CHG-20261027-001-mhwi-animation-coverage.md) | partial，R06修复及14项PIE通过；R28/R30数据层与逐项处置，全部运行覆盖未完成 |
 | CHG-20261026-011 | 2026-10-26 | [MHWI太刀武器碰撞静态取证](CHG-20261026-011-mhwi-weapon-collision-evidence.md) | completed（离线关联完成）；形状/骨骼空间/运行时消费者未闭合，R18保持取证中 |

@@ -45,7 +45,8 @@ def finish(error=None):
     if error:
         report['error'] = error
         unreal.log_error(error)
-    output = Path(unreal.Paths.project_saved_dir(), 'MHWIRestoration/B19-20261026/PIE-r06-repairs.json')
+    output = Path(unreal.Paths.project_saved_dir(), globals().get('MHWI_REPORT_PATH',
+        'MHWIRestoration/B19-20261026/PIE-r06-repairs.json'))
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(report, indent=2), encoding='utf-8')
     settings.set_editor_property('bThrottleCPUWhenNotForeground', state['throttle'])

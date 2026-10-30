@@ -17,6 +17,7 @@
 
 Retargeter 使用 UE5.8 默认操作栈与独立目标姿态 `Ninja_APose`，通过 chain_to_chain 自动对齐。Root Motion 操作必须显式设置 SourceRoot=Root、TargetRoot=Root、TargetPelvis=Hips，RootMotionSource=CopyFromSourceRoot、RootHeightSource=CopyHeightFromSource；单独设置 Rig.rootMotionBone 并不会自动填充这些操作字段。制作阶段最初空字段警告已通过这次显式配置处理。
 
+
 按用户后续要求，当前移动使用Rootmotion版本，四个攻击、Throw_A及三条待机输出同样启用根运动提取。26条正式使用的Ninja Sequence配置bEnableRootMotion=true、bForceRootLock=false、RootMotionRootLock=AnimFirstFrame；提取后姿态的根锁到首帧，由CharacterMovement消费真实根轨迹、移动胶囊并处理碰撞与重力。攻击现在会带动角色位移，不能再按首轮“仅模型原地播放”理解。原始资源和IPC输出保留，未伪造Root轨迹；MM尚未接入。
 
 ## Root Motion蓝图输入

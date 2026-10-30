@@ -1,5 +1,11 @@
 # R06连接动画逐条开发台账
 
+## B20当前补充（2026-10-27）
+
+[B20开发与调试](../Reference/MHWI-B20-Animation-Development-20261027.md)：修复真实翻滚动态Montage零时长阻断，并让014/015真实拥有者优先于旧翻滚缓存；新增只读入口诊断。S/M/L两种姿态的Light/Spirit真实来源恢复12例/95检查通过，不能据此给32引用全部盖章。`co00_00_181/182`已复核为B10附带失败且非必需请求，排除出必需缺口；N86仍为无入边负例。逐引用历史CSV及机器policy不改写成新运行认证。
+
+当前[2026-10-27专项验收](../Reference/MHWI-R06-R28-R30-Acceptance-20261027.md)：R06保持部分完成，One0=0后备/受击恢复/菜单缓存的源码修复可确认；本检出缺B19构建日志与14项PIE报告，下文“通过”仅为历史交付声明，本次未复核。32引用完整运行与原生mode0/来源缺口不因此关闭；N86保持不可达。
+
 更新：2026-10-27 B19。**R06仍部分完成：已修武器One0=0播放前拒绝、真实受击来源合法恢复和菜单来源缓存/内部提交阻断；此前两次构建Succeeded，代表性PIE 14/14通过。** 项目UE BlendIn后备不等于原生mode0完成；N53/N60完整来源、332/333/334真实Action78前置、common181/182及32引用逐条运行仍开放，N86继续不可达。见[B19交接](../Changes/CHG-20261027-001-mhwi-animation-coverage.md)。
 
 关联：[B10现状](../Reference/MHWI-R06-Remaining-Development.md)、[B10记录](../Changes/CHG-20261025-005-mhwi-r06-remaining.md)、[CSV](MHWI-Connector-Progress.csv)、[后续验收要求](MHWI-Connector-Acceptance.md)。B04至B09历史保留，不改写为此次通过。

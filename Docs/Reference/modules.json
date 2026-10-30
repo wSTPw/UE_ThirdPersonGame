@@ -395,7 +395,19 @@
         "Scripts/MHWI/pie_r28_preview.py",
         "Scripts/MHWI/author_equipment_ik.py",
         "Scripts/MHWI/mcp_animation.mjs",
-        "Tools/MHW/animation-coverage-decisions.json"
+        "Tools/MHW/animation-coverage-decisions.json",
+        "Scripts/MHWI/author_remaining_animation.py",
+        "Scripts/MHWI/extract_locomotion_consumers.py",
+        "Scripts/MHWI/pie_remaining_animation.py",
+        "Scripts/MHWI/pie_r06_impact_matrix.py",
+        "Tools/MHW/native-locomotion-evidence.json",
+        "Tools/MHW/b20-animation-graph.json",
+        "Scripts/MHWI/collect_animation_verification.py",
+        "Tools/MHW/b20-animation-runtime-evidence.json",
+        "Scripts/MHWI/build_native_mount_data.py",
+        "Source/IntroCpp/MHWI/MHWINativeMountData.inl",
+        "Tools/MHW/native-mount-curves.json",
+        "Docs/Reference/MHWI-Native-Mount-20261028.md"
       ],
       "interface_ids": [
         "DAMAGE-001",
@@ -449,7 +461,9 @@
         "Scripts/MHWI/pie_keyboard_adaptation.py",
         "Scripts/MHWI/audit_animation_coverage.py",
         "Scripts/MHWI/pie_r06_repairs.py",
-        "Scripts/MHWI/pie_r28_preview.py"
+        "Scripts/MHWI/pie_r28_preview.py",
+        "Scripts/MHWI/pie_remaining_animation.py",
+        "Scripts/MHWI/pie_r06_impact_matrix.py"
       ]
     }
   ]

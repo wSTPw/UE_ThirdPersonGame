@@ -6,7 +6,7 @@ import unreal
 
 ASSET_PATH = '/Game/MHWI/Data/DA_MHWI_EquipmentIK_Profile'
 ABP_PATH = '/Game/MHWI/Blueprints/ABP_MHWI_Hunter'
-OUT = Path(unreal.Paths.project_saved_dir(), 'MHWIRestoration/B19-20261026/equipment-ik-profile.json')
+OUT = Path(unreal.Paths.project_saved_dir(), 'MHWIRestoration/B20-20261027/equipment-ik-profile.json')
 
 
 def set_chain(profile, field, root, mid, end):

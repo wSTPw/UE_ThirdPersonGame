@@ -9,6 +9,54 @@
 #include "Engine/SkeletalMesh.h"
 #include "UObject/UObjectGlobals.h"
 
+namespace
+{
+    UAnimMontage* CopyNativePlaybackMontage(UAnimMontage* Source, UObject* Owner)
+    {
+        if (!Source) return nullptr;
+        if (!Source->IsDynamicMontage()) return DuplicateObject<UAnimMontage>(Source, Owner);
+        // A dynamically created montage has a runtime SequenceLength but no
+        // authored editor data-model length. DuplicateObject into a PIE actor
+        // resets that length to zero (B20 actual 1.333333 -> 0). Recreate via
+        // the engine's supported factory, keeping it transient and strongly
+        // referenced by ActiveMontage/NativeMainMontage. Never invent a length.
+        if (Source->SlotAnimTracks.Num() != 1) return nullptr;
+        const FSlotAnimationTrack& Track = Source->SlotAnimTracks[0];
+        if (Track.AnimTrack.AnimSegments.Num() != 1) return nullptr;
+        const FAnimSegment& Segment = Track.AnimTrack.AnimSegments[0];
+        UAnimSequenceBase* Sequence = Segment.GetAnimReference();
+        if (!Sequence || Segment.LoopingCount != 1 || !FMath::IsNearlyZero(Segment.AnimStartTime)
+            || !FMath::IsNearlyEqual(Segment.AnimEndTime, Sequence->GetPlayLength())
+            || !FMath::IsNearlyEqual(Segment.AnimPlayRate, 1.f) || !Source->Notifies.IsEmpty()) return nullptr;
+        UAnimMontage* Copy = UAnimMontage::CreateSlotAnimationAsDynamicMontage(Sequence,
+            Track.SlotName, Source->BlendIn.GetBlendTime(), Source->BlendOut.GetBlendTime(),
+            1.f, 1, Source->BlendOutTriggerTime);
+        if (Copy)
+        {
+            Copy->bEnableAutoBlendOut = Source->bEnableAutoBlendOut;
+            Copy->RateScale = Source->RateScale;
+        }
+        return Copy;
+    }
+}
+
+FString AMHWICharacter::GetNativePlaybackDiagnostic() const
+{
+    check(IsInGameThread());
+    UAnimInstance* Anim = GetMesh() ? GetMesh()->GetAnimInstance() : nullptr;
+    UAnimMontage* Carrier = ActiveMontage ? ActiveMontage.Get() : NativeSourceMontage.Get();
+    const int32 InstanceId = ActiveMontage ? ActiveMontageInstanceId : NativeSourceInstanceId;
+    const FAnimMontageInstance* Instance = Anim ? Anim->GetMontageInstanceForID(InstanceId) : nullptr;
+    MHWI::Native::FMotionSample Sample;
+    if (!Carrier || !Instance || Instance->Montage != Carrier
+        || !MHWI::Native::ReadMotion(Carrier, Instance->GetPosition(), Sample)) return TEXT("none");
+    return FString::Printf(
+        TEXT("move=%s connector=%d bank=%s body=%d timeline=%d frame=%.3f instance=%d serial=%u gauge_start=%.3f gauge=%.3f"),
+        *GetCurrentMove().ToString(), bNativeConnector ? 1 : 0, *Sample.Bank.ToString(),
+        Sample.Motion, NativeTimelineMotion, Sample.Frame, InstanceId, ExecutionSerial,
+        CapturedSpiritGauge, SpiritGauge);
+}
+
 uint32 AMHWICharacter::BindNativeActionSource(UAnimMontage* Montage, int32 InstanceId,
     MHWI::Native::FActionIdentity Identity)
 {
@@ -53,7 +101,9 @@ void AMHWICharacter::ReleaseNativeActionSource(uint32 BindingToken)
 bool AMHWICharacter::PrepareNativeLink(FName MoveId, UAnimMontage* Main, FNativeLinkStart& Out)
 {
     using namespace MHWI::Native;
+    LastNativeEntryDiagnostic.Reset();
     if (!Main || bNativeConnector) return false;
+    UMHWIAnimInstance* BaseAnim = Cast<UMHWIAnimInstance>(GetMesh()->GetAnimInstance());
     Out.TargetNode = GetMoveNode(MoveId, bSheathed);
     int32 PreviousNode = NativeActionNode;
     if (ActiveMontage)
@@ -90,6 +140,7 @@ bool AMHWICharacter::PrepareNativeLink(FName MoveId, UAnimMontage* Main, FNative
         Out.bExactPreviousIdentity = true;
     }
     else if (MoveId == FName(TEXT("RollStepSlash")) && CanUseRollRecovery()
+        && (!BaseAnim || !BaseAnim->bLocomotionTransitionActive)
         && NativeRollRecoverySample.Motion != INDEX_NONE)
     {
         PreviousNode = NativeRollRecoveryNode;
@@ -100,9 +151,15 @@ bool AMHWICharacter::PrepareNativeLink(FName MoveId, UAnimMontage* Main, FNative
         if (UMHWIAnimInstance* Anim = Cast<UMHWIAnimInstance>(GetMesh()->GetAnimInstance()))
             if (Anim->ReadNativeBaseMotion(Out.Previous))
             {
-                // Actual project locomotion owner: native registry IDLE/WALK.
-                // Missing original turn/end actions remain R28, never aliases.
+                // Use the actual current locomotion owner. A completed roll's
+                // cached identity cannot override its now-playing 014/015 exit.
                 Out.PreviousIdentity = {3, Anim->Speed > KINDA_SMALL_NUMBER ? 1 : 0};
+                if (Anim->bLocomotionTransitionActive && Anim->LocomotionTransitionMotion == 8)
+                    Out.PreviousIdentity = {3, 2}; // Actual WALK_END owner, not an IDLE alias.
+                if (Anim->bLocomotionTransitionActive && Anim->LocomotionTransitionMotion == 14)
+                    Out.PreviousIdentity = {3, 65};
+                if (Anim->bLocomotionTransitionActive && Anim->LocomotionTransitionMotion == 15)
+                    Out.PreviousIdentity = {3, 66};
                 Out.bExactPreviousIdentity = true;
             }
     }
@@ -139,6 +196,11 @@ bool AMHWICharacter::PrepareNativeLink(FName MoveId, UAnimMontage* Main, FNative
             || Other.BlendPrevious.Frame != Plan.BlendPrevious.Frame) return false;
     }
     Out.Entry = Plan.Link;
+    LastNativeEntryDiagnostic = FString::Printf(
+        TEXT("target=%d/%d previous=%d/%d bank=%s motion=%d frame=%.3f phase=%d first=%d main=%d"),
+        Target.Group, Target.Action, PreviousIds[0].Group, PreviousIds[0].Action,
+        *Out.Previous.Bank.ToString(), Out.Previous.Motion, Out.Previous.Frame,
+        SampleLinkPhase(Out.Previous), Plan.First.Motion, Out.MainMotion);
     Out.bFollowMain = Plan.bFollowMain;
     Out.bContinuePrevious = Plan.bContinuePrevious;
     Out.FirstRequest = Plan.First;
@@ -223,7 +285,7 @@ bool AMHWICharacter::BeginNativeLink(const FNativeLinkStart& Start)
     {
         if (Start.FirstRequest.Blend.IsSet())
         {
-            UAnimMontage* Main = DuplicateObject<UAnimMontage>(ActiveMontage, this);
+            UAnimMontage* Main = CopyNativePlaybackMontage(ActiveMontage, this);
             if (!Main) return false;
             if (!ApplyNativeBlend(Main, Start.FirstRequest.Blend)) return false;
             ActiveMontage = Main;
@@ -323,7 +385,7 @@ bool AMHWICharacter::CommitNativeMain(const MHWI::Native::FPlaybackRequest& Requ
         FinishMove(true, true);
         return false;
     }
-    UAnimMontage* Main = DuplicateObject<UAnimMontage>(NativeMainMontage, this);
+    UAnimMontage* Main = CopyNativePlaybackMontage(NativeMainMontage, this);
     if (!Main) { FinishMove(true, true); return false; }
     // Replace the physical root-motion carrier at full weight; the proxy owns
     // the qualified linear displayed-pose interpolation on the owner clock.

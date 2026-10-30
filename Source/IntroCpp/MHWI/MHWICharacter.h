@@ -90,6 +90,14 @@ public:
     UFUNCTION(BlueprintCallable, Category="MHWI|Input") void SetInputBlocked(bool bBlocked);
     UFUNCTION(BlueprintPure, Category="MHWI|Input") bool IsInputBlocked() const { return bInputBlocked; }
     UFUNCTION(BlueprintPure, Category="MHWI") EMHWIControlState GetControlState() const { return ControlState; }
+    /** Natural end of a real drawn roll only; no debug setter or fabricated source. */
+    UFUNCTION(BlueprintPure, Category="MHWI|Locomotion") int32 GetNaturalRollCompletionSerial() const { return static_cast<int32>(NaturalRollCompletionSerial); }
+    /** Diagnostic only: last rejected move-start stage; never affects permission. */
+    UFUNCTION(BlueprintPure, Category="MHWI|Debug") FString GetLastMoveStartFailure() const { return LastMoveStartFailure; }
+    /** Read-only accepted R06 entry plan; never authorizes an action. */
+    UFUNCTION(BlueprintPure, Category="MHWI|Debug") FString GetLastNativeEntryDiagnostic() const { return LastNativeEntryDiagnostic; }
+    /** Actual bound montage instance clock; distinguishes prefix from main. */
+    UFUNCTION(BlueprintPure, Category="MHWI|Debug") FString GetNativePlaybackDiagnostic() const;
     /** Latest resolved hit, including explicit Unavailable stages (R22). */
     UFUNCTION(BlueprintPure, Category="MHWI|Combat") FMHWIResolvedHit GetLastResolvedHit() const { return LastResolvedHit; }
     /** Game-thread handoff from a real native action owner. Returns a nonzero
@@ -131,7 +139,6 @@ public:
     UFUNCTION(BlueprintPure, Category="MHWI") float GetRollProtectionFramesRemaining() const { return RollProtectionFramesRemaining; }
     UFUNCTION(BlueprintPure, Category="MHWI") int32 GetPendingHelmShellCount() const { return HelmDelayedHits.Num(); }
     UFUNCTION(BlueprintPure, Category="MHWI") int32 GetPendingIaiShellCount() const { return IaiDelayedHit.IsSet() ? 1 : 0; }
-
 protected:
     virtual void BeginPlay() override;
 
@@ -266,6 +273,9 @@ private:
 
     /** Roll -> Light recovery route, scoped by time and to a drawn weapon only. */
     FName RollRecoveryMove;
+    uint32 NaturalRollCompletionSerial = 0;
+    FString LastMoveStartFailure;
+    FString LastNativeEntryDiagnostic;
     float RollRecoveryExpiresAt = -1.f;
     /** Drawn state sampled at Roll start; a sheathed Roll never consumes that route. */
     bool bRollStartedDrawn = false;

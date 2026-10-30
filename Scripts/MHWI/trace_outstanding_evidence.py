@@ -89,12 +89,11 @@ class Evidence:
                 result.append(dict(target=hex(target), va=hex(va), function=f))
         return result
 
-    def actions(self):
+    def actions(self, bank=3, table=0x142ef5c30, indices=None):
         records = []
-        for bank, table, count in [(3,0x142ef5c30,113)]:
-            for action in range(count):
-                records.append(dict(bank=bank, action=action, dti=hex(self.u(table+32*action+8)),
-                                    name=self.string(self.u(table+32*action+24))))
+        for action in range(113) if indices is None else indices:
+            records.append(dict(bank=bank, action=action, dti=hex(self.u(table+32*action+8)),
+                                name=self.string(self.u(table+32*action+24))))
         targets = {int(r['dti'],16) for r in records}
         registrations = {}
         for ref in self.lea_refs(targets):

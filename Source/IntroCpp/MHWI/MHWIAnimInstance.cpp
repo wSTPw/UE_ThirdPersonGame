@@ -1,7 +1,6 @@
 #include "MHWIAnimInstance.h"
 #include "MHWICharacter.h"
 #include "MHWIEquipmentIKProfile.h"
-#include "MHWIWeaponAttachment.h"
 #include "AttributeComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Components/SkeletalMeshComponent.h"
@@ -187,7 +186,70 @@ void UMHWIAnimInstance::NativeUpdateAnimation(float DeltaSeconds)
     bDead = Character->Attributes && !Character->Attributes->IsAlive();
     bInAction = !Character->GetCurrentMove().IsNone();
     bSpecialSheathHold = Character->IsSpecialSheathHolding();
+    UpdateLocomotionTransition(*Character, DeltaSeconds, PreviousSpeed);
     UpdateEquipmentIK(*Character);
+}
+
+void UMHWIAnimInstance::UpdateLocomotionTransition(const AMHWICharacter& Character, float DeltaSeconds, float PreviousSpeed)
+{
+    const UCharacterMovementComponent* Movement = Character.GetCharacterMovement();
+    const FVector Intent = Movement ? Movement->GetCurrentAcceleration().GetSafeNormal2D() : FVector::ZeroVector;
+    const bool bIntent = !Intent.IsNearlyZero();
+    const int32 RollSerial = Character.GetNaturalRollCompletionSerial();
+    const bool bFinishedRealRoll = RollSerial != LastNaturalRollCompletionSerial;
+    LastNaturalRollCompletionSerial = RollSerial;
+    const bool bEligible = Movement && Movement->IsMovingOnGround() && !bSheathed
+        && !bDead && !bInAction && !Character.IsInputBlocked();
+    if (!bEligible)
+    {
+        bLocomotionTransitionActive = false;
+        bWasLocomotionEligible = bHadLocomotionIntent = false;
+        return;
+    }
+
+    if (bLocomotionTransitionActive)
+    {
+        LocomotionTransitionTime = FMath::Min(LocomotionTransitionTime + FMath::Max(0.f, DeltaSeconds),
+            LocomotionTransitionSequence ? LocomotionTransitionSequence->GetPlayLength() : 0.f);
+        if (!LocomotionTransitionSequence || LocomotionTransitionTime >= LocomotionTransitionSequence->GetPlayLength())
+            bLocomotionTransitionActive = false;
+    }
+
+    auto Begin = [this](int32 Motion)
+    {
+        const TObjectPtr<UAnimSequence>* Sequence = LocomotionTransitionClips.Find(Motion);
+        if (!Sequence || !*Sequence) return;
+        LocomotionTransitionSequence = *Sequence;
+        LocomotionTransitionMotion = Motion;
+        LocomotionTransitionTime = 0.f;
+        bLocomotionTransitionActive = true;
+    };
+    const FVector Facing = Character.GetActorForwardVector().GetSafeNormal2D();
+    const float Angle = bIntent ? FMath::RadiansToDegrees(FMath::Acos(
+        FMath::Clamp(FVector::DotProduct(Facing, Intent), -1.f, 1.f))) : 0.f;
+    const bool bNewTurn = bIntent && bHadLocomotionIntent
+        && Angle >= LocomotionTurnThresholdDegrees
+        && FVector::DotProduct(Intent, LastLocomotionIntent) < FMath::Cos(FMath::DegreesToRadians(LocomotionTurnThresholdDegrees));
+    if (bIntent && bFinishedRealRoll)
+    {
+        // Native actions65/66 explicitly request 014/015. This UE state adapter
+        // selects only after an actual, naturally completed drawn roll.
+        Begin(Angle < LocomotionTurnThresholdDegrees ? 14 : 15);
+    }
+    else if (bIntent && (!bWasLocomotionEligible || !bHadLocomotionIntent || bNewTurn))
+    {
+        // Native WALK entry (1417fee40): angle < parameter+348 selects 005;
+        // otherwise 142176590 selects 007/006 from the horizontal cross sign.
+        Begin(Angle < LocomotionTurnThresholdDegrees ? 5
+            : (FVector::CrossProduct(Facing, Intent).Z >= 0.f ? 7 : 6));
+    }
+    else if (!bIntent && bHadLocomotionIntent && (PreviousSpeed > KINDA_SMALL_NUMBER || bLocomotionTransitionActive))
+    {
+        Begin(8); // Native WALK_END entry 1417fef70 requests bank12 motion008.
+    }
+    bWasLocomotionEligible = true;
+    bHadLocomotionIntent = bIntent;
+    LastLocomotionIntent = Intent;
 }
 
 void UMHWIAnimInstance::UpdateEquipmentIK(const AMHWICharacter& Character)
@@ -195,43 +257,23 @@ void UMHWIAnimInstance::UpdateEquipmentIK(const AMHWICharacter& Character)
     check(IsInGameThread());
     LeftArmIKAlpha = RightArmIKAlpha = LeftFootIKAlpha = RightFootIKAlpha = 0.f;
     USkeletalMeshComponent* Mesh = Character.GetMesh();
-    if (!EquipmentIKProfile || !Mesh || bDead || bInAir) return;
+    if (!EquipmentIKProfile || !Mesh || bDead || bInAir || Character.IsInputBlocked()) return;
 
     auto JointGoal = [Mesh](const FMHWIEquipmentIKChain& Chain, FVector& Out)
     {
         if (Chain.MidBone.IsNone() || !Mesh->DoesSocketExist(Chain.MidBone)) return false;
-        Out = Mesh->GetSocketTransform(Chain.MidBone, RTS_Component).GetLocation() + Chain.JointTargetOffset;
+        Out = Mesh->GetSocketTransform(Chain.MidBone, RTS_Component).InverseTransformVector(Chain.JointTargetOffset);
         return true;
     };
-    const FMHWIEquipmentIKChain& LA = EquipmentIKProfile->LeftArm;
-    const FMHWIEquipmentIKChain& RA = EquipmentIKProfile->RightArm;
     const FMHWIEquipmentIKChain& LF = EquipmentIKProfile->LeftFoot;
     const FMHWIEquipmentIKChain& RF = EquipmentIKProfile->RightFoot;
-    const bool bValidArms = JointGoal(LA, LeftArmJointTarget) && JointGoal(RA, RightArmJointTarget)
-        && !LA.RootBone.IsNone() && !LA.EndBone.IsNone() && !RA.RootBone.IsNone() && !RA.EndBone.IsNone()
-        && Mesh->DoesSocketExist(LA.RootBone) && Mesh->DoesSocketExist(LA.EndBone)
-        && Mesh->DoesSocketExist(RA.RootBone) && Mesh->DoesSocketExist(RA.EndBone);
+    // Source helper bones carry the equipment pose. Pulling wrists toward a
+    // fitted point on last frame's weapon creates a feedback loop and changes
+    // the authored hand pose. Keep source arms; terrain feet remain independent.
 
-    const FTransform MeshWorld = Mesh->GetComponentTransform();
-    const bool bHandPose = !bInAction || bSpecialSheathHold;
-    if (bValidArms && bHandPose && Character.WeaponMesh && Character.ScabbardMesh)
-    {
-        FMHWIWeaponAttachmentSettings Settings;
-        const FVector GripPoint = bSpecialSheathHold ? Settings.SpecialGripPoint : Settings.DrawnGripPoint;
-        const FVector LocalGrip = FMHWIWeaponAttachmentRuntime::AnimatedGripPoint(Character.WeaponMesh, GripPoint);
-        const FVector WorldGrip = Character.WeaponMesh->GetComponentTransform().TransformPosition(LocalGrip);
-        RightArmEffector = MeshWorld.InverseTransformPosition(WorldGrip);
-        RightArmIKAlpha = (!bSheathed || bSpecialSheathHold) ? EquipmentIKProfile->ArmAlpha : 0.f;
-
-        if (bSpecialSheathHold)
-        {
-            const FVector WorldMouth = Character.ScabbardMesh->GetComponentTransform().TransformPosition(Settings.ScabbardMouthPoint);
-            LeftArmEffector = MeshWorld.InverseTransformPosition(WorldMouth);
-            LeftArmIKAlpha = EquipmentIKProfile->ArmAlpha;
-        }
-    }
-
-    if (!Character.GetWorld()) return;
+    const UCharacterMovementComponent* Movement = Character.GetCharacterMovement();
+    if (!Character.GetWorld() || !Movement || !Movement->IsMovingOnGround()
+        || !Movement->CurrentFloor.IsWalkableFloor()) return;
     auto FootGoal = [&](const FMHWIEquipmentIKChain& Chain, FVector& Effector, FVector& Joint, float& Alpha)
     {
         if (!JointGoal(Chain, Joint) || Chain.RootBone.IsNone() || Chain.EndBone.IsNone()
@@ -243,8 +285,14 @@ void UMHWIAnimInstance::UpdateEquipmentIK(const AMHWICharacter& Character)
         FCollisionQueryParams Params(SCENE_QUERY_STAT(MHWIEquipmentIK), false);
         Params.AddIgnoredActor(&Character);
         if (!Character.GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, Params)) return;
-        const FVector Target = Hit.ImpactPoint + FVector(0.f, 0.f, EquipmentIKProfile->FootSoleOffsetZ);
-        Effector = MeshWorld.InverseTransformPosition(Target);
+        if (!Movement->IsWalkable(Hit)) return;
+        // Feed an offset relative to the SAME end bone of the evaluated base
+        // pose, not last frame's solved ankle position. Flat ground => zero;
+        // local height differences adjust terrain without erasing swing lift
+        // or accumulating the previous frame's IK displacement.
+        const float TerrainDelta = Hit.ImpactPoint.Z - Movement->CurrentFloor.HitResult.ImpactPoint.Z;
+        const FVector WorldOffset(0.f, 0.f, TerrainDelta + EquipmentIKProfile->FootSoleOffsetZ);
+        Effector = Mesh->GetSocketTransform(Chain.EndBone, RTS_World).InverseTransformVector(WorldOffset);
         Alpha = bInAction ? 0.f : EquipmentIKProfile->FootAlpha;
     };
     FootGoal(LF, LeftFootEffector, LeftFootJointTarget, LeftFootIKAlpha);
