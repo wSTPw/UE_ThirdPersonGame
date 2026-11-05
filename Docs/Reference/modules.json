@@ -407,7 +407,18 @@
         "Scripts/MHWI/build_native_mount_data.py",
         "Source/IntroCpp/MHWI/MHWINativeMountData.inl",
         "Tools/MHW/native-mount-curves.json",
-        "Docs/Reference/MHWI-Native-Mount-20261028.md"
+        "Docs/Reference/MHWI-Native-Mount-20261028.md",
+        "Scripts/MHWI/author_followup_combat.py",
+        "Scripts/MHWI/pie_followup_directions.py",
+        "Scripts/MHWI/mcp_five_controls.mjs",
+        "Scripts/MHWI/extract_foresight_window_evidence.py",
+        "Tools/MHW/foresight-window-evidence-20261030.json",
+        "Docs/Reference/MHWI-Foresight-Window-Evidence-20261030.md",
+        "Scripts/MHWI/author_spirit_thrust_routes.py",
+        "Docs/Reference/MHWI-Attack-Detection-20261030.md",
+        "Scripts/MHWI/extract_foresight_consumers.py",
+        "Tools/MHW/foresight-consumers-20261030.json",
+        "Docs/Reference/MHWI-Foresight-Consumers-20261030.md"
       ],
       "interface_ids": [
         "DAMAGE-001",
@@ -465,6 +476,118 @@
         "Scripts/MHWI/pie_remaining_animation.py",
         "Scripts/MHWI/pie_r06_impact_matrix.py"
       ]
+    },
+    {
+      "id": "mhwi-unpack-data",
+      "name": "MHWI 解包数据与源素材管线",
+      "document": "Docs/Systems/MHWI-Unpack-Data.md",
+      "sources": [
+        "Tools/MHW/README.md",
+        "Tools/MHW/extract_resources.py",
+        "Tools/MHW/inspect_source_assets.py",
+        "ArtSource/ThirdParty/MHWLongSword/README.md",
+        "ArtSource/ThirdParty/MHWLongSword/extraction-manifest.json",
+        "ArtSource/ThirdParty/MHWLongSword/source-inventory.json",
+        "Docs/Reference/MHWI-Unpacking-Workflow.md",
+        "Scripts/MHWI/extract_native_longsword_params.py",
+        "Scripts/MHWI/build_native_action_database.py",
+        "Scripts/MHWI/parse_em_params.py",
+        "Tools/MHW/tool-sources.json",
+        "Tools/MHW/native-parameter-sources.json",
+        "Tools/MHW/mhw-editor-sources.json",
+        "Docs/Reference/MHWI-Rathian-Format-Evidence-20261030.md",
+        "Docs/Plans/MHWI-Rathian-Datamine-Handoff.md",
+        "Scripts/MHWI/read_action_params.py",
+        "Scripts/MHWI/read_monster_collision.py",
+        "Scripts/MHWI/inspect_parts_break.py",
+        "Scripts/MHWI/inspect_parts_break_native.py",
+        "Tools/MHW/rathalos-actp2-sources.json",
+        "Tools/MHW/rathalos-collision-sources.json",
+        "Tools/MHW/rathalos-pbc-sources.json",
+        "Tools/MHW/em001-actp2-evidence.json",
+        "Tools/MHW/em001-collision-evidence.json",
+        "Tools/MHW/em001-pbc-evidence.json",
+        "Tools/MHW/em001-pbc-native-layout-evidence.json",
+        "Tools/MHW/rathian-plan-evidence-20261031.json",
+        "Tools/DevFlow/Rathian-Condition-Audit-20261104/task.json"
+      ],
+      "interface_ids": [],
+      "asset_roots": [],
+      "validation": [
+        "Scripts/Docs/check_docs.py"
+      ]
+    },
+    {
+      "id": "mhwi-rathian-animation",
+      "name": "雌火龙源动画转换与补齐",
+      "document": "Docs/Systems/MHWI-Rathian-Animations.md",
+      "sources": [
+        "Tools/MHW/complete_rathian_animations.py",
+        "Scripts/MHWI/complete_rathian_import.py",
+        "Scripts/MHWI/verify_rathian_completion.py",
+        "Scripts/MHWI/record_rathian_completion.py",
+        "Tools/MHW/rathian-animation-completion.json"
+      ],
+      "interface_ids": [],
+      "asset_roots": [
+        "/Game/MHWI/Rathalos/Animations",
+        "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton"
+      ],
+      "validation": [
+        "Scripts/MHWI/verify_rathian_completion.py",
+        "Scripts/Docs/check_docs.py"
+      ]
+    },
+    {
+      "id": "mhwi-rathian-first-chain",
+      "name": "雌火龙首条THK到命中验证链路",
+      "document": "Docs/Plans/PLAN-20261031-007-rathian-first-chain.md",
+      "sources": [
+        "Source/IntroCpp/MHWI/Monsters/MHWIRathianThkExecutor.h",
+        "Source/IntroCpp/MHWI/Monsters/MHWIRathianThkExecutor.cpp",
+        "Source/IntroCpp/MHWI/Monsters/MHWIRathianSourceMovementComponent.h",
+        "Source/IntroCpp/MHWI/Monsters/MHWIRathianSourceMovementComponent.cpp",
+        "Source/IntroCpp/MHWI/Monsters/MHWIRathianSourceCollisionComponent.h",
+        "Source/IntroCpp/MHWI/Monsters/MHWIRathianSourceCollisionComponent.cpp",
+        "Source/IntroCpp/MHWI/Monsters/MHWIRathianFirstChainPawn.h",
+        "Source/IntroCpp/MHWI/Monsters/MHWIRathianFirstChainPawn.cpp",
+        "Source/IntroCpp/MHWI/Monsters/MHWIRathianFirstChainData.h",
+        "Scripts/MHWI/extract_rathian_thk_chain.py",
+        "Scripts/MHWI/extract_rathian_chain_motion.py",
+        "Scripts/MHWI/extract_rathian_chain_collision.py",
+        "Tools/MHW/rathian-thk-chain-evidence.json"
+      ],
+      "interface_ids": [],
+      "asset_roots": [],
+      "validation": [
+        "Scripts/Docs/check_docs.py"
+      ],
+      "notes": "工作区变更未提交；THK解析资格已通过（Leviathon 1e647f08），VM语义/LR资格未闭合；UE5.8 IntroCppEditor构建于2026-11-02由PLAN-20261102-001补跑，PIE与原作对照未执行。"
+    },
+    {
+      "id": "mhwi-rathian-approx",
+      "name": "雌火龙近似profile执行体（B1）",
+      "document": "Docs/Plans/PLAN-20261102-002-rathian-approximate-profile.md",
+      "sources": [
+        "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxData.h",
+        "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxData.cpp",
+        "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianDecisionPolicy.h",
+        "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianScriptedPolicy.h",
+        "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianScriptedPolicy.cpp",
+        "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxStateComponent.h",
+        "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxStateComponent.cpp",
+        "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianDecisionComponent.h",
+        "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianDecisionComponent.cpp",
+        "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxPawn.h",
+        "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxPawn.cpp",
+        "Saved/MHWI-Rathian-FirstChain/action-registry-dump-20261102.json"
+      ],
+      "interface_ids": [],
+      "asset_roots": [],
+      "validation": [
+        "Scripts/Docs/check_docs.py"
+      ],
+      "notes": "决策层approximated（接口可替换为THK策略）；数值evidenced字面值；动画BITE已证其余待指派；UE5.8构建通过（CHG-20261102-004），PIE验收待用户。"
     }
   ]
 }

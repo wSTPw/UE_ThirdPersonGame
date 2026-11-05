@@ -6,6 +6,23 @@
 
 | ID | 主题 | 状态 | 变更记录 |
 | --- | --- | --- | --- |
+| [PLAN-20261104-001](PLAN-20261104-001-devflow-thk-condition-audit.md) | DevFlow首任务：THK条件参数全量审计 | prepared-awaiting-isolation；8组验收已冻结，模型未执行 | [CHG-003](../Changes/CHG-20261104-003-devflow-thk-audit-preparation.md) |
+| [AI 交接](MHWI-Rathian-AI-Handoff-20261104.md) | **雌火龙项目交接（给下一个 AI，自包含）**：环境/构建坑/规矩/代码地图/四板块总账/技术发现/阻塞/里程碑/风险 | handoff；现状汇总，未提升任何证据等级 | [CHG-20261104-001](../Changes/CHG-20261104-001-rathian-ai-handoff.md) |
+| [PLAN-20261103-001](PLAN-20261103-001-rathian-review-adoption.md) | 外部评审采纳：fexty条件映射复用与分阶段路线修订 | accepted；fexty覆盖81.5%条件段已实证；P0基线提交待用户确认 | [本轮记录](../Changes/CHG-20261103-002-rathian-review-adoption.md) |
+| [PLAN-20261102-002](PLAN-20261102-002-rathian-approximate-profile.md) | 雌火龙近似profile（B1：真动画+真数值+自制决策层） | in-progress；AP-0~4代码落地+构建通过，AP-5 PIE待用户 | [本批记录](../Changes/CHG-20261102-004-rathian-approx-implementation.md) |
+| [PLAN-20261102-001](PLAN-20261102-001-rathian-completeness-parallel.md) | 雌火龙方案完整性核对、音画细案补全与四模块并行实施 | implemented-scope；核对页已出，P1–P4交付，首链构建通过 | [本轮记录](../Changes/CHG-20261102-001-rathian-completeness-parallel.md) |
+| [交接](MHWI-Rathian-VM-Semantics-Handoff.md) | THK VM 条件语义取证交接（BEH-01 静态路线到边界） | static-recon-done；60种functionType收敛+跳转表排除；语义闭合阻塞于RE工具链 | [CHG-20261102-002](../Changes/CHG-20261102-002-rathian-vm-semantics-recon.md) |
+| [PLAN-20261031-007](PLAN-20261031-007-rathian-first-chain.md) | 雌火龙首条THK到命中验证链路 | in-progress；THK解析资格通过，首链代码/证据已落地未提交；VM语义未闭合 | [CHG-003补录](../Changes/CHG-20261031-003-rathian-first-chain.md) |
+| [PLAN-20261031-002](PLAN-20261031-002-rathian-restoration-master.md) | MHWI雌火龙总体还原与分工流程 | draft；M0–M6/候选待选择，玩法未实施 | [本轮记录](../Changes/CHG-20261031-002-rathian-restoration-plan.md) |
+| [PLAN-20261031-003](PLAN-20261031-003-rathian-evidence-pipeline.md) | 原作证据与定向解包细案 | draft；本轮73文件raw补取已完成，语义未闭合 | [本轮记录](../Changes/CHG-20261031-002-rathian-restoration-plan.md) |
+| [PLAN-20261031-004](PLAN-20261031-004-rathian-ai-world.md) | AI、地空移动与狩猎生命周期细案 | draft；AI-00–12，技术方向待选择 | [本轮记录](../Changes/CHG-20261031-002-rathian-restoration-plan.md) |
+| [PLAN-20261031-005](PLAN-20261031-005-rathian-animation-assets.md) | 模型动画、位移与音画细案 | draft；A0–A5，未制作新运行资产 | [本轮记录](../Changes/CHG-20261031-002-rathian-restoration-plan.md) |
+| [PLAN-20261031-006](PLAN-20261031-006-rathian-combat-integration.md) | 双向战斗、肉质与部位破坏细案 | draft；C0–C6，未改伤害入口 | [本轮记录](../Changes/CHG-20261031-002-rathian-restoration-plan.md) |
+| [PLAN-20261030-005](PLAN-20261030-005-mhwi-rathian-animation-completion.md) | 雌火龙遗漏动画补齐 | implemented-scope；新增824，旧24保留 | [CHG-023](../Changes/CHG-20261030-023-mhwi-rathian-animation-completion.md) |
+| [PLAN-20261030-004](PLAN-20261030-004-mhwi-rathian-format-evidence.md) | 火龙未解格式来源核对与离线读取 | implemented-scope；业务语义partial | [本批记录](../Changes/CHG-20261030-011-mhwi-rathalos-format-evidence.md) |
+| [PLAN-20261030-003](PLAN-20261030-003-mhwi-rathian-datamine.md) | 火龙(em001)下位完整数据收集 | partial；ACTP2结构/COL攻击原字段已读，LR资格/AI/破坏耐久未闭合 | [本轮记录](../Changes/CHG-20261030-005-mhwi-rathalos-datamine.md) |
+| [PLAN-20261030-002](PLAN-20261030-002-mhwi-spirit-thrust-routes.md) | 气刃连段突刺、见切精确窗口续查及攻击判定说明 | partial，三条路线已保存；见切取证中 | [本轮记录](../Changes/CHG-20261030-003-mhwi-spirit-thrust-routes.md) |
+| [PLAN-20261030-001](PLAN-20261030-001-mhwi-five-controls.md) | 太刀五项操作修正；动画整体保留、IK暂缓 | partial，四项已实施，见切精确许可开放；手测交用户 | [本轮记录](../Changes/CHG-20261030-002-mhwi-five-controls.md) |
 | [PLAN-20261028-001](PLAN-20261028-001-mhwi-native-equipment-mount.md) | MHWI太刀/刀鞘原版挂接骨选择与导入坐标修复 | implemented-scope / partial-native，源码与UE 5.8构建完成；最终握持验收由用户操作 | [本轮记录](../Changes/CHG-20261028-001-mhwi-native-equipment-mount.md) |
 | [PLAN-20261027-002](PLAN-20261027-002-mhwi-fidelity-refactor.md) | MHWI忠实还原目标下的结构审查与重构选型 | draft；原作忠实度已确认，组件/模块/Game Feature/GAS/动画层等候选待用户选择，未实施 |
 | [PLAN-20261027-001](PLAN-20261027-001-mhwi-remaining-animation-development.md) | B20翻滚入口、R28六段过渡与R30四链实装/调试 | implemented-scope / partial-native，6轮PIE通过；原生全来源与solver边界保留 | [B20记录](../Changes/CHG-20261027-004-mhwi-roll-locomotion-ik.md) |

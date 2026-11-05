@@ -6,11 +6,21 @@
 
 | 想做什么 | 先读 |
 | --- | --- |
+| 继续雌火龙首链只读取证与源码审查 | [2026-11-05首链审查](Reference/MHWI-Rathian-FirstChain-Audit-20261105.md)：纠正动作表起点、285项交叉一致、29根键/三UID及源码风险；首链仍未闭合，Sandbox修复暂缓 |
+| 查看雌火龙总体还原方案、子代理细案与实施顺序 | [总方案](Plans/PLAN-20261031-002-rathian-restoration-master.md)：证据、AI、动画、战斗四细案及M0–M6；[本轮记录](Changes/CHG-20261031-002-rathian-restoration-plan.md)含73文件raw补取，技术候选待选择，玩法未实施 |
+| 查看雌火龙方案四大板块完整性与缺失清单 | [完整性核对](Reference/MHWI-Rathian-Completeness-Check-20261102.md)：行为/数值/动画/音画逐项证据与缺口编号；[并行实施](Plans/PLAN-20261102-001-rathian-completeness-parallel.md)与[本轮记录](Changes/CHG-20261102-001-rathian-completeness-parallel.md)、[首链补录](Changes/CHG-20261031-003-rathian-first-chain.md) |
+| 对外评审/交接（自包含简报） | [评审简报](Reference/MHWI-Rathian-Review-Brief-20261103.md)：项目现状/已闭合事实/未闭合清单/工具路线/时间预估/评审问题清单，单文件可直接外发 |
+| **新 AI/新同事接手本项目** | [AI 交接文档](Plans/MHWI-Rathian-AI-Handoff-20261104.md)：环境与构建坑/项目规矩/代码地图/四板块取证总账/技术发现/阻塞/里程碑/高风险，自包含无需历史对话 |
 | 接手项目、判断修改位置 | [项目架构](Architecture.md)、[模块索引 JSON](Reference/modules.json) |
 | 修改物品、背包、快捷栏 | [背包系统](Systems/Inventory.md)、[接口契约](Interfaces.md) |
 | 修改攻击、动画通知、敌人 | [战斗与 AI](Systems/Combat-AI.md) |
 | 查询Ninja新动画替换、重定向、片段映射与窗口 | [Ninja动画配置](Systems/Ninja-Animation-Configuration.md)，2026-10-20制作，按用户要求未做完工后验证 |
 | 查询MHW太刀、配套猎人模型及源素材转换 | [MHWI太刀训练模组](Systems/MHWI-LongSword.md)、[源素材](../ArtSource/ThirdParty/MHWLongSword/README.md)，独立地图与动作数据；验证见变更记录 |
+| 查询现有解包方式、复现命令及解析失败处理 | [现有解包流程](Reference/MHWI-Unpacking-Workflow.md)：chunk 定向提取、素材转换、太刀/怪物参数读取、版本与覆盖边界 |
+| 查询解包数据在哪、有多少、如何重抽与校验 | [解包数据管理](Systems/MHWI-Unpack-Data.md)、[采集工具说明](../Tools/MHW/README.md)：13个归档/51.13 GiB、171,615条路径、三级提取清单与入库边界；统计为2026-10-30只读复核，不是重新解包 |
+| 查询雌火龙(em001)下位数据、肉质/发怒/疲劳数值与解码缺口 | [雌火龙下位数据](Reference/MHWI-Rathian-LR-Data-20261030.md)：300文件清单、状态/肉质参数；[格式续查](Reference/MHWI-Rathian-Format-Evidence-20261030.md)已读342条ACTP2与70条COL攻击原记录，LR资格/实战伤害/PBC耐久仍开放 |
+| 查询雌火龙动画补齐、源库及引擎路径 | [雌火龙动画库](Systems/MHWI-Rathian-Animations.md)：19容器、848有效动作；新增824，旧24保留；逐条读回及12库骨轨抽检完成 |
+| 接手雌火龙未解项（招式伤害、部位破坏） | [交接文档](Plans/MHWI-Rathian-Datamine-Handoff.md)：已更新ACTP2/COL读取结果与PBC三层结构；保留耐久、LR资格及完整时长缺口，可脱离历史对话接手 |
 | 查询MHWI武器独立动画、完整TIML/FSM和逐帧还原缺口 | [源保真调查](Reference/MHWI-Source-Fidelity-Audit.md)、[阶段方案](Plans/PLAN-20261023-001-mhwi-source-fidelity.md)；2026-10-24只读调查，未修改正式玩法 |
 | 查看Content/MHWI原版还原进度与交接 | [逐项开发台账](Plans/MHWI-Restoration-Progress.md)、[B10三项开发交付](Reference/MHWI-R06-Remaining-Development.md)；[B13/B14/B15验收及B16复验](Reference/MHWI-Acceptance-Update-20261026.md)：A05/A06已静态修复，B14构建/正式DA保存读回/22项离线检查通过，未PIE；35项总状态不变，运行由用户操作 |
 | 验收R06/R28/R30当前交付 | [B20开发与调试](Reference/MHWI-B20-Animation-Development-20261027.md)：翻滚阻断修复，六段合格过渡与四链IK已实际接入；来源/低帧/姿态结果及原生未闭合边界分别记录；[开发前验收](Reference/MHWI-R06-R28-R30-Acceptance-20261027.md)保留历史 |

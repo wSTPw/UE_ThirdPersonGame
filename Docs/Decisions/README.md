@@ -4,4 +4,5 @@
 
 | ID | 决策 | 状态 |
 | --- | --- | --- |
+| ADR-0002 | [MHWI雌火龙原规则/源时间轴与执行适配](ADR-0002-mhwi-rathian-source-runtime.md) | accepted；用户已选组合，实装按首链记录 |
 | ADR-0001 | [现状页、方案与变更记录分开维护](ADR-0001-documentation-structure.md) | accepted |

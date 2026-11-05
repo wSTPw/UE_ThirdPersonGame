@@ -4,6 +4,22 @@
 
 | ID / 状态 | 证据与影响 | 后续方案与验收关注 |
 | --- | --- | --- |
+| R-DATA-006 / partial，注册字段已有原生静态支持 | 动作表旧name起点使名称错连下一项ID/type；旧344条完整注册表口径撤回。新32B布局使BITE=83，em001表285/285匹配固定dump；新增表指针getter及原生注册循环字段读点，THK动作查找/启动与caller怪物归属仍未证 | [首链审查](Reference/MHWI-Rathian-FirstChain-Audit-20261105.md)；先追THK动作查找/启动与对象归属，再修工具保留表地址/未知字段，不跨表按名称去重；旧JSON未改 |
+| R-DATA-007 / open，静态发现 | FirstChain分别配置移动/碰撞，不核对共享时间单位/速率/clip身份；EvidencePinsJson仅声明未消费。构造Seconds运动与NativeFrames碰撞可分别满足局部门，未运行 | [本轮记录](Changes/CHG-20261105-003-rathian-first-chain-audit.md)；后续统一时间/动作身份及证据校验；当前真实零速率仍先被strict拒绝，不能称已发生错配 |
+| R-ANIM-013 / open，资产资格待实读 | 首链InPlaceSequence只验骨架/时长；旧导出保留bone_root平移，导入未明设根提取/锁根。001原位状态未核，存在姿态与外移重复位移风险 | [首链审查](Reference/MHWI-Rathian-FirstChain-Audit-20261105.md)；MCP本轮离线，未启动编辑器；只读实际001根轨/根锁定并核坐标后再修正，未宣布重复位移已发生 |
+| R-COMBAT-013 / open，静态发现 | 首链接触同shape/同区间按Actor后写覆盖，当前重叠会覆盖较早精确扫掠TOI；首尾轴一致也不证明中间骨轨纯平移。跨shape不全局去重；三UID消费者尚缺 | [首链审查](Reference/MHWI-Rathian-FirstChain-Audit-20261105.md)；构造反例未运行，不当原作首次命中基准；验证TOI、三通道、骨轨及重复观察不结算 |
+| R-AI-003 / open，静态发现 | 首链strict的条件resolver只查工程条件，但strict禁注入；未来其余资格齐全后仍缺原生provider。到EndTime直接取消THK，未接ResumeAfterAction | [本轮记录](Changes/CHG-20261105-003-rathian-first-chain-audit.md)；补原生条件及完成回VM消费者，不能把单动作harness完成称完整决策生命周期；本轮未执行失败复现 |
+| R-ENV-001 / deferred-per-user（2026-11-05），OC压缩元数据未解 | 官方WU源修复曾Healthy；Sandbox启用仍报AccountsService.winmd压缩状态0与LZMS3不一致；SFC无违规/修复0，外部用户上下文重启后复查Repairable/Disabled | [本轮记录](Changes/CHG-20261105-002-windows-official-source-repair.md)；官方包已校验下载但目标平铺源未资格化，需完整官方源/受支持恢复路线；不手改WinSxS/COMPONENTS、不自动重启 |
+| R-DATA-005 / open，静态发现 | THK旧top_param_pairs由set经恒定排序截6项，映射工具再截4项；fexty的0x3/0x50有不同命名，不能据旧摘要认定完整参数形态一致 | [DevFlow审计方案](Plans/PLAN-20261104-001-devflow-thk-condition-audit.md)已冻结全量计数/冲突/未知不升级验收；候选尚未执行 |
+| R-ANIM-012 / open，静态确认、运行未验 | Approx Pawn初始化AnimationBlueprint+普通UAnimInstance，攻击调用Body.SetAnimation(Montage)；UE5.8该接口只向SingleNode实例派发，否则警告并不播放 | [本轮记录](Changes/CHG-20261104-003-devflow-thk-audit-preparation.md)；另开含实际运行证据的播放修复任务，11-04编译通过不证明播放通过 |
+| R-DATA-004 / open-evidence-chain，静态复核 | 雌火龙105份THK及thklst至动作/时序/碰撞/部位/任务关联尚未闭合；本轮补取73个音画/任务候选文件仍是raw，同名不证明资格或完整依赖 | [总体方案](Plans/PLAN-20261031-002-rathian-restoration-master.md)、[证据任务E01–E09](Plans/PLAN-20261031-003-rathian-evidence-pipeline.md)；先固定工具与关联/消费者证据，未知字段不进入忠实模式，不猜AI概率 |
+| R-ANIM-011 / fixed-readback | 旧24条固定时长已按源帧数在原路径重导，24/24对象身份、Skeleton、时长及引用列表核对通过 | [CHG-20261031-001](Changes/CHG-20261031-001-rathian-legacy-duration.md)；未做原作逐帧/PIE验收 |
+| R-DATA-003 / partial-source-read，运行未验 | [火龙格式续查](Reference/MHWI-Rathian-Format-Evidence-20261030.md)已完整读ACTP2及70条COL攻击原字段，PBC类CRC/嵌套读写已确认；00含G級标签，不能直接当LR专属，PBC耐久与完整动作时长仍未知 | 保留LR动作/时间轴资格与真实字段消费者缺口；不据原表MV报实战伤害、不据mLoopTime报全程时长；本阶段不启动原作 |
+| R-DATA-001 / open，静态发现 | [归档提取脚本](../Tools/MHW/extract_resources.py)逐文件落盘，成功结束才重写清单；重跑不合并旧清单，中途失败不回滚，旧文件/旧清单不能证明本次完整 | 按[解包流程](Reference/MHWI-Unpacking-Workflow.md)隔离批次、核对本次集合及逐文件 hash；本轮仅记录边界，未改工具 |
+| R-DATA-002 / partial，静态发现 | [怪物参数解析器](../Scripts/MHWI/parse_em_params.py)会跳过未知扩展名/缺布局，退出 0 不能证明全覆盖；长度不符的报告仍可能含部分 data。**布局 hash 校验已补**：`--pins` 在解析前逐份比对 [mhw-editor-sources.json](../Tools/MHW/mhw-editor-sources.json)，不一致直接退出 | 剩余缺口是跳过语义与部分 data：仍须比对预期文件集合，逐项要求 ok=true、consumed=size；[流程说明](Reference/MHWI-Unpacking-Workflow.md) |
+| B24-01 / implemented，用户验收中 | 气刃I/II/III补HELM_BREAKER→SpiritThrust，复用现有项目连携窗；正式DA已保存读回 | [本轮方案](Plans/PLAN-20261030-002-mhwi-spirit-thrust-routes.md)；用户测试三招派生及原气刃后继 |
+| B23-01/02/04/05 / user-accepted-basic | 四向连携翻滚及全向特殊纳刀21例PIE通过；无刃突刺取消颜色入场门，登龙仍需白刃和命中；收刀Spirit走原生113/116独立出刀 | [修复及手测清单](Plans/PLAN-20261030-001-mhwi-five-controls.md)；2026-10-30用户反馈B23除03基本通过；不等于全场景通过 |
+| B23-03 / open，精确取证中 | 见切140有早期输入位和命令号证据，但FSM属性→命令及执行许可生命周期尚未闭合；90..160旧项目窗保留 | [取证报告](Reference/MHWI-Foresight-Window-Evidence-20261030.md)；按用户要求禁止用候选帧猜改 |
 | R-INV-001 / open，高 | [AddItem](../Source/IntroCpp/InventoryComponent.cpp) 叠加/填部分槽后遇满包直接 false，未回滚且可能跳过统计/事件。Pickup 仍保留世界物品，存在重复获得风险。静态发现 | 预检容量后提交，或改成明确报告实际添加数；测试部分堆叠 + 无空格 |
 | R-INV-002 / open，高 | 同文件 AddItem 用成功调用次数递增 CurrentItemCount，RemoveItem 按调用减；SetItemAt 不重算；Weight 只累计 Inventory、不含移到快捷栏的物品。计数/重量不是完整一致的拥有量。静态发现 | 先确定快捷栏所有权与总重量定义，再统一重算或维护；测试只堆叠、跨格、多次搬移 |
 | R-INV-003 / open，高 | DropItem 在 ItemClass 不存在/Spawn 失败后仍 RemoveItemAt。静态发现 | Spawn 成功后才提交扣除或返回结构化结果；验证失败不丢物 |

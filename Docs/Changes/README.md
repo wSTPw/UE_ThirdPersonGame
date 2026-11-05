@@ -4,6 +4,44 @@
 
 | ID | 日期 | 主题 | 状态 |
 | --- | --- | --- | --- |
+| CHG-20261105-003 | 2026-11-05 | [雌火龙首链只读取证与源码审查](CHG-20261105-003-rathian-first-chain-audit.md) | completed（审查/文档）；动作表旧口径撤回、根轨/三UID复核；整链仍partial |
+| CHG-20261105-002 | 2026-11-05 | [核对官方源并继续修复Sandbox](CHG-20261105-002-windows-official-source-repair.md) | partial；WU修复曾Healthy、SFC无违规；Sandbox仍因OC压缩元数据失败，完整源待核 |
+| CHG-20261105-001 | 2026-11-05 | [监督组件库修复与Sandbox恢复](CHG-20261105-001-windows-component-store-repair.md) | partial；修复退出1/0x800f0915缺源；Repairable/Disabled，无重启/关机 |
+| CHG-20261104-004 | 2026-11-04 | [选择Windows Sandbox及启用失败诊断](CHG-20261104-004-windows-sandbox-enablement.md) | partial；组件存储Repairable，功能仍Disabled；未修复/重启 |
+| CHG-20261104-003 | 2026-11-04 | [DevFlow接手与THK审计任务准备](CHG-20261104-003-devflow-thk-audit-preparation.md) | partial；doctor/prepare通过，隔离环境待就绪，执行模型调用0 |
+| CHG-20261104-002 | 2026-11-04 | [Approx 层编译修复（五项修复批次从未编译成功）](CHG-20261104-002-rathian-approx-compile-fix.md) | completed；4类UE5.8错误修完，`Result: Succeeded`；PIE未执行 |
+| CHG-20261104-001 | 2026-11-04 | [雌火龙项目 AI 交接文档](CHG-20261104-001-rathian-ai-handoff.md) | completed（文档）；新增自包含交接页；发现 Saved/ 被忽略致关键证据未纳管的风险并记录 |
+| CHG-20261103-002 | 2026-11-03 | [外部评审采纳：fexty条件映射复用与路线修订](CHG-20261103-002-rathian-review-adoption.md) | completed-scope；27/58条件类型、81.5%使用覆盖实证；路线/时间表修订 |
+| CHG-20261103-001 | 2026-11-03 | [NUM-03双源闭合、运行时路线更新与评审简报](CHG-20261103-001-rathian-review-brief.md) | completed（文档）；部位映射cross-verified；R2定为LuaEngine；评审简报可外发 |
+| CHG-20261102-004 | 2026-11-02 | [B1近似profile实施批次一（AP-0~4代码）](CHG-20261102-004-rathian-approx-implementation.md) | partial；代码落地+UE5.8构建通过；PIE交战验收与太刀回归待用户 |
+| CHG-20261102-003 | 2026-11-02 | [原生动作注册表转储与B1方案交付](CHG-20261102-003-rathian-approximate-profile-plan.md) | completed-scope；344条注册表+命名空间修正；B1方案交付 |
+| CHG-20261102-002 | 2026-11-02 | [THK VM 条件语义静态取证（负结果固化）](CHG-20261102-002-rathian-vm-semantics-recon.md) | completed-scope；载体/结构/偏移/统计闭合+跳转表排除；逐函数语义阻塞于RE工具链，交接文档已出 |
+| CHG-20261102-001 | 2026-11-02 | [雌火龙方案完整性核对、音画细案补全与四模块并行实施](CHG-20261102-001-rathian-completeness-parallel.md) | completed-scope；核对页+4工作包交付+首链UE5.8构建通过；unknown按证据保留 |
+| CHG-20261031-003 | 2026-10-31（11-02补录） | [雌火龙首条THK→动作→移动→碰撞链路实施](CHG-20261031-003-rathian-first-chain.md) | partial；THK解析资格通过+首链代码落地（未提交）；构建/PIE/VM语义未闭合 |
+| CHG-20261031-002 | 2026-10-31 | [雌火龙总体/分工细案与73文件外部证据补取](CHG-20261031-002-rathian-restoration-plan.md) | completed-scope；仅方案及raw，玩法未实施，方向待选择 |
+| CHG-20261031-001 | 2026-10-31 | [雌火龙旧24条时长修复](CHG-20261031-001-rathian-legacy-duration.md) | completed；24/24按源帧数重导，原路径/对象/骨架/引用列表核对通过 |
+| CHG-20261030-023 | 2026-10-30 | [雌火龙遗漏动画补齐](CHG-20261030-023-mhwi-rathian-animation-completion.md) | completed-scope；新增824，共848；旧24保留；集合/骨架/时长/12库骨轨读回通过 |
+| CHG-20261030-022 | 2026-10-30 | [雌火龙动画导出并导入引擎](CHG-20261030-022-mhwi-rathian-animations.md) | completed（首批）；em001_00.lmt共111动作，首批24个已导入挂骨架，语义映射未解 |
+| CHG-20261030-021 | 2026-10-30 | [按用户决定以雌火龙为目标，文档口径与文件名更正](CHG-20261030-021-mhwi-rathian-rename.md) | completed（文档）；4份在用文档重命名，20文件引用替换，历史CHG保持原义 |
+| CHG-20261030-020 | 2026-10-30 | [编号更正：em001=雌火龙，火龙是em002；修RMT采样类型](CHG-20261030-020-mhwi-monster-id-correction.md) | corrective；此前全部"火龙"数值实为雌火龙；em002已提取257文件/84.21MiB，待重跑解析与转换 |
+| CHG-20261030-019 | 2026-10-30 | [按视口反馈调光并隐藏损坏部位网格](CHG-20261030-019-mhwi-rathalos-lighting-damage-mesh.md) | completed（场景调整）；撤点光+天光降至1.5，damage槽换M_HiddenSlot；关卡未保存 |
+| CHG-20261030-018 | 2026-10-30 | [恢复火龙材质显示（槽位丢失+光照）](CHG-20261030-018-mhwi-rathalos-material-restore.md) | completed（显示链路）；Actor四槽覆盖已写入，新增可移动补光；截图接口冻结未能目视确认 |
+| CHG-20261030-017 | 2026-10-30 | [材质收尾：CMML/FM评估、眼睛补齐、场景恢复](CHG-20261030-017-mhwi-rathalos-material-finalize.md) | completed（材质）；CMML/FM经测量判定不接，4材质已保存，尾巴Actor重导后已恢复 |
+| CHG-20261030-016 | 2026-10-30 | [接入RMT粗糙度/金属度，材质链路补齐](CHG-20261030-016-mhwi-rathalos-rmt-material.md) | completed（材质）；R→Roughness、G→Metallic，3材质已保存；CMM/FM未接 |
+| CHG-20261030-015 | 2026-10-30 | [修复火龙白模（自发光误接）与关卡光源竞争](CHG-20261030-015-mhwi-rathalos-white-material-fix.md) | completed（材质/光照）；Emissive断开后正常上色，关卡未保存 |
+| CHG-20261030-014 | 2026-10-30 | [火龙模型与贴图导入引擎](CHG-20261030-014-mhwi-rathalos-ue-import.md) | completed（导入）；2网格/2骨架/12贴图/4材质落盘，骨骼142 vs Blender141待核对 |
+| CHG-20261030-013 | 2026-10-30 | [火龙模型转FBX（本体+尾巴）](CHG-20261030-013-mhwi-rathalos-model-fbx.md) | completed（转换）；141骨/25网格/67,445面回读一致；贴图未进FBX |
+| CHG-20261030-012 | 2026-10-30 | [格式解析与取证流程归纳](CHG-20261030-012-mhwi-workflow-format-methods.md) | completed（文档）；方法选择/执行顺序/成功标准与适用边界 |
+| CHG-20261030-011 | 2026-10-30 | [火龙ACTP2/COL攻击字段与PBC嵌套读取](CHG-20261030-011-mhwi-rathalos-format-evidence.md) | completed（本批离线读取）；342动作/70攻击原字段，PBC三层确认；耐久、LR资格与实战仍partial |
+| CHG-20261030-010 | 2026-10-30 | [新增火龙未解项交接文档](CHG-20261030-010-mhwi-rathalos-handoff.md) | completed（文档）；自包含交接，含三个未解项、已否决路线与验收口径 |
+| CHG-20261030-009 | 2026-10-30 | [em_pbc记录步长确认与actp2结构探查](CHG-20261030-009-mhwi-pbc-actp2-probe.md) | completed（结构探查）；步长48经4文件比对确认，字段语义未定；actp2周期过弱未解析 |
+| CHG-20261030-008 | 2026-10-30 | [火龙状态值/口水硬/陷阱解码与em_pbc结构探查](CHG-20261030-008-mhwi-rathalos-status-values.md) | completed（解码）；dtt_eda零尾通过并发布状态值，em_pbc仅结构可见未出阈值 |
+| CHG-20261030-007 | 2026-10-30 | [解析器布局hash校验与流程页shlp口径修正](CHG-20261030-007-mhwi-parser-pin-check.md) | completed（工具/文档）；9份布局校验通过，解析结果不变，R-DATA-002降为partial |
+| CHG-20261030-006 | 2026-10-30 | [整理现有解包方式与复现流程](CHG-20261030-006-mhwi-unpacking-workflow.md) | completed（文档）；三批488条尺寸/hash复核，未重抽或运行解析/游戏；记录清单与解析边界 |
+| CHG-20261030-005 | 2026-10-30 | [火龙(em001)下位数据解包与首批解码](CHG-20261030-005-mhwi-rathalos-datamine.md) | partial，300文件/76.97MiB提取；发怒、疲劳、部位肉质已解码；招式/AI/部位破坏未解码，无伤害数值 |
+| CHG-20261030-004 | 2026-10-30 | [新增MHWI解包数据管理与统计文档](CHG-20261030-004-mhwi-unpack-data-doc.md) | completed（文档）；13包/171,615条索引的只读复核，未重抽；入库边界差异仅记录未处置 |
+| CHG-20261030-003 | 2026-10-30 | [气刃连段突刺、见切续查与攻击判定说明](CHG-20261030-003-mhwi-spirit-thrust-routes.md) | partial，三条路线已保存；游戏测试由用户，见切精确许可续查 |
+| CHG-20261030-002 | 2026-10-30 | [太刀五项操作修正](CHG-20261030-002-mhwi-five-controls.md) | partial，四项已实施；方向21例通过，突刺/出刀待用户手测，见切精确窗口开放 |
 | CHG-20261030-001 | 2026-10-30 | [删除旧UEBridgeMCP插件遗留归档](CHG-20261030-001-mhwi-retire-legacy-bridge.md) | completed（清理）；唯一副本永久删除，当前UE_MCP_Bridge未受影响 |
 | CHG-20261028-001 | 2026-10-28 | [MHWI太刀/刀鞘原版父骨选择、背部配置与导入坐标修复](CHG-20261028-001-mhwi-native-equipment-mount.md) | partial，源码和编译完成，用户验收待进行；未执行自动PIE握持验收，原生旋转补偿/扩展状态保留 |
 | CHG-20261027-007 | 2026-10-27 | [MHWI太刀攻击姿态右手握点约束](CHG-20261027-007-mhwi-hand-grip-ik.md) | completed（项目适配）；Editor构建通过；38项动画消费者PIE及30 FPS武器交接PIE 3750项检查通过 |
