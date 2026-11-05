@@ -1,8 +1,8 @@
-# 战斗、动画通知与敌人 AI
+﻿# 战斗、动画通知与敌人 AI
 
 源码入口：[CharacterActionComponent.cpp](../../Source/IntroCpp/Actions/CharacterActionComponent.cpp)、[CharacterActionEffects.cpp](../../Source/IntroCpp/Actions/CharacterActionEffects.cpp)、[MyPlayerCharacter.cpp](../../Source/IntroCpp/MyPlayerCharacter.cpp)、[EnemyBase.cpp](../../Source/IntroCpp/EnemyBase.cpp)、[EnemyAIController.cpp](../../Source/IntroCpp/EnemyAIController.cpp)。关联接口：`ACTION-*`、`ATTR-*`、`COMBAT-*`、`AI-*`。
 
-2026-10-19 已实施统一调度、独立执行上下文、物品来源预约、动画身份校验和样本窗口；旧攻击/连击 Timer 不再是玩家动作权威。当日完整编译、10项自动化及真实PIE的41项断言通过，详见 [实施记录](../Changes/CHG-20261019-005-character-actions-implementation.md)。2026-10-20 已制作并保存 [Ninja动画替换](Ninja-Animation-Configuration.md)，按用户要求不做完工后验证；旧证据不覆盖新资源。MM尚未启用。
+2026-10-19 已实施统一调度、独立执行上下文、物品来源预约、动画身份校验和样本窗口；旧攻击/连击 Timer 不再是玩家动作权威。当日完整编译、10项自动化及真实PIE的41项断言通过，详见 [实施记录](../Archive/Legacy/Changes/CHG-20261019-005-character-actions-implementation.md)。2026-10-20 已制作并保存 [Ninja动画替换](Ninja-Animation-Configuration.md)，按用户要求不做完工后验证；旧证据不覆盖新资源。MM尚未启用。
 
 ## 属性与伤害入口
 
@@ -85,11 +85,11 @@ HandleNotify 要求正确 Mesh、Montage、`FAnimNotifyMontageInstanceContext::M
 
 [FLocomotionAnimContext](../../Source/IntroCpp/Actions/LocomotionAnimContext.h) 由 [MyAnimInstance.cpp](../../Source/IntroCpp/MyAnimInstance.cpp) 在游戏线程更新，包含世界空间 Velocity/Acceleration、按动作 MoveScale 限制的 DesiredVelocity、实际 Facing、Stance、bGrounded 和 Action 快照，图表消费者只读。单位为 cm、cm/s、cm/s²；这不是完整轨迹预测器或已接入的 Pose Search 查询。
 
-**Motion Matching 尚未启用到正式角色。** 2026-10-19的 [MM审计](../Plans/MM-P5-Audit-20261019.md) 发现原走跑Root没有可用平移，形成 [资源清单](../Plans/MM-RootMotion-Resource-Checklist.md)。2026-10-20用户提供ARPG_Ninja资源，本轮只将26条待机、IPC移动与动作重定向到YBot并接入原BlendSpace/Montage；Rootmotion版本尚未完成MM适用性专项审计，未新建Schema/Database或更换ABP图。资源到位不等于MM已启用。
+**Motion Matching 尚未启用到正式角色。** 2026-10-19的 [MM审计](../Archive/Legacy/Plans/MM-P5-Audit-20261019.md) 发现原走跑Root没有可用平移，形成 [资源清单](../Archive/Legacy/Plans/MM-RootMotion-Resource-Checklist.md)。2026-10-20用户提供ARPG_Ninja资源，本轮只将26条待机、IPC移动与动作重定向到YBot并接入原BlendSpace/Montage；Rootmotion版本尚未完成MM适用性专项审计，未新建Schema/Database或更换ABP图。资源到位不等于MM已启用。
 
-火球Montage现用Ninja左手Throw_A作为施法手势，唯一提交为约0.183333动画秒；火杖WeaponFireSocketName=LeftHand。喝药因新包无对应资源继续沿用M_Drink。后续按用户要求，三个移动BlendSpace已切Rootmotion版本，ABP_Move.RootMotionMode=RootMotionFromEverything；Speed/Direction由受许可的DesiredVelocity及移动输入力度驱动，CharacterMovement消费动画根轨迹处理胶囊位移、碰撞和重力。四段攻击也已启用根运动，MoveScale=0限制移动输入及底层走跑意图，不取消攻击本身的根位移。完整映射、公式与未验证项见 [Ninja配置](Ninja-Animation-Configuration.md)、[Root Motion变更](../Changes/CHG-20261020-002-ninja-root-motion.md)。本轮未做完工后验证。
+火球Montage现用Ninja左手Throw_A作为施法手势，唯一提交为约0.183333动画秒；火杖WeaponFireSocketName=LeftHand。喝药因新包无对应资源继续沿用M_Drink。后续按用户要求，三个移动BlendSpace已切Rootmotion版本，ABP_Move.RootMotionMode=RootMotionFromEverything；Speed/Direction由受许可的DesiredVelocity及移动输入力度驱动，CharacterMovement消费动画根轨迹处理胶囊位移、碰撞和重力。四段攻击也已启用根运动，MoveScale=0限制移动输入及底层走跑意图，不取消攻击本身的根位移。完整映射、公式与未验证项见 [Ninja配置](Ninja-Animation-Configuration.md)、[Root Motion变更](../Archive/Legacy/Changes/CHG-20261020-002-ninja-root-motion.md)。本轮未做完工后验证。
 
-用户随后反馈走跑不移动、衔接生硬。静态定位到LayeredBoneBlend上层先以零根权重请求共享PoseCache，缓存等姿态权重保留首个请求。已设bUpdateBasePoseFirst=true保留底层根运动，并给三个BS设置0.10秒方向/0.16秒速度输入平滑、8/s样本权重过渡。修改已保存、按用户要求未运行验收，见 [缓存修复记录](../Changes/CHG-20261020-003-locomotion-root-cache-fix.md)。
+用户随后反馈走跑不移动、衔接生硬。静态定位到LayeredBoneBlend上层先以零根权重请求共享PoseCache，缓存等姿态权重保留首个请求。已设bUpdateBasePoseFirst=true保留底层根运动，并给三个BS设置0.10秒方向/0.16秒速度输入平滑、8/s样本权重过渡。修改已保存、按用户要求未运行验收，见 [缓存修复记录](../Archive/Legacy/Changes/CHG-20261020-003-locomotion-root-cache-fix.md)。
 
 ## 自定义敌人
 

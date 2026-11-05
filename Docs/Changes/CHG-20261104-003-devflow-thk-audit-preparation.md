@@ -1,9 +1,9 @@
-# CHG-20261104-003：DevFlow接手与THK审计任务准备
+﻿# CHG-20261104-003：DevFlow接手与THK审计任务准备
 
 - 状态：partial；准备已完成，执行前置尚缺隔离环境，候选实现/验收/模型审查未开始。
 - 日期：2026-11-04。
 - 需求：读交接后使用刚安装的Dual-Agent DevFlow继续工作。
-- 关联：[PLAN-20261104-001](../Plans/PLAN-20261104-001-devflow-thk-condition-audit.md)、BEH-01、R-DATA-005、R-ANIM-012。
+- 关联：[PLAN-20261104-001](../Archive/MHWI/Plans/PLAN-20261104-001-devflow-thk-condition-audit.md)、BEH-01、R-DATA-005、R-ANIM-012。
 - Git：原工程工作区未提交；仅独立任务输入包内部建立基准提交，不暂存原工程用户修改。
 
 ## 原因与结果
@@ -65,4 +65,4 @@ V1路径与调用预算绑定prepare；迁入环境或预算过期后需从原�
 
 ## 已同步文档
 
-[方案](../Plans/PLAN-20261104-001-devflow-thk-condition-audit.md)、[交接](../Plans/MHWI-Rathian-AI-Handoff-20261104.md)、[已知问题](../Known-Issues.md)、[方案索引](../Plans/README.md)、[变更索引](README.md)、[模块索引](../Reference/modules.json)。
+[方案](../Archive/MHWI/Plans/PLAN-20261104-001-devflow-thk-condition-audit.md)、[交接](../Archive/MHWI/Plans/MHWI-Rathian-AI-Handoff-20261104.md)、[已知问题](../Known-Issues.md)、[方案索引](../Plans/README.md)、[变更索引](README.md)、[模块索引](../Reference/modules.json)。

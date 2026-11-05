@@ -1,8 +1,8 @@
-# ADR-0002：MHWI雌火龙采用原作规则与源数据驱动的执行适配
+﻿# ADR-0002：MHWI雌火龙采用原作规则与源数据驱动的执行适配
 
 - 状态：accepted。
 - 日期：2026-10-31。
-- 关联PLAN / 模块：[首条链路](../Plans/PLAN-20261031-007-rathian-first-chain.md)、[总体方案](../Plans/PLAN-20261031-002-rathian-restoration-master.md)；mhwi-unpack-data、mhwi-rathian-animation、mhwi-longsword。
+- 关联PLAN / 模块：[首条链路](../Archive/MHWI/Plans/PLAN-20261031-007-rathian-first-chain.md)、[总体方案](../Archive/MHWI/Plans/PLAN-20261031-002-rathian-restoration-master.md)；mhwi-unpack-data、mhwi-rathian-animation、mhwi-longsword。
 - 决策依据：用户明确回复“采用推荐组合，按忠实还原优先开始实施，继续分子代理推进”。
 
 ## 背景与约束

@@ -1,8 +1,8 @@
-# CHG-20261104-002：Approx 层编译修复（五项修复批次从未编译成功）
+﻿# CHG-20261104-002：Approx 层编译修复（五项修复批次从未编译成功）
 
 - 日期：2026-11-04。
 - 起因：写 AI 交接文档时核对构建产物时间戳，发现 `MHWIRathianApproxPawn.cpp`（2026-11-02 21:18）**晚于**最后一次成功构建的 DLL（19:49），而 21:21 的构建日志为 `Result: Failed`——即 2026-11-02 那批"五项体验修复"**从未通过编译**，此前无任何记录。
-- 关联：[AI 交接文档](../Plans/MHWI-Rathian-AI-Handoff-20261104.md) §4.2/§4.4、[B1 方案](../Plans/PLAN-20261102-002-rathian-approximate-profile.md)、[CHG-20261102-004](CHG-20261102-004-rathian-approx-implementation.md)（原批次记录，其"构建通过"结论仅对 19:49 那一版成立，不覆盖 21:18 的五项修复）。
+- 关联：[AI 交接文档](../Archive/MHWI/Plans/MHWI-Rathian-AI-Handoff-20261104.md) §4.2/§4.4、[B1 方案](../Archive/MHWI/Plans/PLAN-20261102-002-rathian-approximate-profile.md)、[CHG-20261102-004](../Archive/MHWI/Changes/CHG-20261102-004-rathian-approx-implementation.md)（原批次记录，其"构建通过"结论仅对 19:49 那一版成立，不覆盖 21:18 的五项修复）。
 
 ## 修改文件
 

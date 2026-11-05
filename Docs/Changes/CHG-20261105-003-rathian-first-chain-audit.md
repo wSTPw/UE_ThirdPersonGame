@@ -1,4 +1,4 @@
-# CHG-20261105-003：雌火龙首链只读取证与源码审查
+﻿# CHG-20261105-003：雌火龙首链只读取证与源码审查
 
 - 状态：completed（本轮只读审查与文档）；首链忠实实现仍partial。
 - 日期：2026-11-05。
@@ -10,7 +10,7 @@
 
 旧动作表导出从name指针起读，导致BITE名称连接到下一项84和类型描述符。新32B候选布局下BITE为83；em001表285项与固定维护方dump逐项一致，新增有界追证找到表指针getter及原生注册循环，stride32/字段读点获得静态消费者支持；THK动作查找/启动及caller怪物对象归属未证。撤回现状页“344条完整name↔id↔vtable注册表已闭合”口径，不改历史CHG或旧JSON。
 
-本轮还复核THK55/n200的两条件九步受控路径，独立解码29根键/131点，补齐UID32/21/24三通道。静态审查确认共享时钟、TOI覆盖、骨轨近似、原位资产资格、strict条件provider及动作完成回VM等边界。详见[完整证据与顺序](../Reference/MHWI-Rathian-FirstChain-Audit-20261105.md)。原作条件语义、完整命中/伤害链仍未验证。
+本轮还复核THK55/n200的两条件九步受控路径，独立解码29根键/131点，补齐UID32/21/24三通道。静态审查确认共享时钟、TOI覆盖、骨轨近似、原位资产资格、strict条件provider及动作完成回VM等边界。详见[完整证据与顺序](../Archive/MHWI/Reference/MHWI-Rathian-FirstChain-Audit-20261105.md)。原作条件语义、完整命中/伤害链仍未验证。
 
 ## 修改清单
 
@@ -51,4 +51,4 @@
 
 ## 已同步文档
 
-[入口](../README.md)、[交接](../Plans/MHWI-Rathian-AI-Handoff-20261104.md)、[VM交接](../Plans/MHWI-Rathian-VM-Semantics-Handoff.md)、[完整性](../Reference/MHWI-Rathian-Completeness-Check-20261102.md)、[已知问题](../Known-Issues.md)、[记录索引](README.md)。
+[入口](../README.md)、[交接](../Archive/MHWI/Plans/MHWI-Rathian-AI-Handoff-20261104.md)、[VM交接](../Archive/MHWI/Plans/MHWI-Rathian-VM-Semantics-Handoff.md)、[完整性](../Archive/MHWI/Reference/MHWI-Rathian-Completeness-Check-20261102.md)、[已知问题](../Known-Issues.md)、[记录索引](README.md)。

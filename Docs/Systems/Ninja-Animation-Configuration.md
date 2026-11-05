@@ -1,4 +1,4 @@
-# Ninja 动画配置（2026-10-20）
+﻿# Ninja 动画配置（2026-10-20）
 
 状态：**资源已制作并保存，未经完工后验证**。用户明确要求完成后禁止验证，本轮没有构建、蓝图编译检查、PIE、自动化、文档检查、diff检查或完成后的资产读回。MCP制作命令返回的 saved / persisted 仅表示保存步骤结果，不代表动作表现或玩法通过。
 
@@ -42,7 +42,7 @@ DesiredVelocity由现有MyAnimInstance在游戏线程按当前输入加速度、
 
 三个BlendSpace原来输入平滑和样本权重插值均为0，现统一配置：Direction InterpolationTime=0.10秒、Speed=0.16秒、InterpolationType=BSIT_SpringDamper、DampingRatio=1、MaxSpeed=0；TargetWeightInterpolationSpeedPerSec=8、bTargetWeightInterpolationEaseInOut=true。参数用于缓和起停和转向，是未经运行调校的初始值，滤波和权重插值会共同影响响应。
 
-配置已保存，**没有完工后运行验证**；不能据此宣称移动和手感已实测恢复。当前配置增量见 [缓存与衔接映射](../../ArtSource/Animation/NinjaLocomotionFix-20261020.json)，原因和回退见 [CHG-20261020-003](../Changes/CHG-20261020-003-locomotion-root-cache-fix.md)。
+配置已保存，**没有完工后运行验证**；不能据此宣称移动和手感已实测恢复。当前配置增量见 [缓存与衔接映射](../../ArtSource/Animation/NinjaLocomotionFix-20261020.json)，原因和回退见 [CHG-20261020-003](../Archive/Legacy/Changes/CHG-20261020-003-locomotion-root-cache-fix.md)。
 
 ## 移动映射
 
@@ -81,6 +81,6 @@ DesiredVelocity由现有MyAnimInstance在游戏线程按当前输入加速度、
 
 ## 记录与回退
 
-初次替换见 [CHG-20261020-001](../Changes/CHG-20261020-001-ninja-animation-replacement.md)，后续Root Motion适配见 [CHG-20261020-002](../Changes/CHG-20261020-002-ninja-root-motion.md)。首轮7个备份在 `Saved/NinjaAnimationReplacement-20261020/Before`；本轮12个备份（ABP、3个BS、8个原Ninja Sequence）在 `Saved/NinjaRootMotion-20261020/Before`，保存日志在同目录authoring-log.json。Saved是本机临时证据，清理前另存所需备份。
+初次替换见 [CHG-20261020-001](../Archive/Legacy/Changes/CHG-20261020-001-ninja-animation-replacement.md)，后续Root Motion适配见 [CHG-20261020-002](../Archive/Legacy/Changes/CHG-20261020-002-ninja-root-motion.md)。首轮7个备份在 `Saved/NinjaAnimationReplacement-20261020/Before`；本轮12个备份（ABP、3个BS、8个原Ninja Sequence）在 `Saved/NinjaRootMotion-20261020/Before`，保存日志在同目录authoring-log.json。Saved是本机临时证据，清理前另存所需备份。
 
 只回退Root Motion时先关闭编辑器，恢复本轮12个备份，再通过编辑器按Root Motion映射移除新增18条Sequence；如需退回Ninja替换之前，再恢复首轮7个备份。不得混用两个阶段备份或reset整个工作区。2026-10-19的41项PIE断言和旧6命中证据仅对旧资产基线成立；旧脚本不包含当前Root Motion行为，不能直接用于验收。

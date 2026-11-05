@@ -407,18 +407,15 @@
         "Scripts/MHWI/build_native_mount_data.py",
         "Source/IntroCpp/MHWI/MHWINativeMountData.inl",
         "Tools/MHW/native-mount-curves.json",
-        "Docs/Reference/MHWI-Native-Mount-20261028.md",
+        "Docs/Reference/MHWI-LongSword-Evidence.md",
         "Scripts/MHWI/author_followup_combat.py",
         "Scripts/MHWI/pie_followup_directions.py",
         "Scripts/MHWI/mcp_five_controls.mjs",
         "Scripts/MHWI/extract_foresight_window_evidence.py",
         "Tools/MHW/foresight-window-evidence-20261030.json",
-        "Docs/Reference/MHWI-Foresight-Window-Evidence-20261030.md",
         "Scripts/MHWI/author_spirit_thrust_routes.py",
-        "Docs/Reference/MHWI-Attack-Detection-20261030.md",
         "Scripts/MHWI/extract_foresight_consumers.py",
-        "Tools/MHW/foresight-consumers-20261030.json",
-        "Docs/Reference/MHWI-Foresight-Consumers-20261030.md"
+        "Tools/MHW/foresight-consumers-20261030.json"
       ],
       "interface_ids": [
         "DAMAGE-001",
@@ -488,15 +485,14 @@
         "ArtSource/ThirdParty/MHWLongSword/README.md",
         "ArtSource/ThirdParty/MHWLongSword/extraction-manifest.json",
         "ArtSource/ThirdParty/MHWLongSword/source-inventory.json",
-        "Docs/Reference/MHWI-Unpacking-Workflow.md",
+        "Docs/Reference/MHWI-LongSword-Evidence.md",
         "Scripts/MHWI/extract_native_longsword_params.py",
         "Scripts/MHWI/build_native_action_database.py",
         "Scripts/MHWI/parse_em_params.py",
         "Tools/MHW/tool-sources.json",
         "Tools/MHW/native-parameter-sources.json",
         "Tools/MHW/mhw-editor-sources.json",
-        "Docs/Reference/MHWI-Rathian-Format-Evidence-20261030.md",
-        "Docs/Plans/MHWI-Rathian-Datamine-Handoff.md",
+        "Docs/Reference/MHWI-Rathian-Evidence.md",
         "Scripts/MHWI/read_action_params.py",
         "Scripts/MHWI/read_monster_collision.py",
         "Scripts/MHWI/inspect_parts_break.py",
@@ -520,7 +516,7 @@
     {
       "id": "mhwi-rathian-animation",
       "name": "雌火龙源动画转换与补齐",
-      "document": "Docs/Systems/MHWI-Rathian-Animations.md",
+      "document": "Docs/Systems/MHWI-Rathian.md",
       "sources": [
         "Tools/MHW/complete_rathian_animations.py",
         "Scripts/MHWI/complete_rathian_import.py",
@@ -541,7 +537,7 @@
     {
       "id": "mhwi-rathian-first-chain",
       "name": "雌火龙首条THK到命中验证链路",
-      "document": "Docs/Plans/PLAN-20261031-007-rathian-first-chain.md",
+      "document": "Docs/Systems/MHWI-Rathian.md",
       "sources": [
         "Source/IntroCpp/MHWI/Monsters/MHWIRathianThkExecutor.h",
         "Source/IntroCpp/MHWI/Monsters/MHWIRathianThkExecutor.cpp",
@@ -562,12 +558,12 @@
       "validation": [
         "Scripts/Docs/check_docs.py"
       ],
-      "notes": "工作区变更未提交；THK解析资格已通过（Leviathon 1e647f08），VM语义/LR资格未闭合；UE5.8 IntroCppEditor构建于2026-11-02由PLAN-20261102-001补跑，PIE与原作对照未执行。"
+      "notes": "THK解析资格已通过（Leviathon 1e647f08）；VM条件语义仅有社区命名候选（81.5%段覆盖），运行验证为0；LR资格与动作对象归属未闭合；首链PIE未执行。"
     },
     {
       "id": "mhwi-rathian-approx",
       "name": "雌火龙近似profile执行体（B1）",
-      "document": "Docs/Plans/PLAN-20261102-002-rathian-approximate-profile.md",
+      "document": "Docs/Systems/MHWI-Rathian.md",
       "sources": [
         "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxData.h",
         "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxData.cpp",

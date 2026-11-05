@@ -19,7 +19,8 @@ FENCES = re.compile(r"^\s*```[^\n]*\n.*?^\s*```\s*$", re.MULTILINE | re.DOTALL)
 def main() -> int:
     errors: list[str] = []
     checked_links = 0
-    pages = sorted((ROOT / "Docs").rglob("*.md"))
+    # Docs/Archive 是冻结的历史快照，不再维护其内部链接；归档时不重写正文。
+    pages = sorted(p for p in (ROOT / "Docs").rglob("*.md") if "Archive" not in p.parts)
     pages += [ROOT / "AGENTS.md", ROOT / "README.md", ROOT / "Tools/ue-mcp/README.md"]
     for page in pages:
         source = FENCES.sub("", page.read_text(encoding="utf-8-sig"))

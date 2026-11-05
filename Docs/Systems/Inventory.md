@@ -1,4 +1,4 @@
-# 物品、背包、装备与快捷栏
+﻿# 物品、背包、装备与快捷栏
 
 源码入口：[InventoryComponent.h](../../Source/IntroCpp/InventoryComponent.h)、[实现](../../Source/IntroCpp/InventoryComponent.cpp)、[ItemDataSubsystem.cpp](../../Source/IntroCpp/ItemDataSubsystem.cpp)。接口索引：`ITEM-*`、`INV-*`，见 [接口契约](../Interfaces.md)。
 
@@ -86,7 +86,7 @@ DropItem 尝试读取 ItemClass 并生成掉落物，再移除整堆。现有实
 
 UItemAction 的旧 bool 只表达消费请求：自定义 Blueprint/native Execute 返回 false 仍可能已产生外部副作用，无法通用回滚，也不能把 bApplied=false 写成“什么都没有发生”。多效果组合采用部分成功消费一次的策略。初始化约定只读配置，不应在 InitializeFromItemData 内产生玩法效果。旧 Execute 的 SlotIndex 参数没有容器类型；快捷栏请求传入的是快捷栏索引，自定义效果不得据此直接读取 Inventory[SlotIndex] 当作来源，内置恢复效果不读取该索引。
 
-4项[库存动作自动化测试](../../Source/IntroCpp/Tests/InventoryActionTransactionTests.cpp)已实际通过，覆盖两容器同ID来源独立、重复预约、最后一件事件、属性通知读取提交后数量/重入写拒绝、缺类/无效果/来源变化失败及部分成功只扣一次。真实PIE也已验证快捷栏最后一件只扣原来源、背包同ID数量不变、动画前中断与死亡不扣，见 [实施记录](../Changes/CHG-20261019-005-character-actions-implementation.md)。此次后端改动没有修复AddItem部分添加、丢弃生成失败及所有拖拽交换/装备索引问题。
+4项[库存动作自动化测试](../../Source/IntroCpp/Tests/InventoryActionTransactionTests.cpp)已实际通过，覆盖两容器同ID来源独立、重复预约、最后一件事件、属性通知读取提交后数量/重入写拒绝、缺类/无效果/来源变化失败及部分成功只扣一次。真实PIE也已验证快捷栏最后一件只扣原来源、背包同ID数量不变、动画前中断与死亡不扣，见 [实施记录](../Archive/Legacy/Changes/CHG-20261019-005-character-actions-implementation.md)。此次后端改动没有修复AddItem部分添加、丢弃生成失败及所有拖拽交换/装备索引问题。
 
 ## 新增物品的技术方案落点
 

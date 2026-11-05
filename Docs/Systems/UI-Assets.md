@@ -1,4 +1,4 @@
-# UI、输入与蓝图资产契约
+﻿# UI、输入与蓝图资产契约
 
 UI 的可视布局、Class Defaults 与动画配置保存在二进制资产中。以下 C++ 符号、控件名称和 `/Game/` 路径是开发接口；修改时同时检查实际资产。
 
@@ -104,4 +104,4 @@ MyPlayerCharacter 的 BeginPlay 为已持有的本地玩家添加 InputMapping�
 
 `AMHWICharacter::BuildInputMapping`动态创建Enhanced Input映射，优先级50，失去控制/EndPlay移除。新增枚举只尾追加`SlingerBurst`，键盘V与手柄D-pad Left在气刃连段合法窗口进入投射器连射，移动方向决定左右/正面；既有命令值不重排。W＋左键使用WalkOnSlash前进斩，持刀回避按方向选择11/12/13/10源片段。
 
-`AMHWIHUD`为原生Canvas HUD，新增投射器弹药与按键提示；无UMG命名绑定迁移。本轮未保存地图/蓝图或输入资产，未编译/测试。来源取消窗口和物理按键为项目适配；详见[B10交付](../Reference/MHWI-R06-Remaining-Development.md)和接口MHWI-013。
+`AMHWIHUD`为原生Canvas HUD，新增投射器弹药与按键提示；无UMG命名绑定迁移。本轮未保存地图/蓝图或输入资产，未编译/测试。来源取消窗口和物理按键为项目适配；详见[B10交付](../Archive/MHWI/Reference/MHWI-R06-Remaining-Development.md)和接口MHWI-013。

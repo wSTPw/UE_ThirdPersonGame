@@ -1,13 +1,14 @@
-# Monster Hunter World 太刀与配套角色素材
+﻿# Monster Hunter World 太刀与配套角色素材
 
 - 日期：2026-10-22。
 - 来源：用户提供的本机 `F:/PCprogram/Steam/steamapps/common/Monster Hunter World`，从 `chunk/chunkG*.bin` 读取，按数字顺序合并最新版资源。未读取 `nativePC` 中已有 MOD 作为原版素材。
 - 状态：原始素材已采集，Blender/FBX 转换已输出；材质整理见 [conversion-report.json](conversion-report.json)。已追加独立 `/Game/MHWI` 导入与玩法接入，详见文末 UE 更新；未替换现用 Ninja。
 - 工具与复现命令：[Tools/MHW](../../../Tools/MHW/README.md)。游戏素材的权利归 Capcom 等原权利人，工具 MIT 许可不构成游戏素材再分发或商用许可。
+- 归档规模、提取量与入库边界：[MHWI 解包数据管理](../../../Docs/Systems/MHWI-Unpack-Data.md)。
 
 ## R06 B10新增来源与专用片段（2026-10-25）
 
-`R06Remaining-20261025/export-manifest.json`记录32段源采样FBX：29段w03_00、3段co00_00，导入到`/Game/MHWI/Animations/R06Remaining`并由角色CDO硬引用。规范Step、弹刀恢复、投射器连射、SpiritI/StepSlash专用入口及四向翻滚使用这些序列。完整对象路径、制作失败与恢复、重建和回退见[B10交付](../../../Docs/Reference/MHWI-R06-Remaining-Development.md)。资产已制作，未做完工后测试或新的读回验证；原始文件未修改。
+`R06Remaining-20261025/export-manifest.json`记录32段源采样FBX：29段w03_00、3段co00_00，导入到`/Game/MHWI/Animations/R06Remaining`并由角色CDO硬引用。规范Step、弹刀恢复、投射器连射、SpiritI/StepSlash专用入口及四向翻滚使用这些序列。完整对象路径、制作失败与恢复、重建和回退见[B10交付](../../../Docs/Archive/MHWI/Reference/MHWI-R06-Remaining-Development.md)。资产已制作，未做完工后测试或新的读回验证；原始文件未修改。
 
 ## 可用文件
 
@@ -50,7 +51,7 @@
 
 `NativeFidelity/Animations`、`Common`、`Weapons` 是新采样平行FBX；`export-manifest.json` 保存36段猎人动作、逐文件来源/工具SHA256、整数及子帧矩阵、FBX重读与原文件未变证据。`rig-bind.json` 保存225骨绑定层级。原 Converted 产物未覆盖；309/310/311缺外部基姿态，未伪造合格版本。六条wg03_00武器动画对应swo001的内部手柄运动；不能把它们当作整刀或刀鞘的挂接Transform。
 
-UE正式Montage已逐段迁移27处引用，原Montage身份/裁剪/倍率/通知保留；其余平行Common仅供对照，基础移动未迁移。磁盘备份和本轮验证位于 `Saved/MHWIImport/NativeFidelity-20261024/`，完整说明见 [当前实施与公开资料路线](../../../Docs/Reference/MHWI-Native-Fidelity-Implementation.md)。源码工具仍在 [Scripts/MHWI](../../../Scripts/MHWI)，上游MIT采样器只读加载约定见 [工具说明](../../../Tools/MHW/README.md)。完整装配、连接和取消时序未声称完成。
+UE正式Montage已逐段迁移27处引用，原Montage身份/裁剪/倍率/通知保留；其余平行Common仅供对照，基础移动未迁移。磁盘备份和本轮验证位于 `Saved/MHWIImport/NativeFidelity-20261024/`，完整说明见 [当前实施与公开资料路线](../../../Docs/Archive/MHWI/Reference/MHWI-Native-Fidelity-Implementation.md)。源码工具仍在 [Scripts/MHWI](../../../Scripts/MHWI)，上游MIT采样器只读加载约定见 [工具说明](../../../Tools/MHW/README.md)。完整装配、连接和取消时序未声称完成。
 
 后续更新：三条有色居合依据与308共享完整骨轨块的证明改用合格Native308，累计30组正式引用迁移；颜色身份/速度/事件不变。通用NeedsParent语义仍未完整实现。
 
@@ -58,4 +59,4 @@ UE正式Montage已逐段迁移27处引用，原Montage身份/裁剪/倍率/通�
 
 `NativeParameters/nativePC/`另存48项/约0.23MiB只读提取的w03p、IK、动作树、碰撞/shell和相机参数，独立`extraction-manifest.json`保留来源包/偏移/SHA256，不覆盖首轮素材清单。原始w03p保持加密原样，解码结果只写Saved。
 
-425字段/100具名参数、4条完整IK和全量TIML/FSM统一库在 `Saved/MHWIImport/NativeParameterResearch-20261024/`；21处支持属性已批量导入正式DA。[批处理说明](../../../Docs/Reference/MHWI-Native-Parameter-Pipeline.md)区分原始值、明确单位转换、项目调校及未知消费语义，避免把解包完成当成原作全系统已还原。
+425字段/100具名参数、4条完整IK和全量TIML/FSM统一库在 `Saved/MHWIImport/NativeParameterResearch-20261024/`；21处支持属性已批量导入正式DA。[批处理说明](../../../Docs/Archive/MHWI/Reference/MHWI-Native-Parameter-Pipeline.md)区分原始值、明确单位转换、项目调校及未知消费语义，避免把解包完成当成原作全系统已还原。

@@ -1,6 +1,12 @@
-# MHW 太刀素材采集与转换工具
+﻿# MHW 太刀素材采集与转换工具
 
 本工具目录用于从用户提供的本机《Monster Hunter World: Iceborne》安装读取原始素材。不是 UE 插件，不会修改游戏安装、项目 Content 或角色动画绑定。
+
+数据在哪、索引与提取量、入库边界、重抽判定：见 [MHWI 解包数据管理](../../Docs/Systems/MHWI-Unpack-Data.md)。
+
+按什么顺序解包、参数如何解析、失败与覆盖怎么判定：见 [现有解包方式与复现流程](../../Docs/Archive/MHWI/Reference/MHWI-Unpacking-Workflow.md)。
+
+火龙格式续查入口：[ACTP2/COL/PBC读取结果](../../Docs/Reference/MHWI-Rathian-Evidence.md)；独立脚本在`Scripts/MHWI/`，COL类型2已取得攻击原字段，仍须区分LR资格及实战数值。
 
 ## 工具来源
 
@@ -62,22 +68,22 @@ python Tools/MHW/extract_resources.py `
 
 ## UE 接入脚本
 
-源素材工具仍不写 Content；后续独立接入位于 [Scripts/MHWI](../../Scripts/MHWI)，当前使用说明见 [MHWI 模组](../../Docs/Systems/MHWI-LongSword.md)。当前九条 Common FBX 加 164 条太刀共 173 条动画导入独立原生角色骨架，其中 Common 正式使用 001/203/090/130。034/035 是攀爬动作，不能按循环标志推断地面走跑。气刃II/上挑现为 106/107，旧推断标签已在[动画修正](../../Docs/Changes/CHG-20261022-004-mhwi-animation-corrections.md)更正。
+源素材工具仍不写 Content；后续独立接入位于 [Scripts/MHWI](../../Scripts/MHWI)，当前使用说明见 [MHWI 模组](../../Docs/Systems/MHWI-LongSword.md)。当前九条 Common FBX 加 164 条太刀共 173 条动画导入独立原生角色骨架，其中 Common 正式使用 001/203/090/130。034/035 是攀爬动作，不能按循环标志推断地面走跑。气刃II/上挑现为 106/107，旧推断标签已在[动画修正](../../Docs/Archive/MHWI/Changes/CHG-20261022-004-mhwi-animation-corrections.md)更正。
 
 2026-10-24新增源采样旁路：项目 [native_animation_source.py](../../Scripts/MHWI/native_animation_source.py) 仅加载 [wowo-dot/mhw-anim-tools](https://github.com/wowo-dot/mhw-anim-tools) 的 CPU reader/pose evaluation 模块（MIT，缓存为v1.1.0），不安装/注册或修改该插件。工具和依赖逐文件SHA256记录在 `ArtSource/ThirdParty/MHWLongSword/NativeFidelity/export-manifest.json`；保留上游 LICENSE，更新缓存后须重新资格验证，不能将旧报告用于新版本。
 
-[export_native_animation.py](../../Scripts/MHWI/export_native_animation.py) / [verify_native_animation.py](../../Scripts/MHWI/verify_native_animation.py) 在独立 NativeFidelity 目录制作/重读FBX；[native_weapon_export.py](../../Scripts/MHWI/native_weapon_export.py) / [native_weapon_verify.py](../../Scripts/MHWI/native_weapon_verify.py) 处理独立武器骨架。原 Converted、LMT 和源 blend 不覆盖。UE 接入由 [author_native_fidelity.py](../../Scripts/MHWI/author_native_fidelity.py) 完成，先备份，再校验哈希/时长/骨架；只迁移指定的合格 Montage 段。当前36段合格，309/310/311因NeedsParent缺外部姿态保留原资源。[资格检查](../../Scripts/MHWI/qualify_native_assets.py) 的原生根参考由 [export_native_root_reference.py](../../Scripts/MHWI/export_native_root_reference.py) 生成。运行结果与边界见 [实施记录](../../Docs/Changes/CHG-20261024-002-mhwi-native-fidelity-implementation.md)。
+[export_native_animation.py](../../Scripts/MHWI/export_native_animation.py) / [verify_native_animation.py](../../Scripts/MHWI/verify_native_animation.py) 在独立 NativeFidelity 目录制作/重读FBX；[native_weapon_export.py](../../Scripts/MHWI/native_weapon_export.py) / [native_weapon_verify.py](../../Scripts/MHWI/native_weapon_verify.py) 处理独立武器骨架。原 Converted、LMT 和源 blend 不覆盖。UE 接入由 [author_native_fidelity.py](../../Scripts/MHWI/author_native_fidelity.py) 完成，先备份，再校验哈希/时长/骨架；只迁移指定的合格 Montage 段。当前36段合格，309/310/311因NeedsParent缺外部姿态保留原资源。[资格检查](../../Scripts/MHWI/qualify_native_assets.py) 的原生根参考由 [export_native_root_reference.py](../../Scripts/MHWI/export_native_root_reference.py) 生成。运行结果与边界见 [实施记录](../../Docs/Archive/MHWI/Changes/CHG-20261024-002-mhwi-native-fidelity-implementation.md)。
 
-后续三色309/310/311已通过共享骨轨资格证明，正式Montage复用Native308，未声称通用NeedsParent求值已解，见 [CHG-003](../../Docs/Changes/CHG-20261024-003-mhwi-defense-routes-transfer.md)。
+后续三色309/310/311已通过共享骨轨资格证明，正式Montage复用Native308，未声称通用NeedsParent求值已解，见 [CHG-003](../../Docs/Archive/MHWI/Changes/CHG-20261024-003-mhwi-defense-routes-transfer.md)。
 
 ## 原始参数批处理（2026-10-24）
 
 用户改为参数优先。独立 `NativeParameters/` 提取48项资源，原始安装只读；[固定格式来源](native-parameter-sources.json)保存Synthlight/MHW-Editor的commit/5文件SHA256，[extract_native_longsword_params.py](../../Scripts/MHWI/extract_native_longsword_params.py)显式`--fetch-layout`可恢复缺失缓存，不运行或修改第三方插件。Node.js的OpenSSL legacy provider仅用于按公开格式读取Blowfish资源，未安装全局依赖。
 
-[build_native_action_database.py](../../Scripts/MHWI/build_native_action_database.py)一次汇总425字段、164动作、完整FSM/TIML和4条IK链；[extract_native_equipment_params.py](../../Scripts/MHWI/extract_native_equipment_params.py)保留IK成员偏移和原生关节号。[author_native_parameters.py](../../Scripts/MHWI/author_native_parameters.py)在UE内预览/备份后将17招式属性+4全局属性写入正式DA，保留引用和路由。完整操作、原始字段和未解消费者见 [参数批处理说明](../../Docs/Reference/MHWI-Native-Parameter-Pipeline.md)，结果见 [CHG-004](../../Docs/Changes/CHG-20261024-004-mhwi-native-parameter-pipeline.md)。未知位域不自动变成取消窗，CMS已确认为相机设置。
+[build_native_action_database.py](../../Scripts/MHWI/build_native_action_database.py)一次汇总425字段、164动作、完整FSM/TIML和4条IK链；[extract_native_equipment_params.py](../../Scripts/MHWI/extract_native_equipment_params.py)保留IK成员偏移和原生关节号。[author_native_parameters.py](../../Scripts/MHWI/author_native_parameters.py)在UE内预览/备份后将17招式属性+4全局属性写入正式DA，保留引用和路由。完整操作、原始字段和未解消费者见 [参数批处理说明](../../Docs/Archive/MHWI/Reference/MHWI-Native-Parameter-Pipeline.md)，结果见 [CHG-004](../../Docs/Archive/MHWI/Changes/CHG-20261024-004-mhwi-native-parameter-pipeline.md)。未知位域不自动变成取消窗，CMS已确认为相机设置。
 
 ## R06 B10开发重建（2026-10-25）
 
-R06剩余三项开发完成，未编译/测试；[现状与资源清单](../../Docs/Reference/MHWI-R06-Remaining-Development.md)、[本批记录](../../Docs/Changes/CHG-20261025-005-mhwi-r06-remaining.md)。稳定数据：`native-r06-source-owners.json`、`native-r06-remaining-evidence.json`、`native-link-motion-policy.json`、`r06-runtime-adapter.json`；保留原始身份、请求门控、MotionTree行、时钟链及32个新增资源对象路径。
+R06剩余三项开发完成，未编译/测试；[现状与资源清单](../../Docs/Archive/MHWI/Reference/MHWI-R06-Remaining-Development.md)、[本批记录](../../Docs/Archive/MHWI/Changes/CHG-20261025-005-mhwi-r06-remaining.md)。稳定数据：`native-r06-source-owners.json`、`native-r06-remaining-evidence.json`、`native-link-motion-policy.json`、`r06-runtime-adapter.json`；保留原始身份、请求门控、MotionTree行、时钟链及32个新增资源对象路径。
 
 源码/资料生成顺序：`extract_r06_remaining.py` → `build_native_link_policy.py` → `build_link_runtime_data.py` → `build_r06_remaining_data.py` → `record_r06_remaining_progress.py`，脚本均在`Scripts/MHWI/`；这些入口只制作数据/记录，不运行测试。输出B10目录，不覆盖B09历史。Blender执行`export_r06_remaining.py`制作FBX，MCP使用`import_r06_staging.run`并传R06Remaining manifest、B10 journal、目标目录`/Game/MHWI/Animations/R06Remaining`；已有包/journal拒绝覆盖。

@@ -1,8 +1,8 @@
-# CHG-20261104-001：雌火龙项目 AI 交接文档
+﻿# CHG-20261104-001：雌火龙项目 AI 交接文档
 
 - 日期：2026-11-04。
 - 起因：用户要求"交接一下工作，给其他 AI 看的"——需要一个自包含、无需读历史对话即可接手的交接文档。
-- 关联：[完整性核对页](../Reference/MHWI-Rathian-Completeness-Check-20261102.md)、[路线方案](../Plans/PLAN-20261103-001-rathian-review-adoption.md)、[VM 语义交接](../Plans/MHWI-Rathian-VM-Semantics-Handoff.md)。
+- 关联：[完整性核对页](../Archive/MHWI/Reference/MHWI-Rathian-Completeness-Check-20261102.md)、[路线方案](../Archive/MHWI/Plans/PLAN-20261103-001-rathian-review-adoption.md)、[VM 语义交接](../Archive/MHWI/Plans/MHWI-Rathian-VM-Semantics-Handoff.md)。
 
 ## 改动内容
 

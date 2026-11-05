@@ -1,8 +1,8 @@
-# ADR-0001：现状、方案和变更记录的维护结构
+﻿# ADR-0001：现状、方案和变更记录的维护结构
 
 - 状态：accepted
 - 日期：2026-10-17
-- 关联：[文档基线变更](../Changes/CHG-20261017-001-documentation-baseline.md)
+- 关联：[文档基线变更](../Archive/Legacy/Changes/CHG-20261017-001-documentation-baseline.md)
 
 ## 背景
 

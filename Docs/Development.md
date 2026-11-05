@@ -1,4 +1,4 @@
-# 开发、验证与提交前检查
+﻿# 开发、验证与提交前检查
 
 ## 构建入口
 
@@ -58,17 +58,17 @@ PIE 的已验证启动命令见 [升级记录](UE58-Upgrade.md)。MCP 安装、�
 
 - [B03动画定向迁移](../Scripts/MHWI/author_locomotion_fidelity.py)：`run(save=False)`只预检，`run(save=True)`备份并迁移已合格循环；源清单变化须重新资格核对。配套[短PIE](../Scripts/MHWI/pie_locomotion_fidelity.py)只测真实移动/站姿、速度和有限姿态，不涵盖原作逐帧对照。
 
-- [B04连接原值校验](../Scripts/MHWI/verify_connector_source.py)：`python Scripts/MHWI/verify_connector_source.py`，固定MBD/FSM/LMT、全字节往返、损坏/歧义拒绝、32引用和349资产哈希保护。`before-assets.json`为本批基线，后续资产修改后不能直接把此旧保护报告当当前通过；逐条进度见[连接台账](Plans/MHWI-Connector-Progress.md)。本批未新增连接，未执行PIE。
+- [B04连接原值校验](../Scripts/MHWI/verify_connector_source.py)：`python Scripts/MHWI/verify_connector_source.py`，固定MBD/FSM/LMT、全字节往返、损坏/歧义拒绝、32引用和349资产哈希保护。`before-assets.json`为本批基线，后续资产修改后不能直接把此旧保护报告当当前通过；逐条进度见[连接台账](Archive/MHWI/Plans/MHWI-Connector-Progress.md)。本批未新增连接，未执行PIE。
 
 ## 历史验收安排（2026-10-26；B20已获调试授权）
 
-该历史批次用户要求验收开发台账，运行调试由用户操作。本轮只做静态审查、离线源/快照基准与文档/diff检查；不启动编辑器、不编译或运行PIE/自动化。结果与用户操作清单见[验收报告](Reference/MHWI-Acceptance-20261026.md)。下文的“不测试”是B06当时批次安排，不能覆盖当前要求。
+该历史批次用户要求验收开发台账，运行调试由用户操作。本轮只做静态审查、离线源/快照基准与文档/diff检查；不启动编辑器、不编译或运行PIE/自动化。结果与用户操作清单见[验收报告](Archive/MHWI/Reference/MHWI-Acceptance-20261026.md)。下文的“不测试”是B06当时批次安排，不能覆盖当前要求。
 
 ## B06之后的历史验证安排
 
-当时用户明确要求不测试；该历史阶段不运行编译、PIE、语法、文档或diff检查。每项交付状态与[通过准则](Plans/MHWI-Connector-Acceptance.md)，测试留下一阶段。B04校验脚本固定2冲突/旧输出预期已过时；先迁移再运行，禁止使用旧报告代替新结果。[原生逻辑汇总入口](../Scripts/MHWI/native_connector_logic.py)是只读原文件取证，不代表执行原生消费者或测试通过。
+当时用户明确要求不测试；该历史阶段不运行编译、PIE、语法、文档或diff检查。每项交付状态与[通过准则](Archive/MHWI/Plans/MHWI-Connector-Acceptance.md)，测试留下一阶段。B04校验脚本固定2冲突/旧输出预期已过时；先迁移再运行，禁止使用旧报告代替新结果。[原生逻辑汇总入口](../Scripts/MHWI/native_connector_logic.py)是只读原文件取证，不代表执行原生消费者或测试通过。
 
-B06[链式函数读取器](../Scripts/MHWI/trace_native_connections.py)只提取固定来源静态字节，通用门控及参数元数据不等同武器规则；工具也待验证。具体地址、候选排除和下一步见[控制现状](Reference/MHWI-Native-Connector-Control.md)。
+B06[链式函数读取器](../Scripts/MHWI/trace_native_connections.py)只提取固定来源静态字节，通用门控及参数元数据不等同武器规则；工具也待验证。具体地址、候选排除和下一步见[控制现状](Archive/MHWI/Reference/MHWI-Native-Connector-Control.md)。
 
 ## B12台账处置工具（2026-10-26）
 
@@ -78,4 +78,4 @@ B06[链式函数读取器](../Scripts/MHWI/trace_native_connections.py)只提取
 
 ## B20定向动画开发与调试（2026-10-27）
 
-用户已授权实际调试。`Scripts/MHWI/author_remaining_animation.py`提供合格六段导入/CDO绑定及`verify_assets/finalize`实际读回；四链图配置见`Tools/MHW/b20-animation-graph.json`。`pie_remaining_animation.py`验证生产移动、翻滚出口、IK实际骨骼和门控；`pie_r06_impact_matrix.py`验证两种姿态S/M/L到Light/Spirit。它们异步运行，以Saved/MHWIRestoration/B20-20261027报告passed和时间戳判定；不能并行占用同一个PIE世界。多视角截图冻结不算动作时序测试，瞬态Profile/地形夹具不保存正式资产。详见[B20报告](Reference/MHWI-B20-Animation-Development-20261027.md)。
+用户已授权实际调试。`Scripts/MHWI/author_remaining_animation.py`提供合格六段导入/CDO绑定及`verify_assets/finalize`实际读回；四链图配置见`Tools/MHW/b20-animation-graph.json`。`pie_remaining_animation.py`验证生产移动、翻滚出口、IK实际骨骼和门控；`pie_r06_impact_matrix.py`验证两种姿态S/M/L到Light/Spirit。它们异步运行，以Saved/MHWIRestoration/B20-20261027报告passed和时间戳判定；不能并行占用同一个PIE世界。多视角截图冻结不算动作时序测试，瞬态Profile/地形夹具不保存正式资产。详见[B20报告](Archive/MHWI/Reference/MHWI-B20-Animation-Development-20261027.md)。
