@@ -21,6 +21,7 @@
 | --- | --- | --- |
 | `.gitignore` | 新增 `/ArtSource/ThirdParty/MHWRathalos-em002/nativePC/`、`.../archive-index.json` | 与 `MHWRathalos/` 对称排除 datamine 二进制与索引，保留 `extraction-manifest.json` |
 | `.gitignore` | 新增 `/Content/MHWI/Rathalos/Animations/` | 848 个 / 1.6 GB 可重建中间产物不入库，附重建方式注释 |
+| `Content/MHWI/Rathalos/Animations/A_em001_02_001.uasset` | 咬击动画 | **唯一例外**：`MHWIRathianApproxData.cpp:9` 以 `FSoftObjectPath` 硬编码引用，用 `git add -f` 单独入库，否则新克隆咬击动画静默缺失 |
 | `.gitignore` | 新增 `/Tools/DevFlow/` | 与 CHG-20261107-001「DevFlow 副本有私有基线，不是用户仓库提交」一致 |
 | `Source/IntroCpp/IntroCpp.Build.cs` | `AnimGraphRuntime`（public）、`Json`（private） | 11-16 受击改造所需依赖，随源码入库 |
 | `Source/IntroCpp/MHWI/MHWICharacter.cpp` 等 9 个 C++ | 受击方向、`StartNativeImpact`、`SourceBindings` 白名单 | 已在 11-16 编译并 PIE 验证，本次仅补提交 |
@@ -35,6 +36,8 @@
 无 C++ 签名变更。资源面影响：`/Game/MHWI/Animations/DamageSource/` 由「仅本机存在」变为「随仓库分发」，是本次唯一会改变其他克隆运行行为的改动；其余为新增资产目录。
 
 `Content/MHWI/Rathalos/Animations` 不入库，意味着新克隆在编辑器内看不到这 848 个动画，需用 `Tools/MHW/convert_monster_animations.py --mod3 <x.mod3> --lmt <x.lmt> --out-dir <dir>` 重新导出后导入。该过程依赖本机 nativePC 原始文件，原始文件同样不在仓库内。
+
+**例外与约束**：该目录中 `A_em001_02_001` 被 `MHWIRathianApproxData.cpp` 以 `FSoftObjectPath` 硬编码引用（其他 847 个无任何代码/资产引用，已用全 `Content/MHWI` 资产扫描确认）。因此该文件用 `git add -f` 单独入库；被忽略目录内的文件无法用 `!` 反选，今后若再有源码引用此目录下的动作，必须同样 `-f` 补入。
 
 ## 实际验证
 

@@ -65,6 +65,8 @@ __pycache__/
 
 # 全量动作库（848 个 / 1.6GB）是可重建的中间产物：源 LMT、导出脚本与证据 JSON 均已入库，
 # 需要时用 Tools/MHW/convert_monster_animations.py 重新导出并按需导入。参考 Rathian 的按需导入模式。
+# 例外：A_em001_02_001 被 MHWIRathianApproxData.cpp 硬编码引用，已 git add -f 入库；
+# 今后新增源码引用必须同样 -f 补入，否则新克隆会静默缺动画。
 /Content/MHWI/Rathalos/Animations/
 
 # DevFlow 任务副本属私有基线，不随仓库分发（见 CHG-20261107-001）
