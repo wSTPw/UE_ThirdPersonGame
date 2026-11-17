@@ -1,0 +1,819 @@
+{
+  "schema": 1,
+  "date": "2026-10-31",
+  "target": "MHWI em001 Rathian normal-body candidate; rank eligibility not established",
+  "mode": "offline_selective_extraction_only",
+  "source": "F:\\PCprogram\\Steam\\steamapps\\common\\Monster Hunter World",
+  "source_archive_identity_method": "13 archive names/size/mtime_ns matched cached index; full archive SHA256 not calculated",
+  "source_archive_stamps": {
+    "chunkG0.bin": [
+      43054967239,
+      1792636006019201300
+    ],
+    "chunkG1.bin": [
+      1934193148,
+      1792636006021173600
+    ],
+    "chunkG10.bin": [
+      357594,
+      1792636006021173600
+    ],
+    "chunkG11.bin": [
+      855992,
+      1792636006021173600
+    ],
+    "chunkG2.bin": [
+      2334198659,
+      1792636006023174400
+    ],
+    "chunkG3.bin": [
+      1476041896,
+      1792636006024174000
+    ],
+    "chunkG4.bin": [
+      379782582,
+      1792636006025194300
+    ],
+    "chunkG5.bin": [
+      1416499063,
+      1792636006025738800
+    ],
+    "chunkG6.bin": [
+      368744,
+      1792636006025738800
+    ],
+    "chunkG60.bin": [
+      1217179,
+      1792636006025738800
+    ],
+    "chunkG7.bin": [
+      3189279261,
+      1792636006027730900
+    ],
+    "chunkG8.bin": [
+      1065693497,
+      1792636006027730900
+    ],
+    "chunkG9.bin": [
+      42067737,
+      1792636006027730900
+    ]
+  },
+  "batch_path": "Saved/MHWI-Rathian-20261031-PlanEvidence",
+  "manifest": {
+    "path": "Saved/MHWI-Rathian-20261031-PlanEvidence/extraction-manifest.json",
+    "bytes": 17404,
+    "sha256": "e092f98ae15e3d4d6cb1af18499503a22d7545eb54b1154f73c4194704cc909e"
+  },
+  "seed_index": {
+    "path": "ArtSource/ThirdParty/MHWLongSword/archive-index.json",
+    "bytes": 19207312,
+    "sha256": "693165a71d4a28ec7a1e670ed485f328df041f678c27c8160f79efd46c3a7e63"
+  },
+  "tools": {
+    "extractor": {
+      "path": "Tools/MHW/extract_resources.py",
+      "bytes": 8115,
+      "sha256": "d9e4d440efdacbeba4f62f8c029679880a8e0ea560d6dacd1ea8e7efc4bace20"
+    },
+    "pins": {
+      "path": "Tools/MHW/tool-sources.json",
+      "bytes": 1063,
+      "sha256": "a79d4263f820120a69e923dd7e31b015c96cf404c83075e292df0e4be1a86b54"
+    },
+    "mhw_no_chunk_version": "master snapshot 2026-10-22",
+    "upstream": "https://github.com/JodoZT/MHWNoChunk/blob/master/MHWNoChunk/Chunk.cs",
+    "upstream_chunk_source": {
+      "path": "Tools/MHW/Source/MHWNoChunk-master/MHWNoChunk/Chunk.cs",
+      "bytes": 19578,
+      "sha256": "2548c0362e3dcbfce3db48763a069db635158969529da2ee1d6e6903a171ca02"
+    },
+    "oodle": {
+      "path": "E:\\UE\\UE_5.8\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\runtimes\\win-x64\\native\\oo2core.dll",
+      "bytes": 648632,
+      "sha256": "5bbdaf20aa7a0ae6f763f5d6f634f4008720f9d9e2d4da445fb165e01479169e"
+    }
+  },
+  "command": "python Tools/MHW/extract_resources.py --game 'F:\\PCprogram\\Steam\\steamapps\\common\\Monster Hunter World' --oodle 'E:\\UE\\UE_5.8\\Engine\\Binaries\\DotNET\\UnrealBuildTool\\runtimes\\win-x64\\native\\oo2core.dll' --output 'Saved/MHWI-Rathian-20261031-PlanEvidence' --pattern '^(?:sound/em/(?:em001(?:_v)?\\.(?:wwbk|wwev)|wwcol/em001_00\\.wwcol|wwspl/em001\\.wwspl)|sound/wwise/Windows/em001_(?:se|vo)\\.nbnk|vfx/(?:dds|efx)/em/em001/|quest/(?:q00301/fsm/em/em001_00\\.fsm|enemy/boss/em001_00_st10[12]_0[0-3]\\.sobj|bui/br00_em001_00_\\d+\\.brem)$)' --max-mb 32",
+  "selection_pattern": "^(?:sound/em/(?:em001(?:_v)?\\.(?:wwbk|wwev)|wwcol/em001_00\\.wwcol|wwspl/em001\\.wwspl)|sound/wwise/Windows/em001_(?:se|vo)\\.nbnk|vfx/(?:dds|efx)/em/em001/|quest/(?:q00301/fsm/em/em001_00\\.fsm|enemy/boss/em001_00_st10[12]_0[0-3]\\.sobj|bui/br00_em001_00_\\d+\\.brem)$)",
+  "counts": {
+    "files": 73,
+    "bytes": 16446967,
+    "categories": {
+      "quest_candidate": {
+        "files": 13,
+        "bytes": 39758
+      },
+      "audio_candidate": {
+        "files": 8,
+        "bytes": 14779047
+      },
+      "vfx_candidate": {
+        "files": 52,
+        "bytes": 1628162
+      }
+    }
+  },
+  "verification": {
+    "new_files_size_sha256_match": 73,
+    "new_files_mismatches": [],
+    "existing_source_manifest": {
+      "path": "ArtSource/ThirdParty/MHWRathalos/extraction-manifest.json",
+      "bytes": 71321,
+      "sha256": "4daee3a344efac3d52df35963bb436c52d4329ef30963b8b6b89a478445548a4"
+    },
+    "existing_source_files_size_sha256_match": 300,
+    "existing_source_bytes": 80708036,
+    "existing_source_mismatches": [],
+    "archive_stamps_unchanged_after_extraction": true,
+    "original_game_executed": false,
+    "ue_executed": false,
+    "semantic_decoders_executed": false,
+    "content_assets_written": false
+  },
+  "rea_session_observation": {
+    "version": "6.8.0",
+    "target_open": false,
+    "ghidra_candidate": "not_configured: GHIDRA_INSTALL_DIR not set",
+    "scope": "Availability check only; no consumer decompilation or runtime observation performed"
+  },
+  "boundaries": [
+    "Path-name matches establish candidate association only, not LR rank/quest eligibility.",
+    "COL/THK/TIML/shell action binding remains unknown; this batch does not resolve it.",
+    "No claim that selected VFX/audio resources form a complete dependency closure or apply only to normal LR Rathian.",
+    "WWise NBNK/event decoding, shared texture/audio dependencies and original VFX playback semantics remain unverified.",
+    "q00301 FSM and regional SOBJs are candidate references, not a selected baseline quest or validated multipliers.",
+    "Archive offsets are decompressed-stream offsets, not physical file offsets.",
+    "No game, Content, old source files, old manifests or parser implementations changed."
+  ],
+  "next_work_packages": [
+    "E01 THK/thklst format qualification with fixed tool version",
+    "E02 action-animation-UID-active-window binding",
+    "E03 geometry-bone-hitzone mapping",
+    "E04 PBC durability consumer semantics",
+    "E05 task/rank/multiplier and final damage qualification",
+    "E06 complete reaction timing and interruption",
+    "E07 shell trajectory/impact semantics",
+    "E08 audio/VFX reference closure",
+    "E09 task/area/ecology references"
+  ],
+  "files": [
+    {
+      "path": "quest/bui/br00_em001_00_00.brem",
+      "sha256": "092cf3a001f36f2d382e4a77445bfbe853f9662800e72090b6613669fcd07903",
+      "archive": "chunkG0.bin",
+      "offset": 33219540108,
+      "size": 67,
+      "category": "quest_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "quest/bui/br00_em001_00_01.brem",
+      "sha256": "d4df8e0297d9294f7f9f95e5a24f57aaa6527c0e4bbd7274d7424af9902fd024",
+      "archive": "chunkG0.bin",
+      "offset": 33219540175,
+      "size": 67,
+      "category": "quest_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "quest/bui/br00_em001_00_02.brem",
+      "sha256": "3fdfdfb74c0b1ddd5c5cffc962bb447838ed49e0d7f1102a871d434fe8621a43",
+      "archive": "chunkG0.bin",
+      "offset": 33219540242,
+      "size": 67,
+      "category": "quest_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "quest/bui/br00_em001_00_03.brem",
+      "sha256": "3d4144d489768c2f3f72f0dc024415bbdd9f45351b7fdd0bb6fb7818c2787e80",
+      "archive": "chunkG0.bin",
+      "offset": 33219540309,
+      "size": 67,
+      "category": "quest_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "quest/bui/br00_em001_00_10.brem",
+      "sha256": "7a3976079dff5dd3973cc6c59b3f07a2412edcbc24a5082a543fec6ff9dd37c7",
+      "archive": "chunkG0.bin",
+      "offset": 33219540376,
+      "size": 67,
+      "category": "quest_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "quest/enemy/boss/em001_00_st101_00.sobj",
+      "sha256": "3e6eaf63ba509536a7c1a4c015a77ba717e0158668c0b13388cddc0a5a8136b2",
+      "archive": "chunkG1.bin",
+      "offset": 2306861105,
+      "size": 2740,
+      "category": "quest_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "quest/enemy/boss/em001_00_st101_01.sobj",
+      "sha256": "719d36299bd29e3e80c5e50c066a980581d7dbcbee5c287d6849ba88f6497a22",
+      "archive": "chunkG1.bin",
+      "offset": 2306863845,
+      "size": 2740,
+      "category": "quest_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "quest/enemy/boss/em001_00_st101_02.sobj",
+      "sha256": "850b8427e9deafa91ed0ee60027bcffe0483c84621341787ecfd2c18a92f67bd",
+      "archive": "chunkG1.bin",
+      "offset": 2306866585,
+      "size": 2740,
+      "category": "quest_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "quest/enemy/boss/em001_00_st102_00.sobj",
+      "sha256": "d5baa6faa3a449c500e7ae69b60b11def117820556f493cd15e471f8413a559a",
+      "archive": "chunkG1.bin",
+      "offset": 2306869325,
+      "size": 2876,
+      "category": "quest_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "quest/enemy/boss/em001_00_st102_01.sobj",
+      "sha256": "f59546ccf53b642873170b4f98a396a5096fd5bcb85fbc1d06f4f7d938441a98",
+      "archive": "chunkG1.bin",
+      "offset": 2306872201,
+      "size": 2835,
+      "category": "quest_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "quest/enemy/boss/em001_00_st102_02.sobj",
+      "sha256": "835e4b1050c27fbef7638166713373c579d4e4a33fdca4a3c044c8fc97848d43",
+      "archive": "chunkG1.bin",
+      "offset": 2306875036,
+      "size": 2876,
+      "category": "quest_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "quest/enemy/boss/em001_00_st102_03.sobj",
+      "sha256": "c27f7891f41a9be85cec0f154b37f75a30d894f269824f603a5de6f387376b6c",
+      "archive": "chunkG1.bin",
+      "offset": 2306877912,
+      "size": 2743,
+      "category": "quest_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "quest/q00301/fsm/em/em001_00.fsm",
+      "sha256": "a5268fa8be9d3430cec20fe2d1b7d39bbdcd00d5c48888eaf03289698486fd5e",
+      "archive": "chunkG1.bin",
+      "offset": 2313118631,
+      "size": 19873,
+      "category": "quest_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "sound/em/em001.wwbk",
+      "sha256": "d99157b416180ea5684c53b3fd60f14a38938f395367f0ec42f6fe6b1603885d",
+      "archive": "chunkG0.bin",
+      "offset": 33247952858,
+      "size": 47,
+      "category": "audio_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "sound/em/em001.wwev",
+      "sha256": "e5d233ead0bc7317764d6db7987a7b5e3a609e59c866a2d89de8c1138aa9667a",
+      "archive": "chunkG7.bin",
+      "offset": 2515634845,
+      "size": 42002,
+      "category": "audio_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "sound/em/em001_v.wwbk",
+      "sha256": "27a87e89117b8d03c0e765d1d4d2f3036330b74486fdb699acc8e871d8abf7fa",
+      "archive": "chunkG0.bin",
+      "offset": 33247994520,
+      "size": 32,
+      "category": "audio_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "sound/em/em001_v.wwev",
+      "sha256": "8b57401f8bc6c3e7dde5c080d70c6aa9f76845e1ae051212b9fb6c4af9ae1034",
+      "archive": "chunkG0.bin",
+      "offset": 33247994552,
+      "size": 337,
+      "category": "audio_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "sound/em/wwcol/em001_00.wwcol",
+      "sha256": "cc45b611cd843d1b51edc87c4186ab78fcd1bcf58f195000e189dad7b6ee0674",
+      "archive": "chunkG0.bin",
+      "offset": 33250230057,
+      "size": 1576,
+      "category": "audio_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "sound/em/wwspl/em001.wwspl",
+      "sha256": "b91657cef8f8d0a4726c44f10c6b1c49fa4fb22cde1b9705b2fa3bbf4c2b91ad",
+      "archive": "chunkG0.bin",
+      "offset": 33250302530,
+      "size": 688,
+      "category": "audio_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "sound/wwise/Windows/em001_se.nbnk",
+      "sha256": "7a28d283a2ee173296c35a4f91d97f0b6e6a0b09695285c58c827f172fd87cf1",
+      "archive": "chunkG0.bin",
+      "offset": 36398957173,
+      "size": 8266131,
+      "category": "audio_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "sound/wwise/Windows/em001_vo.nbnk",
+      "sha256": "958dfc5f7d47ac29b52efc60508cab72c5627cb77002d7817e97fb9c1d2d739f",
+      "archive": "chunkG8.bin",
+      "offset": 977245573,
+      "size": 6468234,
+      "category": "audio_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/dds/em/em001/em001_000_BM.tex",
+      "sha256": "40606eb38385096d9bd7d88af342ff7fc432c28913fb9e77104b41b2a97b3243",
+      "archive": "chunkG0.bin",
+      "offset": 58479111969,
+      "size": 349816,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/dds/em/em001/em001_700_BM.tex",
+      "sha256": "211296cac5a2631778c0b71d5ec7b311c9548e81b288d9b5b42a81f40c00539c",
+      "archive": "chunkG0.bin",
+      "offset": 58479461785,
+      "size": 87664,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/dds/em/em001/em001_700_NM.tex",
+      "sha256": "cb72ec0603453a7149768e3f58e774ef4da8f70f4fcddf548023a1feee630591",
+      "archive": "chunkG0.bin",
+      "offset": 58479549449,
+      "size": 87664,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/dds/em/em001/em001_800_BM.tex",
+      "sha256": "a1f068c355f44316bac2e66d503d554c94c105bd2d2cd20c05c5aa53de4cbd42",
+      "archive": "chunkG0.bin",
+      "offset": 58479637113,
+      "size": 87664,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/dds/em/em001/em001_800_NM.tex",
+      "sha256": "a1d96427c7a3ad6d3ef14331b713f5cbc150a0d77b624ab6926adcc81b788d07",
+      "archive": "chunkG0.bin",
+      "offset": 58479724777,
+      "size": 87664,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_000.efx",
+      "sha256": "054abfc16b8f74ac6ef57cb6b36a5b3ec8cfbedeccd6dadd4a57c807882e46d0",
+      "archive": "chunkG0.bin",
+      "offset": 58556938474,
+      "size": 15441,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_001.efx",
+      "sha256": "702fbaa30ce48faceb1a837f0e757dc26506e6055611512800b65cce4dc01001",
+      "archive": "chunkG0.bin",
+      "offset": 58556953915,
+      "size": 22291,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_002.efx",
+      "sha256": "6416518451239b34abc3745365d2fbd4c22e3b0e85833d3130fa109cc8b7a6e7",
+      "archive": "chunkG0.bin",
+      "offset": 58556976206,
+      "size": 46258,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_003.efx",
+      "sha256": "d3709870cb325207b1a50510c797f3e19c19529ce54dabffc8be41e68d0e492e",
+      "archive": "chunkG9.bin",
+      "offset": 631193791,
+      "size": 13249,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_004.efx",
+      "sha256": "6c8073241405addcd9ded021c253cc00631db253752f25f6761b2a2864110435",
+      "archive": "chunkG0.bin",
+      "offset": 58557035713,
+      "size": 26628,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_005.efx",
+      "sha256": "ec5927c2e1d4608d5a45e442673e0a4a8cd0f33b2dbff54f041b3684a85d61ff",
+      "archive": "chunkG0.bin",
+      "offset": 58557062341,
+      "size": 3711,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_006.efx",
+      "sha256": "e53483a330ecb5b92502bba704b9df3a7dce74830609696d47c1bae4f227ab53",
+      "archive": "chunkG0.bin",
+      "offset": 58557066052,
+      "size": 14626,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_007.efx",
+      "sha256": "1cca978e3e6b1d7e433edcb9a9769ecda239ac7fc791a81f27857b1a242cbb43",
+      "archive": "chunkG0.bin",
+      "offset": 58557080678,
+      "size": 7229,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_008.efx",
+      "sha256": "a7c8b5606e7890e140d03b6ddb6e1075faf2b3a5ce9ac575e7a2cc08d4664755",
+      "archive": "chunkG0.bin",
+      "offset": 58557087907,
+      "size": 78265,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_009.efx",
+      "sha256": "addb98df1ca42ff16ea3b18f052230f337d00453f49a0564c4d7496ac77cadd5",
+      "archive": "chunkG0.bin",
+      "offset": 58557166172,
+      "size": 14032,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_010.efx",
+      "sha256": "55973331b3c78d3f08b463ec0c3804a3f5e84b49b16ad5f4be5414c8965d6d35",
+      "archive": "chunkG0.bin",
+      "offset": 58557180204,
+      "size": 16040,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_011.efx",
+      "sha256": "24724583b4239ea63adc5690710e82542849423bded49612b9c88a24bdb4b252",
+      "archive": "chunkG0.bin",
+      "offset": 58557196244,
+      "size": 22272,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_012.efx",
+      "sha256": "7ef09f57ce5ea6dc2216280759b31a3fbdf61e6bf8e4e02b094b3e5e95b2042e",
+      "archive": "chunkG0.bin",
+      "offset": 58557218516,
+      "size": 53075,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_013.efx",
+      "sha256": "af559f5a372f493572e617a228caa8fd1c5ef569c981517f00a09992ddddc9d0",
+      "archive": "chunkG9.bin",
+      "offset": 631207040,
+      "size": 16763,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_014.efx",
+      "sha256": "7bc08205a55449ee8da46d75bdd8673855a0662d6308767e450790c1ec6acef8",
+      "archive": "chunkG0.bin",
+      "offset": 58557288354,
+      "size": 28148,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_015.efx",
+      "sha256": "16b822d50ab5df69a5a09fb8a3785b97410e02dd75e3d0bc1e753e600f4f5da5",
+      "archive": "chunkG0.bin",
+      "offset": 58557316502,
+      "size": 63751,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_016.efx",
+      "sha256": "3ffc7615f7a980a6b8cb06a1de94cb485091fb14cc091a9b3285fec0af3ad4c7",
+      "archive": "chunkG0.bin",
+      "offset": 58557380253,
+      "size": 13058,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_017.efx",
+      "sha256": "294b3e947e01bb95de62fd973086291b0a134b15cda0c2bf003e621ca1319db4",
+      "archive": "chunkG0.bin",
+      "offset": 58557393311,
+      "size": 2473,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_050.efx",
+      "sha256": "dde603a90381de9ea232e6c9525fded54d30c3e72024816110391ed13d64ac8c",
+      "archive": "chunkG0.bin",
+      "offset": 58557395784,
+      "size": 10968,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_100.efx",
+      "sha256": "55339ce065c828cfb5c6db5d5dc5325a0cd78dc3a6b8e10dfb6fd1fd01f934c1",
+      "archive": "chunkG0.bin",
+      "offset": 58557406752,
+      "size": 610,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_101.efx",
+      "sha256": "55339ce065c828cfb5c6db5d5dc5325a0cd78dc3a6b8e10dfb6fd1fd01f934c1",
+      "archive": "chunkG0.bin",
+      "offset": 58557406752,
+      "size": 610,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_102.efx",
+      "sha256": "55339ce065c828cfb5c6db5d5dc5325a0cd78dc3a6b8e10dfb6fd1fd01f934c1",
+      "archive": "chunkG0.bin",
+      "offset": 58557406752,
+      "size": 610,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_103.efx",
+      "sha256": "55339ce065c828cfb5c6db5d5dc5325a0cd78dc3a6b8e10dfb6fd1fd01f934c1",
+      "archive": "chunkG0.bin",
+      "offset": 58557406752,
+      "size": 610,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_200.efx",
+      "sha256": "db861b2747a77b8c46c7d273dd33a7af0bb209a10c251ef64bf7dc1e76c22155",
+      "archive": "chunkG0.bin",
+      "offset": 58557407362,
+      "size": 19640,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_201.efx",
+      "sha256": "ae6b26a4c65a798c30c5e0afca78b4a3167bd8417cb7004dca132af60c4adb3d",
+      "archive": "chunkG0.bin",
+      "offset": 58557427002,
+      "size": 27846,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_202.efx",
+      "sha256": "0e9ec2956b920448fda7a809f817ad291292e84b2c475bd5462216129cb75dcc",
+      "archive": "chunkG0.bin",
+      "offset": 58557454848,
+      "size": 12074,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_203.efx",
+      "sha256": "0ead812a0419db12c2509d9fb547c0cc38bf5bcb431cca29be8e273ab25532c3",
+      "archive": "chunkG0.bin",
+      "offset": 58557466922,
+      "size": 11814,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_205.efx",
+      "sha256": "f7acf46bf9b1a4a678711c382edf0241325b55d965edd3155875fbf8e1babfad",
+      "archive": "chunkG0.bin",
+      "offset": 58557478736,
+      "size": 18842,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_207.efx",
+      "sha256": "ddbd85ed23b6bee5f1ca157c8b86be7a8601529a72044bd9168f003810b92a0d",
+      "archive": "chunkG0.bin",
+      "offset": 58557497578,
+      "size": 2397,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_208.efx",
+      "sha256": "f60284dba6c62d7e60fe4651fc6e077b6fdefb5858954eed517cf71ede877e1b",
+      "archive": "chunkG0.bin",
+      "offset": 58557499975,
+      "size": 43798,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_210.efx",
+      "sha256": "06aafa9d4d2dcebf77251b1dde93bef708c0bb5d67be0de0e47b1577eb4cf3e3",
+      "archive": "chunkG0.bin",
+      "offset": 58557543773,
+      "size": 55899,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_211.efx",
+      "sha256": "7c36008ef175a3ac88599ddcdab94303a8b6d5ad206dc31d35731796e2bd6f61",
+      "archive": "chunkG0.bin",
+      "offset": 58557599672,
+      "size": 35887,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_212.efx",
+      "sha256": "c29680a9220d4e3e558a23a8938dff6f15ffe9b9d89c652e538666e1f2ed536c",
+      "archive": "chunkG0.bin",
+      "offset": 58557635559,
+      "size": 11031,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_213.efx",
+      "sha256": "b470cacb5c1d07519d425fd857dbacc3a749a7296d775d1b5b06cef44afee7fb",
+      "archive": "chunkG0.bin",
+      "offset": 58557646590,
+      "size": 13571,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_214.efx",
+      "sha256": "0fd1499ab30ca22b6cac9003b18dbacb316108cfca1a603583be2bb60357d00a",
+      "archive": "chunkG0.bin",
+      "offset": 58557660161,
+      "size": 6006,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_216.efx",
+      "sha256": "64735487f23f87dfd71287ddbd936426d6ff48538f487c736ba62d665725f867",
+      "archive": "chunkG0.bin",
+      "offset": 58557666167,
+      "size": 51858,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_217.efx",
+      "sha256": "57ca5256fa3e1aab12669581e410a8b6cffdf55864a02e12e8cc0806f47cecda",
+      "archive": "chunkG0.bin",
+      "offset": 58557718025,
+      "size": 76554,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_219.efx",
+      "sha256": "23aca6a48b87958fe675820bff6660caf84825303080cd4b387b5ce8331926fd",
+      "archive": "chunkG0.bin",
+      "offset": 58557794579,
+      "size": 11784,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_700.efx",
+      "sha256": "b2a0a04d1f2e74f93d86a75ca34905dae2ffa4f4c429fbd9fc6ffd3bb67be97b",
+      "archive": "chunkG0.bin",
+      "offset": 58557806363,
+      "size": 3983,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_701.efx",
+      "sha256": "f67f3f34e9c9e4f2b0151aec7f0583afd3da4001212d4d5a42b9645254b790d1",
+      "archive": "chunkG0.bin",
+      "offset": 58557810346,
+      "size": 5981,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_702.efx",
+      "sha256": "bd671d78ab2dd05eb4904c41710fc01295140a1a2900ca9595238ad279ef8cf3",
+      "archive": "chunkG9.bin",
+      "offset": 631223803,
+      "size": 7265,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_703.efx",
+      "sha256": "11105c2197e2ccfeda7a91cc8667c3402562dec59c4610c1e8b154f24b383927",
+      "archive": "chunkG0.bin",
+      "offset": 58557823592,
+      "size": 11410,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_711.efx",
+      "sha256": "8df795d4d45ea5fc5b3d1b763d4535958a736b38eb03f415bfbfb80392299015",
+      "archive": "chunkG0.bin",
+      "offset": 58557835002,
+      "size": 4010,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_712.efx",
+      "sha256": "a6ea6c29c4092d2e1feb7ae1bed540f1caf43746e45f367d03bdfac76c81bcc2",
+      "archive": "chunkG9.bin",
+      "offset": 631231068,
+      "size": 5070,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_713.efx",
+      "sha256": "62ae126635529d559d0e33361fcfe087ec4aec367955be4eb2c85ea80cd5d9d0",
+      "archive": "chunkG0.bin",
+      "offset": 58557844082,
+      "size": 7628,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_800.efx",
+      "sha256": "c9262ceeafd375e56f66905a42fa44f036f37cb909eb523b89e1f6dfc114e2fc",
+      "archive": "chunkG0.bin",
+      "offset": 58557851710,
+      "size": 6264,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    },
+    {
+      "path": "vfx/efx/em/em001/em001_801.efx",
+      "sha256": "fbbf2201d6f359888ba35b041cf6ffc8a97aa0b7d600a7bccf2cedfd3d8ac77d",
+      "archive": "chunkG0.bin",
+      "offset": 58557857974,
+      "size": 6360,
+      "category": "vfx_candidate",
+      "semantic_status": "raw"
+    }
+  ]
+}

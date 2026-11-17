@@ -1,0 +1,2214 @@
+{
+  "schema_version": 1,
+  "profile": "Rathian Basic engineering profile",
+  "engine": "UE 5.8",
+  "utc": "2026-11-07T03:06:42.179552+00:00",
+  "scope": "Local basic gameplay using existing em001 assets; no claim of original THK, COL or LR behavior equivalence.",
+  "user_decisions": {
+    "player_hit_reactions": "Existing Small/Medium/Large tiers; move-specific force and trajectory.",
+    "fire_animation": "Keep engineering fire presentation for Basic; replace after a future scoped source investigation.",
+    "walk_correction": "Use healthy source 00_007; injured source 00_065 is retained but inactive."
+  },
+  "map": "/Game/MHWI/Rathian/Basic/Maps/L_RathianBasic",
+  "data": {
+    "stats": "/Game/MHWI/Rathian/Basic/Data/DA_RathianBasic_Stats.DA_RathianBasic_Stats",
+    "moveset": "/Game/MHWI/Rathian/Basic/Data/DA_RathianBasic_Moveset.DA_RathianBasic_Moveset",
+    "stats_properties": {
+      "max_health": "3000.0",
+      "patrol_speed_cm_per_second": "333.2194519042969",
+      "approach_speed_cm_per_second": "1248.3499755859375",
+      "sight_range_cm": "4000.0",
+      "lose_target_range_cm": "5500.0"
+    },
+    "moves": [
+      {
+        "name": "ACTION::BITE",
+        "phases": [
+          {
+            "animation": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_BiteSmooth.A_Rathian_BiteSmooth",
+            "duration": 2.1666667461395264,
+            "properties": "(Kind=Active,Animation=\"/Game/MHWI/Rathian/Basic/Animations/A_Rathian_BiteSmooth.A_Rathian_BiteSmooth\",WindowStart=0.000000,WindowEnd=1.000000,bAttackWindowEnabled=True,bUseLegacySecondsWindow=True,WindowStartSeconds=0.050000,WindowEndSeconds=0.383300,WindowQualification=EngineeringFixture,HitBoxes=((BoneName=\"bone_004\",LocalOffsetCm=(X=0.000000,Y=16.000000,Z=103.000000),HalfExtentCm=(X=60.000000,Y=48.000000,Z=105.000000))),Damage=20.000000,ImpactSize=Small,ImpactSizeQualification=EngineeringFixture,KnockbackVelocity=(X=300.000000,Y=0.000000,Z=0.000000),MoveSpeedCmPerSecond=0.000000,MovementQualification=EngineeringFixture,TakeoffHeightCm=0.000000,FlightQualification=EngineeringFixture,BlendInSeconds=0.080000,BlendOutSeconds=0.080000,bSpawnFireballAtStart=False,FireballSocketName=\"\",FireballLocalOffsetCm=(X=0.000000,Y=0.000000,Z=0.000000),FireballSpawnQualification=EngineeringFixture)"
+          }
+        ]
+      },
+      {
+        "name": "ACTION::DASH_BITE2",
+        "phases": [
+          {
+            "animation": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_ChargeWindup.A_Rathian_ChargeWindup",
+            "duration": 0.4000000059604645,
+            "properties": "(Kind=Windup,Animation=\"/Game/MHWI/Rathian/Basic/Animations/A_Rathian_ChargeWindup.A_Rathian_ChargeWindup\",WindowStart=0.000000,WindowEnd=1.000000,bAttackWindowEnabled=False,bUseLegacySecondsWindow=False,WindowStartSeconds=0.000000,WindowEndSeconds=0.000000,WindowQualification=EngineeringFixture,HitBoxes=,Damage=20.000000,ImpactSize=Medium,ImpactSizeQualification=EngineeringFixture,KnockbackVelocity=(X=500.000000,Y=0.000000,Z=250.000000),MoveSpeedCmPerSecond=0.000000,MovementQualification=EngineeringFixture,TakeoffHeightCm=0.000000,FlightQualification=EngineeringFixture,BlendInSeconds=0.080000,BlendOutSeconds=0.080000,bSpawnFireballAtStart=False,FireballSocketName=\"\",FireballLocalOffsetCm=(X=0.000000,Y=0.000000,Z=0.000000),FireballSpawnQualification=EngineeringFixture)"
+          },
+          {
+            "animation": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_Charge.A_Rathian_Charge",
+            "duration": 1.649999976158142,
+            "properties": "(Kind=Active,Animation=\"/Game/MHWI/Rathian/Basic/Animations/A_Rathian_Charge.A_Rathian_Charge\",WindowStart=0.020000,WindowEnd=0.960000,bAttackWindowEnabled=True,bUseLegacySecondsWindow=False,WindowStartSeconds=0.000000,WindowEndSeconds=0.000000,WindowQualification=EngineeringFixture,HitBoxes=((BoneName=\"bone_003\",LocalOffsetCm=(X=0.000000,Y=-20.000000,Z=22.000000),HalfExtentCm=(X=110.000000,Y=95.000000,Z=120.000000)),(BoneName=\"bone_000\",LocalOffsetCm=(X=0.000000,Y=-25.000000,Z=-70.000000),HalfExtentCm=(X=130.000000,Y=135.000000,Z=105.000000))),Damage=35.000000,ImpactSize=Large,ImpactSizeQualification=EngineeringFixture,KnockbackVelocity=(X=850.000000,Y=0.000000,Z=380.000000),MoveSpeedCmPerSecond=1248.349976,MovementQualification=EngineeringFixture,TakeoffHeightCm=0.000000,FlightQualification=EngineeringFixture,BlendInSeconds=0.080000,BlendOutSeconds=0.080000,bSpawnFireballAtStart=False,FireballSocketName=\"\",FireballLocalOffsetCm=(X=0.000000,Y=0.000000,Z=0.000000),FireballSpawnQualification=EngineeringFixture)"
+          },
+          {
+            "animation": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_ChargeRecoverySmooth.A_Rathian_ChargeRecoverySmooth",
+            "duration": 0.8666666746139526,
+            "properties": "(Kind=Recovery,Animation=\"/Game/MHWI/Rathian/Basic/Animations/A_Rathian_ChargeRecoverySmooth.A_Rathian_ChargeRecoverySmooth\",WindowStart=0.000000,WindowEnd=1.000000,bAttackWindowEnabled=False,bUseLegacySecondsWindow=False,WindowStartSeconds=0.000000,WindowEndSeconds=0.000000,WindowQualification=EngineeringFixture,HitBoxes=,Damage=20.000000,ImpactSize=Medium,ImpactSizeQualification=EngineeringFixture,KnockbackVelocity=(X=500.000000,Y=0.000000,Z=250.000000),MoveSpeedCmPerSecond=0.000000,MovementQualification=EngineeringFixture,TakeoffHeightCm=0.000000,FlightQualification=EngineeringFixture,BlendInSeconds=0.080000,BlendOutSeconds=0.080000,bSpawnFireballAtStart=False,FireballSocketName=\"\",FireballLocalOffsetCm=(X=0.000000,Y=0.000000,Z=0.000000),FireballSpawnQualification=EngineeringFixture)"
+          }
+        ]
+      },
+      {
+        "name": "ACTION::FIRE_BREATH",
+        "phases": [
+          {
+            "animation": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_SpitWindup.A_Rathian_SpitWindup",
+            "duration": 0.699999988079071,
+            "properties": "(Kind=Windup,Animation=\"/Game/MHWI/Rathian/Basic/Animations/A_Rathian_SpitWindup.A_Rathian_SpitWindup\",WindowStart=0.000000,WindowEnd=1.000000,bAttackWindowEnabled=False,bUseLegacySecondsWindow=False,WindowStartSeconds=0.000000,WindowEndSeconds=0.000000,WindowQualification=EngineeringFixture,HitBoxes=,Damage=20.000000,ImpactSize=Medium,ImpactSizeQualification=EngineeringFixture,KnockbackVelocity=(X=500.000000,Y=0.000000,Z=250.000000),MoveSpeedCmPerSecond=0.000000,MovementQualification=EngineeringFixture,TakeoffHeightCm=0.000000,FlightQualification=EngineeringFixture,BlendInSeconds=0.080000,BlendOutSeconds=0.020000,bSpawnFireballAtStart=False,FireballSocketName=\"\",FireballLocalOffsetCm=(X=0.000000,Y=0.000000,Z=0.000000),FireballSpawnQualification=EngineeringFixture)"
+          },
+          {
+            "animation": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_SpitRelease.A_Rathian_SpitRelease",
+            "duration": 0.7333333492279053,
+            "properties": "(Kind=Active,Animation=\"/Game/MHWI/Rathian/Basic/Animations/A_Rathian_SpitRelease.A_Rathian_SpitRelease\",WindowStart=0.000000,WindowEnd=1.000000,bAttackWindowEnabled=False,bUseLegacySecondsWindow=False,WindowStartSeconds=0.000000,WindowEndSeconds=0.000000,WindowQualification=EngineeringFixture,HitBoxes=,Damage=30.000000,ImpactSize=Medium,ImpactSizeQualification=EngineeringFixture,KnockbackVelocity=(X=550.000000,Y=0.000000,Z=260.000000),MoveSpeedCmPerSecond=0.000000,MovementQualification=EngineeringFixture,TakeoffHeightCm=0.000000,FlightQualification=EngineeringFixture,BlendInSeconds=0.020000,BlendOutSeconds=0.100000,bSpawnFireballAtStart=True,FireballSocketName=\"bone_003\",FireballLocalOffsetCm=(X=0.000000,Y=15.000000,Z=140.000000),FireballSpawnQualification=EngineeringFixture)"
+          }
+        ]
+      },
+      {
+        "name": "ACTION::ROLLING_TAIL_ATTACK2_L",
+        "phases": [
+          {
+            "animation": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_TailTakeoff.A_Rathian_TailTakeoff",
+            "duration": 0.30000001192092896,
+            "properties": "(Kind=TailTakeoff,Animation=\"/Game/MHWI/Rathian/Basic/Animations/A_Rathian_TailTakeoff.A_Rathian_TailTakeoff\",WindowStart=0.000000,WindowEnd=1.000000,bAttackWindowEnabled=False,bUseLegacySecondsWindow=False,WindowStartSeconds=0.000000,WindowEndSeconds=0.000000,WindowQualification=EngineeringFixture,HitBoxes=,Damage=20.000000,ImpactSize=Medium,ImpactSizeQualification=EngineeringFixture,KnockbackVelocity=(X=500.000000,Y=0.000000,Z=250.000000),MoveSpeedCmPerSecond=0.000000,MovementQualification=EngineeringFixture,TakeoffHeightCm=835.599976,FlightQualification=EngineeringFixture,BlendInSeconds=0.180000,BlendOutSeconds=0.020000,bSpawnFireballAtStart=False,FireballSocketName=\"\",FireballLocalOffsetCm=(X=0.000000,Y=0.000000,Z=0.000000),FireballSpawnQualification=EngineeringFixture)"
+          },
+          {
+            "animation": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_TailFlip.A_Rathian_TailFlip",
+            "duration": 2.133333444595337,
+            "properties": "(Kind=Active,Animation=\"/Game/MHWI/Rathian/Basic/Animations/A_Rathian_TailFlip.A_Rathian_TailFlip\",WindowStart=0.000000,WindowEnd=0.620000,bAttackWindowEnabled=True,bUseLegacySecondsWindow=False,WindowStartSeconds=0.000000,WindowEndSeconds=0.000000,WindowQualification=EngineeringFixture,HitBoxes=((BoneName=\"bone_142\",LocalOffsetCm=(X=0.000000,Y=-9.000000,Z=-42.000000),HalfExtentCm=(X=65.000000,Y=60.000000,Z=90.000000)),(BoneName=\"bone_144\",LocalOffsetCm=(X=0.000000,Y=-1.000000,Z=-75.000000),HalfExtentCm=(X=105.000000,Y=70.000000,Z=110.000000)),(BoneName=\"bone_146\",LocalOffsetCm=(X=0.000000,Y=-1.000000,Z=-80.000000),HalfExtentCm=(X=56.000000,Y=46.000000,Z=98.000000))),Damage=40.000000,ImpactSize=Large,ImpactSizeQualification=EngineeringFixture,KnockbackVelocity=(X=600.000000,Y=0.000000,Z=620.000000),MoveSpeedCmPerSecond=0.000000,MovementQualification=EngineeringFixture,TakeoffHeightCm=0.000000,FlightQualification=EngineeringFixture,BlendInSeconds=0.020000,BlendOutSeconds=0.080000,bSpawnFireballAtStart=False,FireballSocketName=\"\",FireballLocalOffsetCm=(X=0.000000,Y=0.000000,Z=0.000000),FireballSpawnQualification=EngineeringFixture)"
+          },
+          {
+            "animation": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_LandingDescend.A_Rathian_LandingDescend",
+            "duration": 0.6333333253860474,
+            "properties": "(Kind=TailLanding,Animation=\"/Game/MHWI/Rathian/Basic/Animations/A_Rathian_LandingDescend.A_Rathian_LandingDescend\",WindowStart=0.000000,WindowEnd=1.000000,bAttackWindowEnabled=False,bUseLegacySecondsWindow=False,WindowStartSeconds=0.000000,WindowEndSeconds=0.000000,WindowQualification=EngineeringFixture,HitBoxes=,Damage=20.000000,ImpactSize=Medium,ImpactSizeQualification=EngineeringFixture,KnockbackVelocity=(X=500.000000,Y=0.000000,Z=250.000000),MoveSpeedCmPerSecond=0.000000,MovementQualification=EngineeringFixture,TakeoffHeightCm=0.000000,FlightQualification=EngineeringFixture,BlendInSeconds=0.140000,BlendOutSeconds=0.140000,bSpawnFireballAtStart=False,FireballSocketName=\"\",FireballLocalOffsetCm=(X=0.000000,Y=0.000000,Z=0.000000),FireballSpawnQualification=EngineeringFixture)"
+          },
+          {
+            "animation": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_LandingRecovery.A_Rathian_LandingRecovery",
+            "duration": 0.6333333253860474,
+            "properties": "(Kind=Recovery,Animation=\"/Game/MHWI/Rathian/Basic/Animations/A_Rathian_LandingRecovery.A_Rathian_LandingRecovery\",WindowStart=0.000000,WindowEnd=1.000000,bAttackWindowEnabled=False,bUseLegacySecondsWindow=False,WindowStartSeconds=0.000000,WindowEndSeconds=0.000000,WindowQualification=EngineeringFixture,HitBoxes=,Damage=20.000000,ImpactSize=Medium,ImpactSizeQualification=EngineeringFixture,KnockbackVelocity=(X=500.000000,Y=0.000000,Z=250.000000),MoveSpeedCmPerSecond=0.000000,MovementQualification=EngineeringFixture,TakeoffHeightCm=0.000000,FlightQualification=EngineeringFixture,BlendInSeconds=0.080000,BlendOutSeconds=0.080000,bSpawnFireballAtStart=False,FireballSocketName=\"\",FireballLocalOffsetCm=(X=0.000000,Y=0.000000,Z=0.000000),FireballSpawnQualification=EngineeringFixture)"
+          }
+        ]
+      }
+    ],
+    "locomotion": {
+      "idle_animation": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_Idle.A_Rathian_Idle",
+      "walk_animation": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_WalkHealthy.A_Rathian_WalkHealthy",
+      "run_animation": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_Run.A_Rathian_Run",
+      "death_animation": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_Death.A_Rathian_Death"
+    }
+  },
+  "scene": {
+    "world": "/Game/MHWI/Rathian/Basic/Maps/L_RathianBasic.L_RathianBasic",
+    "pawn": "/Game/MHWI/Rathian/Basic/Maps/L_RathianBasic.L_RathianBasic:PersistentLevel.BP_RathianBasic_C_0",
+    "parent": "True",
+    "stats": "/Game/MHWI/Rathian/Basic/Data/DA_RathianBasic_Stats.DA_RathianBasic_Stats",
+    "moveset": "/Game/MHWI/Rathian/Basic/Data/DA_RathianBasic_Moveset.DA_RathianBasic_Moveset",
+    "body_relative_rotation": "<Struct 'Rotator' (0x000001FE8E4D3D98) {pitch: -0.000000, yaw: -90.000000, roll: -0.000000}>",
+    "body_relative_location": "<Struct 'Vector' (0x000001FE8E4D3D80) {x: 0.000000, y: 0.000000, z: -142.000000}>",
+    "game_mode": "/Game/MHWI/Rathian/Basic/Blueprints/BP_RathianBasicGameMode.BP_RathianBasicGameMode_C",
+    "player_start": [
+      -5000.0,
+      0.0,
+      110.0
+    ]
+  },
+  "blueprint_registry": {
+    "BP_RathianBasic": {
+      "GeneratedClass": "/Script/Engine.BlueprintGeneratedClass'/Game/MHWI/Rathian/Basic/Blueprints/BP_RathianBasic.BP_RathianBasic_C'",
+      "ParentClass": "/Script/CoreUObject.Class'/Script/IntroCpp.MHWIRathianApproxPawn'",
+      "NativeParentClass": "/Script/CoreUObject.Class'/Script/IntroCpp.MHWIRathianApproxPawn'",
+      "IsDataOnly": "True"
+    },
+    "BP_RathianBasicGameMode": {
+      "GeneratedClass": "/Script/Engine.BlueprintGeneratedClass'/Game/MHWI/Rathian/Basic/Blueprints/BP_RathianBasicGameMode.BP_RathianBasicGameMode_C'",
+      "ParentClass": "/Script/CoreUObject.Class'/Script/Engine.GameModeBase'",
+      "NativeParentClass": "/Script/CoreUObject.Class'/Script/Engine.GameModeBase'",
+      "IsDataOnly": "True"
+    }
+  },
+  "asset_file_count": 25,
+  "assets_sha256": {
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_Bite.uasset": "86332c0cff11737c8600c446c1361e408290f5f89294819b78adc1bb6b532010",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_BiteSmooth.uasset": "b80df761b18a13772ee50632290a9fc0feae8d7916eab483bd17166046afb7dc",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_Charge.uasset": "2ac4bf7b77326e957c4636243006b6c666c791cd6f2d72e45983401d9227e9fe",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_ChargeRecovery.uasset": "e63c3b439932f7aae5dac9d68062bc67f56b5ec375099de6ab7ecb01756ef05f",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_ChargeRecoverySmooth.uasset": "9697fddf1812be3187dca0993362b3cfab30f2d263dfb174a3589d8ccb88c4a2",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_ChargeWindup.uasset": "f4fb9893f9346c6c04f8ce9b944a1e1be86a3aae5e2876613d33c60737e3d312",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_Death.uasset": "869288390b9862e289a218817bfd6355039b5a560c9908f3eda2e2edec18bae4",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_FireRelease.uasset": "324f5363118a1d87f523e06fcd3a418b73086b2b30796466ce15911ccd19a518",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_FireWindup.uasset": "9c04d5f6f8e014663ccc43f04c9776b672bb67ed61d331ba38b76729160f5d1a",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_Idle.uasset": "13f83d186263e565dfc8b282880c13dd25f21b2a73ce2ceabb5f5b73846b661d",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_Landing.uasset": "4253cde27fafb5e093a528601f67c7da5ffa38af9db624719447ab12b2a2fc16",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_LandingDescend.uasset": "0c3937144c5668d21aee833e26b2ff01d38161fba840691e09bf5338001220d2",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_LandingRecovery.uasset": "c157cfeb50ff0265bc7cdc278a8a0b0376c2476bc389e2c310d6bac8425a951b",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_Run.uasset": "8bebdc7b9d3953740543f23af3f373a6e11cbfa787db59294e7799489dafb731",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_SpitRelease.uasset": "225b27401aa843281d52351bb3c2052acec661b1a4d397fddccbb3fc0ced7be2",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_SpitWindup.uasset": "eb79a89b2cc6a8365e53b4dc2b0344d9f47b97451f636b1f43732fda4bcb62c7",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_TailFlip.uasset": "747d784472fddcddc17f032bbe1efa2743e3727174dd7719132908c687de77f0",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_TailTakeoff.uasset": "736aee3aeee1a2d0879f8d33da616776187ba142efb56e373f5c0b449067c6fc",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_Walk.uasset": "8be830465b25c2dd24022b333d3c09927f97857b9165ad6dcbb02430185324fa",
+    "Content/MHWI/Rathian/Basic/Animations/A_Rathian_WalkHealthy.uasset": "c029bcd93ddb4c9df2fb16c620d3e1ae354d6a67d73831bcdf84ecbdcd904706",
+    "Content/MHWI/Rathian/Basic/Blueprints/BP_RathianBasic.uasset": "341717988fbeb5657747676db4d2756e841f4e359d88d32a84a95cc8d5db375a",
+    "Content/MHWI/Rathian/Basic/Blueprints/BP_RathianBasicGameMode.uasset": "c4dfbdf216f191d0503aef41918041a2b7011695c7a1029e07c71c833508ae85",
+    "Content/MHWI/Rathian/Basic/Data/DA_RathianBasic_Moveset.uasset": "0ca60b5b89f64248c3cd95dc47bb215209a688f45960a21897988c08a1c9589c",
+    "Content/MHWI/Rathian/Basic/Data/DA_RathianBasic_Stats.uasset": "c0068efedad25e9cf663ea626580859d03b268e679001fa29159aed151047aa3",
+    "Content/MHWI/Rathian/Basic/Maps/L_RathianBasic.umap": "d9796e499bbb559f75decf98a67694fb8022bee07a5bf0d298ff0f465decef3e"
+  },
+  "authored_clips": [
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_Idle.A_Rathian_Idle",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_00_003.A_em001_00_003",
+      "source_frames": [
+        0,
+        177
+      ],
+      "fps": 60.0,
+      "mode": "origin",
+      "frames": 177,
+      "keys": 178,
+      "duration": 2.950000047683716,
+      "source_root_initial": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_root_delta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "active_in_basic": true
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_Walk.A_Rathian_Walk",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_00_065.A_em001_00_065",
+      "source_frames": [
+        0,
+        184
+      ],
+      "fps": 60.0,
+      "mode": "linear_xy",
+      "frames": 184,
+      "keys": 185,
+      "duration": 3.066666603088379,
+      "source_root_initial": [
+        -0.001567661571562684,
+        0.13667630348342505,
+        -2.1821180501424564e-08
+      ],
+      "source_root_delta": [
+        9.785921344556206e-05,
+        1119.3788819683023,
+        -0.0001887131717087931
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          -5.647618202926775e-19,
+          -6.460121879710984e-12,
+          -0.0001887349823219349
+        ]
+      ],
+      "active_in_basic": false
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_Run.A_Rathian_Run",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_00_067.A_em001_00_067",
+      "source_frames": [
+        0,
+        165
+      ],
+      "fps": 60.0,
+      "mode": "linear_xy",
+      "frames": 165,
+      "keys": 166,
+      "duration": 2.75,
+      "source_root_initial": [
+        0.010014694506948817,
+        0.4191637972681192,
+        -6.94450120741763e-08
+      ],
+      "source_root_delta": [
+        0.0003001181612011395,
+        3432.95148116632,
+        -0.0005787523536143757
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          -0.3116522544361203,
+          0.5525548996767387,
+          -0.00028780388385374334
+        ],
+        [
+          -1.7320394881465742e-18,
+          -1.981222217534162e-11,
+          -0.0005788217768589122
+        ]
+      ],
+      "active_in_basic": true
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_Death.A_Rathian_Death",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_03_031.A_em001_03_031",
+      "source_frames": [
+        0,
+        76
+      ],
+      "fps": 60.0,
+      "mode": "origin",
+      "frames": 76,
+      "keys": 77,
+      "duration": 1.2666666507720947,
+      "source_root_initial": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_root_delta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "active_in_basic": true
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_Bite.A_Rathian_Bite",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_02_001.A_em001_02_001",
+      "source_frames": [
+        0,
+        130
+      ],
+      "fps": 60.0,
+      "mode": "origin",
+      "frames": 130,
+      "keys": 131,
+      "duration": 2.1666667461395264,
+      "source_root_initial": [
+        0.006274267501577799,
+        0.004595827885814766,
+        4.4592290450451433e-10
+      ],
+      "source_root_delta": [
+        51.386245951684195,
+        -7.8441479644511425,
+        1.3224235914707089e-06
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          6.680530146912282,
+          49.9548075346216,
+          -8.421305153660796e-06
+        ],
+        [
+          51.38624504178205,
+          -7.844147892273569,
+          1.322869502828894e-06
+        ]
+      ],
+      "active_in_basic": false
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_FireWindup.A_Rathian_FireWindup",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_08_008.A_em001_08_008",
+      "source_frames": [
+        0,
+        90
+      ],
+      "fps": 60.0,
+      "mode": "fixed",
+      "frames": 90,
+      "keys": 91,
+      "duration": 1.5,
+      "source_root_initial": [
+        -0.003724571266780072,
+        -0.028716575179728584,
+        6.061974398147152e-09
+      ],
+      "source_root_delta": [
+        33.089011593855304,
+        -284.41728376721835,
+        4.794916899405685e-05
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "active_in_basic": false
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_FireRelease.A_Rathian_FireRelease",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_08_008.A_em001_08_008",
+      "source_frames": [
+        90,
+        108
+      ],
+      "fps": 60.0,
+      "mode": "fixed",
+      "frames": 18,
+      "keys": 19,
+      "duration": 0.30000001192092896,
+      "source_root_initial": [
+        33.085287022588524,
+        -284.44600034239807,
+        4.7955230968455e-05
+      ],
+      "source_root_delta": [
+        -54.56137414146907,
+        355.06095772771386,
+        -5.985880171976987e-05
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "active_in_basic": false
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_TailTakeoff.A_Rathian_TailTakeoff",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_08_002.A_em001_08_002",
+      "source_frames": [
+        0,
+        18
+      ],
+      "fps": 60.0,
+      "mode": "fixed",
+      "frames": 18,
+      "keys": 19,
+      "duration": 0.30000001192092896,
+      "source_root_initial": [
+        6.167335513270996e-09,
+        0.035800121890266975,
+        0.10202823857746934
+      ],
+      "source_root_delta": [
+        2.56326236384124e-05,
+        293.20300126896757,
+        835.6112514189192
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "active_in_basic": true
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_TailFlip.A_Rathian_TailFlip",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_08_002.A_em001_08_002",
+      "source_frames": [
+        18,
+        146
+      ],
+      "fps": 60.0,
+      "mode": "fixed",
+      "frames": 128,
+      "keys": 129,
+      "duration": 2.133333444595337,
+      "source_root_initial": [
+        2.563879097392567e-05,
+        293.2388013908578,
+        835.7132796574966
+      ],
+      "source_root_delta": [
+        -5.211097298852231e-07,
+        -5.960788471418141,
+        -385.25864302407325
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "active_in_basic": true
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_Landing.A_Rathian_Landing",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_08_103.A_em001_08_103",
+      "source_frames": [
+        0,
+        102
+      ],
+      "fps": 60.0,
+      "mode": "fixed",
+      "frames": 102,
+      "keys": 103,
+      "duration": 1.7000000476837158,
+      "source_root_initial": [
+        -0.03939321434462305,
+        0.19359499099027744,
+        1292.190230564024
+      ],
+      "source_root_delta": [
+        -93.40513230565706,
+        1845.6599408786292,
+        -1292.0327820201196
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "active_in_basic": false
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_ChargeWindup.A_Rathian_ChargeWindup",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_00_003.A_em001_00_003",
+      "source_frames": [
+        0,
+        24
+      ],
+      "fps": 60.0,
+      "mode": "origin",
+      "frames": 24,
+      "keys": 25,
+      "duration": 0.4000000059604645,
+      "source_root_initial": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "source_root_delta": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "active_in_basic": true
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_Charge.A_Rathian_Charge",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_00_067.A_em001_00_067",
+      "source_frames": [
+        0,
+        99
+      ],
+      "fps": 60.0,
+      "mode": "linear_xy",
+      "frames": 99,
+      "keys": 100,
+      "duration": 1.649999976158142,
+      "source_root_initial": [
+        0.010014694506948817,
+        0.4191637972681192,
+        -6.94450120741763e-08
+      ],
+      "source_root_delta": [
+        98.75320205116063,
+        2036.926409258289,
+        -0.00034340012271216747
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          -18.796112927467707,
+          77.3536805042194,
+          -0.000185723708199248
+        ],
+        [
+          -1.0277824511875984e-18,
+          -1.1756459683803094e-11,
+          -0.0003434695622585247
+        ]
+      ],
+      "active_in_basic": true
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_ChargeRecovery.A_Rathian_ChargeRecovery",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_02_001.A_em001_02_001",
+      "source_frames": [
+        78,
+        130
+      ],
+      "fps": 60.0,
+      "mode": "origin",
+      "frames": 52,
+      "keys": 53,
+      "duration": 0.8666666746139526,
+      "source_root_initial": [
+        6.686804370641776,
+        49.95940424400419,
+        -8.421305302874771e-06
+      ],
+      "source_root_delta": [
+        44.705715848544,
+        -57.79895638056952,
+        9.744174817249984e-06
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          39.966288817580065,
+          -51.67281382955261,
+          2.900797753113693e-07
+        ],
+        [
+          44.705713941195526,
+          -57.79895447322225,
+          1.3228697994804861e-06
+        ]
+      ],
+      "active_in_basic": false
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_BiteSmooth.A_Rathian_BiteSmooth",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_02_001.A_em001_02_001",
+      "source_frames": [
+        0,
+        130
+      ],
+      "fps": 60.0,
+      "mode": "linear_xy",
+      "frames": 130,
+      "keys": 131,
+      "duration": 2.1666667461395264,
+      "source_root_initial": [
+        0.006274267501577799,
+        0.004595827885814766,
+        4.4592290450451433e-10
+      ],
+      "source_root_delta": [
+        51.386245951684195,
+        -7.8441479644511425,
+        1.3224235914707089e-06
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          -19.012593327653263,
+          53.87687909657283,
+          -9.082516548630792e-06
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "active_in_basic": true
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_ChargeRecoverySmooth.A_Rathian_ChargeRecoverySmooth",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_02_001.A_em001_02_001",
+      "source_frames": [
+        78,
+        130
+      ],
+      "fps": 60.0,
+      "mode": "linear_xy",
+      "frames": 52,
+      "keys": 53,
+      "duration": 0.8666666746139526,
+      "source_root_initial": [
+        6.686804370641776,
+        49.95940424400419,
+        -8.421305302874771e-06
+      ],
+      "source_root_delta": [
+        44.705715848544,
+        -57.79895638056952,
+        9.744174817249984e-06
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          17.61343184698247,
+          -22.773334685593667,
+          -4.582007807840682e-06
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "active_in_basic": true
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_SpitWindup.A_Rathian_SpitWindup",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_00_081.A_em001_00_081",
+      "source_frames": [
+        0,
+        42
+      ],
+      "fps": 60.0,
+      "mode": "stationary_xy",
+      "frames": 42,
+      "keys": 43,
+      "duration": 0.699999988079071,
+      "source_root_initial": [
+        -2.087815074558976,
+        -82.13884227269395,
+        1.384879439569886e-05
+      ],
+      "source_root_delta": [
+        -43.43716554524269,
+        -464.1543951115448,
+        7.825058210642055e-05
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "active_in_basic": true
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_SpitRelease.A_Rathian_SpitRelease",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_00_081.A_em001_00_081",
+      "source_frames": [
+        42,
+        86
+      ],
+      "fps": 60.0,
+      "mode": "stationary_xy",
+      "frames": 44,
+      "keys": 45,
+      "duration": 0.7333333492279053,
+      "source_root_initial": [
+        -45.52498061980167,
+        -546.2932373842388,
+        9.209937650211941e-05
+      ],
+      "source_root_delta": [
+        -15.202200785903202,
+        -162.4454235587898,
+        2.738625119036442e-05
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "active_in_basic": true
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_LandingDescend.A_Rathian_LandingDescend",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_08_005.A_em001_08_005",
+      "source_frames": [
+        0,
+        38
+      ],
+      "fps": 60.0,
+      "mode": "actor_flight",
+      "frames": 38,
+      "keys": 39,
+      "duration": 0.6333333253860474,
+      "source_root_initial": [
+        0.005820704473919445,
+        -0.0017311620141526873,
+        449.9519079955262
+      ],
+      "source_root_delta": [
+        46.32407674810939,
+        -15.802449221251532,
+        -449.89697285560027
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "active_in_basic": true
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_LandingRecovery.A_Rathian_LandingRecovery",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_08_005.A_em001_08_005",
+      "source_frames": [
+        38,
+        76
+      ],
+      "fps": 60.0,
+      "mode": "stationary_xy",
+      "frames": 38,
+      "keys": 39,
+      "duration": 0.6333333253860474,
+      "source_root_initial": [
+        46.32989745258331,
+        -15.804180383265685,
+        0.054935139925913035
+      ],
+      "source_root_delta": [
+        -12.970714243709416,
+        3.7219409526793203,
+        -6.274721116028559e-07
+      ],
+      "output_root_0_mid_end": [
+        [
+          1.6438539137442638e-16,
+          1.8803496398822617e-09,
+          0.05493513912349137
+        ],
+        [
+          1.6438539137442638e-16,
+          1.8803496398822617e-09,
+          0.05493513912349137
+        ],
+        [
+          1.6438539137442638e-16,
+          1.8803496398822617e-09,
+          0.05493513912349137
+        ]
+      ],
+      "active_in_basic": true
+    },
+    {
+      "path": "/Game/MHWI/Rathian/Basic/Animations/A_Rathian_WalkHealthy.A_Rathian_WalkHealthy",
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_00_007.A_em001_00_007",
+      "source_frames": [
+        0,
+        288
+      ],
+      "fps": 60.0,
+      "mode": "linear_xy",
+      "frames": 288,
+      "keys": 289,
+      "duration": 4.800000190734863,
+      "source_root_initial": [
+        -12.519840993504047,
+        78.6564905468511,
+        -1.3259272094501284e-05
+      ],
+      "source_root_delta": [
+        0.00013982866193629206,
+        1599.4533958760517,
+        -0.0002696476846324458
+      ],
+      "output_root_0_mid_end": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          -8.043642756516823e-19,
+          -5.068667084358672e-12,
+          -0.00014808310360897535
+        ],
+        [
+          -1.569051994732536e-18,
+          -9.68348719352502e-12,
+          -0.0002829069394096335
+        ]
+      ],
+      "active_in_basic": true
+    }
+  ],
+  "active_clip_count": 14,
+  "clip_verification": {
+    "passed": true,
+    "report": "Saved/RathianBasic-Assets-20261107/authored-clips-verification.json",
+    "report_sha256": "c53ceb9f3afac9f1fbb2e7661a16f4962d086e3af13c757e4f0f3de1b0bd4048",
+    "clip_count": 20,
+    "root_keys_checked": 1915,
+    "root_max_error_cm": 0.00011948562769248383,
+    "relative_position_max_error_cm": 0.0008006080309228855,
+    "measurement_scope": "Root component positions at every authored key; hip/head/feet/tail positions relative to root at three sample times. No angular-error metric."
+  },
+  "source_auxiliary": [
+    {
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_00_003.A_em001_00_003",
+      "float_curves": 0,
+      "transform_curves": 0,
+      "notifies": 0,
+      "sync_markers": 0,
+      "attributes": 0
+    },
+    {
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_00_007.A_em001_00_007",
+      "float_curves": 0,
+      "transform_curves": 0,
+      "notifies": 0,
+      "sync_markers": 0,
+      "attributes": 0
+    },
+    {
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_00_065.A_em001_00_065",
+      "float_curves": 0,
+      "transform_curves": 0,
+      "notifies": 0,
+      "sync_markers": 0,
+      "attributes": 0
+    },
+    {
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_00_067.A_em001_00_067",
+      "float_curves": 0,
+      "transform_curves": 0,
+      "notifies": 0,
+      "sync_markers": 0,
+      "attributes": 0
+    },
+    {
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_00_081.A_em001_00_081",
+      "float_curves": 0,
+      "transform_curves": 0,
+      "notifies": 0,
+      "sync_markers": 0,
+      "attributes": 0
+    },
+    {
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_02_001.A_em001_02_001",
+      "float_curves": 0,
+      "transform_curves": 0,
+      "notifies": 0,
+      "sync_markers": 0,
+      "attributes": 0
+    },
+    {
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_03_031.A_em001_03_031",
+      "float_curves": 0,
+      "transform_curves": 0,
+      "notifies": 0,
+      "sync_markers": 0,
+      "attributes": 0
+    },
+    {
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_08_002.A_em001_08_002",
+      "float_curves": 0,
+      "transform_curves": 0,
+      "notifies": 0,
+      "sync_markers": 0,
+      "attributes": 0
+    },
+    {
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_08_005.A_em001_08_005",
+      "float_curves": 0,
+      "transform_curves": 0,
+      "notifies": 0,
+      "sync_markers": 0,
+      "attributes": 0
+    },
+    {
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_08_008.A_em001_08_008",
+      "float_curves": 0,
+      "transform_curves": 0,
+      "notifies": 0,
+      "sync_markers": 0,
+      "attributes": 0
+    },
+    {
+      "source": "/Game/MHWI/Rathalos/Animations/A_em001_08_103.A_em001_08_103",
+      "float_curves": 0,
+      "transform_curves": 0,
+      "notifies": 0,
+      "sync_markers": 0,
+      "attributes": 0
+    }
+  ],
+  "source_hashes_at_summary": {
+    "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxAnimInstance.cpp": "5eb7083b0f8326b40942899a1345179dc24fa14e9fee6d875311e99ccc6f379d",
+    "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxAnimInstance.h": "e223750652521b769f60dfa22686ce8a4fb718470277543c7732ccc5b67e7ca1",
+    "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxData.cpp": "4f78d418d2da5f4cf405bf99a720b5caddd8441cb1980ff37b0d4e081732ad33",
+    "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxData.h": "920eff200605982cc21bcde73ea24c3bd7c1ff6b0e686134f7ab874d4c34a11b",
+    "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxFireball.cpp": "916c72136f86af42485a8150cce3465200dd5d91d644b7b515a1864cbc2b39e1",
+    "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxFireball.h": "d7e23178440b7711b9692a03540714b3ca5e57ea627d544e173cde4385bf2385",
+    "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxPawn.cpp": "8f7b8841fcbc5c2bb4cc2fb2be84e430ea856f92d7af302aca568fee9c2e5c62",
+    "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxPawn.h": "98399c922ef8e17a6a66b9480a5da3d4eedd3286b71275d30934533d74dcd5ef",
+    "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxStateComponent.cpp": "3acc1a84151df7507ba3f342c43eceaeb1b65fce94a0d36d1746f79281f27875",
+    "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxStateComponent.h": "d2e4bf8d33a75d6b64687699ad49587113e1a5d366610f6bd4d90efc9a85bb7d",
+    "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianDecisionComponent.cpp": "11be786c66528f1ecef61698dfc58ea7ac3cc3f228e5238b17c36f9739de87ef",
+    "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianDecisionComponent.h": "75521d4321fb24870dd90a8868a86f2419b4bdc1d63e7d345b064faaa7a0752b",
+    "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianDecisionPolicy.h": "3ba37801a73541f565f56a7269b7052aa8e1de2a9797c6f2c00bda4d98c4db6c",
+    "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianScriptedPolicy.cpp": "f75a4b713e38d6c66640e2ceababd5b8caaa7f0598b5b5541b064ad1dccaa8d8",
+    "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianScriptedPolicy.h": "9431484430ac992b8dc0bdbf9dd439757b035f133813a13cb22e7d9f5ea119fd",
+    "Source/IntroCpp/IntroCpp.Build.cs": "f1680a2ee2ec44e1c78722aa6e953dba2fffbc2294ef41555b465c0fe369e0be"
+  },
+  "accepted_13_source_hashes_match": true,
+  "integrations": [
+    {
+      "report": "Saved/RathianBasic-20261107/integration.json",
+      "report_sha256": "931160c2ee76108f5a0b10b1f64c8650700799c8507402fd52b95531c86e6b14",
+      "result": {
+        "time_utc": "2026-11-06T17:36:33.393590+00:00",
+        "accepted_snapshot": "e7a2ee3a5df6716f40140a332bc9aa392d3c9de004c937f84dae8a825b6d0676",
+        "accepted_patch_sha256": "a112569c3a34b0f9b962fd4342b55a86a47b825adec357bdfa0468d7bafcbd51",
+        "method": "Hash-guarded exact candidate bytes; original per-file backups; no git reset or asset write",
+        "files": [
+          {
+            "file": "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxAnimInstance.cpp",
+            "before_sha256": null,
+            "after_sha256": "5eb7083b0f8326b40942899a1345179dc24fa14e9fee6d875311e99ccc6f379d"
+          },
+          {
+            "file": "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxAnimInstance.h",
+            "before_sha256": null,
+            "after_sha256": "e223750652521b769f60dfa22686ce8a4fb718470277543c7732ccc5b67e7ca1"
+          },
+          {
+            "file": "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxData.cpp",
+            "before_sha256": "54d7e4facd2fedd6fe9751394e5d93c560974e3478a49646860effaed5c57750",
+            "after_sha256": "4f78d418d2da5f4cf405bf99a720b5caddd8441cb1980ff37b0d4e081732ad33"
+          },
+          {
+            "file": "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxData.h",
+            "before_sha256": "89a761322d667e84ee9a646845200fd4b7e05eba1c731fc0a9af2cbbf3f4d61a",
+            "after_sha256": "a70c62312ae1f61ff61659d6e5256842adc7c0adbcef04ee926e9bab50acf964"
+          },
+          {
+            "file": "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxFireball.cpp",
+            "before_sha256": null,
+            "after_sha256": "916c72136f86af42485a8150cce3465200dd5d91d644b7b515a1864cbc2b39e1"
+          },
+          {
+            "file": "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxFireball.h",
+            "before_sha256": null,
+            "after_sha256": "d7e23178440b7711b9692a03540714b3ca5e57ea627d544e173cde4385bf2385"
+          },
+          {
+            "file": "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxPawn.cpp",
+            "before_sha256": "8ed0ce65e64f4a31538e130d246d3308bff6d88e733e5cf20964de43a75e691b",
+            "after_sha256": "83f92c2d4bdfac0d59f2d0d616ae2b25e413d5e2dce566d277102f0cd20ba582"
+          },
+          {
+            "file": "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxPawn.h",
+            "before_sha256": "85514a66a3acc49f38ba780172c34a7e2ab548253a3948d463b2f2887e4c010e",
+            "after_sha256": "98399c922ef8e17a6a66b9480a5da3d4eedd3286b71275d30934533d74dcd5ef"
+          },
+          {
+            "file": "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianDecisionComponent.cpp",
+            "before_sha256": "85e5da54221b9eb73815831574d84999ca9ad60ef51ad4da7db6c09a6585d8fd",
+            "after_sha256": "11be786c66528f1ecef61698dfc58ea7ac3cc3f228e5238b17c36f9739de87ef"
+          },
+          {
+            "file": "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianDecisionComponent.h",
+            "before_sha256": "d28741b8bb2cf6c3ebafb0e491c92d277173a5b15468991f0e3fdd2eec20c616",
+            "after_sha256": "75521d4321fb24870dd90a8868a86f2419b4bdc1d63e7d345b064faaa7a0752b"
+          },
+          {
+            "file": "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianDecisionPolicy.h",
+            "before_sha256": "c191d8acc0714d41dc435eb99153d1e2ae5d6579f73bb496fb5a33468e9e7b69",
+            "after_sha256": "3ba37801a73541f565f56a7269b7052aa8e1de2a9797c6f2c00bda4d98c4db6c"
+          },
+          {
+            "file": "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianScriptedPolicy.cpp",
+            "before_sha256": "58abc0908d0b565195cb7e4f167bd6509047694e4f44e16aca06d840b13ad0a5",
+            "after_sha256": "f75a4b713e38d6c66640e2ceababd5b8caaa7f0598b5b5541b064ad1dccaa8d8"
+          },
+          {
+            "file": "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianScriptedPolicy.h",
+            "before_sha256": "06c475f3a139f452d64459d8716ee21d81ec546e7eeb9115572c5263e6e9bbfd",
+            "after_sha256": "9431484430ac992b8dc0bdbf9dd439757b035f133813a13cb22e7d9f5ea119fd"
+          }
+        ],
+        "main_build_dependency": "AnimGraphRuntime was parent-added before source input snapshot",
+        "backup_root": "E:\\Unreal Projects\\IntorCpp\\Saved\\RathianBasic-20261107\\pre-integration"
+      }
+    },
+    {
+      "report": "Saved/RathianBasic-Assets-20261107/locomotion-integration.json",
+      "report_sha256": "5c6fd3906c4ceff6d2d48e99076f3fea0be3bfd17859397b4487ac7e0b57fa2a",
+      "result": {
+        "run": "E:\\Unreal Projects\\IntorCpp\\Saved\\DevFlow\\Runs-20261107\\RATHIAN-LOCOMOTION-20261107-5df46aac5e",
+        "snapshot": "f131774b61dac92e74a89c847033b82c74de6a988db4bcd9422dabff6c1ff5f2",
+        "utc": "2026-11-07T01:34:20.884219+00:00",
+        "files": [
+          {
+            "path": "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxData.h",
+            "before": "a70c62312ae1f61ff61659d6e5256842adc7c0adbcef04ee926e9bab50acf964",
+            "after": "920eff200605982cc21bcde73ea24c3bd7c1ff6b0e686134f7ab874d4c34a11b"
+          },
+          {
+            "path": "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxPawn.cpp",
+            "before": "83f92c2d4bdfac0d59f2d0d616ae2b25e413d5e2dce566d277102f0cd20ba582",
+            "after": "3d5e51214cc76ef6fb845f9cb64503aec31670fd89088aa490c71e494cbb9b29"
+          }
+        ]
+      }
+    },
+    {
+      "report": "Saved/RathianBasic-Assets-20261107/ground-final-integration.json",
+      "report_sha256": "15ae0a2f4986dc30246e424b3a71cb88e9b0a5e106654382963ff5f319247aec",
+      "result": {
+        "run": "E:\\Unreal Projects\\IntorCpp\\Saved\\DevFlow\\Runs-20261107\\RATHIAN-GROUND-FINAL-20261107-81c425c0ed",
+        "snapshot": "dfb766fd5bb638003ba60d0b79b1d933dc108f08920f9a67fa4017b81bcc41bf",
+        "utc": "2026-11-07T02:16:18.701299+00:00",
+        "files": [
+          {
+            "path": "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxPawn.cpp",
+            "before": "3d5e51214cc76ef6fb845f9cb64503aec31670fd89088aa490c71e494cbb9b29",
+            "after": "8f7b8841fcbc5c2bb4cc2fb2be84e430ea856f92d7af302aca568fee9c2e5c62"
+          }
+        ]
+      }
+    }
+  ],
+  "main_project_builds": [
+    {
+      "report": "Saved/RathianBasic-20261107/main-project-build.json",
+      "report_sha256": "3c8425978e2be6441dc8480bac0f08af3ee4aca538b391b716b6d68bc1bcc51b",
+      "result": {
+        "started_utc": "2026-11-06T17:36:58.976176+00:00",
+        "argv": [
+          "E:/UE/UE_5.8/Engine/Binaries/ThirdParty/DotNet/10.0/win-x64/dotnet.exe",
+          "E:/UE/UE_5.8/Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll",
+          "IntroCppEditor",
+          "Win64",
+          "Development",
+          "-Project=E:\\Unreal Projects\\IntorCpp\\IntroCpp.uproject",
+          "-WaitMutex",
+          "-NoHotReloadFromIDE",
+          "-NoUBA",
+          "-MaxParallelActions=1",
+          "-UBARootDir=E:\\Unreal Projects\\IntorCpp\\Saved\\RathianBasic-20261107\\UBA-main",
+          "-UBAStoreCapacityGb=2"
+        ],
+        "editor_launched": false,
+        "scope": "Actual project offline Editor target compile only; no Editor/Cmd/PIE",
+        "completed": true,
+        "exit_code": 0,
+        "passed": true,
+        "finished_utc": "2026-11-06T17:40:21.109178+00:00"
+      }
+    },
+    {
+      "report": "Saved/RathianBasic-Assets-20261107/locomotion-main-build.json",
+      "report_sha256": "a967ddb14acf925bba9c60d272bd003766487805c0ff48f7b086f4427d99387b",
+      "result": {
+        "started_utc": "2026-11-07T01:34:20.904105+00:00",
+        "argv": [
+          "E:/UE/UE_5.8/Engine/Binaries/ThirdParty/DotNet/10.0/win-x64/dotnet.exe",
+          "E:/UE/UE_5.8/Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll",
+          "IntroCppEditor",
+          "Win64",
+          "Development",
+          "-Project=E:\\Unreal Projects\\IntorCpp\\IntroCpp.uproject",
+          "-WaitMutex",
+          "-NoHotReloadFromIDE",
+          "-NoUBA",
+          "-MaxParallelActions=1",
+          "-UBARootDir=E:\\Unreal Projects\\IntorCpp\\Saved\\RathianBasic-Assets-20261107\\UBA-main",
+          "-UBAStoreCapacityGb=2"
+        ],
+        "completed": true,
+        "scope": "Actual project offline reflected Editor target; editor was saved and gracefully closed",
+        "exit_code": 0,
+        "passed": true,
+        "finished_utc": "2026-11-07T01:35:27.754048+00:00"
+      }
+    },
+    {
+      "report": "Saved/RathianBasic-Assets-20261107/ground-final-main-build.json",
+      "report_sha256": "0f2bd4066640f2c7e1b97f30b5bac9dc570474b4e7e69ec550d1e695a56cb9e2",
+      "result": {
+        "started_utc": "2026-11-07T02:16:18.707016+00:00",
+        "argv": [
+          "E:/UE/UE_5.8/Engine/Binaries/ThirdParty/DotNet/10.0/win-x64/dotnet.exe",
+          "E:/UE/UE_5.8/Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll",
+          "IntroCppEditor",
+          "Win64",
+          "Development",
+          "-Project=E:\\Unreal Projects\\IntorCpp\\IntroCpp.uproject",
+          "-WaitMutex",
+          "-NoHotReloadFromIDE",
+          "-NoUBA",
+          "-MaxParallelActions=1",
+          "-UBARootDir=E:\\Unreal Projects\\IntorCpp\\Saved\\RathianBasic-Assets-20261107\\UBA-main",
+          "-UBAStoreCapacityGb=2"
+        ],
+        "completed": true,
+        "scope": "Actual project offline final ground repair Editor target; editor gracefully closed; no compiled outputs transplanted",
+        "exit_code": 0,
+        "passed": true,
+        "finished_utc": "2026-11-07T02:16:35.828570+00:00"
+      }
+    }
+  ],
+  "pie": {
+    "passed": true,
+    "case_count": 24,
+    "checks_count": 101,
+    "cases": [
+      {
+        "case": "behavior",
+        "passed": true,
+        "utc": "2026-11-07T02:33:17.548478+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-behavior.json",
+        "report_sha256": "cf45739f319cb71d7ab0678472c75bdd0945db2c08d754b6bd47ffc86e4638e1",
+        "sample_count": 81,
+        "checks": [
+          {
+            "passed": true,
+            "description": "actual patrol speed matches Walk source",
+            "count": 85,
+            "mean": 333.2194530487379
+          },
+          {
+            "passed": true,
+            "description": "automatic discovery leads to sustained approach at Run speed",
+            "count": 53,
+            "max": 1248.3500299114878
+          },
+          {
+            "passed": true,
+            "description": "single production decision policy selected a configured attack",
+            "attack": "ACTION::FIRE_BREATH"
+          },
+          {
+            "passed": true,
+            "description": "Patrol uses evaluated Walk pose instead of full Run"
+          },
+          {
+            "passed": true,
+            "description": "walking/approach maintain safe floor clearance",
+            "z": 142.0
+          }
+        ]
+      },
+      {
+        "case": "bite_hit",
+        "passed": true,
+        "utc": "2026-11-07T02:33:55.790183+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-bite_hit.json",
+        "report_sha256": "b435ff750e3a625848f795a5c8313791005ae3952184189c853cacc7f0c88a80",
+        "sample_count": 65,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::BITE"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 20.0,
+            "expected": 20
+          }
+        ]
+      },
+      {
+        "case": "charge_hit",
+        "passed": true,
+        "utc": "2026-11-07T02:43:45.347632+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-charge_hit.json",
+        "report_sha256": "27ca325db5251d8ede420e02d417b59a58df4e340038c9b05a8625b2c76ad1bf",
+        "sample_count": 87,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::DASH_BITE2"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 35.0,
+            "expected": 35
+          }
+        ]
+      },
+      {
+        "case": "fire_hit",
+        "passed": true,
+        "utc": "2026-11-07T02:34:17.061747+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-fire_hit.json",
+        "report_sha256": "473c6d370b508b88b878405d83b8cc2c3ae70777a78ad7abfc25896adb4659b8",
+        "sample_count": 84,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::FIRE_BREATH"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 30.0,
+            "expected": 30
+          },
+          {
+            "passed": true,
+            "description": "exactly one fireball spawned",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "case": "tail_hit",
+        "passed": true,
+        "utc": "2026-11-07T02:34:33.992918+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-tail_hit.json",
+        "report_sha256": "3d16c34f5a00982646742bd71516235415e92651e1092f87a746c8dc8e63c9a5",
+        "sample_count": 111,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::ROLLING_TAIL_ATTACK2_L"
+          },
+          {
+            "passed": true,
+            "description": "tail takeoff lifted collision root",
+            "max_z": 977.5999755859375
+          },
+          {
+            "passed": true,
+            "description": "tail returns to floor",
+            "z": 142.0
+          },
+          {
+            "passed": true,
+            "description": "normal tail sequence avoids emergency landing fallback"
+          },
+          {
+            "passed": true,
+            "description": "tail active phase damages target exactly once",
+            "damage": 40.0
+          }
+        ]
+      },
+      {
+        "case": "bite_miss",
+        "passed": true,
+        "utc": "2026-11-07T02:44:04.365193+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-bite_miss.json",
+        "report_sha256": "71bf68167e021fdb3c9c0d2107310921f802c19f3c07f99c484e6d8163d5f2b6",
+        "sample_count": 65,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::BITE"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 0.0,
+            "expected": 0
+          }
+        ]
+      },
+      {
+        "case": "bite_wall",
+        "passed": true,
+        "utc": "2026-11-07T02:49:14.971677+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-bite_wall.json",
+        "report_sha256": "95c966d7b8cdc359965c8ca2232d1e85fa74aeb66eb093d61989ea5721ea7488",
+        "sample_count": 65,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::BITE"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 0.0,
+            "expected": 0
+          }
+        ]
+      },
+      {
+        "case": "fire_wall",
+        "passed": true,
+        "utc": "2026-11-07T02:49:36.265994+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-fire_wall.json",
+        "report_sha256": "8f898a01a98cd924f65e05308eedf2d5e16db54aab4cf9f3429fbfc10c2eece8",
+        "sample_count": 84,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::FIRE_BREATH"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 0.0,
+            "expected": 0
+          },
+          {
+            "passed": true,
+            "description": "exactly one fireball spawned",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "case": "charge_wall",
+        "passed": true,
+        "utc": "2026-11-07T02:50:04.653910+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-charge_wall.json",
+        "report_sha256": "2b4b6155efc8d1da958c35cec0a0e56bff6ce9c80da6c5cd75bfaadbf510f7e9",
+        "sample_count": 11,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::DASH_BITE2"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 0.0,
+            "expected": 0
+          },
+          {
+            "passed": true,
+            "description": "collision root stopped before wall"
+          }
+        ]
+      },
+      {
+        "case": "bite_lowfps",
+        "passed": true,
+        "utc": "2026-11-07T02:50:23.986126+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-bite_lowfps.json",
+        "report_sha256": "3f36e4cd6043c5be4c83427ba3ebe399b1f57e8032ace8841d720b6590a78e34",
+        "sample_count": 11,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::BITE"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 20.0,
+            "expected": 20
+          },
+          {
+            "passed": true,
+            "description": "actual game tick crossed low-frame interval",
+            "max_dt": 0.20000019669532776
+          }
+        ]
+      },
+      {
+        "case": "tail_loss",
+        "passed": true,
+        "utc": "2026-11-07T02:50:39.754408+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-tail_loss.json",
+        "report_sha256": "21d41f2368481036d88c1a841942701c8edf862dfa364e5dd2eb106bf8f7d0e1",
+        "sample_count": 52,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::ROLLING_TAIL_ATTACK2_L"
+          },
+          {
+            "passed": true,
+            "description": "tail takeoff lifted collision root",
+            "max_z": 977.5999755859375
+          },
+          {
+            "passed": true,
+            "description": "tail returns to floor",
+            "z": 142.0
+          },
+          {
+            "passed": true,
+            "description": "interrupted/lost target used Landing"
+          }
+        ]
+      },
+      {
+        "case": "tail_interrupt",
+        "passed": true,
+        "utc": "2026-11-07T02:50:57.992565+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-tail_interrupt.json",
+        "report_sha256": "0d0a7b9bac7cb9d5a6f70c5c951d72d8df856edbbc604d7f80e239f8f858dcaa",
+        "sample_count": 52,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::ROLLING_TAIL_ATTACK2_L"
+          },
+          {
+            "passed": true,
+            "description": "tail takeoff lifted collision root",
+            "max_z": 977.5999755859375
+          },
+          {
+            "passed": true,
+            "description": "tail returns to floor",
+            "z": 142.0
+          },
+          {
+            "passed": true,
+            "description": "interrupted/lost target used Landing"
+          }
+        ]
+      },
+      {
+        "case": "tail_death",
+        "passed": true,
+        "utc": "2026-11-07T02:53:58.369631+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-tail_death.json",
+        "report_sha256": "c163fab7e95c9af1e4b3ae62a900086787dd6bffef56bf8a3346960dcb4b46b3",
+        "sample_count": 88,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::ROLLING_TAIL_ATTACK2_L"
+          },
+          {
+            "passed": true,
+            "description": "air death remains terminal after ConfigureApprox"
+          },
+          {
+            "passed": true,
+            "description": "dead airborne actor returned to floor",
+            "z": 142.0
+          },
+          {
+            "passed": true,
+            "description": "dead attack cancelled"
+          }
+        ]
+      },
+      {
+        "case": "ground_death",
+        "passed": true,
+        "utc": "2026-11-07T02:54:17.442403+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-ground_death.json",
+        "report_sha256": "1c00f54ab4b0ac693893ca533f2f91e60d5a382d535a1a39be842558c77152da",
+        "sample_count": 78,
+        "checks": [
+          {
+            "passed": true,
+            "description": "HP zero and repeated ConfigureApprox remain Dead"
+          },
+          {
+            "passed": true,
+            "description": "dead actor refuses attacks"
+          },
+          {
+            "passed": true,
+            "description": "nonlooping death end pose holds",
+            "end_pose_sample_count": 61,
+            "hip_z_range_cm": [
+              11.162215521203349,
+              11.162215521203349
+            ]
+          }
+        ]
+      },
+      {
+        "case": "fire_death",
+        "passed": true,
+        "utc": "2026-11-07T02:59:22.992642+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-fire_death.json",
+        "report_sha256": "dd5b5f8b6db886265f715ca0497804ce5a0a5b70806cf8d10e34deb030259cbd",
+        "sample_count": 53,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::FIRE_BREATH"
+          },
+          {
+            "passed": true,
+            "description": "fireball source death is terminal"
+          },
+          {
+            "passed": true,
+            "description": "death clears a previously spawned owned projectile",
+            "spawned": 1,
+            "live": 0
+          },
+          {
+            "passed": true,
+            "description": "destroyed fireball cannot damage target after source death"
+          }
+        ]
+      },
+      {
+        "case": "tail_blocked",
+        "passed": true,
+        "utc": "2026-11-07T02:59:52.787658+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-tail_blocked.json",
+        "report_sha256": "25df30242d7cd916e64c7e55996d3feb047ce4c96e16e1f13fcba0bcb63a9291",
+        "sample_count": 3,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::ROLLING_TAIL_ATTACK2_L"
+          },
+          {
+            "passed": true,
+            "description": "ceiling blocked the swept flight root",
+            "max_z": 308.1644017009985
+          },
+          {
+            "passed": true,
+            "description": "tail returns to floor",
+            "z": 142.0
+          },
+          {
+            "passed": true,
+            "description": "interrupted/lost target used Landing"
+          }
+        ]
+      },
+      {
+        "case": "bite_knockback",
+        "passed": true,
+        "utc": "2026-11-07T02:36:12.244704+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-bite_knockback.json",
+        "report_sha256": "c27b98a634f9112d244422df343c0447ae637967dad72fe1da4ebd49bcb5d1d3",
+        "sample_count": 64,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::BITE"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 20.0,
+            "expected": 20
+          },
+          {
+            "passed": true,
+            "description": "player selected configured small reaction",
+            "controls": [
+              "<MHWIControlState.FLINCH_SMALL: 1>",
+              "<MHWIControlState.FREE: 0>"
+            ]
+          },
+          {
+            "passed": true,
+            "description": "actual sheathed Hunter reaction motion matches tier",
+            "expected_motion": "70",
+            "motions": [
+              "70"
+            ]
+          },
+          {
+            "passed": true,
+            "description": "small bite does not launch Hunter upward",
+            "peak_vz": 0.0
+          }
+        ]
+      },
+      {
+        "case": "fire_knockback",
+        "passed": true,
+        "utc": "2026-11-07T02:36:28.010777+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-fire_knockback.json",
+        "report_sha256": "f9abc3ccd2e4b8bad2d7379f93c7b221e3ce4f849af0922096c1a078fead70c3",
+        "sample_count": 84,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::FIRE_BREATH"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 30.0,
+            "expected": 30
+          },
+          {
+            "passed": true,
+            "description": "player selected configured medium reaction",
+            "controls": [
+              "<MHWIControlState.FLINCH_MEDIUM: 2>",
+              "<MHWIControlState.FREE: 0>"
+            ]
+          },
+          {
+            "passed": true,
+            "description": "actual sheathed Hunter reaction motion matches tier",
+            "expected_motion": "71",
+            "motions": [
+              "71"
+            ]
+          },
+          {
+            "passed": true,
+            "description": "Hunter physical launch matches move strength",
+            "peak_vz": 243.66663478314877,
+            "peak_xy": 482.5825729490274
+          },
+          {
+            "passed": true,
+            "description": "exactly one fireball spawned",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "case": "charge_knockback",
+        "passed": true,
+        "utc": "2026-11-07T02:36:42.815650+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-charge_knockback.json",
+        "report_sha256": "bc684bcf9c7b0c16e80a974ecd447468a10e0535e582f93960dc2588cf2d5282",
+        "sample_count": 88,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::DASH_BITE2"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 35.0,
+            "expected": 35
+          },
+          {
+            "passed": true,
+            "description": "player selected configured large reaction",
+            "controls": [
+              "<MHWIControlState.FLINCH_LARGE: 3>",
+              "<MHWIControlState.FREE: 0>"
+            ]
+          },
+          {
+            "passed": true,
+            "description": "actual sheathed Hunter reaction motion matches tier",
+            "expected_motion": "72",
+            "motions": [
+              "72"
+            ]
+          },
+          {
+            "passed": true,
+            "description": "Hunter physical launch matches move strength",
+            "peak_vz": 363.66653621196747,
+            "peak_xy": 419.9997236253485
+          }
+        ]
+      },
+      {
+        "case": "tail_knockback",
+        "passed": true,
+        "utc": "2026-11-07T02:37:02.373750+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-tail_knockback.json",
+        "report_sha256": "2f63d2b06d14aea17060420924c8ee1a10b8e1e33a770be97a690fe758e0f9e8",
+        "sample_count": 111,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::ROLLING_TAIL_ATTACK2_L"
+          },
+          {
+            "passed": true,
+            "description": "tail takeoff lifted collision root",
+            "max_z": 977.5999755859375
+          },
+          {
+            "passed": true,
+            "description": "tail returns to floor",
+            "z": 142.0
+          },
+          {
+            "passed": true,
+            "description": "normal tail sequence avoids emergency landing fallback"
+          },
+          {
+            "passed": true,
+            "description": "tail active phase damages target exactly once",
+            "damage": 40.0
+          },
+          {
+            "passed": true,
+            "description": "player selected configured large reaction",
+            "controls": [
+              "<MHWIControlState.FLINCH_LARGE: 3>",
+              "<MHWIControlState.FREE: 0>"
+            ]
+          },
+          {
+            "passed": true,
+            "description": "actual sheathed Hunter reaction motion matches tier",
+            "expected_motion": "72",
+            "motions": [
+              "72"
+            ]
+          },
+          {
+            "passed": true,
+            "description": "Hunter physical launch matches move strength",
+            "peak_vz": 603.6665362119675,
+            "peak_xy": 419.9997236253485
+          }
+        ]
+      },
+      {
+        "case": "bite_drawn_knockback",
+        "passed": true,
+        "utc": "2026-11-07T02:54:41.877858+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-bite_drawn_knockback.json",
+        "report_sha256": "0b04618e82b7cd493ee4ed09692e1a26a7141e32a29303ae2a4fa462811c713e",
+        "sample_count": 65,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::BITE"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 20.0,
+            "expected": 20
+          },
+          {
+            "passed": true,
+            "description": "player selected configured small reaction",
+            "controls": [
+              "<MHWIControlState.FLINCH_SMALL: 1>",
+              "<MHWIControlState.FREE: 0>"
+            ]
+          },
+          {
+            "passed": true,
+            "description": "actual Hunter reaction motion matches stance and tier",
+            "expected_motion": "61",
+            "motions": [
+              "61"
+            ]
+          },
+          {
+            "passed": true,
+            "description": "small bite does not launch Hunter upward",
+            "peak_vz": 0.0
+          }
+        ]
+      },
+      {
+        "case": "fire_drawn_knockback",
+        "passed": true,
+        "utc": "2026-11-07T02:55:04.355399+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-fire_drawn_knockback.json",
+        "report_sha256": "a873c8278468ec2463780d4ba5de6102b8cc1ef77ad357f92ea256db9c30308d",
+        "sample_count": 84,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::FIRE_BREATH"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 30.0,
+            "expected": 30
+          },
+          {
+            "passed": true,
+            "description": "player selected configured medium reaction",
+            "controls": [
+              "<MHWIControlState.FLINCH_MEDIUM: 2>",
+              "<MHWIControlState.FREE: 0>"
+            ]
+          },
+          {
+            "passed": true,
+            "description": "actual Hunter reaction motion matches stance and tier",
+            "expected_motion": "62",
+            "motions": [
+              "62"
+            ]
+          },
+          {
+            "passed": true,
+            "description": "Hunter physical launch matches move strength",
+            "peak_vz": 243.66663478314877,
+            "peak_xy": 542.549980579496
+          },
+          {
+            "passed": true,
+            "description": "exactly one fireball spawned",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "case": "charge_drawn_knockback",
+        "passed": true,
+        "utc": "2026-11-07T02:55:29.474537+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-charge_drawn_knockback.json",
+        "report_sha256": "b43135056057480f5ffa8806fb8c4e279f801e84c373d5d3d29e41e1cb6c77d0",
+        "sample_count": 87,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::DASH_BITE2"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 35.0,
+            "expected": 35
+          },
+          {
+            "passed": true,
+            "description": "player selected configured large reaction",
+            "controls": [
+              "<MHWIControlState.FLINCH_LARGE: 3>",
+              "<MHWIControlState.FREE: 0>"
+            ]
+          },
+          {
+            "passed": true,
+            "description": "actual Hunter reaction motion matches stance and tier",
+            "expected_motion": "63",
+            "motions": [
+              "63"
+            ]
+          },
+          {
+            "passed": true,
+            "description": "Hunter physical launch matches move strength",
+            "peak_vz": 363.66653621196747,
+            "peak_xy": 358.8898119272254
+          }
+        ]
+      },
+      {
+        "case": "tail_drawn_knockback",
+        "passed": true,
+        "utc": "2026-11-07T02:55:56.888919+00:00",
+        "report": "Saved/RathianBasic-Assets-20261107/PIE-tail_drawn_knockback.json",
+        "report_sha256": "88c32dd743eddfd6b80f9a13092b771b33c044e34ace186233d14b6b7a82b10e",
+        "sample_count": 111,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::ROLLING_TAIL_ATTACK2_L"
+          },
+          {
+            "passed": true,
+            "description": "tail takeoff lifted collision root",
+            "max_z": 977.5999755859375
+          },
+          {
+            "passed": true,
+            "description": "tail returns to floor",
+            "z": 142.0
+          },
+          {
+            "passed": true,
+            "description": "normal tail sequence avoids emergency landing fallback"
+          },
+          {
+            "passed": true,
+            "description": "tail active phase damages target exactly once",
+            "damage": 40.0
+          },
+          {
+            "passed": true,
+            "description": "player selected configured large reaction",
+            "controls": [
+              "<MHWIControlState.FLINCH_LARGE: 3>",
+              "<MHWIControlState.FREE: 0>"
+            ]
+          },
+          {
+            "passed": true,
+            "description": "actual Hunter reaction motion matches stance and tier",
+            "expected_motion": "63",
+            "motions": [
+              "63"
+            ]
+          },
+          {
+            "passed": true,
+            "description": "Hunter physical launch matches move strength",
+            "peak_vz": 603.6665362119675,
+            "peak_xy": 358.8899348544958
+          }
+        ]
+      }
+    ]
+  },
+  "protected_assets": {
+    "utc": "2026-11-07T03:06:42.040969+00:00",
+    "baseline": "Saved/RathianBasic-Assets-20261107/protected-assets-before.json",
+    "baseline_sha256": "0235f51e22c560d28b357cc11ac589e680adfdca4b1ea481c030c47002a5bd89",
+    "checked_files": 875,
+    "changed": [],
+    "missing": [],
+    "passed": true
+  },
+  "scripts_hashes_at_summary": {
+    "Scripts/MHWI/author_rathian_basic.py": "d313298900a19d1e9ad888f618e932af59fcc6e98cbef5202c281800f65b722f",
+    "Scripts/MHWI/pie_rathian_basic.py": "d2a2e08194618a1a3809010252922f556e7158c35a0b0c00dad934a316a0a1cc"
+  },
+  "limitations": [
+    "Engineering action selection, hit boxes/windows, HP/damage/launch and flight values; original fidelity not established.",
+    "Fire source 00_081 is an accepted engineering mouth-open/back-step pose; projectile is a simple visible sphere.",
+    "Bounded arena collision tests; no NavMesh route planning or multiplayer validation.",
+    "No exhaustive dodge/counter/armor regression, all-attack original comparison, long-duration playtest or frame-by-frame visual continuity proof."
+  ],
+  "historical_failed_harness_reports": [
+    "Saved/RathianBasic-Assets-20261107/PIE-bite_wall-fixture-static-failed.json",
+    "Saved/RathianBasic-Assets-20261107/PIE-tail_death-premature-harness-failed.json"
+  ],
+  "editor_final_state": {
+    "report": "Saved/RathianBasic-Assets-20261107/editor-final-state.json",
+    "report_sha256": "120a2bb5954032cdcb39d0d1e3afea882be41763fe978fcd631dc0b5746899de",
+    "result": {
+      "utc": "2026-11-07 03:13:47 UTC",
+      "world": {
+        "success": true,
+        "editorWorldName": "L_RathianBasic",
+        "editorWorldPackage": "/Game/MHWI/Rathian/Basic/Maps/L_RathianBasic",
+        "worldPackageDirty": false,
+        "persistentLevelPackage": "/Game/MHWI/Rathian/Basic/Maps/L_RathianBasic",
+        "playInEditor": false,
+        "simulateInEditor": false,
+        "mode": "editor",
+        "dirtyPackages": [],
+        "dirtyPackageCount": 0,
+        "dirtyContentCount": 0,
+        "dirtyMapCount": 0
+      },
+      "performance_restore": {
+        "success": true,
+        "updated": true,
+        "objectPath": "/Script/UnrealEd.Default__EditorPerformanceSettings",
+        "objectClass": "EditorPerformanceSettings",
+        "propertyName": "bThrottleCPUWhenNotForeground",
+        "resolvedPropertyName": "bThrottleCPUWhenNotForeground",
+        "leafPropertyName": "bThrottleCPUWhenNotForeground",
+        "type": "uint8",
+        "previousValue": false,
+        "value": true,
+        "persisted": false,
+        "world": "/Game/MHWI/Rathian/Basic/Maps/L_RathianBasic.L_RathianBasic",
+        "netMode": "standalone",
+        "note": "Written to the live instance only. It is not saved and does not survive PIE ending or the object being destroyed; use editor(set_property) to write an asset.",
+        "changed": true,
+        "changeDetected": true,
+        "rollback": {
+          "method": "set_object_property",
+          "payload": {
+            "objectPath": "/Script/UnrealEd.Default__EditorPerformanceSettings",
+            "propertyName": "bThrottleCPUWhenNotForeground",
+            "value": false,
+            "postEditChange": false
+          }
+        },
+        "rollbackLossy": false,
+        "rollbackNote": "The rollback value was applied to a scratch copy of this property and came back identical, so it restores the property's own value. That is what was measured; any PostEditChangeProperty side effect the first write had is replayed but not verified. It names the live instance by path, so it needs that instance to still exist: once PIE ends or the object is destroyed it reports the object was not found. Nothing was persisted either way."
+      },
+      "notes": "Readback after final PIE. No OS restart/shutdown. Editor left open; temporary background throttling restored."
+    }
+  },
+  "documentation_checks": {
+    "check_docs": "PASS: 38 Markdown files, 367 local links, 16 modules, editor snapshot JSON",
+    "diff_check": "PASS, exit 0",
+    "python_ast": "PASS for both new scripts",
+    "scope": "Documentation references and script syntax only; gameplay evidence is in PIE reports."
+  },
+  "supplemental_consistency_review": {
+    "report": "Saved/RathianBasic-Assets-20261107/final-independent-consistency-review.json",
+    "report_sha256": "bc18af6d82d771840e8477f9e37b49caf77a77df2899335744b12a491caa7d91",
+    "result": {
+      "utc": "2026-11-07T03:16:10.589237+00:00",
+      "agent": "/root/luna_basic_animation_inventory",
+      "status": "completed",
+      "kind": "Supplemental read-only consistency review by resumed inventory agent; not a fresh frozen DevFlow review.",
+      "verdict": "no blocking findings",
+      "verified": [
+        "All 24 report files and SHA256 values match; done/passed true, error null, 101 assertions true, timestamps after final build.",
+        "All five root-processing modes covered across 20 clips and 1915 root keys.",
+        "Wall fixture preparation is inside cleanup guard.",
+        "Low-FPS case asserts actual game-time tick delta, maximum 0.2000002 seconds.",
+        "Healthy source 00_007 active, injured 00_065 inactive.",
+        "Fire source 00_081 labeled user-accepted engineering presentation.",
+        "Both Hunter stances have runtime motion-tier assertions."
+      ],
+      "wording_correction": "Position errors in centimeters do not measure angular pose error. Parent changed final docs to relative position error."
+    }
+  }
+}

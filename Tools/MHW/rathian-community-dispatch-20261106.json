@@ -1,0 +1,204 @@
+{
+  "schema_version": "rathian.community-dispatch/v1",
+  "date": "2026-11-06",
+  "target": {
+    "monster": "em001",
+    "action_id": 83
+  },
+  "scope": "Read-only community research and bounded signature cross-check; not a new DevFlow candidate or runtime acceptance",
+  "sources": [
+    {
+      "id": "hunterpie",
+      "commit": "8350224741ee3076f7152e6251ca98d614ff145c",
+      "blob_sha": "c9ed8afcf67e2f89e096e43b86924de9b014fe8f",
+      "url": "https://github.com/HunterPie/HunterPie/blob/8350224741ee3076f7152e6251ca98d614ff145c/HunterPie.Integrations/Datasources/MonsterHunterWorld/Entity/Enemy/MHWMonster.cs",
+      "purpose": "Current action ID and name lookup",
+      "source_line_start": 261,
+      "source_line_end": 276,
+      "qualification": "maintainer community source, not Capcom runtime proof"
+    },
+    {
+      "id": "spl_action_controller",
+      "commit": "0790c5f16e42463af33e471fffca88b0a3da6d5e",
+      "blob_sha": "68fa088a14f7ce5cf512e2d5efda5d5cc6aad4c8",
+      "url": "https://github.com/Fexty12573/SharpPluginLoader/blob/0790c5f16e42463af33e471fffca88b0a3da6d5e/SharpPluginLoader.Core/Actions/ActionController.cs",
+      "purpose": "ActionInfo pair; controller current/next/owner; DoAction",
+      "source_line_start": 1,
+      "source_line_end": 178,
+      "qualification": "maintainer community source, not Capcom runtime proof"
+    },
+    {
+      "id": "spl_action",
+      "commit": "0790c5f16e42463af33e471fffca88b0a3da6d5e",
+      "blob_sha": "da91fe50f074568f02214cc505ef1dd86c3efb6b",
+      "url": "https://github.com/Fexty12573/SharpPluginLoader/blob/0790c5f16e42463af33e471fffca88b0a3da6d5e/SharpPluginLoader.Core/Actions/Action.cs",
+      "purpose": "cActionBase lifecycle virtual slots",
+      "source_line_start": 39,
+      "source_line_end": 62,
+      "qualification": "maintainer community source, not Capcom runtime proof"
+    },
+    {
+      "id": "spl_monster",
+      "commit": "0790c5f16e42463af33e471fffca88b0a3da6d5e",
+      "blob_sha": "ba70aa1ca34d826f8be8077d118e46764ae6493a",
+      "url": "https://github.com/Fexty12573/SharpPluginLoader/blob/0790c5f16e42463af33e471fffca88b0a3da6d5e/SharpPluginLoader.Core/Entities/Monster.cs",
+      "purpose": "ForceAction and LaunchAction hook",
+      "source_line_start": 75,
+      "source_line_end": 82,
+      "qualification": "maintainer community source, not Capcom runtime proof"
+    },
+    {
+      "id": "spl_entity",
+      "commit": "0790c5f16e42463af33e471fffca88b0a3da6d5e",
+      "blob_sha": "922e1afe9f498926c08210f6a6462a6e48375f45",
+      "url": "https://github.com/Fexty12573/SharpPluginLoader/blob/0790c5f16e42463af33e471fffca88b0a3da6d5e/SharpPluginLoader.Core/Entities/Entity.cs",
+      "purpose": "Inline action controller offset",
+      "source_line_start": 227,
+      "source_line_end": 229,
+      "qualification": "maintainer community source, not Capcom runtime proof"
+    },
+    {
+      "id": "spl_patterns",
+      "commit": "0790c5f16e42463af33e471fffca88b0a3da6d5e",
+      "blob_sha": "f2a924be73ee038ad654f8bd101a5acf03d3109c",
+      "url": "https://github.com/Fexty12573/SharpPluginLoader/blob/0790c5f16e42463af33e471fffca88b0a3da6d5e/Assets/Common/AddressRecords.json",
+      "purpose": "Community patterns and signed byte offsets",
+      "source_line_start": 33,
+      "source_line_end": 40,
+      "qualification": "maintainer community source, not Capcom runtime proof"
+    },
+    {
+      "id": "spl_pattern_resolution",
+      "commit": "0790c5f16e42463af33e471fffca88b0a3da6d5e",
+      "blob_sha": "414f041d244331196bf1bb66eee25e1758d0577a",
+      "url": "https://github.com/Fexty12573/SharpPluginLoader/blob/0790c5f16e42463af33e471fffca88b0a3da6d5e/SharpPluginLoader.Core/Memory/AddressRecord.cs",
+      "purpose": "First pattern match plus signed offset",
+      "source_line_start": 25,
+      "source_line_end": 35,
+      "qualification": "maintainer community source, not Capcom runtime proof"
+    },
+    {
+      "id": "lua_monster",
+      "commit": "c883a004417f5905503a90944580d482e9365ce4",
+      "blob_sha": "eeb47fde0667558f90acd6acbac573721a77624c",
+      "url": "https://github.com/HalcyonAlcedo/LuaEngine/blob/c883a004417f5905503a90944580d482e9365ce4/engine/modules/Engine_monster.lua",
+      "purpose": "Actor-absolute current/next action key fields",
+      "source_line_start": 119,
+      "source_line_end": 178,
+      "qualification": "maintainer community source, not Capcom runtime proof"
+    },
+    {
+      "id": "action_dump",
+      "commit": "446e553db24900d8503e24a88433d24ebcbaaeeb",
+      "blob_sha": "c829490ba2b0c917898165408d61cb337cfe1262",
+      "url": "https://github.com/AsteriskAmpersand/Leviathon/blob/446e553db24900d8503e24a88433d24ebcbaaeeb/common/ActionDumps/em001.txt",
+      "purpose": "Group1 ID83 BITE, ID84 BITE_NO_BLEND",
+      "source_line_start": 84,
+      "source_line_end": 85,
+      "qualification": "maintainer community source, not Capcom runtime proof"
+    }
+  ],
+  "native_matches": {
+    "image": "Saved/MHWIRestoration/B05-20261024/analysis-text.bin",
+    "sha256": "9b48a8490df702ba9dc1cb95ffd387358ae2a639aa9675ad90719bd997124ebe",
+    "va_base": "0x140001000",
+    "matches": [
+      {
+        "name": "Monster:LaunchAction",
+        "pattern": "84 C0 74 1E 48 8B 8B E0 89 00 00 48 8D 54 24 38 41 B8 01 00 00",
+        "signed_offset_bytes": -24,
+        "pattern_va": "0x141cc5378",
+        "entry_va": "0x141cc5360",
+        "unique_hits": 1,
+        "search_scope": "limited to these two exact new patterns, including independent parent rechecks; no other global pattern search",
+        "window_size_bytes": 384,
+        "window_sha256": "8fcdaf411a9e9e8077f0301c84267e49915b8eef5237029ef8c2a714b5f8a8e7",
+        "first_16_bytes": "89542410534883ec20488bd9488b0d45",
+        "status": "static_community_signature_match; not runtime behavior"
+      },
+      {
+        "name": "Monster:ForceAction",
+        "pattern": "48 89 6C 24 30 48 8B CB 48 89 7C 24 38 4C 89 74 24 40 C6 86 A5 00 00 00",
+        "signed_offset_bytes": -40,
+        "pattern_va": "0x1413973d8",
+        "entry_va": "0x1413973b0",
+        "unique_hits": 1,
+        "search_scope": "limited to these two exact new patterns, including independent parent rechecks; no other global pattern search",
+        "window_size_bytes": 384,
+        "window_sha256": "02bb2d9d6b4879ededea7a7b284c38415e662abe0d18673e1c88202d88080324",
+        "first_16_bytes": "48895c2420564883ec20488bf1488bda",
+        "status": "static_community_signature_match; not runtime behavior"
+      },
+      {
+        "name": "ActionController:DoAction",
+        "pattern": "48 8D 41 07 48 C1 E0 04 46 3B 04 08",
+        "signed_offset_bytes": -10,
+        "pattern_va": "0x140269cea",
+        "entry_va": "0x140269ce0",
+        "unique_hits": null,
+        "search_scope": "existing function window only; no global uniqueness claim",
+        "window_size_bytes": 384,
+        "window_sha256": "71a2a9467dc2c8e4a5c2d19a9e29334b0b00030388777d25466a2f9bf96c10c0",
+        "first_16_bytes": "4c6342044c8bc948630a488d410748c1",
+        "status": "static_community_signature_match; not runtime behavior"
+      }
+    ]
+  },
+  "field_correlations": {
+    "controller_inline_actor_offset": "0x61C8",
+    "current_pair": {
+      "manager_relative": "0xAC/0xB0",
+      "actor_absolute": "0x6274/0x6278"
+    },
+    "next_pair": {
+      "manager_relative": "0xBC/0xC0",
+      "actor_absolute": "0x6284/0x6288"
+    },
+    "owner_candidate": "controller+0x100",
+    "qualification": "community getters/setters and previous native offsets agree; object identity remains open"
+  },
+  "lifecycle_candidates": {
+    "class_scope": "cActionBase in community SDK only",
+    "initialize_slot": 5,
+    "execute_slot": 6,
+    "update_slot": 7,
+    "end_slot": 8,
+    "byte_offsets": [
+      "+0x28",
+      "+0x30",
+      "+0x38",
+      "+0x40"
+    ],
+    "qualification": "do not apply these meanings to an untyped callback object"
+  },
+  "next_reads": [
+    "Trace native THK action83 handoff into signature-mapped Monster:LaunchAction at 0x141cc5360",
+    "Compare Monster:ForceAction 0x1413973b0 and its callers with AiData/actor ID storage",
+    "Recover both receivers passed to existing wrapper0x14026b410, then establish BITE instance/execute identity"
+  ],
+  "unresolved": [
+    "THK raw83 to native launch input",
+    "selector/group ABI and object-instance relationship",
+    "callback record to BITE instance and execute",
+    "registration caller monster ownership"
+  ],
+  "boundaries": {
+    "original_runtime_compared": false,
+    "original_conditions_verified": 0,
+    "full_chain_closed": false,
+    "game_ue_or_sandbox_executed": false,
+    "installed_or_injected": false,
+    "reunpacked": false,
+    "prior_accepted_snapshot_untouched": true
+  },
+  "metadata_corrections": [
+    "GitHub rendered line919 is not source line84; pinned raw source line used.",
+    "Window length is literal384 bytes (hex0x180), not hex0x180B; all three current hashes independently recomputed. Old differently sized window hashes are not used."
+  ],
+  "research_agents": [
+    "/root/luna_community_action",
+    "/root/luna_community_thk"
+  ],
+  "requested_model": "gpt-6-luna/high",
+  "usage": null
+}

@@ -1,0 +1,1137 @@
+{
+  "schema_version": 1,
+  "engine": "UE 5.8",
+  "utc": "2026-11-07T07:56:18.264991+00:00",
+  "scope": "Fix short player impact disappearing at low frame rates in the existing native proxy/slot path; engineering UE adapter, not original MHWI state-machine fidelity.",
+  "devflow": {
+    "run": "HUNTER-HITREACTION-20261107-20f5bf83e6",
+    "snapshot": "e5d5da74d4bbb18a10c16d43d87ca5095c48e22cf9e370db3c420a77932b2094",
+    "state": "ACCEPTED",
+    "independent_review": {
+      "schema_version": "devflow.review/v1",
+      "snapshot_sha256": "e5d5da74d4bbb18a10c16d43d87ca5095c48e22cf9e370db3c420a77932b2094",
+      "verdict": "approve",
+      "coverage": [
+        {
+          "criterion": "A1",
+          "status": "met",
+          "evidence": [
+            "For Impact, TickNativeSource passes zero advance to the end check, so a future predicted frame cannot end the source; a source already at its endpoint can still end normally.",
+            "Impact passes bHoldFirstDestination=false. With the existing proxy behavior, the owner-frame delta is consumed before evaluation, allowing the destination pose to appear during a long first frame.",
+            "The default argument remains true, non-Impact sources pass true, and the existing missing-info fail-closed check and bNativeSourceEnded guard remain in place.",
+            "The frozen quality result reports the UE5.8 Editor Target build passed (editor_target_build, exit 0). This is the requested offline code gate; PIE pose and displacement remain for the parent agent to verify after acceptance."
+          ]
+        }
+      ],
+      "findings": [],
+      "architecture_change": false,
+      "boundary_conflict": false,
+      "unexplained_failure": false
+    },
+    "quality_seconds": 169.209,
+    "UBT_seconds": 165.05
+  },
+  "integration": {
+    "run": "E:\\Unreal Projects\\IntorCpp\\Saved\\DevFlow\\Runs-20261107\\HUNTER-HITREACTION-20261107-20f5bf83e6",
+    "snapshot": "e5d5da74d4bbb18a10c16d43d87ca5095c48e22cf9e370db3c420a77932b2094",
+    "utc": "2026-11-07T07:31:26.451336+00:00",
+    "method": "Hash-guarded exact accepted candidate bytes, complete per-file pre-integration backups; no main git reset/apply/commit.",
+    "files": [
+      {
+        "path": "Source/IntroCpp/MHWI/MHWIAnimInstance.h",
+        "before": "7b4ce329854285d73b397b8c8ae339f22dd8e6485db84d4802aaafc5fbba13be",
+        "after": "f557be5ee7d200a23a2d5e44388a0378acb17b3b08a738131639987ae0d77aed"
+      },
+      {
+        "path": "Source/IntroCpp/MHWI/MHWIAnimInstance.cpp",
+        "before": "77246087b1f9e5cc20e496e5374f6bd89884fddbb037070d0b39d8a97be6a699",
+        "after": "39b1b3589501cbfcfd923fc56c5704ec030d9cfeaf5beae1a57545fb5135938b"
+      },
+      {
+        "path": "Source/IntroCpp/MHWI/MHWICharacterNativeSources.cpp",
+        "before": "95759de85b4931569c59916c9b77e41371234b0b59d9e715777668fb50dfb3cb",
+        "after": "7c72eb4bab6c29709507338f0fd7fec9f8ffcd7594e92dcb9dff91f94fd1b427"
+      }
+    ]
+  },
+  "main_build": {
+    "started_utc": "2026-11-07T07:31:26.483271+00:00",
+    "argv": [
+      "E:\\UE\\UE_5.8\\Engine\\Binaries\\ThirdParty\\DotNet\\10.0\\win-x64\\dotnet.exe",
+      "E:/UE/UE_5.8/Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll",
+      "IntroCppEditor",
+      "Win64",
+      "Development",
+      "-Project=E:\\Unreal Projects\\IntorCpp\\IntroCpp.uproject",
+      "-WaitMutex",
+      "-NoHotReloadFromIDE",
+      "-NoUBA",
+      "-MaxParallelActions=1",
+      "-UBARootDir=E:\\Unreal Projects\\IntorCpp\\Saved\\RathianHitReaction-20261107\\UBA-main",
+      "-UBAStoreCapacityGb=2"
+    ],
+    "scope": "Actual project offline Editor Target; editor gracefully closed and no compiled outputs transplanted.",
+    "completed": true,
+    "exit_code": 0,
+    "passed": true,
+    "finished_utc": "2026-11-07T07:33:04.518817+00:00"
+  },
+  "pre_fix": {
+    "report": "Saved/RathianHitReaction-20261107/regression/PIE-before-charge-sheathed-3fps.json",
+    "passed": false,
+    "checks": [
+      {
+        "passed": true,
+        "description": "production RequestBasicAttack accepted",
+        "attack": "ACTION::DASH_BITE2"
+      },
+      {
+        "passed": true,
+        "description": "exact damage and phase target dedup",
+        "damage": 35.0,
+        "expected": 35
+      },
+      {
+        "passed": true,
+        "description": "correct reaction tier present",
+        "tier": "large"
+      },
+      {
+        "passed": true,
+        "description": "actual source matches stance at impact",
+        "expected_motion": "72"
+      },
+      {
+        "passed": false,
+        "description": "final evaluated mesh visibly changes and correlates with reaction source",
+        "qualifying_samples": 0,
+        "minimum_error_deg": 54.33973512316443
+      },
+      {
+        "passed": true,
+        "description": "actual capsule moves horizontally",
+        "distance_cm": 248.48589959291894
+      },
+      {
+        "passed": true,
+        "description": "actual capsule rises",
+        "height_cm": 72.22222612963517
+      },
+      {
+        "passed": true,
+        "description": "low-FPS case has real long game ticks",
+        "max_dt": 0.3333359956741333
+      }
+    ],
+    "single_failure": "Final evaluated reaction pose absent; HP/tier/motion/actual displacement all present."
+  },
+  "post_fix": {
+    "passed": true,
+    "scenario_count": 14,
+    "run_count": 16,
+    "assertion_count": 121,
+    "runs": [
+      {
+        "case": "after-charge-sheathed-3fps",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-charge-sheathed-3fps.json",
+        "report_sha256": "a1ad7bd39680cce558030b8eb0e384cfc50453404f743b14bd2ae3efe92a9474",
+        "utc": "2026-11-07T07:36:11.629010+00:00",
+        "script_revision": 1,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::DASH_BITE2"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 35.0,
+            "expected": 35
+          },
+          {
+            "passed": true,
+            "description": "correct reaction tier present",
+            "tier": "large"
+          },
+          {
+            "passed": true,
+            "description": "actual source matches stance at impact",
+            "expected_motion": "72"
+          },
+          {
+            "passed": true,
+            "description": "final evaluated mesh visibly changes and correlates with reaction source",
+            "qualifying_samples": 1,
+            "minimum_error_deg": 0.004383909602330713
+          },
+          {
+            "passed": true,
+            "description": "actual capsule moves horizontally",
+            "distance_cm": 104.99985438610906
+          },
+          {
+            "passed": true,
+            "description": "actual capsule rises",
+            "height_cm": 72.22223089799641
+          },
+          {
+            "passed": true,
+            "description": "low-FPS case has real long game ticks",
+            "max_dt": 0.33333349227905273
+          }
+        ],
+        "max_game_tick_seconds": 0.33333349227905273,
+        "visible_pose_samples": 1
+      },
+      {
+        "case": "after-charge-drawn-idle-3",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-charge-drawn-idle-3.json",
+        "report_sha256": "1417a3c403aa896b015480c0b374fd852e0eb00e20de3deed48fbcac668ae17c",
+        "utc": "2026-11-07T07:37:43.553476+00:00",
+        "script_revision": 1,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::DASH_BITE2"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 35.0,
+            "expected": 35
+          },
+          {
+            "passed": true,
+            "description": "correct reaction tier present",
+            "tier": "large"
+          },
+          {
+            "passed": true,
+            "description": "actual source matches stance at impact",
+            "expected_motion": "63"
+          },
+          {
+            "passed": true,
+            "description": "final evaluated mesh visibly changes and correlates with reaction source",
+            "qualifying_samples": 2,
+            "minimum_error_deg": 0.003299061087234284
+          },
+          {
+            "passed": true,
+            "description": "actual capsule moves horizontally",
+            "distance_cm": 79.99825602917554
+          },
+          {
+            "passed": true,
+            "description": "actual capsule rises",
+            "height_cm": 72.22222612963517
+          },
+          {
+            "passed": true,
+            "description": "low-FPS case has real long game ticks",
+            "max_dt": 0.33333349227905273
+          }
+        ],
+        "max_game_tick_seconds": 0.33333349227905273,
+        "visible_pose_samples": 2
+      },
+      {
+        "case": "after-bite-sheathed-idle-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-bite-sheathed-idle-0.json",
+        "report_sha256": "b42ae472597c746a6bd2b2c7771b5dd964e4e08f8a7102eafaf8a6620ed5c606",
+        "utc": "2026-11-07T07:38:14.221385+00:00",
+        "script_revision": 1,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::BITE"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 20.0,
+            "expected": 20
+          },
+          {
+            "passed": true,
+            "description": "correct reaction tier present",
+            "tier": "small"
+          },
+          {
+            "passed": true,
+            "description": "actual source matches stance at impact",
+            "expected_motion": "70"
+          },
+          {
+            "passed": true,
+            "description": "final evaluated mesh visibly changes and correlates with reaction source",
+            "qualifying_samples": 42,
+            "minimum_error_deg": 0.0011816304750581496
+          },
+          {
+            "passed": true,
+            "description": "actual capsule moves horizontally",
+            "distance_cm": 363.0334772177879
+          },
+          {
+            "passed": true,
+            "description": "small impact stays near ground",
+            "height_cm": 3.4268890658495366e-06
+          }
+        ],
+        "max_game_tick_seconds": 0.018606800585985184,
+        "visible_pose_samples": 42
+      },
+      {
+        "case": "after-fire-sheathed-idle-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-fire-sheathed-idle-0.json",
+        "report_sha256": "480146c01ede2ccfb0eb2b46057dd5999f4073dba2e44a6baf9e490e85a36221",
+        "utc": "2026-11-07T07:38:54.728333+00:00",
+        "script_revision": 1,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::FIRE_BREATH"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 30.0,
+            "expected": 30
+          },
+          {
+            "passed": true,
+            "description": "correct reaction tier present",
+            "tier": "medium"
+          },
+          {
+            "passed": true,
+            "description": "actual source matches stance at impact",
+            "expected_motion": "71"
+          },
+          {
+            "passed": true,
+            "description": "final evaluated mesh visibly changes and correlates with reaction source",
+            "qualifying_samples": 61,
+            "minimum_error_deg": 0.03007978759492027
+          },
+          {
+            "passed": true,
+            "description": "actual capsule moves horizontally",
+            "distance_cm": 342.47714331510167
+          },
+          {
+            "passed": true,
+            "description": "actual capsule rises",
+            "height_cm": 34.48403992605611
+          },
+          {
+            "passed": true,
+            "description": "exactly one fireball spawned",
+            "count": 1
+          }
+        ],
+        "max_game_tick_seconds": 0.06633640080690384,
+        "visible_pose_samples": 61
+      },
+      {
+        "case": "after-charge-sheathed-idle-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-charge-sheathed-idle-0.json",
+        "report_sha256": "3a07b3ea2b85f9e0f21407fc5c853c4304b2e8aa58d130096184228ce102fad9",
+        "utc": "2026-11-07T07:39:19.561014+00:00",
+        "script_revision": 1,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::DASH_BITE2"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 35.0,
+            "expected": 35
+          },
+          {
+            "passed": true,
+            "description": "correct reaction tier present",
+            "tier": "large"
+          },
+          {
+            "passed": true,
+            "description": "actual source matches stance at impact",
+            "expected_motion": "72"
+          },
+          {
+            "passed": true,
+            "description": "final evaluated mesh visibly changes and correlates with reaction source",
+            "qualifying_samples": 22,
+            "minimum_error_deg": 0.21592349858504875
+          },
+          {
+            "passed": true,
+            "description": "actual capsule moves horizontally",
+            "distance_cm": 104.99986128439377
+          },
+          {
+            "passed": true,
+            "description": "actual capsule rises",
+            "height_cm": 73.66412774524846
+          }
+        ],
+        "max_game_tick_seconds": 0.02551109716296196,
+        "visible_pose_samples": 22
+      },
+      {
+        "case": "after-tail-sheathed-idle-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-tail-sheathed-idle-0.json",
+        "report_sha256": "b76cdfe5bea459e4df7e521c1dd09817c58ea416cffe9310c9bbfc3c63b1ea40",
+        "utc": "2026-11-07T07:39:43.169416+00:00",
+        "script_revision": 1,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::ROLLING_TAIL_ATTACK2_L"
+          },
+          {
+            "passed": true,
+            "description": "tail takeoff lifted collision root",
+            "max_z": 977.5999755859375
+          },
+          {
+            "passed": true,
+            "description": "tail returns to floor",
+            "z": 142.0
+          },
+          {
+            "passed": true,
+            "description": "normal tail sequence avoids emergency landing fallback"
+          },
+          {
+            "passed": true,
+            "description": "tail active phase damages target exactly once",
+            "damage": 40.0
+          },
+          {
+            "passed": true,
+            "description": "correct reaction tier present",
+            "tier": "large"
+          },
+          {
+            "passed": true,
+            "description": "actual source matches stance at impact",
+            "expected_motion": "72"
+          },
+          {
+            "passed": true,
+            "description": "final evaluated mesh visibly changes and correlates with reaction source",
+            "qualifying_samples": 26,
+            "minimum_error_deg": 0.0035094940964959945
+          },
+          {
+            "passed": true,
+            "description": "actual capsule moves horizontally",
+            "distance_cm": 104.99986164154097
+          },
+          {
+            "passed": true,
+            "description": "actual capsule rises",
+            "height_cm": 196.12244898018386
+          }
+        ],
+        "max_game_tick_seconds": 0.016756396740674973,
+        "visible_pose_samples": 26
+      },
+      {
+        "case": "after-bite-drawn-idle-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-bite-drawn-idle-0.json",
+        "report_sha256": "ad613c104a9db190ba7eb9249a9e91b0fdc1377eda39fb4c2f5fc01d3449f286",
+        "utc": "2026-11-07T07:40:20.541217+00:00",
+        "script_revision": 1,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::BITE"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 20.0,
+            "expected": 20
+          },
+          {
+            "passed": true,
+            "description": "correct reaction tier present",
+            "tier": "small"
+          },
+          {
+            "passed": true,
+            "description": "actual source matches stance at impact",
+            "expected_motion": "61"
+          },
+          {
+            "passed": true,
+            "description": "final evaluated mesh visibly changes and correlates with reaction source",
+            "qualifying_samples": 46,
+            "minimum_error_deg": 0.0046834223025244955
+          },
+          {
+            "passed": true,
+            "description": "actual capsule moves horizontally",
+            "distance_cm": 371.0413634663616
+          },
+          {
+            "passed": true,
+            "description": "small impact stays near ground",
+            "height_cm": 4.128194021291165e-06
+          }
+        ],
+        "max_game_tick_seconds": 0.016708899289369583,
+        "visible_pose_samples": 46
+      },
+      {
+        "case": "after-fire-drawn-idle-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-fire-drawn-idle-0.json",
+        "report_sha256": "82cc874fcd34c122c1d759286499e21ce4c996f145a427f0d27834b91b47b8cc",
+        "utc": "2026-11-07T07:40:56.707149+00:00",
+        "script_revision": 1,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::FIRE_BREATH"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 30.0,
+            "expected": 30
+          },
+          {
+            "passed": true,
+            "description": "correct reaction tier present",
+            "tier": "medium"
+          },
+          {
+            "passed": true,
+            "description": "actual source matches stance at impact",
+            "expected_motion": "62"
+          },
+          {
+            "passed": true,
+            "description": "final evaluated mesh visibly changes and correlates with reaction source",
+            "qualifying_samples": 65,
+            "minimum_error_deg": 0.0024380104117007677
+          },
+          {
+            "passed": true,
+            "description": "actual capsule moves horizontally",
+            "distance_cm": 380.10561955782464
+          },
+          {
+            "passed": true,
+            "description": "actual capsule rises",
+            "height_cm": 34.488887241746454
+          },
+          {
+            "passed": true,
+            "description": "exactly one fireball spawned",
+            "count": 1
+          }
+        ],
+        "max_game_tick_seconds": 0.01670299842953682,
+        "visible_pose_samples": 65
+      },
+      {
+        "case": "after-charge-drawn-idle-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-charge-drawn-idle-0.json",
+        "report_sha256": "a22233146dd9d743385d8e7c16c6c77082d925a132c1615ed8eac65eaf597946",
+        "utc": "2026-11-07T07:41:40.506247+00:00",
+        "script_revision": 1,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::DASH_BITE2"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 35.0,
+            "expected": 35
+          },
+          {
+            "passed": true,
+            "description": "correct reaction tier present",
+            "tier": "large"
+          },
+          {
+            "passed": true,
+            "description": "actual source matches stance at impact",
+            "expected_motion": "63"
+          },
+          {
+            "passed": true,
+            "description": "final evaluated mesh visibly changes and correlates with reaction source",
+            "qualifying_samples": 35,
+            "minimum_error_deg": 0.002801010446033643
+          },
+          {
+            "passed": true,
+            "description": "actual capsule moves horizontally",
+            "distance_cm": 79.9982551332455
+          },
+          {
+            "passed": true,
+            "description": "actual capsule rises",
+            "height_cm": 73.6639683221635
+          }
+        ],
+        "max_game_tick_seconds": 0.016719400882720947,
+        "visible_pose_samples": 35
+      },
+      {
+        "case": "after-tail-drawn-idle-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-tail-drawn-idle-0.json",
+        "report_sha256": "d1589e9dd489a8e57ee623790a6f88a42f0b0eaf80a9e0c9a651edaf1b9c33eb",
+        "utc": "2026-11-07T07:42:19.091444+00:00",
+        "script_revision": 1,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::ROLLING_TAIL_ATTACK2_L"
+          },
+          {
+            "passed": true,
+            "description": "tail takeoff lifted collision root",
+            "max_z": 977.5999755859375
+          },
+          {
+            "passed": true,
+            "description": "tail returns to floor",
+            "z": 142.0
+          },
+          {
+            "passed": true,
+            "description": "normal tail sequence avoids emergency landing fallback"
+          },
+          {
+            "passed": true,
+            "description": "tail active phase damages target exactly once",
+            "damage": 40.0
+          },
+          {
+            "passed": true,
+            "description": "correct reaction tier present",
+            "tier": "large"
+          },
+          {
+            "passed": true,
+            "description": "actual source matches stance at impact",
+            "expected_motion": "63"
+          },
+          {
+            "passed": true,
+            "description": "final evaluated mesh visibly changes and correlates with reaction source",
+            "qualifying_samples": 37,
+            "minimum_error_deg": 0.11269012869552211
+          },
+          {
+            "passed": true,
+            "description": "actual capsule moves horizontally",
+            "distance_cm": 79.99825342017323
+          },
+          {
+            "passed": true,
+            "description": "actual capsule rises",
+            "height_cm": 196.12244730492998
+          }
+        ],
+        "max_game_tick_seconds": 0.032501500099897385,
+        "visible_pose_samples": 37
+      },
+      {
+        "case": "after-charge-sheathed-attack-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-charge-sheathed-attack-0.json",
+        "report_sha256": "4436a9646feb054c9d6d1e9202907f85eb84d4d17a851afbbebdb2a4555ba1b0",
+        "utc": "2026-11-07T07:42:45.474439+00:00",
+        "script_revision": 1,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::DASH_BITE2"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 35.0,
+            "expected": 35
+          },
+          {
+            "passed": true,
+            "description": "correct reaction tier present",
+            "tier": "large"
+          },
+          {
+            "passed": true,
+            "description": "actual source matches stance at impact",
+            "expected_motion": "63"
+          },
+          {
+            "passed": true,
+            "description": "final evaluated mesh visibly changes and correlates with reaction source",
+            "qualifying_samples": 34,
+            "minimum_error_deg": 0.0011645237094914935
+          },
+          {
+            "passed": true,
+            "description": "actual capsule moves horizontally",
+            "distance_cm": 125.87775218110104
+          },
+          {
+            "passed": true,
+            "description": "actual capsule rises",
+            "height_cm": 73.66389481027466
+          },
+          {
+            "passed": true,
+            "description": "production attack started before hit"
+          }
+        ],
+        "max_game_tick_seconds": 0.016709499061107635,
+        "visible_pose_samples": 34
+      },
+      {
+        "case": "after-charge-sheathed-spam-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-charge-sheathed-spam-0.json",
+        "report_sha256": "412e4a6fa8573f59e53dad8568c4f75eddf7ab21bde10ee0c2ae127a7c34dd0d",
+        "utc": "2026-11-07T07:43:19.390058+00:00",
+        "script_revision": 1,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::DASH_BITE2"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 35.0,
+            "expected": 35
+          },
+          {
+            "passed": true,
+            "description": "correct reaction tier present",
+            "tier": "large"
+          },
+          {
+            "passed": true,
+            "description": "actual source matches stance at impact",
+            "expected_motion": "63"
+          },
+          {
+            "passed": true,
+            "description": "final evaluated mesh visibly changes and correlates with reaction source",
+            "qualifying_samples": 34,
+            "minimum_error_deg": 0.0011454975312106517
+          },
+          {
+            "passed": true,
+            "description": "actual capsule moves horizontally",
+            "distance_cm": 188.19459821782652
+          },
+          {
+            "passed": true,
+            "description": "actual capsule rises",
+            "height_cm": 73.66389522985634
+          },
+          {
+            "passed": true,
+            "description": "production attack started before hit"
+          }
+        ],
+        "max_game_tick_seconds": 0.02075359970331192,
+        "visible_pose_samples": 34
+      },
+      {
+        "case": "after-v2-charge-sheathed-attack-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-v2-charge-sheathed-attack-0.json",
+        "report_sha256": "d92e1168ce45367c801e4c9e97e40bfc6eb6ad7e01966b9f13514049ebf76b18",
+        "utc": "2026-11-07T07:45:29.982081+00:00",
+        "script_revision": 2,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::DASH_BITE2"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 35.0,
+            "expected": 35
+          },
+          {
+            "passed": true,
+            "description": "correct reaction tier present",
+            "tier": "large"
+          },
+          {
+            "passed": true,
+            "description": "actual source matches stance at impact",
+            "expected_motion": "63"
+          },
+          {
+            "passed": true,
+            "description": "final evaluated mesh visibly changes and correlates with reaction source",
+            "qualifying_samples": 34,
+            "minimum_error_deg": 0.0011871741453701162
+          },
+          {
+            "passed": true,
+            "description": "actual capsule moves horizontally",
+            "distance_cm": 79.99825513490987
+          },
+          {
+            "passed": true,
+            "description": "actual capsule rises",
+            "height_cm": 73.66389871525672
+          },
+          {
+            "passed": true,
+            "description": "production attack started before hit"
+          }
+        ],
+        "max_game_tick_seconds": 0.016686398535966873,
+        "visible_pose_samples": 34
+      },
+      {
+        "case": "after-v2-charge-sheathed-spam-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-v2-charge-sheathed-spam-0.json",
+        "report_sha256": "bd70652c453c71fe7d2c008eb73c1e8f0b0f73dd9b28e8b2ff12b2f6407a4ccc",
+        "utc": "2026-11-07T07:45:55.564700+00:00",
+        "script_revision": 2,
+        "checks": [
+          {
+            "passed": true,
+            "description": "production RequestBasicAttack accepted",
+            "attack": "ACTION::DASH_BITE2"
+          },
+          {
+            "passed": true,
+            "description": "exact damage and phase target dedup",
+            "damage": 35.0,
+            "expected": 35
+          },
+          {
+            "passed": true,
+            "description": "correct reaction tier present",
+            "tier": "large"
+          },
+          {
+            "passed": true,
+            "description": "actual source matches stance at impact",
+            "expected_motion": "63"
+          },
+          {
+            "passed": true,
+            "description": "final evaluated mesh visibly changes and correlates with reaction source",
+            "qualifying_samples": 34,
+            "minimum_error_deg": 0.0011871741453701162
+          },
+          {
+            "passed": true,
+            "description": "actual capsule moves horizontally",
+            "distance_cm": 142.0889692409622
+          },
+          {
+            "passed": true,
+            "description": "actual capsule rises",
+            "height_cm": 73.66426586672128
+          },
+          {
+            "passed": true,
+            "description": "production attack started before hit"
+          }
+        ],
+        "max_game_tick_seconds": 0.016753200441598892,
+        "visible_pose_samples": 34
+      },
+      {
+        "case": "death",
+        "report": "Saved/RathianHitReaction-20261107/lifecycle/PIE-death.json",
+        "report_sha256": "85c5ed1b03f79c1f3bb6a5bcbd18d3e5c400845d0f14d6aa03c025511b352673",
+        "utc": "2026-11-07T07:46:23.488078+00:00",
+        "checks": [
+          {
+            "passed": true,
+            "description": "nonlethal damage starts actual impact before death"
+          },
+          {
+            "passed": true,
+            "description": "death remains terminal after late animation ticks"
+          },
+          {
+            "passed": true,
+            "description": "death releases impact carrier identity"
+          },
+          {
+            "passed": true,
+            "description": "dead player refuses new actions"
+          }
+        ],
+        "scope": "production impact -> death; or actual Iai counter/armor through public StartMove and damage APIs with isolated transient player"
+      },
+      {
+        "case": "counter",
+        "report": "Saved/RathianHitReaction-20261107/lifecycle/PIE-counter.json",
+        "report_sha256": "69758a725899267336d13ca916912996cb104c933085f1c1f24e7e6e7990d5e7",
+        "utc": "2026-11-07T07:49:27.972096+00:00",
+        "checks": [
+          {
+            "passed": true,
+            "description": "production Iai counter starts from real drawn stance"
+          },
+          {
+            "passed": true,
+            "description": "real Iai counter window intercepts incoming damage"
+          },
+          {
+            "passed": true,
+            "description": "real successful counter grants armor"
+          },
+          {
+            "passed": true,
+            "description": "later vulnerable armor frame takes configured half damage",
+            "loss": 5.0
+          },
+          {
+            "passed": true,
+            "description": "armor damage does not start an impact source"
+          }
+        ],
+        "scope": "production impact -> death; or actual Iai counter/armor through public StartMove and damage APIs with isolated transient player"
+      }
+    ]
+  },
+  "post_hurt_position_audit": {
+    "utc": "2026-11-07T07:47:12.452738+00:00",
+    "method": "Independent audit of immutable v1 raw position samples: anchor at first HP reduction, exclude all pre-hit movement. Original final-pose assertions preserved.",
+    "passed": true,
+    "cases": [
+      {
+        "case": "after-charge-sheathed-3fps",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-charge-sheathed-3fps.json",
+        "report_sha256": "a1ad7bd39680cce558030b8eb0e384cfc50453404f743b14bd2ae3efe92a9474",
+        "hurt_t": 2.000000685453415,
+        "post_hurt_horizontal_cm": 104.99985438610906,
+        "post_hurt_rise_cm": 72.22223089799641,
+        "passed": true
+      },
+      {
+        "case": "after-charge-drawn-idle-3",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-charge-drawn-idle-3.json",
+        "report_sha256": "1417a3c403aa896b015480c0b374fd852e0eb00e20de3deed48fbcac668ae17c",
+        "hurt_t": 1.6666671931743622,
+        "post_hurt_horizontal_cm": 79.99825602917554,
+        "post_hurt_rise_cm": 72.22222612963517,
+        "passed": true
+      },
+      {
+        "case": "after-bite-sheathed-idle-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-bite-sheathed-idle-0.json",
+        "report_sha256": "b42ae472597c746a6bd2b2c7771b5dd964e4e08f8a7102eafaf8a6620ed5c606",
+        "hurt_t": 0.29924630001187325,
+        "post_hurt_horizontal_cm": 363.0334772177879,
+        "post_hurt_rise_cm": 3.4268890658495366e-06,
+        "passed": true
+      },
+      {
+        "case": "after-fire-sheathed-idle-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-fire-sheathed-idle-0.json",
+        "report_sha256": "480146c01ede2ccfb0eb2b46057dd5999f4073dba2e44a6baf9e490e85a36221",
+        "hurt_t": 1.2734850011765957,
+        "post_hurt_horizontal_cm": 342.47714331510167,
+        "post_hurt_rise_cm": 34.48403992605611,
+        "passed": true
+      },
+      {
+        "case": "after-charge-sheathed-idle-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-charge-sheathed-idle-0.json",
+        "report_sha256": "3a07b3ea2b85f9e0f21407fc5c853c4304b2e8aa58d130096184228ce102fad9",
+        "hurt_t": 0.8720051012933254,
+        "post_hurt_horizontal_cm": 104.99986128439377,
+        "post_hurt_rise_cm": 73.66412774524846,
+        "passed": true
+      },
+      {
+        "case": "after-tail-sheathed-idle-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-tail-sheathed-idle-0.json",
+        "report_sha256": "b76cdfe5bea459e4df7e521c1dd09817c58ea416cffe9310c9bbfc3c63b1ea40",
+        "hurt_t": 0.31940099969506264,
+        "post_hurt_horizontal_cm": 104.99986164154097,
+        "post_hurt_rise_cm": 196.12244898018386,
+        "passed": true
+      },
+      {
+        "case": "after-bite-drawn-idle-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-bite-drawn-idle-0.json",
+        "report_sha256": "ad613c104a9db190ba7eb9249a9e91b0fdc1377eda39fb4c2f5fc01d3449f286",
+        "hurt_t": 0.3000046983361244,
+        "post_hurt_horizontal_cm": 371.0413634663616,
+        "post_hurt_rise_cm": 4.128194021291165e-06,
+        "passed": true
+      },
+      {
+        "case": "after-fire-drawn-idle-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-fire-drawn-idle-0.json",
+        "report_sha256": "82cc874fcd34c122c1d759286499e21ce4c996f145a427f0d27834b91b47b8cc",
+        "hurt_t": 1.266714796423912,
+        "post_hurt_horizontal_cm": 380.10561955782464,
+        "post_hurt_rise_cm": 34.488887241746454,
+        "passed": true
+      },
+      {
+        "case": "after-charge-drawn-idle-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-charge-drawn-idle-0.json",
+        "report_sha256": "a22233146dd9d743385d8e7c16c6c77082d925a132c1615ed8eac65eaf597946",
+        "hurt_t": 0.8667225986719131,
+        "post_hurt_horizontal_cm": 79.9982551332455,
+        "post_hurt_rise_cm": 73.6639683221635,
+        "passed": true
+      },
+      {
+        "case": "after-tail-drawn-idle-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-tail-drawn-idle-0.json",
+        "report_sha256": "d1589e9dd489a8e57ee623790a6f88a42f0b0eaf80a9e0c9a651edaf1b9c33eb",
+        "hurt_t": 0.3166681006550789,
+        "post_hurt_horizontal_cm": 79.99825342017323,
+        "post_hurt_rise_cm": 196.12244730492998,
+        "passed": true
+      },
+      {
+        "case": "after-charge-sheathed-attack-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-charge-sheathed-attack-0.json",
+        "report_sha256": "4436a9646feb054c9d6d1e9202907f85eb84d4d17a851afbbebdb2a4555ba1b0",
+        "hurt_t": 0.8666805997490883,
+        "post_hurt_horizontal_cm": 79.99825513499127,
+        "post_hurt_rise_cm": 73.66389481027466,
+        "passed": true
+      },
+      {
+        "case": "after-charge-sheathed-spam-0",
+        "report": "Saved/RathianHitReaction-20261107/regression/PIE-after-charge-sheathed-spam-0.json",
+        "report_sha256": "412e4a6fa8573f59e53dad8568c4f75eddf7ab21bde10ee0c2ae127a7c34dd0d",
+        "hurt_t": 0.8676254004240036,
+        "post_hurt_horizontal_cm": 142.20624540247195,
+        "post_hurt_rise_cm": 73.66389522985634,
+        "passed": true
+      }
+    ]
+  },
+  "script_revisions": {
+    "utc": "2026-11-07T07:44:28.264621+00:00",
+    "v1_sha256": "90239fcede93d8440e1f0e33c389a776aa1cfd0cfafba41e681321ec1949c01d",
+    "v2_sha256": "4cfa8a8f76b0ba34a0ecc6e5fd919ca444fecc1edd312e4a0eea80e85381bf94",
+    "reason": "Supplemental review identified displacement counted before impact. V2 strengthens only the positional sampling range/anchor; original pose, source correlation, tier and damage thresholds unchanged. Preserve v1 baseline/post reports; independently recompute all recorded positions after HP decrease, rerun attack/spam with v2."
+  },
+  "script_hashes": {
+    "Scripts/MHWI/pie_hunter_hit_reaction.py": "4cfa8a8f76b0ba34a0ecc6e5fd919ca444fecc1edd312e4a0eea80e85381bf94",
+    "Saved/RathianHitReaction-20261107/probe_lifecycle.py": "eeb903a9711b7e82f7abd6da9809c41e379b0c6161c42a7f2d1f9d4637ee7f43"
+  },
+  "protected_files": {
+    "utc": "2026-11-07T07:56:18.115572+00:00",
+    "asset_files": 900,
+    "changed": [],
+    "missing": [],
+    "source_files_checked": 171,
+    "changed_sources": [
+      "Source/IntroCpp/MHWI/MHWIAnimInstance.cpp",
+      "Source/IntroCpp/MHWI/MHWIAnimInstance.h",
+      "Source/IntroCpp/MHWI/MHWICharacterNativeSources.cpp"
+    ],
+    "expected_source_hashes_match": true,
+    "passed": true
+  },
+  "editor_final_state": {
+    "world": {
+      "success": true,
+      "editorWorldName": "L_RathianBasic",
+      "editorWorldPackage": "/Game/MHWI/Rathian/Basic/Maps/L_RathianBasic",
+      "worldPackageDirty": false,
+      "persistentLevelPackage": "/Game/MHWI/Rathian/Basic/Maps/L_RathianBasic",
+      "playInEditor": false,
+      "simulateInEditor": false,
+      "mode": "editor",
+      "dirtyPackages": [],
+      "dirtyPackageCount": 0,
+      "dirtyContentCount": 0,
+      "dirtyMapCount": 0
+    },
+    "settings": {
+      "throttle_cpu_when_not_foreground": true,
+      "max_fps": 0,
+      "debug_boxes": 0,
+      "owned_cases": [
+        {
+          "name": "_rathian_basic_case",
+          "done": true,
+          "callback_live": false
+        },
+        {
+          "name": "_reaction_probe",
+          "done": true,
+          "callback_live": false
+        },
+        {
+          "name": "_reaction_boundary",
+          "done": true,
+          "callback_live": false
+        }
+      ]
+    }
+  },
+  "pose_capture": {
+    "before": "Saved/RathianHitReaction-20261107/lowfps-player-pose.png",
+    "after": "Saved/RathianHitReaction-20261107/after-lowfps-player-pose.png",
+    "scope": "Held real PIE pose after hit at ~0.333s, same capture camera. Monster hidden only to inspect Hunter silhouette. Snapshot is not continuous footage. Diagnostic probe inherits obsolete velocity-peak sampling assertions; authoritative low-FPS acceptance uses regression real-position checks."
+  },
+  "harness_failure": "First counter lifecycle fixture called an unreflected SetSpiritGauge setter; failed report preserved as lifecycle/PIE-counter-missing-setter-harness-failed.json. Replaced with real no-gauge Iai counter through production StartMove; no gameplay change.",
+  "limitations": [
+    "Existing three reaction clips; no new original launch/knockdown/get-up state machine.",
+    "Non-Impact default blend behavior preserved by code review; no exhaustive Slinger/Recoil regression.",
+    "No original MHWI launch, unpacking, Sandbox repair, OS reboot/shutdown, asset writes or main repository commits."
+  ],
+  "supplemental_review": {
+    "report": "Saved/RathianHitReaction-20261107/supplemental-pose-review.json",
+    "sha256": "dd6c4f2ddeec3ead56ba8678d4b2b256323c3559dbb29b4f52937f57d6c12700",
+    "result": {
+      "utc": "2026-11-07T08:01:00.125404+00:00",
+      "agent": "/root/luna_basic_animation_inventory",
+      "kind": "Supplemental read-only audit by resumed inventory agent, not new frozen review.",
+      "verdict": "no blocking findings",
+      "evidence": [
+        "Before: no correlated final pose samples. After: source frame20, five spine/head bones changed >12 degrees, mean root-relative source rotation error0.0043839 degrees.",
+        "Actual HP-drop position x1000 then x1105 on next0.333-second game tick, height72.22cm.",
+        "Cleanup restores throttle/FPS/debug, unregisters callback and ends owned PIE."
+      ],
+      "finding": "V1 displacement assertion included pre-hit motion. Current idle low-FPS evidence remains valid; do not count pre-hit movement for attack scenarios.",
+      "resolution": "V2 anchors at first HP decrease and uses only subsequent samples; two attack/spam reruns PASS. All12 immutable V1 raw position traces independently re-audited post-hit, PASS."
+    }
+  },
+  "documentation_checks": {
+    "utc": "2026-11-07T08:01:41.304736+00:00",
+    "python_ast": "PASS for regression script and frozen build checker",
+    "docs": "PASS: 39 Markdown, 388 local links, 16 modules and editor snapshot JSON",
+    "git_diff_check": "PASS, exit0; per-command core.safecrlf=false only",
+    "scope": "references and syntax; gameplay outcomes recorded separately"
+  }
+}

@@ -1,0 +1,449 @@
+{
+  "schema": 1,
+  "passed": true,
+  "mode": "fixed_version_offline_static_serialization_evidence",
+  "sources": {
+    "exe": {
+      "path": "F:/PCprogram/Steam/steamapps/common/Monster Hunter World/MonsterHunterWorld.exe",
+      "sha256": "c2ebbbd2c49f216d484e31a5219bed419eb1e5e7d206d02cba040a3ab79d90ea"
+    },
+    "text": {
+      "path": "Saved/MHWIRestoration/B05-20261024/analysis-text.bin",
+      "sha256": "9b48a8490df702ba9dc1cb95ffd387358ae2a639aa9675ad90719bd997124ebe",
+      "boundary": "local non-executable analysis bytes; no install modification or original game execution"
+    },
+    "native_pin_path": "Tools/MHW/native-connector-code-sources.json",
+    "native_pin_sha256": "5629f5cc8807642e78a0a0c7bb9ef363e34de7081929d1648b04192fa6d7ad30",
+    "trace_script_sha256": "8160ae404113c85204e644f2617d93a14689eeb93a9fc4f81bba3a74a0a6598d",
+    "inspector_script_sha256": "2ac83b19d24b6531a8a1415e0de1c21015f0929c4286a6c2d17f73b576141fe4"
+  },
+  "class_identity_source": {
+    "url": "https://github.com/Andoryuuta/MHW-DTI-Dumps/blob/4a124e4073519eaf19e3a446cb62d375d8da3209/dti_prop_dump.h",
+    "use": "Class names and CRCs only. Historical dump vtable addresses are not used as current-build addresses."
+  },
+  "functions": [
+    {
+      "name": "resource_load",
+      "address": "0x1419d86e0",
+      "status": "chained_unwind_ranges_collected_not_runtime_verified",
+      "ranges": [
+        {
+          "begin": "0x1419d86e0",
+          "end": "0x1419d8775",
+          "unwind_rva": "0x3c35ed4",
+          "decoded_bytes": 149,
+          "expected_bytes": 149,
+          "sha256": "fc219837e53f78e6cfdec6a7e5e21a649db08e51ce8745175c432f7038b878c5"
+        }
+      ],
+      "instruction_count": 38,
+      "key_instructions": [
+        {
+          "va": "0x1419d8703",
+          "size": 5,
+          "bytes": "3d01100918",
+          "mnemonic": "cmp",
+          "operands": "eax, 0x18091001"
+        },
+        {
+          "va": "0x1419d8714",
+          "size": 3,
+          "bytes": "83f809",
+          "mnemonic": "cmp",
+          "operands": "eax, 9"
+        },
+        {
+          "va": "0x1419d8723",
+          "size": 5,
+          "bytes": "3d50424300",
+          "mnemonic": "cmp",
+          "operands": "eax, 0x434250"
+        },
+        {
+          "va": "0x1419d8746",
+          "size": 5,
+          "bytes": "e8d5f4ffff",
+          "mnemonic": "call",
+          "operands": "0x1419d7c20"
+        }
+      ]
+    },
+    {
+      "name": "parts_info_array_read",
+      "address": "0x1419d7c20",
+      "status": "chained_unwind_ranges_collected_not_runtime_verified",
+      "ranges": [
+        {
+          "begin": "0x1419d7c20",
+          "end": "0x1419d7cb2",
+          "unwind_rva": "0x3cfb828",
+          "decoded_bytes": 146,
+          "expected_bytes": 146,
+          "sha256": "55bc9c94caae69438397d6a0a91950a0cbe5cffd84540ec96d3c6f350a576587"
+        },
+        {
+          "begin": "0x1419d7cb2",
+          "end": "0x1419d7dcf",
+          "unwind_rva": "0x3d72c38",
+          "decoded_bytes": 285,
+          "expected_bytes": 285,
+          "sha256": "3f2c706efcb1e352b34f8baadd05a087937d6e5ea52cae4eeccfdbf7648ac25f"
+        },
+        {
+          "begin": "0x1419d7dcf",
+          "end": "0x1419d7de0",
+          "unwind_rva": "0x3d72c50",
+          "decoded_bytes": 17,
+          "expected_bytes": 17,
+          "sha256": "861d909634b8dda659f7aded665d540577bacda7bce7a3124809bc03e14e85e0"
+        }
+      ],
+      "instruction_count": 131,
+      "key_instructions": [
+        {
+          "va": "0x1419d7d3d",
+          "size": 5,
+          "bytes": "e89e000000",
+          "mnemonic": "call",
+          "operands": "0x1419d7de0"
+        },
+        {
+          "va": "0x1419d7d4b",
+          "size": 3,
+          "bytes": "894628",
+          "mnemonic": "mov",
+          "operands": "dword ptr [rsi + 0x28], eax"
+        },
+        {
+          "va": "0x1419d7d57",
+          "size": 3,
+          "bytes": "89462c",
+          "mnemonic": "mov",
+          "operands": "dword ptr [rsi + 0x2c], eax"
+        },
+        {
+          "va": "0x1419d7d63",
+          "size": 3,
+          "bytes": "894630",
+          "mnemonic": "mov",
+          "operands": "dword ptr [rsi + 0x30], eax"
+        }
+      ]
+    },
+    {
+      "name": "parts_state_array_read",
+      "address": "0x1419d7de0",
+      "status": "chained_unwind_ranges_collected_not_runtime_verified",
+      "ranges": [
+        {
+          "begin": "0x1419d7de0",
+          "end": "0x1419d7e72",
+          "unwind_rva": "0x3cfb828",
+          "decoded_bytes": 146,
+          "expected_bytes": 146,
+          "sha256": "7352599255c4f766a52b71496cb844bab9df9d40b1fc058a4198cc5aab8dcf97"
+        },
+        {
+          "begin": "0x1419d7e72",
+          "end": "0x1419d7f6b",
+          "unwind_rva": "0x3d72c10",
+          "decoded_bytes": 249,
+          "expected_bytes": 249,
+          "sha256": "2f145e6abd5cae597cb533c3ec609618793b07524d1e74f8e42550804eb839b4"
+        },
+        {
+          "begin": "0x1419d7f6b",
+          "end": "0x1419d7f7c",
+          "unwind_rva": "0x3d72c28",
+          "decoded_bytes": 17,
+          "expected_bytes": 17,
+          "sha256": "861d909634b8dda659f7aded665d540577bacda7bce7a3124809bc03e14e85e0"
+        }
+      ],
+      "instruction_count": 120,
+      "key_instructions": [
+        {
+          "va": "0x1419d7f1f",
+          "size": 5,
+          "bytes": "e8fcfaffff",
+          "mnemonic": "call",
+          "operands": "0x1419d7a20"
+        },
+        {
+          "va": "0x1419d7f2d",
+          "size": 3,
+          "bytes": "894610",
+          "mnemonic": "mov",
+          "operands": "dword ptr [rsi + 0x10], eax"
+        }
+      ]
+    },
+    {
+      "name": "parts_detail_array_read",
+      "address": "0x1419d7a20",
+      "status": "chained_unwind_ranges_collected_not_runtime_verified",
+      "ranges": [
+        {
+          "begin": "0x1419d7a20",
+          "end": "0x1419d7ab2",
+          "unwind_rva": "0x3c3dd30",
+          "decoded_bytes": 146,
+          "expected_bytes": 146,
+          "sha256": "bef403578ae3776513bb540bccd6232ec3dd2e3d0ee5589d1659d19458edfd19"
+        },
+        {
+          "begin": "0x1419d7ab2",
+          "end": "0x1419d7c0c",
+          "unwind_rva": "0x3d72be0",
+          "decoded_bytes": 346,
+          "expected_bytes": 346,
+          "sha256": "5a8e92d3aaf021d34e31522a50dbcb732134185571d1f4963746eecae25c1b85"
+        },
+        {
+          "begin": "0x1419d7c0c",
+          "end": "0x1419d7c19",
+          "unwind_rva": "0x3d72c00",
+          "decoded_bytes": 13,
+          "expected_bytes": 13,
+          "sha256": "b6163519600402511fd093e94f17ca60ce0ba285011d7b0dcd2bd747c2503b4c"
+        }
+      ],
+      "instruction_count": 144,
+      "key_instructions": [
+        {
+          "va": "0x1419d7b67",
+          "size": 3,
+          "bytes": "894610",
+          "mnemonic": "mov",
+          "operands": "dword ptr [rsi + 0x10], eax"
+        },
+        {
+          "va": "0x1419d7b73",
+          "size": 3,
+          "bytes": "894620",
+          "mnemonic": "mov",
+          "operands": "dword ptr [rsi + 0x20], eax"
+        },
+        {
+          "va": "0x1419d7bc1",
+          "size": 3,
+          "bytes": "894628",
+          "mnemonic": "mov",
+          "operands": "dword ptr [rsi + 0x28], eax"
+        }
+      ]
+    },
+    {
+      "name": "parts_info_array_write",
+      "address": "0x1419d7f80",
+      "status": "chained_unwind_ranges_collected_not_runtime_verified",
+      "ranges": [
+        {
+          "begin": "0x1419d7f80",
+          "end": "0x1419d7fad",
+          "unwind_rva": "0x3d72c60",
+          "decoded_bytes": 45,
+          "expected_bytes": 45,
+          "sha256": "896c76eb14e0a8fce989687d1635337768c224b57a07472dd46803e67793cfc1"
+        },
+        {
+          "begin": "0x1419d7fad",
+          "end": "0x1419d8129",
+          "unwind_rva": "0x3d72c6c",
+          "decoded_bytes": 380,
+          "expected_bytes": 380,
+          "sha256": "32f851d30cc4a5e0338fc0645d510ce1358e13ec74f6b33b396604269c22766d"
+        },
+        {
+          "begin": "0x1419d8129",
+          "end": "0x1419d8135",
+          "unwind_rva": "0x3d72c90",
+          "decoded_bytes": 12,
+          "expected_bytes": 12,
+          "sha256": "d0c3dad1605c666c01d084cdd233ac452b171b7fe633bda49829d844290da714"
+        }
+      ],
+      "instruction_count": 130,
+      "key_instructions": [
+        {
+          "va": "0x1419d8079",
+          "size": 4,
+          "bytes": "418b5610",
+          "mnemonic": "mov",
+          "operands": "edx, dword ptr [r14 + 0x10]"
+        },
+        {
+          "va": "0x1419d8086",
+          "size": 4,
+          "bytes": "418b5620",
+          "mnemonic": "mov",
+          "operands": "edx, dword ptr [r14 + 0x20]"
+        },
+        {
+          "va": "0x1419d808d",
+          "size": 4,
+          "bytes": "418b5628",
+          "mnemonic": "mov",
+          "operands": "edx, dword ptr [r14 + 0x28]"
+        },
+        {
+          "va": "0x1419d80ab",
+          "size": 3,
+          "bytes": "8b5610",
+          "mnemonic": "mov",
+          "operands": "edx, dword ptr [rsi + 0x10]"
+        },
+        {
+          "va": "0x1419d80d0",
+          "size": 4,
+          "bytes": "418b5728",
+          "mnemonic": "mov",
+          "operands": "edx, dword ptr [r15 + 0x28]"
+        },
+        {
+          "va": "0x1419d80dd",
+          "size": 4,
+          "bytes": "418b572c",
+          "mnemonic": "mov",
+          "operands": "edx, dword ptr [r15 + 0x2c]"
+        },
+        {
+          "va": "0x1419d80ea",
+          "size": 4,
+          "bytes": "418b5730",
+          "mnemonic": "mov",
+          "operands": "edx, dword ptr [r15 + 0x30]"
+        }
+      ]
+    },
+    {
+      "name": "resource_save",
+      "address": "0x1419d8780",
+      "status": "chained_unwind_ranges_collected_not_runtime_verified",
+      "ranges": [
+        {
+          "begin": "0x1419d8780",
+          "end": "0x1419d8802",
+          "unwind_rva": "0x3c5733c",
+          "decoded_bytes": 130,
+          "expected_bytes": 130,
+          "sha256": "277081c39cd7133a663c29121fb8d5f0239d030080bff5844db32e52a65c764e"
+        }
+      ],
+      "instruction_count": 27,
+      "key_instructions": [
+        {
+          "va": "0x1419d879f",
+          "size": 5,
+          "bytes": "ba01100918",
+          "mnemonic": "mov",
+          "operands": "edx, 0x18091001"
+        },
+        {
+          "va": "0x1419d87ae",
+          "size": 5,
+          "bytes": "ba09000000",
+          "mnemonic": "mov",
+          "operands": "edx, 9"
+        },
+        {
+          "va": "0x1419d87bd",
+          "size": 5,
+          "bytes": "ba50424300",
+          "mnemonic": "mov",
+          "operands": "edx, 0x434250"
+        },
+        {
+          "va": "0x1419d87e8",
+          "size": 5,
+          "bytes": "e893f7ffff",
+          "mnemonic": "call",
+          "operands": "0x1419d7f80"
+        }
+      ]
+    }
+  ],
+  "key_instruction_checks": 24,
+  "nesting": {
+    "resource_array_offset": "0xa8",
+    "root_count_read": "0x1419d7c8e",
+    "info_state_array_offset": "0x8",
+    "state_count_read": "0x1419d7e4e",
+    "state_detail_array_offset": "0x18",
+    "detail_count_read": "0x1419d7a8e",
+    "sample_state_count_relative_offset": 4,
+    "sample_detail_count_relative_offset": 12,
+    "sample_counts": [
+      1,
+      1
+    ],
+    "limitation": "48 bytes is the flattened size of the four qualified samples with both nested counts equal to one, not a generic fixed record stride."
+  },
+  "field_memory_mapping": [
+    {
+      "sample_record_relative_offset": 20,
+      "object_class": "rEmPartsBreakCtrl::PartsDetailInfo",
+      "object_memory_offset": "0x10",
+      "read_store_instruction": "0x1419d7b67",
+      "write_load_instruction": "0x1419d8079",
+      "semantic_name": null
+    },
+    {
+      "sample_record_relative_offset": 24,
+      "object_class": "rEmPartsBreakCtrl::PartsDetailInfo",
+      "object_memory_offset": "0x20",
+      "read_store_instruction": "0x1419d7b73",
+      "write_load_instruction": "0x1419d8086",
+      "semantic_name": null
+    },
+    {
+      "sample_record_relative_offset": 28,
+      "object_class": "rEmPartsBreakCtrl::PartsDetailInfo",
+      "object_memory_offset": "0x28",
+      "read_store_instruction": "0x1419d7bc1",
+      "write_load_instruction": "0x1419d808d",
+      "semantic_name": null
+    },
+    {
+      "sample_record_relative_offset": 32,
+      "object_class": "rEmPartsBreakCtrl::PartsStateInfo",
+      "object_memory_offset": "0x10",
+      "read_store_instruction": "0x1419d7f2d",
+      "write_load_instruction": "0x1419d80ab",
+      "semantic_name": null
+    },
+    {
+      "sample_record_relative_offset": 36,
+      "object_class": "rEmPartsBreakCtrl::PartsInfo",
+      "object_memory_offset": "0x28",
+      "read_store_instruction": "0x1419d7d4b",
+      "write_load_instruction": "0x1419d80d0",
+      "semantic_name": null
+    },
+    {
+      "sample_record_relative_offset": 40,
+      "object_class": "rEmPartsBreakCtrl::PartsInfo",
+      "object_memory_offset": "0x2c",
+      "read_store_instruction": "0x1419d7d57",
+      "write_load_instruction": "0x1419d80dd",
+      "semantic_name": null
+    },
+    {
+      "sample_record_relative_offset": 44,
+      "object_class": "rEmPartsBreakCtrl::PartsInfo",
+      "object_memory_offset": "0x30",
+      "read_store_instruction": "0x1419d7d63",
+      "write_load_instruction": "0x1419d80ea",
+      "semantic_name": null
+    }
+  ],
+  "unresolved": [
+    "Business semantics of all seven payload integers remain unknown.",
+    "2006/2007 at sample +24 maps to PartsDetailInfo+0x20; no durability/ID semantics are inferred.",
+    "The loaded object field consumers, original-game part damage and break conditions are not observed."
+  ],
+  "game_launched": false,
+  "game_code_executed": false,
+  "game_or_asset_modified": false,
+  "qualification": "NativeTrace validated the pinned EXE and qualified analysis-text SHA256; all six functions are fully decoded within owned pdata/CHAININFO ranges. This is shell/Capstone evidence, not a REA decompilation result or runtime observation."
+}

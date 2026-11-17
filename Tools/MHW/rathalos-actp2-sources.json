@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "repo": "https://github.com/Fexty12573/MHW-010-Templates",
+  "commit": "cea17f2c0c7d5c4f2ed421a7d0e04586bfb275f7",
+  "template_version": "actp2.bt 1.0, 010 Editor 10.0.2",
+  "license": "MIT Copyright 2024 Fexty",
+  "files": [
+    {
+      "path": "Tools/MHW/Source/Fexty-MHW-010-cea17f2/actp2.bt",
+      "bytes": 1449,
+      "sha256": "cf17779e57e590ff939affd4623b6648750a0493e63311532d1e4e2137284982",
+      "url": "https://raw.githubusercontent.com/Fexty12573/MHW-010-Templates/cea17f2c0c7d5c4f2ed421a7d0e04586bfb275f7/actp2.bt"
+    },
+    {
+      "path": "Tools/MHW/Source/Fexty-MHW-010-cea17f2/UnitProperty.bt",
+      "bytes": 3377,
+      "sha256": "f83af07682e09dab280fc928f63b971881498a492bf2098db62f58fc54ae044e",
+      "url": "https://raw.githubusercontent.com/Fexty12573/MHW-010-Templates/cea17f2c0c7d5c4f2ed421a7d0e04586bfb275f7/UnitProperty.bt"
+    },
+    {
+      "path": "Tools/MHW/Source/Fexty-MHW-010-cea17f2/LICENSE",
+      "bytes": 1062,
+      "sha256": "629fcea7683f77de27cb06ada035ef0a32fb3f73b1303ad8f8c874f8817177ce",
+      "url": "https://raw.githubusercontent.com/Fexty12573/MHW-010-Templates/cea17f2c0c7d5c4f2ed421a7d0e04586bfb275f7/LICENSE"
+    }
+  ],
+  "adaptation": "actp2.bt names UnitProperty for the array but the actual file starts each item with the Property tag/value wrapper defined in UnitProperty.bt; use Property then its UnitProperty metadata; no upstream file changed.",
+  "supported_tags": {
+    "0x04b747f9": "Float",
+    "0x12491816": "Bool",
+    "0x189831ba": "Int32",
+    "0x4f9357bc": "Vector4",
+    "0x65ea28e0": "PageEnd"
+  },
+  "boundary": "Only version 2 ActionData 0x11e2d786 and five tags observed in the pinned em001 source; fail closed on all others. No runtime behavior or damage identity inferred."
+}

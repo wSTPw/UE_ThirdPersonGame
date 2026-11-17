@@ -170,9 +170,34 @@ Leviathon `default.fexty`（本地缓存，commit `1e647f08`）提供 **27/58 �
 | `ACTION::DASH_BITE_TIRED` | 87 | `0x144f38470` |
 | `ACTION::RASH_BITE_FLY` | 88 | `0x144f39200` |
 
-em001 表（`0x142e62f60`，磁盘 `0x2e61fc0`）索引 1 的 **285 条与固定维护方 dump 285/285 一致**；索引 2/3 分别 59/59、131/131 匹配 em002/em003。这是静态交叉一致，不是运行验证。
+em001 表头（VA `0x142e62f60`，磁盘 `0x2e61560`；BITE83记录磁盘偏移另为 `0x2e61fc0`）索引 1 的 **285 条与固定维护方 dump 285/285 一致**；索引 2/3 分别 59/59、131/131 匹配 em002/em003。这是静态交叉一致，不是运行验证。
 
 **仍未证**：THK actionID → 动作对象查找/启动；注册 caller 的怪物对象归属（注册 caller 范围 `[0x141c29c80,0x141c29dc9)` 与既有 em001 候选 vtable 写入点 `0x141c283a1` 属不同范围，地址相邻不等于同属）。
+
+### 动作83查找与启动补证（2026-11-06）
+
+本轮使用原生 `gpt-6-luna/high` 执行与全新Luna独立审查，DevFlow最终快照 `5735540e…8bb4564` 的静态证据产物为ACCEPTED；**这不表示原作启动链或完整首链通过**。[证据JSON](../../Tools/DevFlow/Rathian-BITE-Dispatch-20261106/accepted/evidence.json)、[原始报告](../../Tools/DevFlow/Rathian-BITE-Dispatch-20261106/accepted/report.md)、[验收回执](../../Tools/DevFlow/Rathian-BITE-Dispatch-20261106/accepted/acceptance.json)。
+
+| 分段事实 | 资格及边界 |
+| --- | --- |
+| `0x140269c30` 在注册receiver上调用描述符虚表+0x10，并把返回指针存入selector/ID形状的槽 | 原生静态局部事实；尚不证明返回BITE、新建对象或与后续receiver同一实例 |
+| `0x140269ce0` 按selector取得count、unsigned比较ID/count并检查槽非空，然后写键状态、返回bool | 原生静态局部事实；窗口内无明确selector范围检查，不称完整键校验 |
+| `0x14026b410` 给helper传原RDX作receiver；成功后给 `0x14026b160` 传原RCX作receiver，同样转交key | 两次调用使用不同入参；两值相等/归属关系仍未知 |
+| `0x14026b160` 的可见虚调用为+0x28；固定BITE虚表+0x28为 `0x14023d430`，+0x30为已知enter `0x14073ee50` | 不能把该回调直接当BITE enter；间接启动可能性未排除，仍需追消费者 |
+
+四段连接当前为：THK83→动作键 **unresolved**；键→BITE对象 **candidate**；对象→enter **unresolved**；注册caller怪物归属 **unresolved**。14个原始锚、3段源码行hash及9项冻结数据检查只证明可追溯，不是原作运行验证。源码仍是本地executor yield后核对ID再启项目移动/碰撞，未据此声称原生BITE对象派发已接入。
+
+下一顺序：先找THK action字段到键请求的递交者；核 `0x14026b410` 调用者提供的两个receiver；再追callback记录填充及 `0x14023d430 → +0x30` 的可能消费者，最后补caller对象归属。现有文件够本轮静态调查，未定向解包、未启动原作/UE，Sandbox保持暂缓。过程与未通过记录见[本轮CHG](../Archive/MHWI/Changes/CHG-20261106-001-rathian-bite-dispatch-devflow.md)。
+
+### 社区资料定向补证（2026-11-06）
+
+已查维护者一手源码并锁提交，[来源/本机匹配清单](../../Tools/MHW/rathian-community-dispatch-20261106.json)。这是只读研究，**没有把上轮冻结产物重标为完成，也没有新的运行验证**。
+
+- SharpPluginLoader提交 `0790c5f1…` 的地址记录与解析代码给出扫描签名及有符号字节偏移。在固定.text中，`Monster:LaunchAction` 仅一处命中，解析为 `0x141cc5360`；`Monster:ForceAction` 仅一处命中，解析为 `0x1413973b0`。
+- `ActionController:DoAction` 的签名在已有函数窗口匹配，应用-10字节偏移后正是 `0x140269ce0`；未额外声称其全镜像唯一。这是社区命名与本机字节的静态对应，不是Capcom符号或行为已证。
+- HunterPie/LuaEngine/SPL的字段访问可互相对应：actor+0x61C8作controller基址，current相对+AC/+B0即actor+6274/+6278，next相对+BC/+C0即actor+6284/+6288。不能把绝对/相对偏移误判为版本冲突。
+- SPL对 `cActionBase` 将slot5/6/7/8命名为初始化/执行/更新/结束，对应+28/+30/+38/+40；只有先证明回调对象类型，才可套用生命周期名称。其通用DoAction接口还明确建议怪物使用Monster.ForceAction，不能把玩家/通用接口直接当怪物递交。
+- 尚缺THK83到LaunchAction输入的调用边、receiver/BITE实例归属和真正execute。下一步优先沿两个已定位地址查递交/对象关系，继续保留未知；未安装、注入或调用任何插件。[本轮记录](../Archive/MHWI/Changes/CHG-20261106-002-rathian-community-dispatch.md)。
 
 ### 首链最小候选
 
@@ -194,7 +219,7 @@ em001 表（`0x142e62f60`，磁盘 `0x2e61fc0`）索引 1 的 **285 条与固定
 
 ### 根轨与时钟
 
-`em001_02.lmt` slot1 头@1968，`frame_count=131`。usage4 位置记录@13824（codec4，payload@23088，232 B，lerp@20016），29 键独立解码、0..130 整数采样与 `Saved/MHW-Rathian-FirstChain-20261031/selected-source-track.json` 逐点误差 0。
+`em001_02.lmt` slot1 头@1968，`frame_count=131`。usage4 位置记录@13824（codec4，payload@23088，232 B，lerp@20016），29 键独立解码、0..130 整数采样与 `Saved/MHWI-Rathian-FirstChain-20261031/selected-source-track.json` 逐点误差 0。
 
 项目映射 `[x,z,y]`：t10=t80 源 `[6.68205595,0,49.9655838]` → 映射后 `[6.68205595,49.9655838,0]`；t111=t130 源 `[51.3980103,0,-7.8466053]` → `[51.3980103,-7.8466053,0]`。
 
@@ -221,6 +246,7 @@ LMT Node0/1/2 原始键 @42128/42160/42192，值 **32/21/24**；flags@42224/4224
 | 编号 | 问题 | 归属 |
 | --- | --- | --- |
 | BEH-01 | THK 条件语义：27 类待逐项校验，33 类低频缺口，验证数为 0 | E01 / 定向观测 |
+| BEH-02 | THK83→动作键未证；键→BITE对象仅候选；receiver身份、callback→enter与caller怪物归属开放，见第五节11-06增补 | E02 / 当前M0 |
 | BEH-03 | LR 招式资格表未建立（342 ACTP2 ≠ LR 招式表）。已有路线：用 `0xB8` 等级门控从 THK 反推下位可达动作，分母不再用全量 | P1 |
 | BEH-04 | 同帧多事件状态优先级表无原作证据（工程幂等契约已有） | AI-08 / C5 |
 | BEH-05 | 咬击/冲撞之外 105 THK 的其余链路未逐条提取 | E01 / AI-07 |

@@ -26,13 +26,13 @@ namespace
         float DurationFrames = 0.f;
         bool bCapturePending = false;
 
-        void Begin(int32 Frames)
+        void Begin(int32 Frames, bool bHoldFirstDestination)
         {
             FromPose = LastPose;
             FromBones = LastBones;
             ElapsedFrames = 0.f;
             DurationFrames = LastPose.IsEmpty() ? 0.f : float(FMath::Max(0, Frames));
-            bCapturePending = DurationFrames > 0.f;
+            bCapturePending = bHoldFirstDestination && DurationFrames > 0.f;
         }
         void Advance(float OwnerFrames)
         {
@@ -84,16 +84,16 @@ void UMHWIAnimInstance::DestroyAnimInstanceProxy(FAnimInstanceProxy* InProxy)
     delete static_cast<FMHWINativeBlendProxy*>(InProxy);
 }
 
-void UMHWIAnimInstance::BeginNativeBlend(int32 InterpolationFrames)
+void UMHWIAnimInstance::BeginNativeBlend(int32 InterpolationFrames, bool bHoldFirstDestination)
 {
     check(IsInGameThread());
-    GetProxyOnGameThread<FMHWINativeBlendProxy>().Begin(InterpolationFrames);
+    GetProxyOnGameThread<FMHWINativeBlendProxy>().Begin(InterpolationFrames, bHoldFirstDestination);
 }
 
 void UMHWIAnimInstance::CancelNativeBlend()
 {
     check(IsInGameThread());
-    GetProxyOnGameThread<FMHWINativeBlendProxy>().Begin(0);
+    GetProxyOnGameThread<FMHWINativeBlendProxy>().Begin(0, true);
 }
 
 bool UMHWIAnimInstance::ReadNativeBaseMotion(MHWI::Native::FMotionSample& OutMotion)

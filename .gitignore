@@ -56,3 +56,16 @@ ue-mcp.local.yml
 __pycache__/
 *.pyc
 *.pyo
+
+# MHW Rathalos datamine output (game binaries stay local; manifests/scripts are tracked)
+/ArtSource/ThirdParty/MHWRathalos/nativePC/
+/ArtSource/ThirdParty/MHWRathalos/archive-index.json
+/ArtSource/ThirdParty/MHWRathalos-em002/nativePC/
+/ArtSource/ThirdParty/MHWRathalos-em002/archive-index.json
+
+# 全量动作库（848 个 / 1.6GB）是可重建的中间产物：源 LMT、导出脚本与证据 JSON 均已入库，
+# 需要时用 Tools/MHW/convert_monster_animations.py 重新导出并按需导入。参考 Rathian 的按需导入模式。
+/Content/MHWI/Rathalos/Animations/
+
+# DevFlow 任务副本属私有基线，不随仓库分发（见 CHG-20261107-001）
+/Tools/DevFlow/

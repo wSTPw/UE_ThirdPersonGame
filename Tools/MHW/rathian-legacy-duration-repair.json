@@ -1,0 +1,221 @@
+{
+  "imported": [
+    {
+      "name": "A_em001_00_001",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_001.A_em001_00_001",
+      "seconds": 3.5333333015441895,
+      "expected_seconds": 3.533333333333333,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_002",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_002.A_em001_00_002",
+      "seconds": 3.5333333015441895,
+      "expected_seconds": 3.533333333333333,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_003",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_003.A_em001_00_003",
+      "seconds": 2.950000047683716,
+      "expected_seconds": 2.95,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_004",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_004.A_em001_00_004",
+      "seconds": 2.950000047683716,
+      "expected_seconds": 2.95,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_005",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_005.A_em001_00_005",
+      "seconds": 5.699999809265137,
+      "expected_seconds": 5.7,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_006",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_006.A_em001_00_006",
+      "seconds": 5.699999809265137,
+      "expected_seconds": 5.7,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_007",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_007.A_em001_00_007",
+      "seconds": 4.800000190734863,
+      "expected_seconds": 4.8,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_008",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_008.A_em001_00_008",
+      "seconds": 1.2000000476837158,
+      "expected_seconds": 1.2,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_009",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_009.A_em001_00_009",
+      "seconds": 1.2000000476837158,
+      "expected_seconds": 1.2,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_010",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_010.A_em001_00_010",
+      "seconds": 3.383333444595337,
+      "expected_seconds": 3.3833333333333333,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_011",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_011.A_em001_00_011",
+      "seconds": 3.383333444595337,
+      "expected_seconds": 3.3833333333333333,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_012",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_012.A_em001_00_012",
+      "seconds": 3.0,
+      "expected_seconds": 3.0,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_013",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_013.A_em001_00_013",
+      "seconds": 3.0,
+      "expected_seconds": 3.0,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_014",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_014.A_em001_00_014",
+      "seconds": 3.2666666507720947,
+      "expected_seconds": 3.2666666666666666,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_015",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_015.A_em001_00_015",
+      "seconds": 3.2666666507720947,
+      "expected_seconds": 3.2666666666666666,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_016",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_016.A_em001_00_016",
+      "seconds": 3.383333444595337,
+      "expected_seconds": 3.3833333333333333,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_017",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_017.A_em001_00_017",
+      "seconds": 3.383333444595337,
+      "expected_seconds": 3.3833333333333333,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_018",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_018.A_em001_00_018",
+      "seconds": 3.0,
+      "expected_seconds": 3.0,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_019",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_019.A_em001_00_019",
+      "seconds": 3.0,
+      "expected_seconds": 3.0,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_020",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_020.A_em001_00_020",
+      "seconds": 3.2666666507720947,
+      "expected_seconds": 3.2666666666666666,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_021",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_021.A_em001_00_021",
+      "seconds": 3.2666666507720947,
+      "expected_seconds": 3.2666666666666666,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_023",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_023.A_em001_00_023",
+      "seconds": 2.4166667461395264,
+      "expected_seconds": 2.4166666666666665,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_024",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_024.A_em001_00_024",
+      "seconds": 1.9833333492279053,
+      "expected_seconds": 1.9833333333333334,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    },
+    {
+      "name": "A_em001_00_025",
+      "path": "/Game/MHWI/Rathalos/Animations/A_em001_00_025.A_em001_00_025",
+      "seconds": 1.9833333492279053,
+      "expected_seconds": 1.9833333333333334,
+      "skeleton": "/Game/MHWI/Rathalos/Mesh/SK_EM001_Body_Skeleton.SK_EM001_Body_Skeleton",
+      "referencers": [],
+      "object_identity_preserved": true
+    }
+  ],
+  "errors": []
+}

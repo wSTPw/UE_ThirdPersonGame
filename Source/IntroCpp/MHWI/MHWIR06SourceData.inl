@@ -2,6 +2,24 @@
 #pragma once
 namespace MHWI::Native {
 inline const FSourceBinding SourceBindings[] = {
+    // 2026-11-16: native Common::DAMAGE_S_* dispatch. Slots are matched by LMT root
+    // displacement (front=-Z->104, back=+Z->107, left=+X->105, right=-X->106);
+    // the 335..338 action numbers only key the registry, their selector order is unproven.
+    {{1, 335}, FName(TEXT("co00_01")), 104, 27},
+    {{1, 336}, FName(TEXT("co00_01")), 107, 27},
+    {{1, 337}, FName(TEXT("co00_01")), 105, 27},
+    {{1, 338}, FName(TEXT("co00_01")), 106, 27},
+    // 2026-11-16: DOWN_*_STAND_UP share slot 7 per the 0x141709540 posture-preview
+    // constructor (packed 0x1007); the launch-down clip itself is still missing.
+    {{1, 431}, FName(TEXT("co00_01")), 7, 27},
+    {{1, 439}, FName(TEXT("co00_01")), 7, 27},
+    // 2026-11-16: Medium trial (user-approved). No registry names exist for a
+    // mid-tier reaction; slots 92/93/94/96 are a pose-matched stagger group
+    // (hip 43-52 -> 90, 59-65f) keyed by project-local ids 340..343.
+    {{1, 340}, FName(TEXT("co00_01")), 96, 27},
+    {{1, 341}, FName(TEXT("co00_01")), 92, 27},
+    {{1, 342}, FName(TEXT("co00_01")), 94, 27},
+    {{1, 343}, FName(TEXT("co00_01")), 93, 27},
     {{3, 30}, FName(TEXT("w03_00")), 61, 26},
     {{3, 31}, FName(TEXT("w03_00")), 62, 26},
     {{3, 32}, FName(TEXT("w03_00")), 63, 26},

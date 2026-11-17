@@ -142,6 +142,18 @@ AMHWICharacter::AMHWICharacter()
             TEXT("/Game/MHWI/Animations/R06Remaining/A_%s"), *Name));
         if (Sequence.Succeeded()) NativeSourceSequences.Add(FName(*Name), Sequence.Object);
     }
+    for (int32 Motion : {104, 105, 106, 107, 92, 93, 94, 96})
+    {
+        const FString Name = FString::Printf(TEXT("co00_01_%03d"), Motion);
+        ConstructorHelpers::FObjectFinder<UAnimSequence> Sequence(*FString::Printf(
+            TEXT("/Game/MHWI/Animations/DamageSource/A_%s"), *Name));
+        if (Sequence.Succeeded()) NativeSourceSequences.Add(FName(*Name), Sequence.Object);
+    }
+    {
+        ConstructorHelpers::FObjectFinder<UAnimSequence> Sequence(TEXT(
+            "/Game/MHWI/Animations/DamageSource/A_co00_01_007"));
+        if (Sequence.Succeeded()) NativeSourceSequences.Add(FName(TEXT("co00_01_007")), Sequence.Object);
+    }
 }
 
 void AMHWICharacter::BeginPlay()
@@ -349,7 +361,8 @@ void AMHWICharacter::ApplyTurnWindows(float FromPosition, float ToPosition)
     if (CurrentMove.IsNone() || !Moveset || ToPosition <= FromPosition) return;
     // Roll has its own free-form start direction. The three Fade Slash clips carry
     // authored lateral displacement and must not be rotated after selection.
-    if (MHWI::IsRollMove(CurrentMove) || MHWI::IsFadeSlashMove(CurrentMove)) return;
+    if (MHWI::IsRollMove(CurrentMove) || MHWI::IsFadeSlashMove(CurrentMove)
+        || CurrentMove == MHWI::SpecialSheathe) return;
     // Small analog drift counts as no directional intent for turning.
     if (MoveInput.SizeSquared() < 0.01f) return;
     const FVector WorldIntent = GetMoveIntentWorldDirection();
@@ -691,6 +704,10 @@ bool AMHWICharacter::ResolveInput(EMHWIInput Input, FName& OutMove, float* OutCa
             {
                 OutMove = Route.NextMove == MHWI::FadeSlash && Input == EMHWIInput::FadeSlash
                     ? SelectFadeSlashMove() : Route.NextMove;
+                // Preserve this route's conditions and timing while selecting the
+                // drawn dodge clip from current camera-relative directional input.
+                if (Input == EMHWIInput::Evade && Route.NextMove == MHWI::Roll)
+                    OutMove = SelectRollMove();
                 if (OutCancelStart && Route.CancelStart >= 0.f) *OutCancelStart = Route.CancelStart;
                 if (OutCancelEnd && Route.CancelEnd >= 0.f) *OutCancelEnd = Route.CancelEnd;
                 return !OutMove.IsNone();
@@ -733,7 +750,7 @@ bool AMHWICharacter::ResolveInput(EMHWIInput Input, FName& OutMove, float* OutCa
     {
     case EMHWIInput::Light: OutMove = bSheathed ? TEXT("DrawSlash") : (MoveInput.Y > 0.3f ? TEXT("WalkOnSlash") : TEXT("OverheadSlash")); break;
     case EMHWIInput::Thrust: OutMove = bSheathed ? TEXT("DrawSlash") : TEXT("Thrust"); break;
-    case EMHWIInput::Spirit: OutMove = bSheathed ? TEXT("DrawSlash") : TEXT("SpiritI"); break;
+    case EMHWIInput::Spirit: OutMove = TEXT("SpiritI"); break;
     case EMHWIInput::HelmBreaker: if (!bSheathed) OutMove = MHWI::SpiritThrust; break;
     case EMHWIInput::SpecialSheathe: break; // Requires an active move's cancel window.
     case EMHWIInput::Foresight: break; // Requires an active move's cancel window.
@@ -939,6 +956,18 @@ bool AMHWICharacter::StartResolvedMove(FName MoveId)
     EndDelegate.BindUObject(this, &AMHWICharacter::MontageEnded, Serial);
     Anim->Montage_SetEndDelegate(EndDelegate, ActiveMontage);
     if (Serial != ExecutionSerial || bEnding) return false;
+    if (MoveId == MHWI::SpecialSheathe && MoveInput.SizeSquared() >= 0.01f)
+    {
+        // Choose the entry facing once from current input, independently of the
+        // predecessor's turn budget. Looking alone or no input retains facing.
+        const FVector Intent = GetMoveIntentWorldDirection();
+        if (!Intent.IsNearlyZero())
+        {
+            FRotator Facing = GetActorRotation();
+            Facing.Yaw = Intent.Rotation().Yaw;
+            SetActorRotation(Facing);
+        }
+    }
     ApplyStageMovement(MoveId, NewDefinition);
     float NewGauge = SpiritGauge - NewDefinition.SpiritCost + NewDefinition.SpiritGainOnStart;
     if (NewDefinition.bConsumeAllGauge) NewGauge = 0.f;
@@ -1039,6 +1068,23 @@ void AMHWICharacter::Tick(float DeltaSeconds)
     // the fast descent once at HelmStrikeStartTime, never at 0 s.
     if (HelmPhase == EHelmPhase::Air) MaybeCommitHelmStrike();
     if (HelmPhase == EHelmPhase::Strike) MaybeStartHelmDescent();
+
+    // A launched Large reaction chains into the DOWN stand-up once both the
+    // impact montage ended and the body is back on the ground.
+    if (bPendingLargeGetup && NativeSourceKind == ENativeSourceKind::None
+        && !GetCharacterMovement()->IsFalling())
+    {
+        bPendingLargeGetup = false;
+        if (StartNativeSource(MHWI::Native::FActionIdentity{1, 431}, ENativeSourceKind::Impact))
+        {
+            // The stand-up owns control like the reaction that launched it; the
+            // shared FinishMove path releases it when the clip ends.
+            ControlState = EMHWIControlState::FlinchLarge;
+            PendingInput.Reset();
+            bBufferedInsideWindow = false;
+            return;
+        }
+    }
 
     if (TickNativeSource()) return;
     if (!ActiveMontage) return;
@@ -1148,7 +1194,7 @@ void AMHWICharacter::AdvanceAction(float NewPosition, bool bAllowTransition)
         const EMHWIImpactSize Size = PendingNativeImpact.GetValue();
         PendingNativeImpact.Reset();
         bPendingInterruption = false;
-        StartNativeImpact(Size);
+        StartNativeImpact(Size, PendingNativeImpactDirection);
         return;
     }
     if (bPendingNativeRecoil)
@@ -1805,19 +1851,32 @@ float AMHWICharacter::TakeDamage(float DamageAmount, const FDamageEvent& DamageE
 
 void AMHWICharacter::HandleDamaged(float DamageAmount, AActor* DamageInstigator)
 {
+    UE_LOG(LogTemp, Warning, TEXT("MHWI_DAMAGED amount=%f instigator=%s ending=%d armor=%f"),
+        DamageAmount, *GetNameSafe(DamageInstigator), bEnding, CounterArmorRemaining);
     if (DamageAmount <= 0.f || bEnding) return;
     if (CounterArmorRemaining > 0.f) return; // Super armor reduces damage without suppressing HP loss.
     // Damage reaching this delegate was not intercepted. A sender can provide
     // explicit reaction size; an untyped legacy hit uses the small training adapter.
     const EMHWIImpactSize Size = IsValid(DamageInstigator) && DamageInstigator->GetClass()->ImplementsInterface(UMHWIContactResponse::StaticClass())
         ? IMHWIContactResponse::Execute_GetMHWIImpactSize(DamageInstigator) : EMHWIImpactSize::Small;
-    StartNativeImpact(Size);
+    // DAMAGE_S is selected by where the hit came from, not by stance.
+    int32 Direction = 0;
+    if (IsValid(DamageInstigator))
+    {
+        const FVector ToAttacker = (DamageInstigator->GetActorLocation() - GetActorLocation()).GetSafeNormal2D();
+        const float Forward = FVector::DotProduct(ToAttacker, GetActorForwardVector());
+        const float Right = FVector::DotProduct(ToAttacker, GetActorRightVector());
+        if (FMath::Abs(Forward) >= FMath::Abs(Right)) Direction = Forward >= 0.f ? 0 : 1;
+        else Direction = Right >= 0.f ? 3 : 2;
+    }
+    StartNativeImpact(Size, Direction);
 }
 
 void AMHWICharacter::HandleDeath()
 {
     CounterArmorRemaining = GaugeRegenSeconds = SpiritDecayPauseRemaining = 0.f;
     RollProtectionFramesRemaining = 0.f;
+    bPendingLargeGetup = false;
     ClearDelayedShells();
     PendingHitLag = 0.f;
     ControlState = EMHWIControlState::Dead;

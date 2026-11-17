@@ -1058,6 +1058,17 @@
             59,
             110
           ]
+        },
+        {
+          "input": "HELM_BREAKER",
+          "target": "SpiritThrust",
+          "scope": "existing_route",
+          "confidence": "project_tuning_existing_continuation",
+          "rationale": "User-requested SpiritThrust branch reuses the existing SPIRIT continuation window; not a decoded native permission window.",
+          "frames": [
+            59,
+            110
+          ]
         }
       ]
     },
@@ -1293,6 +1304,17 @@
             62,
             118
           ]
+        },
+        {
+          "input": "HELM_BREAKER",
+          "target": "SpiritThrust",
+          "scope": "existing_route",
+          "confidence": "project_tuning_existing_continuation",
+          "rationale": "User-requested SpiritThrust branch reuses the existing SPIRIT continuation window; not a decoded native permission window.",
+          "frames": [
+            44,
+            118
+          ]
         }
       ]
     },
@@ -1526,6 +1548,17 @@
           "confidence": "project_tuning_source_phase_anchor",
           "rationale": "Project recovery cancel separated from standard attack continuation; source input-key boundary is an anchor, not decoded permission.",
           "target": "FadeSlash",
+          "frames": [
+            110,
+            160
+          ]
+        },
+        {
+          "input": "HELM_BREAKER",
+          "target": "SpiritThrust",
+          "scope": "existing_route",
+          "confidence": "project_tuning_existing_continuation",
+          "rationale": "User-requested SpiritThrust branch reuses the existing SPIRIT continuation window; not a decoded native permission window.",
           "frames": [
             110,
             160

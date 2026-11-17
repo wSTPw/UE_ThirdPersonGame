@@ -58,25 +58,37 @@ FName AMHWICharacter::SelectRollMove() const
     return Forward < 0.f ? TEXT("RollBack") : TEXT("Roll");
 }
 
-void AMHWICharacter::StartNativeImpact(EMHWIImpactSize Size)
+void AMHWICharacter::StartNativeImpact(EMHWIImpactSize Size, int32 Direction)
 {
+    UE_LOG(LogTemp, Warning, TEXT("MHWI_IMPACT size=%d dir=%d ending=%d alive=%d dispatching=%d"),
+        int32(Size), Direction, bEnding, Attributes ? Attributes->IsAlive() : 0, bDispatchingHits);
     if (bEnding || !Attributes || !Attributes->IsAlive()) return;
+    Direction = FMath::Clamp(Direction, 0, 3);
     if (bDispatchingHits)
     {
         PendingNativeImpact = Size;
+        PendingNativeImpactDirection = Direction;
         bPendingInterruption = true;
         return;
     }
-    const int32 Index = FMath::Clamp(int32(Size), 0, 2);
-    const int32 Common[] = {103, 110, 115};
-    if (StartNativeSource(bSheathed ? MHWI::Native::FActionIdentity{1, Common[Index]}
-        : MHWI::Native::FActionIdentity{3, 30 + Index}, ENativeSourceKind::Impact))
+    // Common::DAMAGE_S_FRONT/BACK/LEFT/RIGHT. Reaction is stance-independent;
+    // the old w03/co00 STEP bindings were step carriers, not damage reactions.
+    const int32 Damage[] = {335, 336, 337, 338};
+    // Medium has no registry name; 340..343 are project-local keys into the
+    // pose-matched stagger group (see MHWIR06SourceData.inl). Large chains into
+    // the DOWN stand-up after landing via bPendingLargeGetup.
+    const int32 Identity = Size == EMHWIImpactSize::Medium
+        ? (340 + Direction) : Damage[Direction];
+    if (StartNativeSource(MHWI::Native::FActionIdentity{1, Identity}, ENativeSourceKind::Impact))
     {
         // R24: the impact montage owns control until it ends. Input checks read
         // this state instead of inferring hitstun from the montage pointer.
         ControlState = Size == EMHWIImpactSize::Large ? EMHWIControlState::FlinchLarge
             : (Size == EMHWIImpactSize::Medium ? EMHWIControlState::FlinchMedium
                 : EMHWIControlState::FlinchSmall);
+        // Large launches chain into the DOWN stand-up once landed; any other
+        // size, death or an interrupted launch cancels it.
+        bPendingLargeGetup = Size == EMHWIImpactSize::Large && Attributes->IsAlive();
         PendingInput.Reset();
         bBufferedInsideWindow = false;
         bHelmSlamRequested = false;
@@ -93,7 +105,12 @@ bool AMHWICharacter::StartNativeSource(MHWI::Native::FActionIdentity Identity, E
     UAnimInstance* Anim = GetMesh()->GetAnimInstance();
     const FMHWIMoveDefinition* SlotDefinition = Moveset->Moves.Find(FName(TEXT("StepSlash")));
     if (!Binding || !Anim || !SlotDefinition || !SlotDefinition->Montage
-        || SlotDefinition->Montage->SlotAnimTracks.Num() != 1) return false;
+        || SlotDefinition->Montage->SlotAnimTracks.Num() != 1)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("MHWI_SOURCE_FAIL binding={%d,%d} anim=%d slotdef=%d"),
+            Identity.Group, Identity.Action, Binding != nullptr, SlotDefinition != nullptr);
+        return false;
+    }
     FActionIdentity PreviousIdentity;
     const TArray<FActionIdentity> PreviousIds = GetNodeIdentities(NativeActionNode);
     if (!PreviousIds.IsEmpty()) PreviousIdentity = PreviousIds[0];
@@ -106,10 +123,21 @@ bool AMHWICharacter::StartNativeSource(MHWI::Native::FActionIdentity Identity, E
     const int32 Motion = Kind == ENativeSourceKind::Slinger ? GetSlingerMotion(Identity, PreviousIdentity) : Binding->Motion;
     UAnimSequence* Sequence = NativeSourceSequences.FindRef(SourceKey(Binding->Bank, Motion));
     if (!Sequence || !GetMesh()->GetSkeletalMeshAsset()
-        || Sequence->GetSkeleton() != GetMesh()->GetSkeletalMeshAsset()->GetSkeleton()) return false;
+        || Sequence->GetSkeleton() != GetMesh()->GetSkeletalMeshAsset()->GetSkeleton())
+    {
+        UE_LOG(LogTemp, Warning, TEXT("MHWI_SOURCE_FAIL sequence=%s_%03d found=%d skeleton_ok=%d"),
+            *Binding->Bank.ToString(), Motion, Sequence != nullptr,
+            Sequence && GetMesh()->GetSkeletalMeshAsset()
+                && Sequence->GetSkeleton() == GetMesh()->GetSkeletalMeshAsset()->GetSkeleton());
+        return false;
+    }
     UAnimMontage* Montage = UAnimMontage::CreateSlotAnimationAsDynamicMontage(Sequence,
         SlotDefinition->Montage->SlotAnimTracks[0].SlotName, 0.f, 0.f, 1.f, 1);
-    if (!Montage) return false;
+    if (!Montage)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("MHWI_SOURCE_FAIL montage_create=%s_%03d"), *Binding->Bank.ToString(), Motion);
+        return false;
+    }
     Montage->bEnableAutoBlendOut = false;
     UAnimMontage* PreviousCarrier = ActiveMontage ? ActiveMontage.Get() : NativeSourceMontage.Get();
     FMotionSample Previous;
@@ -117,7 +145,12 @@ bool AMHWICharacter::StartNativeSource(MHWI::Native::FActionIdentity Identity, E
     {
         const int32 PreviousId = ActiveMontage ? ActiveMontageInstanceId : NativeSourceInstanceId;
         const FAnimMontageInstance* Instance = Anim->GetMontageInstanceForID(PreviousId);
-        if (!Instance || Instance->Montage != PreviousCarrier || !ReadMotion(PreviousCarrier, Instance->GetPosition(), Previous)) return false;
+        if (!Instance || Instance->Montage != PreviousCarrier || !ReadMotion(PreviousCarrier, Instance->GetPosition(), Previous))
+        {
+            UE_LOG(LogTemp, Warning, TEXT("MHWI_SOURCE_FAIL previous_motion=%s_%03d has_instance=%d"),
+                *Binding->Bank.ToString(), Motion, Instance != nullptr);
+            return false;
+        }
         if (ActiveMontage && NativeTimelineMotion != INDEX_NONE) Previous.Motion = NativeTimelineMotion;
     }
     else if (UMHWIAnimInstance* NativeAnim = Cast<UMHWIAnimInstance>(Anim)) NativeAnim->ReadNativeBaseMotion(Previous);
@@ -125,20 +158,36 @@ bool AMHWICharacter::StartNativeSource(MHWI::Native::FActionIdentity Identity, E
     if (const FBlendEntry* Entry = FindBlend(GetSourceBlends(Binding->Bank), Motion, Previous)) Blend = *Entry;
     const float StartFrame = Blend.IsSet() ? float(Blend->StartFrame) : 0.f;
     float Start;
-    if (!MotionPosition(Montage, Binding->Bank, Motion, StartFrame, Start)) return false;
+    if (!MotionPosition(Montage, Binding->Bank, Motion, StartFrame, Start))
+    {
+        UE_LOG(LogTemp, Warning, TEXT("MHWI_SOURCE_FAIL motion_position=%s_%03d start_frame=%f"),
+            *Binding->Bank.ToString(), Motion, StartFrame);
+        return false;
+    }
     const bool bWasSheathed = bSheathed;
     FinishMove(true, false, false, true);
     NativeRetiringMontage = PreviousCarrier;
     if (bEnding || !Attributes->IsAlive()) { FinishMove(true, true); return false; }
-    if (!ApplyNativeBlend(Montage, Blend)) { FinishMove(true, true); return false; }
+    if (!ApplyNativeBlend(Montage, Blend))
+    {
+        UE_LOG(LogTemp, Warning, TEXT("MHWI_SOURCE_FAIL apply_blend=%s_%03d"), *Binding->Bank.ToString(), Motion);
+        FinishMove(true, true); return false;
+    }
     if (UMHWIAnimInstance* NativeAnim = Cast<UMHWIAnimInstance>(Anim))
-        NativeAnim->BeginNativeBlend(FMath::RoundToInt(FMath::Max(0.f, NativeBlendFrames)));
+    {
+        // UE post-update adapter: impacts consume owner-frame delta immediately.
+        NativeAnim->BeginNativeBlend(FMath::RoundToInt(FMath::Max(0.f, NativeBlendFrames)), Kind != ENativeSourceKind::Impact);
+    }
     if (Anim->Montage_Play(Montage, 1.f, EMontagePlayReturnType::MontageLength, Start, true) <= 0.f)
-    { FinishMove(true, true); return false; }
+    {
+        UE_LOG(LogTemp, Warning, TEXT("MHWI_SOURCE_FAIL montage_play=%s_%03d"), *Binding->Bank.ToString(), Motion);
+        FinishMove(true, true); return false;
+    }
     FAnimMontageInstance* Instance = Anim->GetActiveInstanceForMontage(Montage);
     const uint32 Token = Instance ? BindNativeActionSource(Montage, Instance->GetInstanceID(), Identity) : 0;
     if (!Token)
     {
+        UE_LOG(LogTemp, Warning, TEXT("MHWI_SOURCE_FAIL bind_token=%s_%03d"), *Binding->Bank.ToString(), Motion);
         Anim->Montage_Stop(0.f, Montage);
         FinishMove(true, true);
         return false;
@@ -297,7 +346,8 @@ bool AMHWICharacter::TickNativeSource()
         if (GetWorld()->GetTimeSeconds() > NativeSourceInputExpires) NativeSourceInput.Reset();
     }
     const FMotionInfo* Info = GetSourceMotionInfo(Current.Bank, Current.Motion);
-    if (!Info || IsMotionEnded(ForwardEndFlags(Current.Frame, Advance, Info->Frames - 1), false, false) || bNativeSourceEnded)
+    const float EndCheckAdvance = NativeSourceKind == ENativeSourceKind::Impact ? 0.f : Advance;
+    if (!Info || IsMotionEnded(ForwardEndFlags(Current.Frame, EndCheckAdvance, Info->Frames - 1), false, false) || bNativeSourceEnded)
         FinishMove(false, true);
     return true;
 }

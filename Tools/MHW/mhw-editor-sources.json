@@ -1,0 +1,64 @@
+{
+  "purpose": "Layout only: generated C# LoadData() bodies are interpreted as a read spec. No upstream code is executed.",
+  "commit": "b6ff379b13079a4abb99490590fb05dfe6851bbc",
+  "repo": "https://github.com/Synthlight/MHW-Editor",
+  "license": "MIT (upstream)",
+  "keys_source": "Saved/MHWIImport/NativeParameterResearch-20261024/MHW-Editor/MHW-Template/EncryptionKeys.cs",
+  "note": "Game asset rights stay with Capcom; these files only describe binary layout.",
+  "files": [
+    {
+      "path": "Monsters/EnemyInfo.cs",
+      "sha256": "6ba677a28820240e096cf7dfe73128dea8bdf9556ee8e9d3aeff3b61ae6d1f93",
+      "bytes": 55529,
+      "url": "https://github.com/Synthlight/MHW-Editor/blob/b6ff379b13079a4abb99490590fb05dfe6851bbc/Generated/MHW_Editor/Structs/Monsters/EnemyInfo.cs"
+    },
+    {
+      "path": "Monsters/MonsterCommonParam.cs",
+      "sha256": "6dc9f3842a2bdde31af581836e1b480b343c6ae80761118053fcc1d4d9dd8bca",
+      "bytes": 560298,
+      "url": "https://github.com/Synthlight/MHW-Editor/blob/b6ff379b13079a4abb99490590fb05dfe6851bbc/Generated/MHW_Editor/Structs/Monsters/MonsterCommonParam.cs"
+    },
+    {
+      "path": "Monsters/MonsterDamageAttributes.cs",
+      "sha256": "207d57b6d777fb13f0529d01c4c63fa3835b3ae39804cbbda50628b3a8cb83df",
+      "bytes": 146073,
+      "url": "https://github.com/Synthlight/MHW-Editor/blob/b6ff379b13079a4abb99490590fb05dfe6851bbc/Generated/MHW_Editor/Structs/Monsters/MonsterDamageAttributes.cs"
+    },
+    {
+      "path": "Monsters/MonsterDifficulty.cs",
+      "sha256": "0b01547598123e1642ca13a41882dc44c208a55457d84443b1f4aa62d8a9c5bf",
+      "bytes": 26507,
+      "url": "https://github.com/Synthlight/MHW-Editor/blob/b6ff379b13079a4abb99490590fb05dfe6851bbc/Generated/MHW_Editor/Structs/Monsters/MonsterDifficulty.cs"
+    },
+    {
+      "path": "Monsters/MonsterEnrage.cs",
+      "sha256": "83c6c3681f42c2f9d0100c3b719189ae3533b0aab0894c6f80c93f1d89d37cb6",
+      "bytes": 21178,
+      "url": "https://github.com/Synthlight/MHW-Editor/blob/b6ff379b13079a4abb99490590fb05dfe6851bbc/Generated/MHW_Editor/Structs/Monsters/MonsterEnrage.cs"
+    },
+    {
+      "path": "Monsters/MonsterParts.cs",
+      "sha256": "cee80a8907ec3031226f642ab1c2a6f4d59e134d5bad995267c01da028db85f0",
+      "bytes": 148537,
+      "url": "https://github.com/Synthlight/MHW-Editor/blob/b6ff379b13079a4abb99490590fb05dfe6851bbc/Generated/MHW_Editor/Structs/Monsters/MonsterParts.cs"
+    },
+    {
+      "path": "Monsters/MonsterSoften.cs",
+      "sha256": "0a48fe7148caccdd7997f04bad8463d5383ee969827cac3b778695d31836008a",
+      "bytes": 34772,
+      "url": "https://github.com/Synthlight/MHW-Editor/blob/b6ff379b13079a4abb99490590fb05dfe6851bbc/Generated/MHW_Editor/Structs/Monsters/MonsterSoften.cs"
+    },
+    {
+      "path": "Monsters/MonsterStamina.cs",
+      "sha256": "9fcf9ecaa1170947a157b16a8258b34bad428c1da8dd9927b3df8645bf6ba509",
+      "bytes": 31734,
+      "url": "https://github.com/Synthlight/MHW-Editor/blob/b6ff379b13079a4abb99490590fb05dfe6851bbc/Generated/MHW_Editor/Structs/Monsters/MonsterStamina.cs"
+    },
+    {
+      "path": "Weapons/ShellParam.cs",
+      "sha256": "ea2ef484dcc0da57e03d952718eb8b8a8cc2f1e2af99bd13ad94940cc6203e08",
+      "bytes": 170808,
+      "url": "https://github.com/Synthlight/MHW-Editor/blob/b6ff379b13079a4abb99490590fb05dfe6851bbc/Generated/MHW_Editor/Structs/Weapons/ShellParam.cs"
+    }
+  ]
+}

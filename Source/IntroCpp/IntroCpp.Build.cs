@@ -12,6 +12,7 @@ public class IntroCpp : ModuleRules
 			"Core",
 			"CoreUObject",
 			"Engine",
+			"AnimGraphRuntime",
 			"InputCore",
 			"EnhancedInput",
 			"AIModule",
@@ -22,7 +23,7 @@ public class IntroCpp : ModuleRules
 			"SlateCore"
 		});
 
-		PrivateDependencyModuleNames.AddRange(new string[] { });
+		PrivateDependencyModuleNames.AddRange(new string[] { "Json" });
 
 		PublicIncludePaths.AddRange(new string[] {
 			"IntroCpp",

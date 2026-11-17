@@ -257,6 +257,8 @@ def moveset():
         light = 'SpiritComboThrust' if name == 'SpiritI' else (
             'SpiritComboRisingSlash' if name == 'SpiritII' else 'Thrust')
         routes = [route('Spirit', following), route('Light', light)]
+        if name in ['SpiritI', 'SpiritII', 'SpiritIII']:
+            routes.append(route('HelmBreaker', 'SpiritThrust'))
         if name in ['SpiritI', 'SpiritII']:
             routes.append(route('Thrust', light))
         definitions[name].set_editor_property('routes', routes)
@@ -348,7 +350,7 @@ def moveset():
     iai.set_editor_property('empowered_source_play_rates', {0.0: 1.0, 23.0 / 60.0: 2.0, 40.0 / 60.0: 1.0})
     iai.set_editor_property('routes', [route('Spirit', 'SpiritIII'), route('HelmBreaker', 'SpiritThrust')])
     thrust = definitions['SpiritThrust']
-    thrust.set_editor_property('require_spirit_level', True)
+    thrust.set_editor_property('require_spirit_level', False)
     thrust.set_editor_property('auto_follow_up', 'None')
     thrust.set_editor_property('auto_follow_up_on_hit', 'HelmRise')
     # Clip 170 collision ends at source frame 97, so the automatic rise starts there.

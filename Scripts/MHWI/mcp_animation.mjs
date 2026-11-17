@@ -64,7 +64,12 @@ try {
   assert(status.editorConnected, 'Editor is disconnected');
   assert.equal(path.resolve(status.editorTarget.projectPath).toLowerCase(), projectPath.toLowerCase());
 
-  if (action === 'inspect') {
+  if (action === 'run-py') {
+    const result = await call('editor', 'run_python_file', {
+      filePath: path.resolve(process.argv[3]), entryPoint: process.argv[4],
+    });
+    console.log(JSON.stringify(result));
+  } else if (action === 'inspect') {
     const result = await call('editor', 'run_python_file', {
       filePath: path.join(root, 'Saved/inspect_animation_api.py'),
     });

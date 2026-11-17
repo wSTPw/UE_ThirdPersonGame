@@ -19,7 +19,7 @@ public:
     virtual void NativeUpdateAnimation(float DeltaSeconds) override;
     /** R06 direct weapon-bank requests use native mode 1: capture the displayed
      * pose, then interpolate on the independent owner-frame clock. */
-    void BeginNativeBlend(int32 InterpolationFrames);
+    void BeginNativeBlend(int32 InterpolationFrames, bool bHoldFirstDestination = true);
     void CancelNativeBlend();
     bool ReadNativeBaseMotion(MHWI::Native::FMotionSample& OutMotion);
     UPROPERTY(BlueprintReadOnly, Category="MHWI") float Speed = 0.f;

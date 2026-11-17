@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "scope": "Four pinned PBC samples; class identity and raw payload only, no durability semantics.",
+  "dti": {
+    "path": "Saved/MHWIImport/NativeFidelity-20261024/public/dti_prop_dump.h",
+    "sha256": "69fbe1855c218999545c62e5cfc0eb1c5936b67b9a2b617d109c14210a5366aa",
+    "commit": "4a124e4073519eaf19e3a446cb62d375d8da3209",
+    "url": "https://github.com/Andoryuuta/MHW-DTI-Dumps/blob/4a124e4073519eaf19e3a446cb62d375d8da3209/dti_prop_dump.h",
+    "boundary": "Public historical reflection metadata; no current-game ABI claim."
+  },
+  "files": [
+    {
+      "path": "ArtSource/ThirdParty/MHWRathalos/nativePC/em/em001/00/data/em001.em_pbc",
+      "manifest": "ArtSource/ThirdParty/MHWRathalos/extraction-manifest.json",
+      "archive_path": "em/em001/00/data/em001.em_pbc",
+      "bytes": 256,
+      "sha256": "80bc9017af04b17f5a25fe65b730307481931f76b5be236dab506eab6e6bea03"
+    },
+    {
+      "path": "Saved/MHWProbe-20261030/pbc/nativePC/em/em001/01/data/em001.em_pbc",
+      "manifest": "Saved/MHWProbe-20261030/pbc/extraction-manifest.json",
+      "archive_path": "em/em001/01/data/em001.em_pbc",
+      "bytes": 256,
+      "sha256": "80bc9017af04b17f5a25fe65b730307481931f76b5be236dab506eab6e6bea03"
+    },
+    {
+      "path": "Saved/MHWProbe-20261030/pbc/nativePC/em/em001/02/data/em001.em_pbc",
+      "manifest": "Saved/MHWProbe-20261030/pbc/extraction-manifest.json",
+      "archive_path": "em/em001/02/data/em001.em_pbc",
+      "bytes": 256,
+      "sha256": "80bc9017af04b17f5a25fe65b730307481931f76b5be236dab506eab6e6bea03"
+    },
+    {
+      "path": "Saved/MHWProbe-20261030/pbc/nativePC/em/em002/00/data/em002.em_pbc",
+      "manifest": "Saved/MHWProbe-20261030/pbc/extraction-manifest.json",
+      "archive_path": "em/em002/00/data/em002.em_pbc",
+      "bytes": 256,
+      "sha256": "4eaea5fd5b9da2a45f87b8cd1370be5f2c60cbbdbd7d29695ae58930a6b468bf"
+    }
+  ],
+  "classes": {
+    "rEmPartsBreakCtrl::PartsInfo": "0x0befc97f",
+    "rEmPartsBreakCtrl::PartsStateInfo": "0x6900901d",
+    "rEmPartsBreakCtrl::PartsDetailInfo": "0x5dc14d7c"
+  }
+}

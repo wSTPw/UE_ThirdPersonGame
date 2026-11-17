@@ -1,0 +1,743 @@
+{
+  "schema": 1,
+  "mode": "offline_source_layout_only",
+  "passed": true,
+  "source": {
+    "path": "E:/Unreal Projects/IntorCpp/ArtSource/ThirdParty/MHWRathalos/nativePC/em/em001/00/data/em001.actp2",
+    "bytes": 205037,
+    "sha256": "96dcdc5b6b7ae5853cbd917f6f2cf122749b25a190e5e018d7e22f07ebc1ce7e"
+  },
+  "script": {
+    "path": "E:/Unreal Projects/IntorCpp/Scripts/MHWI/read_action_params.py",
+    "bytes": 13148,
+    "sha256": "6177d315894df5780263468ec40b6ea81ee391bdf4b088ad958bce77b4a0a2bf"
+  },
+  "layout_pins": {
+    "path": "E:/Unreal Projects/IntorCpp/Tools/MHW/rathalos-actp2-sources.json",
+    "bytes": 1809,
+    "sha256": "2d59652e6182434e83b98daeedca0b3aaa8b1a5db2ab16f939f7fefe8b7508cd"
+  },
+  "layout_commit": "cea17f2c0c7d5c4f2ed421a7d0e04586bfb275f7",
+  "adaptation": "actp2.bt names UnitProperty for the array but the actual file starts each item with the Property tag/value wrapper defined in UnitProperty.bt; use Property then its UnitProperty metadata; no upstream file changed.",
+  "counts": {
+    "actions": 342,
+    "enabled_actions": 142,
+    "property_items": 4295,
+    "named_properties": 3540,
+    "distinct_property_names": 111,
+    "tag_counts": {
+      "Bool": 717,
+      "Int32": 1766,
+      "Float": 1039,
+      "PageEnd": 755,
+      "Vector4": 18
+    },
+    "actions_with_candidate_name": 319,
+    "actions_with_no_candidate_name": 23,
+    "actions_with_distinct_candidate_name_collision": 0
+  },
+  "consumed": 205037,
+  "tail_bytes": 0,
+  "roundtrip_exact": true,
+  "name_candidates_source": {
+    "path": "E:/Unreal Projects/IntorCpp/Saved/MHWIImport/NativeFidelity-20261024/public/dti_prop_dump.h",
+    "bytes": 54166539,
+    "sha256": "69fbe1855c218999545c62e5cfc0eb1c5936b67b9a2b617d109c14210a5366aa",
+    "available": true,
+    "source_header": "// Ando's MHW ClassPropDump log [23-03-2021 20-29-47]",
+    "candidate_classes": 13299,
+    "derivation": "nActEm* class basename CamelCase -> ACTION::UPPER_SNAKE; complement CRC32, no high-bit mask",
+    "boundary": "Derived candidate names only; dump header is 2021-03-23. Exact hash equality does not establish current-game registration, motion binding, clock units or runtime duration."
+  },
+  "property_name_counts": {
+    "mActHate": 145,
+    "mActStamina": 145,
+    "mAddAngle": 10,
+    "mAddAngleLow": 9,
+    "mAddCombatValue": 47,
+    "mAddDesirePoints[ (u32)nLifeSim::DESIRE_CATEGORY::ESCAPE ]": 145,
+    "mAddDesirePoints[ (u32)nLifeSim::DESIRE_CATEGORY::HUNGER ]": 145,
+    "mAddDesirePoints[ (u32)nLifeSim::DESIRE_CATEGORY::SLEEP ]": 145,
+    "mAddDesirePoints[ (u32)nLifeSim::DESIRE_CATEGORY::SUNBATH ]": 145,
+    "mAddDesirePoints[ (u32)nLifeSim::DESIRE_CATEGORY::TERRITORY ]": 145,
+    "mAddDesirePoints[ (u32)nLifeSim::DESIRE_CATEGORY::THIRST ]": 145,
+    "mAddRideValue": 47,
+    "mAdjustDestLimitAngleDegOtomo": 1,
+    "mAdjustDestLimitAngleDegPL": 1,
+    "mAdjustDir": 1,
+    "mAdjustHeightLerpSpeed": 2,
+    "mAdjustPosSpeed": 2,
+    "mAdjustRotSpeed": 2,
+    "mArrivalDist": 14,
+    "mArrivalDistCharmMount": 7,
+    "mAvgNodeNum": 9,
+    "mBaseTransDistance": 1,
+    "mCamShakeParam": 16,
+    "mCheckFrontDist": 2,
+    "mCloseLimitToGround": 1,
+    "mCollisionCompSec": 7,
+    "mDefLoopMotPlayCount": 2,
+    "mDefaultMoveDistance": 9,
+    "mDestinationDistance": 9,
+    "mFarDistLimit": 5,
+    "mFootprintDistMax": 145,
+    "mFootprintDistMin": 145,
+    "mFootprintType": 145,
+    "mGRankNodeIgnore[0]": 16,
+    "mGRankNodeIgnore[1]": 16,
+    "mGRankNodeIgnore[2]": 16,
+    "mGRankNodeIgnore[3]": 16,
+    "mGRankNodeIgnore[4]": 16,
+    "mGRankNodeIgnore[5]": 16,
+    "mGRankNodeIgnore[6]": 16,
+    "mGRankNodeIgnore[7]": 16,
+    "mGoalOffsetY": 1,
+    "mGoalOffsetZ": 1,
+    "mGravityRate": 1,
+    "mHealHpRate": 1,
+    "mIsIgnoreHealHpRateMaxCommonParam": 1,
+    "mIsUseUniqueTransScale": 1,
+    "mJumpVelocity": 15,
+    "mLandingMoveSpeed": 1,
+    "mLimitDistMax": 2,
+    "mLimitDistMin": 2,
+    "mLoopTime": 28,
+    "mLowHeightLimit": 1,
+    "mMaxParam.mGoalOffsetY": 1,
+    "mMaxParam.mHeight": 1,
+    "mMaxParam.mPoint2DecideRate": 1,
+    "mMaxParam.mRate": 1,
+    "mMaxTransDistance": 1,
+    "mMinDistLimit": 5,
+    "mMinParam.mGoalOffsetY": 1,
+    "mMinParam.mHeight": 1,
+    "mMinParam.mPoint2DecideRate": 1,
+    "mMinParam.mRate": 1,
+    "mMinTransDistance": 1,
+    "mMoveDistMax": 1,
+    "mMoveDistance": 1,
+    "mMoveSpeed": 2,
+    "mMovedTraceDistMax": 142,
+    "mMovedTraceDistMin": 142,
+    "mMovedTraceType": 142,
+    "mNaviType": 2,
+    "mNormalNodeIgnore[0]": 16,
+    "mNormalNodeIgnore[1]": 16,
+    "mNormalNodeIgnore[2]": 16,
+    "mNormalNodeIgnore[3]": 16,
+    "mNormalNodeIgnore[4]": 16,
+    "mNormalNodeIgnore[5]": 16,
+    "mNormalNodeIgnore[6]": 16,
+    "mNormalNodeIgnore[7]": 16,
+    "mOffsetZ": 1,
+    "mOverRunDist": 2,
+    "mPoint2DecideRate": 1,
+    "mPushGroup": 142,
+    "mRate": 1,
+    "mShootFrontSpeed": 1,
+    "mSplineTable[0]": 1,
+    "mSplineTable[1]": 1,
+    "mSplineTable[2]": 1,
+    "mStruggleSec": 15,
+    "mSubDesireCategory": 145,
+    "mSubDesirePoint": 145,
+    "mSwitchLoopMotCount": 2,
+    "mTargetGiveUpSec": 9,
+    "mTargetOffsetHeight": 2,
+    "mTargetTransDistance": 1,
+    "mTrapEndSec": 1,
+    "mTurnAddDeg": 2,
+    "mTurnAddDegree": 6,
+    "mTurnMotLimitDeg": 2,
+    "mTurnThresholdDeg": 9,
+    "mUse": 16,
+    "mVerticalMoveSpeed": 18,
+    "mWallOffsetDist": 15,
+    "mWindInterval": 1,
+    "mbAngryCancel": 47,
+    "mbDisableCombatTransition": 142,
+    "mbDisableFriendHitS": 142,
+    "mbFlyHitDoubleFloor": 29,
+    "mbRideSuccessDamage": 47,
+    "mbTimerStartMot": 27,
+    "mbUseAvgStartDir": 9
+  },
+  "direct_damage_fields": [],
+  "damage_boundary": "All 111 names reviewed: no direct attack damage/knockback/stun numeric field in this file. mbRideSuccessDamage and mbDisableFriendHitS are booleans; do not use as damage values. Does not establish which other resource supplies damage.",
+  "timing_parameters": [
+    {
+      "action_index": 9,
+      "name_crc": "0x4032910c",
+      "candidate_names": [
+        "ACTION::DAMAGE_DOWN"
+      ],
+      "offset": 6534,
+      "field": "mLoopTime",
+      "value": 8.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 13,
+      "name_crc": "0xe5ca440c",
+      "candidate_names": [
+        "ACTION::DAMAGE_DROP_TO_GROUND"
+      ],
+      "offset": 12093,
+      "field": "mStruggleSec",
+      "value": 12.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 17,
+      "name_crc": "0x272958af",
+      "candidate_names": [
+        "ACTION::PREDATOR_EAT"
+      ],
+      "offset": 17126,
+      "field": "mLoopTime",
+      "value": 10.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 18,
+      "name_crc": "0xef7c8fcf",
+      "candidate_names": [
+        "ACTION::EAT"
+      ],
+      "offset": 17178,
+      "field": "mLoopTime",
+      "value": 10.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 19,
+      "name_crc": "0xd72e2340",
+      "candidate_names": [
+        "ACTION::SLEEP"
+      ],
+      "offset": 18415,
+      "field": "mLoopTime",
+      "value": 120.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 20,
+      "name_crc": "0xd5a3a13d",
+      "candidate_names": [
+        "ACTION::DRINK"
+      ],
+      "offset": 19652,
+      "field": "mLoopTime",
+      "value": 10.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 21,
+      "name_crc": "0x27f42b17",
+      "candidate_names": [
+        "ACTION::SUNBATH"
+      ],
+      "offset": 20889,
+      "field": "mLoopTime",
+      "value": 10.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 23,
+      "name_crc": "0x5ebe65e7",
+      "candidate_names": [
+        "ACTION::DAMAGE_SLEEP"
+      ],
+      "offset": 23457,
+      "field": "mLoopTime",
+      "value": 40.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 24,
+      "name_crc": "0xb5c9b318",
+      "candidate_names": [
+        "ACTION::DAMAGE_SLEEP_AIR"
+      ],
+      "offset": 24870,
+      "field": "mStruggleSec",
+      "value": 3.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 25,
+      "name_crc": "0x72777342",
+      "candidate_names": [
+        "ACTION::DAMAGE_PARALYSE"
+      ],
+      "offset": 27408,
+      "field": "mLoopTime",
+      "value": 10.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 26,
+      "name_crc": "0xff378509",
+      "candidate_names": [
+        "ACTION::DAMAGE_PARALYSE_AIR"
+      ],
+      "offset": 28821,
+      "field": "mStruggleSec",
+      "value": 3.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 33,
+      "name_crc": "0x37f40c11",
+      "candidate_names": [
+        "ACTION::DAMAGE_TRAP_FALL"
+      ],
+      "offset": 38789,
+      "field": "mLoopTime",
+      "value": 10.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 46,
+      "name_crc": "0x99fa7de8",
+      "candidate_names": [
+        "ACTION::DAMAGE_IVY"
+      ],
+      "offset": 45564,
+      "field": "mLoopTime",
+      "value": 10.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 50,
+      "name_crc": "0xdde23fc5",
+      "candidate_names": [
+        "ACTION::DYING_SLEEP"
+      ],
+      "offset": 48390,
+      "field": "mLoopTime",
+      "value": 100.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 54,
+      "name_crc": "0x9e4ecf1a",
+      "candidate_names": [
+        "ACTION::DAMAGE_TAIL_BREAK_FLY"
+      ],
+      "offset": 52143,
+      "field": "mStruggleSec",
+      "value": 12.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 67,
+      "name_crc": "0x8caec502",
+      "candidate_names": [
+        "ACTION::DAMAGE_AIR_IVY"
+      ],
+      "offset": 55094,
+      "field": "mTrapEndSec",
+      "value": 0.5,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 67,
+      "name_crc": "0x8caec502",
+      "candidate_names": [
+        "ACTION::DAMAGE_AIR_IVY"
+      ],
+      "offset": 55135,
+      "field": "mStruggleSec",
+      "value": 12.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 69,
+      "name_crc": "0xc871bc92",
+      "candidate_names": [
+        "ACTION::DAMAGE_WATER_SLIDE_FALL"
+      ],
+      "offset": 58068,
+      "field": "mStruggleSec",
+      "value": 25.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 78,
+      "name_crc": "0x2fb51346",
+      "candidate_names": [
+        "ACTION::GLIDE_COMBAT"
+      ],
+      "offset": 63736,
+      "field": "mSwitchLoopMotCount",
+      "value": 3,
+      "type_name": "u32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 78,
+      "name_crc": "0x2fb51346",
+      "candidate_names": [
+        "ACTION::GLIDE_COMBAT"
+      ],
+      "offset": 63785,
+      "field": "mDefLoopMotPlayCount",
+      "value": 3,
+      "type_name": "u32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 80,
+      "name_crc": "0xcc3cfc90",
+      "candidate_names": [
+        "ACTION::GLIDE_DIRECT_MOVE"
+      ],
+      "offset": 65594,
+      "field": "mSwitchLoopMotCount",
+      "value": 3,
+      "type_name": "u32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 80,
+      "name_crc": "0xcc3cfc90",
+      "candidate_names": [
+        "ACTION::GLIDE_DIRECT_MOVE"
+      ],
+      "offset": 65643,
+      "field": "mDefLoopMotPlayCount",
+      "value": 3,
+      "type_name": "u32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 81,
+      "name_crc": "0xf78f54ea",
+      "candidate_names": [
+        "ACTION::GLIDE_CHARGE"
+      ],
+      "offset": 67310,
+      "field": "mLoopTime",
+      "value": 1.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 118,
+      "name_crc": "0x117875cd",
+      "candidate_names": [
+        "ACTION::RIDE_SUCCESS"
+      ],
+      "offset": 80841,
+      "field": "mStruggleSec",
+      "value": 10.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 138,
+      "name_crc": "0x6b84ba95",
+      "candidate_names": [
+        "ACTION::DAMAGE_ROCK"
+      ],
+      "offset": 93889,
+      "field": "mLoopTime",
+      "value": 15.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 139,
+      "name_crc": "0x6eda8810",
+      "candidate_names": [
+        "ACTION::DAMAGE_ROCK_FLY"
+      ],
+      "offset": 95302,
+      "field": "mStruggleSec",
+      "value": 15.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 146,
+      "name_crc": "0x92c9a2a1",
+      "candidate_names": [
+        "ACTION::DAMAGE_FLOOR_FALL"
+      ],
+      "offset": 99292,
+      "field": "mLoopTime",
+      "value": 5.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 147,
+      "name_crc": "0x7eb1f839",
+      "candidate_names": [
+        "ACTION::DAMAGE_TRAP_FALL_PARALYSE"
+      ],
+      "offset": 100705,
+      "field": "mLoopTime",
+      "value": 10.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 148,
+      "name_crc": "0xe6c703f9",
+      "candidate_names": [
+        "ACTION::DAMAGE_TRAP_FALL_SLEEP"
+      ],
+      "offset": 102118,
+      "field": "mLoopTime",
+      "value": 40.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 149,
+      "name_crc": "0x6b7ac10e",
+      "candidate_names": [
+        "ACTION::DAMAGE_TRAP_FALL_STUN"
+      ],
+      "offset": 103531,
+      "field": "mLoopTime",
+      "value": 10.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 180,
+      "name_crc": "0x77c59eec",
+      "candidate_names": [
+        "ACTION::DAMAGE_TRAP_PARALYSE"
+      ],
+      "offset": 130463,
+      "field": "mLoopTime",
+      "value": 10.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 181,
+      "name_crc": "0xafb9d039",
+      "candidate_names": [
+        "ACTION::DAMAGE_STUN"
+      ],
+      "offset": 131876,
+      "field": "mLoopTime",
+      "value": 10.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 182,
+      "name_crc": "0xdac62e4c",
+      "candidate_names": [
+        "ACTION::DAMAGE_STUN_FLY"
+      ],
+      "offset": 133289,
+      "field": "mStruggleSec",
+      "value": 10.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 211,
+      "name_crc": "0x2ed9d6c9",
+      "candidate_names": [
+        "ACTION::DAMAGE_QUICKSAND_SLIDE_FALL"
+      ],
+      "offset": 164010,
+      "field": "mStruggleSec",
+      "value": 15.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 213,
+      "name_crc": "0x83b3ab5e",
+      "candidate_names": [
+        "ACTION::DAMAGE_RIDE_DOWN"
+      ],
+      "offset": 166686,
+      "field": "mLoopTime",
+      "value": 10.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 235,
+      "name_crc": "0x3990bb1a",
+      "candidate_names": [
+        "ACTION::DAMAGE_TRAP_CAT"
+      ],
+      "offset": 183903,
+      "field": "mLoopTime",
+      "value": 8.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 247,
+      "name_crc": "0xb3cb102d",
+      "candidate_names": [
+        "ACTION::DAMAGE_TRAP_MASK"
+      ],
+      "offset": 185239,
+      "field": "mLoopTime",
+      "value": 8.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 248,
+      "name_crc": "0x9d1a3fff",
+      "candidate_names": [
+        "ACTION::DAMAGE_TRAP_MASK_FLY"
+      ],
+      "offset": 186652,
+      "field": "mStruggleSec",
+      "value": 8.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 253,
+      "name_crc": "0xcd2496b8",
+      "candidate_names": [
+        "ACTION::DAMAGE_FLASH_FLY"
+      ],
+      "offset": 188209,
+      "field": "mStruggleSec",
+      "value": 4.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 259,
+      "name_crc": "0x5a238850",
+      "candidate_names": [
+        "ACTION::DAMAGE_SLEEP_FLY"
+      ],
+      "offset": 190921,
+      "field": "mStruggleSec",
+      "value": 3.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 261,
+      "name_crc": "0x10ddbe41",
+      "candidate_names": [
+        "ACTION::DAMAGE_PARALYSE_FLY"
+      ],
+      "offset": 192451,
+      "field": "mStruggleSec",
+      "value": 3.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 266,
+      "name_crc": "0x161528ff",
+      "candidate_names": [],
+      "offset": 194008,
+      "field": "mLoopTime",
+      "value": 8.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 267,
+      "name_crc": "0xc5581c5d",
+      "candidate_names": [],
+      "offset": 195421,
+      "field": "mLoopTime",
+      "value": 8.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 268,
+      "name_crc": "0xf7bf66c3",
+      "candidate_names": [],
+      "offset": 197014,
+      "field": "mStruggleSec",
+      "value": 8.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 277,
+      "name_crc": "0xc3eb65f1",
+      "candidate_names": [
+        "ACTION::DAMAGE_OTOMO_MINE"
+      ],
+      "offset": 198607,
+      "field": "mLoopTime",
+      "value": 8.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 324,
+      "name_crc": "0x50d261e6",
+      "candidate_names": [],
+      "offset": 200434,
+      "field": "mLoopTime",
+      "value": 8.0,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 325,
+      "name_crc": "0x3f459390",
+      "candidate_names": [],
+      "offset": 202089,
+      "field": "mLoopTime",
+      "value": 5.5,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    },
+    {
+      "action_index": 326,
+      "name_crc": "0xe37f9b48",
+      "candidate_names": [],
+      "offset": 203502,
+      "field": "mLoopTime",
+      "value": 6.5,
+      "type_name": "f32",
+      "status": "raw_source_parameter; candidate_action_name_only; runtime_clock_unverified"
+    }
+  ],
+  "runtime_boundary": "No original-game/UE execution. ACTP2 array index is not a proved action ID, motion ID, attack ID or clagger/knockdown duration.",
+  "self_checks": {
+    "roundtrip_exact": true,
+    "truncated_rejected": true,
+    "unexpected_tail_rejected": true,
+    "unknown_property_tag_rejected": true,
+    "action_count_overflow_rejected": true,
+    "property_count_overflow_rejected": true,
+    "unsupported_version_rejected": true
+  }
+}

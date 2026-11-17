@@ -14,7 +14,7 @@
 | 修改物品、背包、快捷栏 | [背包系统](Systems/Inventory.md)、[接口契约](Interfaces.md) |
 | 修改攻击、动画通知、敌人 | [战斗与 AI](Systems/Combat-AI.md) |
 | 查 Ninja 动画替换与重定向 | [Ninja 动画配置](Systems/Ninja-Animation-Configuration.md) |
-| 查 MHWI 接口签名与语义 | [Interfaces](Interfaces.md) MHWI-001..015 |
+| 查 MHWI 接口签名与语义 | [Interfaces](Interfaces.md) MHWI-001..016 |
 | 修改 Widget、输入、蓝图配置 | [UI 与资产配置](Systems/UI-Assets.md) |
 | 编译、验证、使用 MCP | [开发流程](Development.md)、[UE-MCP 说明](../Tools/ue-mcp/README.md) |
 | 实现新功能或改接口 | [维护工作流](Maintenance.md)、[功能方案模板](Templates/Feature-Plan.md) |
@@ -34,7 +34,7 @@ AI 首次阅读顺序：根目录 [AGENTS.md](../AGENTS.md) → 本页 → Archi
 | `Reference/` | 取证结论与模块清单。**只写结论和未解项**，不写推导过程 |
 | `Reference/modules.json` | AI 可解析的模块、源码入口、接口、验证入口 |
 | `Reference/editor-observations.json` | 有日期的资产核对证据，仅作当时事实 |
-| `Plans/` | 活跃方案。MHWI 只保留 [MHWI-Current](Plans/MHWI-Current.md) |
+| `Plans/` | 活跃方案；MHWI 以 [MHWI-Current](Plans/MHWI-Current.md) 为统一入口，复杂批次方案由该页链接 |
 | `Changes/` | 每次实质变更的事实记录与验证证据 |
 | `Decisions/` | 跨系统、影响长期维护的取舍 |
 | `Templates/` | 可复制的方案、接口、变更、ADR 模板 |

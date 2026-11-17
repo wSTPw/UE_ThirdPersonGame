@@ -533,7 +533,7 @@ def run():
     # Clear the unconditional AutoFollowUp explicitly: a stale non-None value would
     # enter Rise even on a whiff, bypassing "hit plus white aura or above".
     thrust = definitions['SpiritThrust'].copy()
-    thrust.set_editor_property('require_spirit_level', True)
+    thrust.set_editor_property('require_spirit_level', False)
     thrust.set_editor_property('auto_follow_up', 'None')
     thrust.set_editor_property('auto_follow_up_on_hit', 'HelmRise')
     thrust.set_editor_property('auto_follow_up_time', 97.0 / FRAME)
@@ -609,6 +609,13 @@ def run():
         _set_route(definition, 'THRUST', combo)
         definitions[name] = definition
         report['routes'][name] = {'Light': combo, 'Thrust': combo}
+
+    # Existing continuation windows also admit the user's SpiritThrust command.
+    # Exact native permission frames are not established by this project route.
+    for name in ['SpiritI', 'SpiritII', 'SpiritIII']:
+        definition = definitions[name].copy()
+        _set_route(definition, 'HELM_BREAKER', 'SpiritThrust')
+        definitions[name] = definition
 
     # ---- drawn Roll Light -> dedicated composite RollStepSlash ----
     timing = roll_step_timing()

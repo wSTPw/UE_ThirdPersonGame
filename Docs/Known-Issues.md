@@ -1,17 +1,21 @@
-﻿# 已知问题与验证边界
+# 已知问题与验证边界
 
 基线日期：2026-10-17。本页为现有实现的技术债与待核对项，不是已经修复的清单。`open` 是已从源码/配置发现的差异；“静态发现”不冒充运行复现。优先级仅建议修复次序，实际范围由用户需求决定。
 
 | ID / 状态 | 证据与影响 | 后续方案与验收关注 |
 | --- | --- | --- |
-| R-DATA-006 / partial，注册字段已有原生静态支持 | 动作表旧name起点使名称错连下一项ID/type；旧344条完整注册表口径撤回。新32B布局使BITE=83，em001表285/285匹配固定dump；新增表指针getter及原生注册循环字段读点，THK动作查找/启动与caller怪物归属仍未证 | [首链审查](Archive/MHWI/Reference/MHWI-Rathian-FirstChain-Audit-20261105.md)；先追THK动作查找/启动与对象归属，再修工具保留表地址/未知字段，不跨表按名称去重；旧JSON未改 |
-| R-DATA-007 / open，静态发现 | FirstChain分别配置移动/碰撞，不核对共享时间单位/速率/clip身份；EvidencePinsJson仅声明未消费。构造Seconds运动与NativeFrames碰撞可分别满足局部门，未运行 | [本轮记录](Changes/CHG-20261105-003-rathian-first-chain-audit.md)；后续统一时间/动作身份及证据校验；当前真实零速率仍先被strict拒绝，不能称已发生错配 |
-| R-ANIM-013 / open，资产资格待实读 | 首链InPlaceSequence只验骨架/时长；旧导出保留bone_root平移，导入未明设根提取/锁根。001原位状态未核，存在姿态与外移重复位移风险 | [首链审查](Archive/MHWI/Reference/MHWI-Rathian-FirstChain-Audit-20261105.md)；MCP本轮离线，未启动编辑器；只读实际001根轨/根锁定并核坐标后再修正，未宣布重复位移已发生 |
+| R-ANIM-016 / fixed-PIE，Medium trial + 落体段 open | 旧受击三档实为 `Common::STEP_*`/`WP_03::STEP_*` 台阶动作，语义错误。已改用原生 `co00_01`：小受击 `DAMAGE_S_*`（104/107/105/106，注册名+selector 证据）、大受击方向段+击飞+落地起身 slot 7（0x431/0x439 静态证据）、中受击特征组 96/92/94/93（用户批准试验，无注册名）。13 例真实 PIE 通过，方向/骨姿/位移/锁输入断言齐 | [记录](Changes/CHG-20261116-001-hunter-damage-reaction.md)；击飞空中段仍用短受击片段（缺落体姿）；120-123 快速起身组未采用；selector 与 action/slot 顺序未证；TIML 事件未迁移；特殊受击（QUAKE/WIND/EAR/SLIP）slot 未查证；不据此升级原作完整受击状态机资格 |
+| R-ANIM-015 / fixed-PIE | 低帧时Impact用预测结束位提前退出，首目的pose保持旧姿，能出现HP/编号/位移有记录但显示站姿。已修Impact首帧时钟与实际完成帧；固定3FPS从0个有效最终骨姿样本变为可见匹配样本，约0.0044°相对骨旋转均误差；12受击场景及生命周期检查通过 | [记录](Changes/CHG-20261107-003-hunter-hit-reaction.md)、[稳定清单](../Tools/MHW/hunter-hit-reaction-repair-20261107.json)；16次运行121断言，900资产未变；仅既有三档片段的UE适配，不升级原作完整受击状态机资格 |
+| R-AI-004 / fixed-Basic-PIE | Basic已配25资源、4招与完整基础循环；修复球根切地扫掠停滞及落地射线不足，统一2cm间隙。最终二进制24项PIE/101断言通过，包括低帧、墙体、丢失目标/中断/空中死亡 | [记录](Changes/CHG-20261107-002-rathian-basic-assets-pie.md)、[交接](Plans/MHWI-Rathian-Handoff.md)；正式用Basic蓝图/地图，原生类默认仍是未配置模板；不据Basic通过关闭忠实THK/COL问题 |
+| R-DATA-006 / partial，字段及请求分段有原生静态支持 | 旧344条完整注册表口径撤回，表内BITE=83。11-06新证据到selector/ID形状槽、查找探查及条件回调；注册/lookup/processor的receiver同一性未证，+0x28回调不直接等于BITE enter+0x30 | [本轮记录](Archive/MHWI/Changes/CHG-20261106-001-rathian-bite-dispatch-devflow.md)、[当前总账](Reference/MHWI-Rathian-Evidence.md)；THK83递交、键→BITE对象、enter和caller归属仍开放；报告ACCEPTED不升级原作运行资格 |
+| R-DATA-007 / open，静态发现 | FirstChain分别配置移动/碰撞，不核对共享时间单位/速率/clip身份；EvidencePinsJson仅声明未消费。构造Seconds运动与NativeFrames碰撞可分别满足局部门，未运行 | [本轮记录](Archive/MHWI/Changes/CHG-20261105-003-rathian-first-chain-audit.md)；后续统一时间/动作身份及证据校验；当前真实零速率仍先被strict拒绝，不能称已发生错配 |
+| R-ANIM-013 / open，忠实首链资产资格 | 首链InPlaceSequence只验骨架/时长；旧导出保留bone_root平移，未明设根提取/锁根，存在与外移重复位移风险。Basic已新建合格副本，但未迁移该首链配置 | [首链审查](Archive/MHWI/Reference/MHWI-Rathian-FirstChain-Audit-20261105.md)；该首链运行尚未验证，不能用Basic资产及PIE通过关闭此项 |
 | R-COMBAT-013 / open，静态发现 | 首链接触同shape/同区间按Actor后写覆盖，当前重叠会覆盖较早精确扫掠TOI；首尾轴一致也不证明中间骨轨纯平移。跨shape不全局去重；三UID消费者尚缺 | [首链审查](Archive/MHWI/Reference/MHWI-Rathian-FirstChain-Audit-20261105.md)；构造反例未运行，不当原作首次命中基准；验证TOI、三通道、骨轨及重复观察不结算 |
-| R-AI-003 / open，静态发现 | 首链strict的条件resolver只查工程条件，但strict禁注入；未来其余资格齐全后仍缺原生provider。到EndTime直接取消THK，未接ResumeAfterAction | [本轮记录](Changes/CHG-20261105-003-rathian-first-chain-audit.md)；补原生条件及完成回VM消费者，不能把单动作harness完成称完整决策生命周期；本轮未执行失败复现 |
+| R-AI-003 / open，静态发现 | 首链strict的条件resolver只查工程条件，但strict禁注入；未来其余资格齐全后仍缺原生provider。到EndTime直接取消THK，未接ResumeAfterAction | [本轮记录](Archive/MHWI/Changes/CHG-20261105-003-rathian-first-chain-audit.md)；补原生条件及完成回VM消费者，不能把单动作harness完成称完整决策生命周期；本轮未执行失败复现 |
 | R-ENV-001 / deferred-per-user（2026-11-05），OC压缩元数据未解 | 官方WU源修复曾Healthy；Sandbox启用仍报AccountsService.winmd压缩状态0与LZMS3不一致；SFC无违规/修复0，外部用户上下文重启后复查Repairable/Disabled | [本轮记录](Archive/Legacy/Changes/CHG-20261105-002-windows-official-source-repair.md)；官方包已校验下载但目标平铺源未资格化，需完整官方源/受支持恢复路线；不手改WinSxS/COMPONENTS、不自动重启 |
 | R-DATA-005 / open，静态发现 | THK旧top_param_pairs由set经恒定排序截6项，映射工具再截4项；fexty的0x3/0x50有不同命名，不能据旧摘要认定完整参数形态一致 | [DevFlow审计方案](Archive/MHWI/Plans/PLAN-20261104-001-devflow-thk-condition-audit.md)已冻结全量计数/冲突/未知不升级验收；候选尚未执行 |
-| R-ANIM-012 / open，静态确认、运行未验 | Approx Pawn初始化AnimationBlueprint+普通UAnimInstance，攻击调用Body.SetAnimation(Montage)；UE5.8该接口只向SingleNode实例派发，否则警告并不播放 | [本轮记录](Changes/CHG-20261104-003-devflow-thk-audit-preparation.md)；另开含实际运行证据的播放修复任务，11-04编译通过不证明播放通过 |
+| R-ANIM-014 / deferred-per-user，工程火球演出 | 基础单发/伤害/Medium受击/墙体/来源死亡清理已PIE通过；动画仍为00_081张口退步候选的原位处理版，可见球体为工程表现，未证原作站地单火球 | 用户明确选择基础版先保留、后续再换；本轮不恢复原作取证。[记录](Changes/CHG-20261107-002-rathian-basic-assets-pie.md)；后续另行定位合格源片后替换，不升为原作还原 |
+| R-ANIM-012 / fixed-Basic-PIE | Native idle/walk/run→DefaultSlot与阶段Montage已实际运行；健康00_007替代误配的残血00_065，08_005替代悬空落地候选，去除工程子根漂移。20副本根轨读回及四招/死亡末姿PIE通过 | [记录](Changes/CHG-20261107-002-rathian-basic-assets-pie.md)；正常连段及有限中断采样通过，不宣称原作逐帧一致或所有中断帧观感均已穷举 |
 | R-DATA-004 / open-evidence-chain，静态复核 | 雌火龙105份THK及thklst至动作/时序/碰撞/部位/任务关联尚未闭合；本轮补取73个音画/任务候选文件仍是raw，同名不证明资格或完整依赖 | [总体方案](Archive/MHWI/Plans/PLAN-20261031-002-rathian-restoration-master.md)、[证据任务E01–E09](Archive/MHWI/Plans/PLAN-20261031-003-rathian-evidence-pipeline.md)；先固定工具与关联/消费者证据，未知字段不进入忠实模式，不猜AI概率 |
 | R-ANIM-011 / fixed-readback | 旧24条固定时长已按源帧数在原路径重导，24/24对象身份、Skeleton、时长及引用列表核对通过 | [CHG-20261031-001](Archive/MHWI/Changes/CHG-20261031-001-rathian-legacy-duration.md)；未做原作逐帧/PIE验收 |
 | R-DATA-003 / partial-source-read，运行未验 | [火龙格式续查](Archive/MHWI/Reference/MHWI-Rathian-Format-Evidence-20261030.md)已完整读ACTP2及70条COL攻击原字段，PBC类CRC/嵌套读写已确认；00含G級标签，不能直接当LR专属，PBC耐久与完整动作时长仍未知 | 保留LR动作/时间轴资格与真实字段消费者缺口；不据原表MV报实战伤害、不据mLoopTime报全程时长；本阶段不启动原作 |

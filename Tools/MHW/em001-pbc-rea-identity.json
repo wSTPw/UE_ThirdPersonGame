@@ -1,0 +1,72 @@
+{
+  "evidence_id": "ev_7f6f0fefcfc609a953bcccde23ec130ef999ee1835611c539c29e8a3e0d5aac2",
+  "subject": {
+    "name": "em001.em_pbc",
+    "digest": {
+      "sha256": "80bc9017af04b17f5a25fe65b730307481931f76b5be236dab506eab6e6bea03"
+    },
+    "local_path": "E:/Unreal Projects/IntorCpp/ArtSource/ThirdParty/MHWRathalos/nativePC/em/em001/00/data/em001.em_pbc",
+    "format": "file",
+    "architecture": null
+  },
+  "provider": {
+    "id": "byte-entropy",
+    "name": "REA byte entropy",
+    "version": "1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "inspect_byte_entropy",
+  "parameters": {
+    "path": "E:/Unreal Projects/IntorCpp/ArtSource/ThirdParty/MHWRathalos/nativePC/em/em001/00/data/em001.em_pbc",
+    "block_size": 256,
+    "offset": 0
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "artifact": {
+      "path": "E:/Unreal Projects/IntorCpp/ArtSource/ThirdParty/MHWRathalos/nativePC/em/em001/00/data/em001.em_pbc",
+      "bytes": 256,
+      "sha256": "80bc9017af04b17f5a25fe65b730307481931f76b5be236dab506eab6e6bea03"
+    },
+    "block_size": 256,
+    "window": {
+      "offset": 0,
+      "length": 256
+    },
+    "file_entropy": 3.1047,
+    "thresholds": {
+      "high": 7.2,
+      "low": 1
+    },
+    "blocks": [
+      {
+        "offset": 0,
+        "length": 256,
+        "entropy": 3.1047
+      }
+    ],
+    "runs": [],
+    "limitations": [
+      "Entropy does not prove encryption; compressed and encrypted bytes cannot be distinguished by this measure.",
+      "Entropy is rounded to four decimal places; thresholds classify those reported values. Small blocks can underestimate entropy.",
+      "The file-wide hash and entropy cover the entire file; blocks and runs cover only the selected window. Empty input has entropy 0 by convention."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Entropy does not prove encryption; compressed and encrypted bytes cannot be distinguished by this measure.",
+    "Entropy is rounded to four decimal places; thresholds classify those reported values. Small blocks can underestimate entropy.",
+    "The file-wide hash and entropy cover the entire file; blocks and runs cover only the selected window. Empty input has entropy 0 by convention."
+  ],
+  "relationship_coverage": null,
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "E:/Unreal Projects/IntorCpp/ArtSource/ThirdParty/MHWRathalos/nativePC/em/em001/00/data/em001.em_pbc"
+    }
+  ],
+  "evidence_links": []
+}

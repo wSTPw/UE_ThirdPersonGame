@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "purpose": "Qualified source for the standalone offline monster COL type-2 reader; no source execution or runtime damage claims.",
+  "template": {
+    "repository": "Synthlight/MHW-Editor",
+    "commit": "b6ff379b13079a4abb99490590fb05dfe6851bbc",
+    "path": "010 Templates/col.bt",
+    "url": "https://github.com/Synthlight/MHW-Editor/blob/b6ff379b13079a4abb99490590fb05dfe6851bbc/010%20Templates/col.bt",
+    "cache": "Tools/MHW/Source/RathalosCollision-b6ff379/col.bt",
+    "bytes": 15883,
+    "sha256": "bd4854c965e78d64b7723d18dc2ee7b0d01c3038f9cd4944b88db664f162c232",
+    "git_blob_sha": "50733559d64d2eb60b86b6b1076c87e3e8d0b268",
+    "license": "MIT (upstream)"
+  },
+  "upstream_explanation": "https://github.com/Synthlight/MHW-Editor/wiki/Collisions",
+  "project_adapter": {
+    "script": "Scripts/MHWI/read_monster_collision.py",
+    "record_type": 2,
+    "record_bytes": 171,
+    "field_count": 47,
+    "notes": [
+      "Template fields define names and types, not confirmed native consumer behavior.",
+      "Read Names and CLND/CLGM counts in sequence, do not search arbitrarily for ATK magic.",
+      "Opaque OAP/CRC trailer is retained as raw bytes; success is not full semantic decoding.",
+      "Mandatory extraction-manifest fingerprints reject modified, appended, or truncated original files."
+    ]
+  }
+}

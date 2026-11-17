@@ -1,0 +1,1181 @@
+{
+ "schema": 1,
+ "date": "2026-11-03",
+ "mode": "community_mapping_cross_reference_read_only",
+ "sources": {
+  "fexty": {
+   "path": "Saved\\MHWI-Rathian-FirstChain\\Leviathon\\Leviathon-1e647f08ed4356e9feac037ccec7c08149fa2ef5\\common\\default.fexty",
+   "note": "Leviathon commit 1e647f08; community mapping, candidate semantics only"
+  },
+  "stats": {
+   "path": "Saved\\MHWI-Rathian-FirstChain\\thk-condition-semantics-20261102.json",
+   "note": "本机 13015 段 functionType 全量统计"
+  }
+ },
+ "coverage": {
+  "distinct_function_types": 60,
+  "mapped_by_fexty": 27,
+  "unmapped": 33,
+  "mapped_ratio": 0.45,
+  "total_segment_uses": 13015,
+  "uses_covered": 1786,
+  "uses_covered_ratio": 0.137,
+  "structural_types": [
+   "0x0",
+   "0x2"
+  ],
+  "structural_uses": 10824,
+  "condition_types": 58,
+  "condition_types_covered": 27,
+  "condition_types_ratio": 0.466,
+  "condition_uses": 2191,
+  "condition_uses_covered": 1786,
+  "condition_uses_ratio": 0.815
+ },
+ "rows": [
+  {
+   "function_type": "0x2",
+   "uses": 7947,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x0",
+   "uses": 2877,
+   "fexty": null,
+   "top_params": [
+    [
+     70,
+     0
+    ],
+    [
+     50,
+     0
+    ],
+    [
+     30,
+     0
+    ],
+    [
+     85,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x70",
+   "uses": 263,
+   "fexty": "flying()",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x8",
+   "uses": 258,
+   "fexty": "distance_2d_to_target().leq(parameter1)",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     2000,
+     0
+    ],
+    [
+     1300,
+     0
+    ],
+    [
+     750,
+     0
+    ],
+    [
+     400,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x5",
+   "uses": 248,
+   "fexty": "switch(targetArea)",
+   "selector": "targetArea",
+   "param_cases": [
+    [
+     "10",
+     "(target_area.nearest_entrance)"
+    ],
+    [
+     "3B",
+     "(target_area.next_exit)"
+    ],
+    [
+     "12",
+     "(target_area.global_center)"
+    ],
+    [
+     "25",
+     "(target_area.area_center)"
+    ],
+    [
+     "26",
+     "(target_area.area_aerial_center)"
+    ],
+    [
+     "31",
+     "(target_area.nearest_monster_area)"
+    ],
+    [
+     "3D",
+     "(target_area.unknown_aerial)"
+    ],
+    [
+     "3E",
+     "(target_area.unknown_ground)"
+    ]
+   ],
+   "top_params": [
+    [
+     4,
+     0
+    ],
+    [
+     37,
+     0
+    ],
+    [
+     59,
+     0
+    ],
+    [
+     17,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x5a",
+   "uses": 186,
+   "fexty": null,
+   "top_params": [
+    [
+     4,
+     0
+    ],
+    [
+     30,
+     0
+    ],
+    [
+     10,
+     0
+    ],
+    [
+     32,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x16",
+   "uses": 141,
+   "fexty": "angle_2d_cw_between(parameter1,parameter2)",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     15,
+     345
+    ],
+    [
+     0,
+     180
+    ],
+    [
+     60,
+     300
+    ],
+    [
+     270,
+     90
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x6",
+   "uses": 137,
+   "fexty": "distance_3d_to_target().leq(parameter1)",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     300,
+     0
+    ],
+    [
+     2000,
+     0
+    ],
+    [
+     800,
+     0
+    ],
+    [
+     1200,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x1e",
+   "uses": 132,
+   "fexty": "enraged()",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x1f",
+   "uses": 115,
+   "fexty": "fatigued()",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x3",
+   "uses": 112,
+   "fexty": "switch(targetEnemy)",
+   "selector": "targetEnemy",
+   "param_cases": [
+    [
+     "1",
+     "(target_em.random_player_or_cat)"
+    ],
+    [
+     "2",
+     "(target_em.current_ai_target)"
+    ],
+    [
+     "13",
+     "(target_em.last_attacker)"
+    ],
+    [
+     "29",
+     "(target_em.any_monster)"
+    ],
+    [
+     "41",
+     "(target_em.nearest_monster)"
+    ],
+    [
+     "43",
+     "(target_em.nearest_entity)"
+    ],
+    [
+     "48",
+     "(target_em.nearest_entity2)"
+    ],
+    [
+     "49",
+     "(target_em.unq_target)"
+    ]
+   ],
+   "top_params": [
+    [
+     4,
+     0
+    ],
+    [
+     17,
+     0
+    ],
+    [
+     34,
+     0
+    ],
+    [
+     2,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x2e",
+   "uses": 91,
+   "fexty": "switch(target)",
+   "selector": "target",
+   "param_cases": [
+    [
+     "5",
+     "helpless_0()"
+    ],
+    [
+     "6",
+     "helpless_1()"
+    ],
+    [
+     "12",
+     "in_combat()"
+    ],
+    [
+     "18",
+     "poisoned()"
+    ],
+    [
+     "19",
+     "deadly_poisoned()"
+    ],
+    [
+     "1A",
+     "bleed()"
+    ],
+    [
+     "1B",
+     "blast_blighted()"
+    ],
+    [
+     "1C",
+     "paralyzed()"
+    ]
+   ],
+   "top_params": [
+    [
+     4,
+     0
+    ],
+    [
+     52,
+     0
+    ],
+    [
+     10,
+     0
+    ],
+    [
+     32,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x2f",
+   "uses": 83,
+   "fexty": "target_is({em_enum:parameter1})",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     30,
+     0
+    ],
+    [
+     10,
+     0
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     40,
+     1
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x1c",
+   "uses": 48,
+   "fexty": "in_combat()",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0xe",
+   "uses": 42,
+   "fexty": "vertical_distance_to_target().leq(parameter1)",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     300,
+     0
+    ],
+    [
+     750,
+     0
+    ],
+    [
+     500,
+     0
+    ],
+    [
+     400,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x76",
+   "uses": 33,
+   "fexty": "part(parameter1).is_broken(parameter2)",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0xa8",
+   "uses": 30,
+   "fexty": null,
+   "top_params": [
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x94",
+   "uses": 26,
+   "fexty": null,
+   "top_params": [
+    [
+     1,
+     12
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     8
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0xad",
+   "uses": 25,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x24",
+   "uses": 23,
+   "fexty": "target_on_part(parameter1)",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0xa9",
+   "uses": 20,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     1
+    ],
+    [
+     0,
+     7
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     1,
+     5
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x57",
+   "uses": 18,
+   "fexty": null,
+   "top_params": [
+    [
+     4,
+     0
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     5,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x80",
+   "uses": 16,
+   "fexty": null,
+   "top_params": [
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x7d",
+   "uses": 16,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x25",
+   "uses": 12,
+   "fexty": "mounted()",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x10",
+   "uses": 10,
+   "fexty": "switch(param1)",
+   "selector": null,
+   "param_cases": [
+    [
+     "0",
+     "above_target()"
+    ],
+    [
+     "1",
+     "below_target()"
+    ]
+   ],
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0xbf",
+   "uses": 8,
+   "fexty": "in_map({st_enum:parameter1}).in_area(parameter2)",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     202,
+     -1
+    ],
+    [
+     101,
+     6
+    ],
+    [
+     201,
+     -1
+    ],
+    [
+     101,
+     2
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x6b",
+   "uses": 8,
+   "fexty": null,
+   "top_params": [
+    [
+     7500,
+     0
+    ],
+    [
+     5000,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0xb8",
+   "uses": 7,
+   "fexty": "switch(current_quest().is_rank)",
+   "selector": "current_quest().is_rank",
+   "param_cases": [
+    [
+     "0",
+     "(rank.LR)"
+    ],
+    [
+     "1",
+     "(rank.HR)"
+    ],
+    [
+     "2",
+     "(rank.MR)"
+    ],
+    [
+     "3",
+     "(rank.AT)"
+    ]
+   ],
+   "top_params": [
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x54",
+   "uses": 6,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x30",
+   "uses": 6,
+   "fexty": null,
+   "top_params": [
+    [
+     4,
+     0
+    ],
+    [
+     2,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0xb1",
+   "uses": 6,
+   "fexty": "force_area_change2()",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x52",
+   "uses": 5,
+   "fexty": null,
+   "top_params": [
+    [
+     9,
+     5
+    ],
+    [
+     0,
+     4
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x84",
+   "uses": 5,
+   "fexty": null,
+   "top_params": [
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x29",
+   "uses": 4,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x6a",
+   "uses": 4,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x5c",
+   "uses": 4,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0xc2",
+   "uses": 3,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x5f",
+   "uses": 3,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x5e",
+   "uses": 3,
+   "fexty": "clearTarget()",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x11",
+   "uses": 3,
+   "fexty": null,
+   "top_params": [
+    [
+     1000,
+     0
+    ],
+    [
+     1250,
+     0
+    ],
+    [
+     450,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x2a",
+   "uses": 3,
+   "fexty": "target.pinned()",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0xc3",
+   "uses": 2,
+   "fexty": null,
+   "top_params": [
+    [
+     50,
+     0
+    ],
+    [
+     100,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x27",
+   "uses": 2,
+   "fexty": "mount_stabbed()",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x26",
+   "uses": 2,
+   "fexty": "mount_finisher_ready()",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0xf",
+   "uses": 2,
+   "fexty": "vertical_distance_to_target().gt(parameter1)",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     1000,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0xaf",
+   "uses": 2,
+   "fexty": null,
+   "top_params": [
+    [
+     5000,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x1d",
+   "uses": 2,
+   "fexty": "alert_out_of_combat()",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x98",
+   "uses": 2,
+   "fexty": null,
+   "top_params": [
+    [
+     1,
+     8
+    ],
+    [
+     1,
+     5
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x99",
+   "uses": 2,
+   "fexty": null,
+   "top_params": [
+    [
+     1,
+     1
+    ],
+    [
+     1,
+     10
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x85",
+   "uses": 2,
+   "fexty": null,
+   "top_params": [
+    [
+     1,
+     0
+    ],
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0xae",
+   "uses": 2,
+   "fexty": "force_area_change()",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0x3b",
+   "uses": 1,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x28",
+   "uses": 1,
+   "fexty": "mount_staggered_twice()",
+   "selector": null,
+   "param_cases": [],
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "community-mapped-pending-verification"
+  },
+  {
+   "function_type": "0xab",
+   "uses": 1,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0xaa",
+   "uses": 1,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0xc9",
+   "uses": 1,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0xca",
+   "uses": 1,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x5d",
+   "uses": 1,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  },
+  {
+   "function_type": "0x7c",
+   "uses": 1,
+   "fexty": null,
+   "top_params": [
+    [
+     0,
+     0
+    ]
+   ],
+   "status": "unmapped"
+  }
+ ],
+ "boundary": [
+  "社区命名=fexty 中的候选映射, 不自动等于运行语义; 需逐项与本机字节/参数形态/运行观测核对",
+  "0x0/0x2 为结构段(动作/流程), 不参与条件语义分母",
+  "升级为 [已证] 前必须完成: 参数形态一致性(本表 top_params 可先做)+ 受控运行观测"
+ ]
+}

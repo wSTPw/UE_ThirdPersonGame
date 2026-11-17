@@ -395,6 +395,7 @@
         "Scripts/MHWI/pie_r28_preview.py",
         "Scripts/MHWI/author_equipment_ik.py",
         "Scripts/MHWI/mcp_animation.mjs",
+        "Scripts/MHWI/run_damage_matrix.mjs",
         "Tools/MHW/animation-coverage-decisions.json",
         "Scripts/MHWI/author_remaining_animation.py",
         "Scripts/MHWI/extract_locomotion_consumers.py",
@@ -415,7 +416,9 @@
         "Tools/MHW/foresight-window-evidence-20261030.json",
         "Scripts/MHWI/author_spirit_thrust_routes.py",
         "Scripts/MHWI/extract_foresight_consumers.py",
-        "Tools/MHW/foresight-consumers-20261030.json"
+        "Tools/MHW/foresight-consumers-20261030.json",
+        "Scripts/MHWI/pie_hunter_hit_reaction.py",
+        "Tools/MHW/hunter-hit-reaction-repair-20261107.json"
       ],
       "interface_ids": [
         "DAMAGE-001",
@@ -471,8 +474,11 @@
         "Scripts/MHWI/pie_r06_repairs.py",
         "Scripts/MHWI/pie_r28_preview.py",
         "Scripts/MHWI/pie_remaining_animation.py",
-        "Scripts/MHWI/pie_r06_impact_matrix.py"
-      ]
+        "Scripts/MHWI/pie_r06_impact_matrix.py",
+        "Scripts/MHWI/pie_hunter_hit_reaction.py",
+        "Scripts/MHWI/run_damage_matrix.mjs"
+      ],
+      "notes": " 2026-11-07: short Hunter impact UE post-update adapter fixed. Impact consumes first blend delta and ends on current reached frame; non-impact defaults unchanged. Frozen Luna code gate and actual main build passed. Final bone-pose/source correlation, post-hit position, 3FPS, death and real Iai armor checked in 14 scenarios/16 successful runs (121 assertions); see repair manifest. No original full hit-reaction state-machine equivalence claim."
     },
     {
       "id": "mhwi-unpack-data",
@@ -562,7 +568,7 @@
     },
     {
       "id": "mhwi-rathian-approx",
-      "name": "雌火龙近似profile执行体（B1）",
+      "name": "雌火龙基础近似玩法（巡逻/阶段攻击/盒判定/死亡）",
       "document": "Docs/Systems/MHWI-Rathian.md",
       "sources": [
         "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxData.h",
@@ -576,14 +582,27 @@
         "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianDecisionComponent.cpp",
         "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxPawn.h",
         "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxPawn.cpp",
-        "Saved/MHWI-Rathian-FirstChain/action-registry-dump-20261102.json"
+        "Saved/MHWI-Rathian-FirstChain/action-registry-dump-20261102.json",
+        "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxAnimInstance.h",
+        "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxAnimInstance.cpp",
+        "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxFireball.h",
+        "Source/IntroCpp/MHWI/Monsters/Approx/MHWIRathianApproxFireball.cpp",
+        "Scripts/MHWI/author_rathian_basic.py",
+        "Scripts/MHWI/pie_rathian_basic.py",
+        "Tools/MHW/rathian-basic-profile-20261107.json"
       ],
-      "interface_ids": [],
-      "asset_roots": [],
+      "interface_ids": [
+        "MHWI-016"
+      ],
+      "asset_roots": [
+        "/Game/MHWI/Rathian/Basic/"
+      ],
       "validation": [
-        "Scripts/Docs/check_docs.py"
+        "Scripts/Docs/check_docs.py",
+        "Scripts/MHWI/pie_rathian_basic.py",
+        "Scripts/MHWI/author_rathian_basic.py"
       ],
-      "notes": "决策层approximated（接口可替换为THK策略）；数值evidenced字面值；动画BITE已证其余待指派；UE5.8构建通过（CHG-20261102-004），PIE验收待用户。"
+      "notes": "UE 5.8 Basic engineering profile. Three frozen Luna code tasks ACCEPTED, independently reviewed, hash-integrated and built in the actual project. 25 new Basic assets (20 clips, 14 active); 24 real PIE cases/101 assertions pass on the final binary. Healthy Walk 00_007 replaces injured 00_065. Existing three player impact tiers verified sheathed/drawn; engineering fire presentation accepted by user. 875 protected asset hashes unchanged. Use Basic map/BP; native defaults remain unconfigured. Original THK/COL fidelity is unproven. Hunter short-impact visual repair and dedicated actual bone-pose/position checks are recorded in CHG-20261107-003 and the longsword module; Basic assets and force values unchanged."
     }
   ]
 }

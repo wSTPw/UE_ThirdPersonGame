@@ -181,6 +181,8 @@ private:
     float NativeSourceInputFrame = 0.f;
     float NativeSourceInputExpires = 0.f;
     TOptional<EMHWIImpactSize> PendingNativeImpact;
+    int32 PendingNativeImpactDirection = 0;
+    bool bPendingLargeGetup = false;
     bool bPendingNativeRecoil = false;
     int32 NativeRollRecoveryNode = INDEX_NONE;
     float NativeBlendFrames = 0.f;
@@ -354,7 +356,7 @@ private:
     void AdvanceConnectorWeaponEvents(float FromSourceFrame, float ToSourceFrame);
     void InitializeNativeRuntimeMoves();
     bool StartNativeSource(MHWI::Native::FActionIdentity Identity, ENativeSourceKind Kind);
-    void StartNativeImpact(EMHWIImpactSize Size);
+    void StartNativeImpact(EMHWIImpactSize Size, int32 Direction = 0);
     bool TickNativeSource();
     bool RequestNativeSourceInput(EMHWIInput Input);
     bool ResolveNativeSourceInput(EMHWIInput Input, FName& Move) const;

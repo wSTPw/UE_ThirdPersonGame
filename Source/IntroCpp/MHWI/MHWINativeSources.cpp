@@ -29,6 +29,9 @@ namespace MHWI::Native
     TConstArrayView<FBlendEntry> GetSourceBlends(FName Bank)
     {
         if (Bank == FName(TEXT("co00_00"))) return MakeArrayView(CommonSourceBlends);
+        // DAMAGE_S has no blend table; returning weapon blends here would pick a
+        // start frame from an unrelated motion.
+        if (Bank == FName(TEXT("co00_01"))) return {};
         return GetLongSwordBlendEntries();
     }
     const FMotionInfo* GetSourceMotionInfo(FName Bank, int32 Motion)
@@ -36,6 +39,13 @@ namespace MHWI::Native
         if (Bank == FName(TEXT("w03_00"))) return GetMotionInfo(Motion);
         if (Bank == FName(TEXT("co00_00")))
             for (const FMotionInfo& Row : CommonSourceMotions) if (Row.Motion == Motion) return &Row;
+        // Frame counts read from co00_01.lmt headers; there is no generated table for this bank.
+        static const FMotionInfo DamageSourceMotions[] = {
+            {7, 59, -1}, {92, 65, -1}, {93, 60, -1}, {94, 60, -1}, {96, 59, -1},
+            {104, 51, -1}, {105, 52, -1}, {106, 54, -1}, {107, 52, -1},
+        };
+        if (Bank == FName(TEXT("co00_01")))
+            for (const FMotionInfo& Row : DamageSourceMotions) if (Row.Motion == Motion) return &Row;
         return nullptr;
     }
     int32 GetSlingerMotion(FActionIdentity Identity, FActionIdentity Previous)

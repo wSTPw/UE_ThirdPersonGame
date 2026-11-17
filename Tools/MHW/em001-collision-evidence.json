@@ -1,0 +1,3917 @@
+{
+  "schema": 1,
+  "source_manifest": "ArtSource/ThirdParty/MHWRathalos/extraction-manifest.json",
+  "source_manifest_sha256": "4daee3a344efac3d52df35963bb436c52d4329ef30963b8b6b89a478445548a4",
+  "pins_path": "Tools/MHW/rathalos-collision-sources.json",
+  "pins_sha256": "dfdd32d5cecd2b4b06fda7dacbb457e95206188bb34d83df6c18bfc4aecbecae",
+  "counts": {
+    "files": 42,
+    "attack_files": 36,
+    "empty_attack_files": 6,
+    "attacks": 70,
+    "type_counts": {
+      "2": 36,
+      "0": 6
+    }
+  },
+  "validation": {
+    "passed": true,
+    "checks": [
+      "truncated_attack_region",
+      "unknown_attack_type",
+      "impossible_name_count",
+      "impossible_geometry_count",
+      "bad_oap_header",
+      "appended_bytes_fingerprint",
+      "truncated_source_fingerprint",
+      "changed_opaque_tail_fingerprint"
+    ],
+    "scope": "In-memory copies; no original resource was changed."
+  },
+  "protected_sources_unchanged": true,
+  "boundary": "Named Atk2 source fields, not final damage to a player. Native Japanese COL labels are retained, not verified action-ID bindings or translations. The shared 00 resource contains G-rank-labelled entries too; no LR-only eligibility is inferred. Geometry payload and OAP/CRC semantics remain unknown.",
+  "files": [
+    {
+      "path": "em/em001/00/collision/em001.col",
+      "sha256": "280bd35f01abdab2d2d54d397e21dd3db6b8b4cca8b1176c3a7f7bef3dd989a4",
+      "bytes": 35865,
+      "attack_type": 2,
+      "attack_count": 35,
+      "attack_start": 29831,
+      "attack_end": 35816,
+      "fully_semantically_decoded": false,
+      "name_count": 58,
+      "geometry_count": 37,
+      "opaque_tail_bytes": 49,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 29831,
+          "fields": {
+            "Motion_Value": {
+              "value": 1.0,
+              "offset": 29847
+            },
+            "Knock_back_Type": {
+              "value": 14,
+              "offset": 29835
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 29839
+            },
+            "Guard_Stamina_Cost": {
+              "value": 0.0,
+              "offset": 29859
+            },
+            "Guard_Req": {
+              "value": 2,
+              "offset": 29863
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 29867
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 29875
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 29903
+            }
+          },
+          "names": [
+            {
+              "name": "空中組み技チェック",
+              "index": 0,
+              "timeline_uid": 5,
+              "geometry_index": 0
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "offset": 30002,
+          "fields": {
+            "Motion_Value": {
+              "value": 35.0,
+              "offset": 30018
+            },
+            "Knock_back_Type": {
+              "value": 18,
+              "offset": 30006
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 30010
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 30030
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 30034
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 30038
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 30046
+            },
+            "Stun": {
+              "value": 45.0,
+              "offset": 30074
+            }
+          },
+          "names": [
+            {
+              "name": "空中かみつき_頭",
+              "index": 14,
+              "timeline_uid": 19,
+              "geometry_index": 14
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "offset": 30173,
+          "fields": {
+            "Motion_Value": {
+              "value": 25.0,
+              "offset": 30189
+            },
+            "Knock_back_Type": {
+              "value": 18,
+              "offset": 30177
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 30181
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 30201
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 30205
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 30209
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 30217
+            },
+            "Stun": {
+              "value": 35.0,
+              "offset": 30245
+            }
+          },
+          "names": [
+            {
+              "name": "空中ひっかき",
+              "index": 15,
+              "timeline_uid": 18,
+              "geometry_index": 19
+            },
+            {
+              "name": "攻_空中中距離左",
+              "index": 43,
+              "timeline_uid": 62,
+              "geometry_index": 17
+            },
+            {
+              "name": "攻_空中中距離右",
+              "index": 44,
+              "timeline_uid": 63,
+              "geometry_index": 18
+            }
+          ]
+        },
+        {
+          "index": 3,
+          "offset": 30344,
+          "fields": {
+            "Motion_Value": {
+              "value": 75.0,
+              "offset": 30360
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 30348
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 30352
+            },
+            "Guard_Stamina_Cost": {
+              "value": 55.0,
+              "offset": 30372
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 30376
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 30380
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 30388
+            },
+            "Stun": {
+              "value": 60.0,
+              "offset": 30416
+            }
+          },
+          "names": [
+            {
+              "name": "空中必殺キック",
+              "index": 16,
+              "timeline_uid": 17,
+              "geometry_index": 19
+            }
+          ]
+        },
+        {
+          "index": 4,
+          "offset": 30515,
+          "fields": {
+            "Motion_Value": {
+              "value": 45.0,
+              "offset": 30531
+            },
+            "Knock_back_Type": {
+              "value": 18,
+              "offset": 30519
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 30523
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 30543
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 30547
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 30551
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 30559
+            },
+            "Stun": {
+              "value": 45.0,
+              "offset": 30587
+            }
+          },
+          "names": [
+            {
+              "name": "空中尻尾攻撃(尻尾先)",
+              "index": 17,
+              "timeline_uid": 27,
+              "geometry_index": 22
+            },
+            {
+              "name": "空中尻尾攻撃(尻尾本)",
+              "index": 18,
+              "timeline_uid": 28,
+              "geometry_index": 21
+            }
+          ]
+        },
+        {
+          "index": 5,
+          "offset": 30686,
+          "fields": {
+            "Motion_Value": {
+              "value": 45.0,
+              "offset": 30702
+            },
+            "Knock_back_Type": {
+              "value": 18,
+              "offset": 30690
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 30694
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 30714
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 30718
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 30722
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 30730
+            },
+            "Stun": {
+              "value": 45.0,
+              "offset": 30758
+            }
+          },
+          "names": [
+            {
+              "name": "空中連続キック",
+              "index": 20,
+              "timeline_uid": 60,
+              "geometry_index": 19
+            }
+          ]
+        },
+        {
+          "index": 6,
+          "offset": 30857,
+          "fields": {
+            "Motion_Value": {
+              "value": 45.0,
+              "offset": 30873
+            },
+            "Knock_back_Type": {
+              "value": 18,
+              "offset": 30861
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 30865
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 30885
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 30889
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 30893
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 30901
+            },
+            "Stun": {
+              "value": 45.0,
+              "offset": 30929
+            }
+          },
+          "names": [
+            {
+              "name": "空中滑空",
+              "index": 21,
+              "timeline_uid": 46,
+              "geometry_index": 20
+            }
+          ]
+        },
+        {
+          "index": 7,
+          "offset": 31028,
+          "fields": {
+            "Motion_Value": {
+              "value": 30.0,
+              "offset": 31044
+            },
+            "Knock_back_Type": {
+              "value": 16,
+              "offset": 31032
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 31036
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 31056
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 31060
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 31064
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 31072
+            },
+            "Stun": {
+              "value": 35.0,
+              "offset": 31100
+            }
+          },
+          "names": [
+            {
+              "name": "地上かみつき",
+              "index": 22,
+              "timeline_uid": 32,
+              "geometry_index": 14
+            }
+          ]
+        },
+        {
+          "index": 8,
+          "offset": 31199,
+          "fields": {
+            "Motion_Value": {
+              "value": 45.0,
+              "offset": 31215
+            },
+            "Knock_back_Type": {
+              "value": 18,
+              "offset": 31203
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 31207
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 31227
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 31231
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 31235
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 31243
+            },
+            "Stun": {
+              "value": 45.0,
+              "offset": 31271
+            }
+          },
+          "names": [
+            {
+              "name": "地上ダッシュかみ_胴",
+              "index": 23,
+              "timeline_uid": 31,
+              "geometry_index": 15
+            },
+            {
+              "name": "地上ダッシュかみ_頭",
+              "index": 24,
+              "timeline_uid": 40,
+              "geometry_index": 14
+            }
+          ]
+        },
+        {
+          "index": 9,
+          "offset": 31370,
+          "fields": {
+            "Motion_Value": {
+              "value": 35.0,
+              "offset": 31386
+            },
+            "Knock_back_Type": {
+              "value": 18,
+              "offset": 31374
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 31378
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 31398
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 31402
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 31406
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 31414
+            },
+            "Stun": {
+              "value": 35.0,
+              "offset": 31442
+            }
+          },
+          "names": [
+            {
+              "name": "地上尻尾攻撃(尻尾先)",
+              "index": 25,
+              "timeline_uid": 34,
+              "geometry_index": 22
+            },
+            {
+              "name": "地上尻尾攻撃(尻尾本)",
+              "index": 26,
+              "timeline_uid": 30,
+              "geometry_index": 21
+            }
+          ]
+        },
+        {
+          "index": 10,
+          "offset": 31541,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 31557
+            },
+            "Knock_back_Type": {
+              "value": 5,
+              "offset": 31545
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 31549
+            },
+            "Guard_Stamina_Cost": {
+              "value": 10.0,
+              "offset": 31569
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 31573
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 31577
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 31585
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 31613
+            }
+          },
+          "names": []
+        },
+        {
+          "index": 11,
+          "offset": 31712,
+          "fields": {
+            "Motion_Value": {
+              "value": 1.0,
+              "offset": 31728
+            },
+            "Knock_back_Type": {
+              "value": 12,
+              "offset": 31716
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 31720
+            },
+            "Guard_Stamina_Cost": {
+              "value": 0.0,
+              "offset": 31740
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 31744
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 31748
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 31756
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 31784
+            }
+          },
+          "names": [
+            {
+              "name": "捕食攻撃_ザコ用",
+              "index": 28,
+              "timeline_uid": 43,
+              "geometry_index": 19
+            }
+          ]
+        },
+        {
+          "index": 12,
+          "offset": 31883,
+          "fields": {
+            "Motion_Value": {
+              "value": 25.0,
+              "offset": 31899
+            },
+            "Knock_back_Type": {
+              "value": 18,
+              "offset": 31887
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 31891
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 31911
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 31915
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 31919
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 31927
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 31955
+            }
+          },
+          "names": [
+            {
+              "name": "捕食攻撃_PL用",
+              "index": 29,
+              "timeline_uid": 41,
+              "geometry_index": 19
+            }
+          ]
+        },
+        {
+          "index": 13,
+          "offset": 32054,
+          "fields": {
+            "Motion_Value": {
+              "value": 10.0,
+              "offset": 32070
+            },
+            "Knock_back_Type": {
+              "value": 16,
+              "offset": 32058
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 32062
+            },
+            "Guard_Stamina_Cost": {
+              "value": 10.0,
+              "offset": 32082
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 32086
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 32090
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 32098
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 32126
+            }
+          },
+          "names": []
+        },
+        {
+          "index": 14,
+          "offset": 32225,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 32241
+            },
+            "Knock_back_Type": {
+              "value": 7,
+              "offset": 32229
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 32233
+            },
+            "Guard_Stamina_Cost": {
+              "value": 0.0,
+              "offset": 32253
+            },
+            "Guard_Req": {
+              "value": 2,
+              "offset": 32257
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 32261
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 32269
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 32297
+            }
+          },
+          "names": [
+            {
+              "name": "しぐさ+FH(全身)",
+              "index": 33,
+              "timeline_uid": 21,
+              "geometry_index": 29
+            },
+            {
+              "name": "しぐさ+FH(尻尾)",
+              "index": 34,
+              "timeline_uid": 24,
+              "geometry_index": 30
+            }
+          ]
+        },
+        {
+          "index": 15,
+          "offset": 32396,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 32412
+            },
+            "Knock_back_Type": {
+              "value": 39,
+              "offset": 32400
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 32404
+            },
+            "Guard_Stamina_Cost": {
+              "value": 0.0,
+              "offset": 32424
+            },
+            "Guard_Req": {
+              "value": 2,
+              "offset": 32428
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 32432
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 32440
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 32468
+            }
+          },
+          "names": [
+            {
+              "name": "小型リアクション用",
+              "index": 30,
+              "timeline_uid": 57,
+              "geometry_index": 29
+            }
+          ]
+        },
+        {
+          "index": 16,
+          "offset": 32567,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 32583
+            },
+            "Knock_back_Type": {
+              "value": 18,
+              "offset": 32571
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 32575
+            },
+            "Guard_Stamina_Cost": {
+              "value": 45.0,
+              "offset": 32595
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 32599
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 32603
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 32611
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 32639
+            }
+          },
+          "names": [
+            {
+              "name": "地形対応アクション(全身)",
+              "index": 31,
+              "timeline_uid": 59,
+              "geometry_index": 35
+            },
+            {
+              "name": "地形対応アクション(尻尾)",
+              "index": 32,
+              "timeline_uid": 58,
+              "geometry_index": 22
+            }
+          ]
+        },
+        {
+          "index": 17,
+          "offset": 32738,
+          "fields": {
+            "Motion_Value": {
+              "value": 1.0,
+              "offset": 32754
+            },
+            "Knock_back_Type": {
+              "value": 16,
+              "offset": 32742
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 32746
+            },
+            "Guard_Stamina_Cost": {
+              "value": 10.0,
+              "offset": 32766
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 32770
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 32774
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 32782
+            },
+            "Stun": {
+              "value": 25.0,
+              "offset": 32810
+            }
+          },
+          "names": [
+            {
+              "name": "茂みごそごそ",
+              "index": 35,
+              "timeline_uid": 48,
+              "geometry_index": 36
+            }
+          ]
+        },
+        {
+          "index": 18,
+          "offset": 32909,
+          "fields": {
+            "Motion_Value": {
+              "value": 20.0,
+              "offset": 32925
+            },
+            "Knock_back_Type": {
+              "value": 18,
+              "offset": 32913
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 32917
+            },
+            "Guard_Stamina_Cost": {
+              "value": 50.0,
+              "offset": 32937
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 32941
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 32945
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 32953
+            },
+            "Stun": {
+              "value": 35.0,
+              "offset": 32981
+            }
+          },
+          "names": []
+        },
+        {
+          "index": 19,
+          "offset": 33080,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 33096
+            },
+            "Knock_back_Type": {
+              "value": 39,
+              "offset": 33084
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 33088
+            },
+            "Guard_Stamina_Cost": {
+              "value": 0.0,
+              "offset": 33108
+            },
+            "Guard_Req": {
+              "value": 2,
+              "offset": 33112
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 33116
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 33124
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 33152
+            }
+          },
+          "names": [
+            {
+              "name": "通_ひるみ地形破壊",
+              "index": 40,
+              "timeline_uid": 56,
+              "geometry_index": 20
+            }
+          ]
+        },
+        {
+          "index": 20,
+          "offset": 33251,
+          "fields": {
+            "Motion_Value": {
+              "value": 20.0,
+              "offset": 33267
+            },
+            "Knock_back_Type": {
+              "value": 2,
+              "offset": 33255
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 33259
+            },
+            "Guard_Stamina_Cost": {
+              "value": 40.0,
+              "offset": 33279
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 33283
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 33287
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 33295
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 33323
+            }
+          },
+          "names": [
+            {
+              "name": "拘束攻撃",
+              "index": 45,
+              "timeline_uid": 64,
+              "geometry_index": 19
+            }
+          ]
+        },
+        {
+          "index": 21,
+          "offset": 33422,
+          "fields": {
+            "Motion_Value": {
+              "value": 55.0,
+              "offset": 33438
+            },
+            "Knock_back_Type": {
+              "value": 18,
+              "offset": 33426
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 33430
+            },
+            "Guard_Stamina_Cost": {
+              "value": 40.0,
+              "offset": 33450
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 33454
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 33458
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 33466
+            },
+            "Stun": {
+              "value": 45.0,
+              "offset": 33494
+            }
+          },
+          "names": [
+            {
+              "name": "踏みつけ",
+              "index": 46,
+              "timeline_uid": 67,
+              "geometry_index": 19
+            }
+          ]
+        },
+        {
+          "index": 22,
+          "offset": 33593,
+          "fields": {
+            "Motion_Value": {
+              "value": 20.0,
+              "offset": 33609
+            },
+            "Knock_back_Type": {
+              "value": 16,
+              "offset": 33597
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 33601
+            },
+            "Guard_Stamina_Cost": {
+              "value": 20.0,
+              "offset": 33621
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 33625
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 33629
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 33637
+            },
+            "Stun": {
+              "value": 35.0,
+              "offset": 33665
+            }
+          },
+          "names": [
+            {
+              "name": "空中かみつき_胴",
+              "index": 47,
+              "timeline_uid": 68,
+              "geometry_index": 15
+            }
+          ]
+        },
+        {
+          "index": 23,
+          "offset": 33764,
+          "fields": {
+            "Motion_Value": {
+              "value": 75.0,
+              "offset": 33780
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 33768
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 33772
+            },
+            "Guard_Stamina_Cost": {
+              "value": 55.0,
+              "offset": 33792
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 33796
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 33800
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 33808
+            },
+            "Stun": {
+              "value": 60.0,
+              "offset": 33836
+            }
+          },
+          "names": [
+            {
+              "name": "着陸分岐キック",
+              "index": 48,
+              "timeline_uid": 69,
+              "geometry_index": 19
+            }
+          ]
+        },
+        {
+          "index": 24,
+          "offset": 33935,
+          "fields": {
+            "Motion_Value": {
+              "value": 30.0,
+              "offset": 33951
+            },
+            "Knock_back_Type": {
+              "value": 16,
+              "offset": 33939
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 33943
+            },
+            "Guard_Stamina_Cost": {
+              "value": 20.0,
+              "offset": 33963
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 33967
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 33971
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 33979
+            },
+            "Stun": {
+              "value": 25.0,
+              "offset": 34007
+            }
+          },
+          "names": [
+            {
+              "name": "空中ブレス",
+              "index": 19,
+              "timeline_uid": 29,
+              "geometry_index": 16
+            },
+            {
+              "name": "地上ブレス",
+              "index": 27,
+              "timeline_uid": 35,
+              "geometry_index": 16
+            }
+          ]
+        },
+        {
+          "index": 25,
+          "offset": 34106,
+          "fields": {
+            "Motion_Value": {
+              "value": 30.0,
+              "offset": 34122
+            },
+            "Knock_back_Type": {
+              "value": 18,
+              "offset": 34110
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 34114
+            },
+            "Guard_Stamina_Cost": {
+              "value": 40.0,
+              "offset": 34134
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 34138
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 34142
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 34150
+            },
+            "Stun": {
+              "value": 35.0,
+              "offset": 34178
+            }
+          },
+          "names": [
+            {
+              "name": "乗り暴れ_全身",
+              "index": 36,
+              "timeline_uid": 49,
+              "geometry_index": 25
+            },
+            {
+              "name": "乗り暴れ_尾先端",
+              "index": 37,
+              "timeline_uid": 78,
+              "geometry_index": 22
+            }
+          ]
+        },
+        {
+          "index": 26,
+          "offset": 34277,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 34293
+            },
+            "Knock_back_Type": {
+              "value": 39,
+              "offset": 34281
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 34285
+            },
+            "Guard_Stamina_Cost": {
+              "value": 0.0,
+              "offset": 34305
+            },
+            "Guard_Req": {
+              "value": 2,
+              "offset": 34309
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 34313
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 34321
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 34349
+            }
+          },
+          "names": [
+            {
+              "name": "乗り衝撃",
+              "index": 38,
+              "timeline_uid": 70,
+              "geometry_index": 26
+            },
+            {
+              "name": "乗_ひるみ地形破壊",
+              "index": 41,
+              "timeline_uid": 71,
+              "geometry_index": 26
+            }
+          ]
+        },
+        {
+          "index": 27,
+          "offset": 34448,
+          "fields": {
+            "Motion_Value": {
+              "value": 75.0,
+              "offset": 34464
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 34452
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 34456
+            },
+            "Guard_Stamina_Cost": {
+              "value": 55.0,
+              "offset": 34476
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 34480
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 34484
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 34492
+            },
+            "Stun": {
+              "value": 50.0,
+              "offset": 34520
+            }
+          },
+          "names": [
+            {
+              "name": "レイア_サマー(先端)",
+              "index": 50,
+              "timeline_uid": 73,
+              "geometry_index": 24
+            }
+          ]
+        },
+        {
+          "index": 28,
+          "offset": 34619,
+          "fields": {
+            "Motion_Value": {
+              "value": 45.0,
+              "offset": 34635
+            },
+            "Knock_back_Type": {
+              "value": 18,
+              "offset": 34623
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 34627
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 34647
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 34651
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 34655
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 34663
+            },
+            "Stun": {
+              "value": 30.0,
+              "offset": 34691
+            }
+          },
+          "names": [
+            {
+              "name": "レイア_滑空",
+              "index": 51,
+              "timeline_uid": 74,
+              "geometry_index": 20
+            }
+          ]
+        },
+        {
+          "index": 29,
+          "offset": 34790,
+          "fields": {
+            "Motion_Value": {
+              "value": 75.0,
+              "offset": 34806
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 34794
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 34798
+            },
+            "Guard_Stamina_Cost": {
+              "value": 55.0,
+              "offset": 34818
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 34822
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 34826
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 34834
+            },
+            "Stun": {
+              "value": 50.0,
+              "offset": 34862
+            }
+          },
+          "names": [
+            {
+              "name": "レイア_サマー(本体)",
+              "index": 49,
+              "timeline_uid": 72,
+              "geometry_index": 23
+            }
+          ]
+        },
+        {
+          "index": 30,
+          "offset": 34961,
+          "fields": {
+            "Motion_Value": {
+              "value": 45.0,
+              "offset": 34977
+            },
+            "Knock_back_Type": {
+              "value": 18,
+              "offset": 34965
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 34969
+            },
+            "Guard_Stamina_Cost": {
+              "value": 15.0,
+              "offset": 34989
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 34993
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 34997
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 35005
+            },
+            "Stun": {
+              "value": 45.0,
+              "offset": 35033
+            }
+          },
+          "names": [
+            {
+              "name": "3連突進_1&2_胴",
+              "index": 52,
+              "timeline_uid": 76,
+              "geometry_index": 15
+            },
+            {
+              "name": "3連突進_1&2_頭",
+              "index": 53,
+              "timeline_uid": 77,
+              "geometry_index": 14
+            }
+          ]
+        },
+        {
+          "index": 31,
+          "offset": 35132,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 35148
+            },
+            "Knock_back_Type": {
+              "value": 18,
+              "offset": 35136
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 35140
+            },
+            "Guard_Stamina_Cost": {
+              "value": 20.0,
+              "offset": 35160
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 35164
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 35168
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 35176
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 35204
+            }
+          },
+          "names": [
+            {
+              "name": "地形移動アクション",
+              "index": 54,
+              "timeline_uid": 79,
+              "geometry_index": 35
+            }
+          ]
+        },
+        {
+          "index": 32,
+          "offset": 35303,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 35319
+            },
+            "Knock_back_Type": {
+              "value": 39,
+              "offset": 35307
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 35311
+            },
+            "Guard_Stamina_Cost": {
+              "value": 0.0,
+              "offset": 35331
+            },
+            "Guard_Req": {
+              "value": 2,
+              "offset": 35335
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 35339
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 35347
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 35375
+            }
+          },
+          "names": [
+            {
+              "name": "クロー誘導地形破壊用",
+              "index": 55,
+              "timeline_uid": 80,
+              "geometry_index": 26
+            }
+          ]
+        },
+        {
+          "index": 33,
+          "offset": 35474,
+          "fields": {
+            "Motion_Value": {
+              "value": 90.0,
+              "offset": 35490
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 35478
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 35482
+            },
+            "Guard_Stamina_Cost": {
+              "value": 55.0,
+              "offset": 35502
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 35506
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 35510
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 35518
+            },
+            "Stun": {
+              "value": 50.0,
+              "offset": 35546
+            }
+          },
+          "names": [
+            {
+              "name": "G級_レイア_サマー(先端)",
+              "index": 57,
+              "timeline_uid": 81,
+              "geometry_index": 24
+            }
+          ]
+        },
+        {
+          "index": 34,
+          "offset": 35645,
+          "fields": {
+            "Motion_Value": {
+              "value": 90.0,
+              "offset": 35661
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 35649
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 35653
+            },
+            "Guard_Stamina_Cost": {
+              "value": 55.0,
+              "offset": 35673
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 35677
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 35681
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 35689
+            },
+            "Stun": {
+              "value": 50.0,
+              "offset": 35717
+            }
+          },
+          "names": [
+            {
+              "name": "G級_レイア_サマー(本体)",
+              "index": 56,
+              "timeline_uid": 82,
+              "geometry_index": 23
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/collision/em001_tail.col",
+      "sha256": "e8ebf8af91c5717085fe93e94c169d378b3f35207f9097f831dfc72a87326a8a",
+      "bytes": 296,
+      "attack_type": 0,
+      "attack_count": 0,
+      "attack_start": 247,
+      "attack_end": 247,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 49,
+      "attacks": []
+    },
+    {
+      "path": "em/em001/00/shell/collision/object.col",
+      "sha256": "1273fe91c7f322fee9a54c0b21f0f71cc47c1f902be10eaedcd95183fb45a6e5",
+      "bytes": 999,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 792,
+      "attack_end": 963,
+      "fully_semantically_decoded": false,
+      "name_count": 25,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 792,
+          "fields": {
+            "Motion_Value": {
+              "value": 1.0,
+              "offset": 808
+            },
+            "Knock_back_Type": {
+              "value": 0,
+              "offset": 796
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 800
+            },
+            "Guard_Stamina_Cost": {
+              "value": 0.0,
+              "offset": 820
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 824
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 828
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 836
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 864
+            }
+          },
+          "names": []
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_00/collision/object.col",
+      "sha256": "94eeeabb4d6ea1522bb2104fe4c232151e5f690bbc884c1cc1c07be482284492",
+      "bytes": 451,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 244,
+      "attack_end": 415,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 244,
+          "fields": {
+            "Motion_Value": {
+              "value": 35.0,
+              "offset": 260
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 248
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 252
+            },
+            "Guard_Stamina_Cost": {
+              "value": 60.0,
+              "offset": 272
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 276
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 280
+            },
+            "Element_Dmg": {
+              "value": 35.0,
+              "offset": 288
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 316
+            }
+          },
+          "names": [
+            {
+              "name": "ブレス",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_01/collision/object.col",
+      "sha256": "4c3b5503f23fc068540845391555ffbcbd4917c2a9336b6437750402b3070395",
+      "bytes": 457,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 250,
+      "attack_end": 421,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 250,
+          "fields": {
+            "Motion_Value": {
+              "value": 35.0,
+              "offset": 266
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 254
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 258
+            },
+            "Guard_Stamina_Cost": {
+              "value": 60.0,
+              "offset": 278
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 282
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 286
+            },
+            "Element_Dmg": {
+              "value": 35.0,
+              "offset": 294
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 322
+            }
+          },
+          "names": [
+            {
+              "name": "ブレス着弾",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_02/collision/object.col",
+      "sha256": "ea48fa653941a221b315ce444b88e60a5bec183876e872fce8894d6e886c9dfa",
+      "bytes": 451,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 244,
+      "attack_end": 415,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 244,
+          "fields": {
+            "Motion_Value": {
+              "value": 35.0,
+              "offset": 260
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 248
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 252
+            },
+            "Guard_Stamina_Cost": {
+              "value": 40.0,
+              "offset": 272
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 276
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 280
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 288
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 316
+            }
+          },
+          "names": [
+            {
+              "name": "ブレス",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_03/collision/object.col",
+      "sha256": "14fd876fd8b6e484324f5e11a8b76ba332647c821405880d23c81b06aa169262",
+      "bytes": 457,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 250,
+      "attack_end": 421,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 250,
+          "fields": {
+            "Motion_Value": {
+              "value": 35.0,
+              "offset": 266
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 254
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 258
+            },
+            "Guard_Stamina_Cost": {
+              "value": 40.0,
+              "offset": 278
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 282
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 286
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 294
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 322
+            }
+          },
+          "names": [
+            {
+              "name": "ブレス着弾",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_04/collision/object.col",
+      "sha256": "660aa33dbd7f20bb5920d2fc80f922a470630132a4cb474cd6d0799f497c47f3",
+      "bytes": 463,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 256,
+      "attack_end": 427,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 256,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 272
+            },
+            "Knock_back_Type": {
+              "value": 0,
+              "offset": 260
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 264
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 284
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 288
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 292
+            },
+            "Element_Dmg": {
+              "value": 50.0,
+              "offset": 300
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 328
+            }
+          },
+          "names": [
+            {
+              "name": "ブレス火炎漏れ",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_05/collision/object.col",
+      "sha256": "068888f1ba1789918efd56a248159383967815c9ce07afc0198e446ad5da8e62",
+      "bytes": 451,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 244,
+      "attack_end": 415,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 244,
+          "fields": {
+            "Motion_Value": {
+              "value": 80.0,
+              "offset": 260
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 248
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 252
+            },
+            "Guard_Stamina_Cost": {
+              "value": 60.0,
+              "offset": 272
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 276
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 280
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 288
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 316
+            }
+          },
+          "names": [
+            {
+              "name": "ブレス",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_06/collision/object.col",
+      "sha256": "ee5e05147f5fb092093f37ccb12ed68f031ba3eb275a655467e644cd98fc2ded",
+      "bytes": 457,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 250,
+      "attack_end": 421,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 250,
+          "fields": {
+            "Motion_Value": {
+              "value": 70.0,
+              "offset": 266
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 254
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 258
+            },
+            "Guard_Stamina_Cost": {
+              "value": 60.0,
+              "offset": 278
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 282
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 286
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 294
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 322
+            }
+          },
+          "names": [
+            {
+              "name": "ブレス着弾",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_07/collision/object.col",
+      "sha256": "429114ffa6afe5da0870aac23837dfc1f0c6a296bdc89285fa49ebf76c15b07e",
+      "bytes": 463,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 256,
+      "attack_end": 427,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 256,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 272
+            },
+            "Knock_back_Type": {
+              "value": 5,
+              "offset": 260
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 264
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 284
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 288
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 292
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 300
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 328
+            }
+          },
+          "names": [
+            {
+              "name": "バインドボイス",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_08/collision/object.col",
+      "sha256": "939630e2ed8ecc03a18abb5fe7f94dbc8b521aee38c55cf3530ffaa07cf53504",
+      "bytes": 448,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 241,
+      "attack_end": 412,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 241,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 257
+            },
+            "Knock_back_Type": {
+              "value": 6,
+              "offset": 245
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 249
+            },
+            "Guard_Stamina_Cost": {
+              "value": 5.0,
+              "offset": 269
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 273
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 277
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 285
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 313
+            }
+          },
+          "names": [
+            {
+              "name": "風圧",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_09/collision/object.col",
+      "sha256": "fba186d895cd4b2cb2e968e0648a8131023467cae7ae476ed6556f6b2c0c2d41",
+      "bytes": 460,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 253,
+      "attack_end": 424,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 253,
+          "fields": {
+            "Motion_Value": {
+              "value": 35.0,
+              "offset": 269
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 257
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 261
+            },
+            "Guard_Stamina_Cost": {
+              "value": 60.0,
+              "offset": 281
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 285
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 289
+            },
+            "Element_Dmg": {
+              "value": 35.0,
+              "offset": 297
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 325
+            }
+          },
+          "names": [
+            {
+              "name": "鉢合せブレス",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_10/collision/object.col",
+      "sha256": "6df8400a8df8e6b2bd20e04ebd4194af21bfe0faa2dde8d2dcf05dd4ebf23ec4",
+      "bytes": 466,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 259,
+      "attack_end": 430,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 259,
+          "fields": {
+            "Motion_Value": {
+              "value": 35.0,
+              "offset": 275
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 263
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 267
+            },
+            "Guard_Stamina_Cost": {
+              "value": 60.0,
+              "offset": 287
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 291
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 295
+            },
+            "Element_Dmg": {
+              "value": 35.0,
+              "offset": 303
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 331
+            }
+          },
+          "names": [
+            {
+              "name": "鉢合せブレス着弾",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_11/collision/object.col",
+      "sha256": "94eeeabb4d6ea1522bb2104fe4c232151e5f690bbc884c1cc1c07be482284492",
+      "bytes": 451,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 244,
+      "attack_end": 415,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 244,
+          "fields": {
+            "Motion_Value": {
+              "value": 35.0,
+              "offset": 260
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 248
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 252
+            },
+            "Guard_Stamina_Cost": {
+              "value": 60.0,
+              "offset": 272
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 276
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 280
+            },
+            "Element_Dmg": {
+              "value": 35.0,
+              "offset": 288
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 316
+            }
+          },
+          "names": [
+            {
+              "name": "ブレス",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_12/collision/object.col",
+      "sha256": "fcce307d9aa55c1569aa11ecfb8040641f7024629fd14cbc591ea81633fc4228",
+      "bytes": 461,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 254,
+      "attack_end": 425,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 254,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 270
+            },
+            "Knock_back_Type": {
+              "value": 0,
+              "offset": 258
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 262
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 282
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 286
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 290
+            },
+            "Element_Dmg": {
+              "value": 50.0,
+              "offset": 298
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 326
+            }
+          },
+          "names": [
+            {
+              "name": "薙ぎ払い_着弾",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_13/collision/object.col",
+      "sha256": "2b11c068130e979ae985119953699b9ee62899a1882ee479febee104dd5ff31f",
+      "bytes": 461,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 254,
+      "attack_end": 425,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 254,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 270
+            },
+            "Knock_back_Type": {
+              "value": 0,
+              "offset": 258
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 262
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 282
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 286
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 290
+            },
+            "Element_Dmg": {
+              "value": 50.0,
+              "offset": 298
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 326
+            }
+          },
+          "names": [
+            {
+              "name": "薙ぎ払い_発射",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_14/collision/object.col",
+      "sha256": "441a075b4c356b441e915d36e1157d12b37ba951ea2bc73b2ce64096e7968f7e",
+      "bytes": 464,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 257,
+      "attack_end": 428,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 257,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 273
+            },
+            "Knock_back_Type": {
+              "value": 7,
+              "offset": 261
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 265
+            },
+            "Guard_Stamina_Cost": {
+              "value": 0.0,
+              "offset": 285
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 289
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 293
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 301
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 329
+            }
+          },
+          "names": [
+            {
+              "name": "薙ぎ払い_着弾炎",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_15/collision/object.col",
+      "sha256": "467cb8c08c41dd23c88c7224f826879adc98a3fbe11c4d7a9c700eac36ae5ac9",
+      "bytes": 455,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 248,
+      "attack_end": 419,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 248,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 264
+            },
+            "Knock_back_Type": {
+              "value": 0,
+              "offset": 252
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 256
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 276
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 280
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 284
+            },
+            "Element_Dmg": {
+              "value": 50.0,
+              "offset": 292
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 320
+            }
+          },
+          "names": [
+            {
+              "name": "風圧_発射",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_16/collision/object.col",
+      "sha256": "40c89413bfe5ed36c427f6e96cdad068bb432f491c7eea51e1948dcc92ae2ba4",
+      "bytes": 461,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 254,
+      "attack_end": 425,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 254,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 270
+            },
+            "Knock_back_Type": {
+              "value": 0,
+              "offset": 258
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 262
+            },
+            "Guard_Stamina_Cost": {
+              "value": 0.0,
+              "offset": 282
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 286
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 290
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 298
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 326
+            }
+          },
+          "names": [
+            {
+              "name": "空中痕跡_発射",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_17/collision/object.col",
+      "sha256": "fcce307d9aa55c1569aa11ecfb8040641f7024629fd14cbc591ea81633fc4228",
+      "bytes": 461,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 254,
+      "attack_end": 425,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 254,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 270
+            },
+            "Knock_back_Type": {
+              "value": 0,
+              "offset": 258
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 262
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 282
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 286
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 290
+            },
+            "Element_Dmg": {
+              "value": 50.0,
+              "offset": 298
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 326
+            }
+          },
+          "names": [
+            {
+              "name": "薙ぎ払い_着弾",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_18/collision/object.col",
+      "sha256": "0cf18c73bc52317dfa37a62db6fb0128cdcd643d8f7e93c3c22b587550b4d56b",
+      "bytes": 461,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 254,
+      "attack_end": 425,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 254,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 270
+            },
+            "Knock_back_Type": {
+              "value": 0,
+              "offset": 258
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 262
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 282
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 286
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 290
+            },
+            "Element_Dmg": {
+              "value": 50.0,
+              "offset": 298
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 326
+            }
+          },
+          "names": [
+            {
+              "name": "薙ぎ払い_発射",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_19/collision/object.col",
+      "sha256": "92a50831ed7a8952633d214c2cc02d4620836b9fe0b7e326f7adaa6c2aae985d",
+      "bytes": 457,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 250,
+      "attack_end": 421,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 250,
+          "fields": {
+            "Motion_Value": {
+              "value": 35.0,
+              "offset": 266
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 254
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 258
+            },
+            "Guard_Stamina_Cost": {
+              "value": 60.0,
+              "offset": 278
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 282
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 286
+            },
+            "Element_Dmg": {
+              "value": 35.0,
+              "offset": 294
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 322
+            }
+          },
+          "names": [
+            {
+              "name": "ブレス着弾",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_20/collision/object.col",
+      "sha256": "a6ce11f79f56162e97e9049fa99a97da5c0c0d1887bb639c0a6a84d45ba09cd7",
+      "bytes": 451,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 244,
+      "attack_end": 415,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 244,
+          "fields": {
+            "Motion_Value": {
+              "value": 80.0,
+              "offset": 260
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 248
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 252
+            },
+            "Guard_Stamina_Cost": {
+              "value": 60.0,
+              "offset": 272
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 276
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 280
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 288
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 316
+            }
+          },
+          "names": [
+            {
+              "name": "ブレス",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_21/collision/object.col",
+      "sha256": "3752a2fdc19ccc49df4d5c9a3aa4dc02b0afdb84232c678f8536e6ed088265b6",
+      "bytes": 469,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 262,
+      "attack_end": 433,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 262,
+          "fields": {
+            "Motion_Value": {
+              "value": 70.0,
+              "offset": 278
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 266
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 270
+            },
+            "Guard_Stamina_Cost": {
+              "value": 60.0,
+              "offset": 290
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 294
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 298
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 306
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 334
+            }
+          },
+          "names": [
+            {
+              "name": "高出力ブレス床着弾",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_22/collision/object.col",
+      "sha256": "4ee3b7143f3a5fe17f5e819428b7476243980ce063ab9f9d987463b0961f3d48",
+      "bytes": 463,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 256,
+      "attack_end": 427,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 256,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 272
+            },
+            "Knock_back_Type": {
+              "value": 0,
+              "offset": 260
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 264
+            },
+            "Guard_Stamina_Cost": {
+              "value": 30.0,
+              "offset": 284
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 288
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 292
+            },
+            "Element_Dmg": {
+              "value": 50.0,
+              "offset": 300
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 328
+            }
+          },
+          "names": [
+            {
+              "name": "かみつきブレス",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_23/collision/object.col",
+      "sha256": "e300ce005922630bd433028761ccb58f36d71191b47c00ecf1a0f5ae1be4191c",
+      "bytes": 451,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 244,
+      "attack_end": 415,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 244,
+          "fields": {
+            "Motion_Value": {
+              "value": 40.0,
+              "offset": 260
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 248
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 252
+            },
+            "Guard_Stamina_Cost": {
+              "value": 60.0,
+              "offset": 272
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 276
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 280
+            },
+            "Element_Dmg": {
+              "value": 40.0,
+              "offset": 288
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 316
+            }
+          },
+          "names": [
+            {
+              "name": "ブレス",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_24/collision/object.col",
+      "sha256": "e3c2170da55b5bd8a7cbab6fef7e629036f3a807dc73881bbac87c559c4633e8",
+      "bytes": 469,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 262,
+      "attack_end": 433,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 262,
+          "fields": {
+            "Motion_Value": {
+              "value": 40.0,
+              "offset": 278
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 266
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 270
+            },
+            "Guard_Stamina_Cost": {
+              "value": 60.0,
+              "offset": 290
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 294
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 298
+            },
+            "Element_Dmg": {
+              "value": 40.0,
+              "offset": 306
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 334
+            }
+          },
+          "names": [
+            {
+              "name": "高出力ブレス床着弾",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_25/collision/object.col",
+      "sha256": "2d410ba3fc16d08370823e8df85f2cb778d5541a8bf01b520dc03677bd68da46",
+      "bytes": 464,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 257,
+      "attack_end": 428,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 257,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 273
+            },
+            "Knock_back_Type": {
+              "value": 7,
+              "offset": 261
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 265
+            },
+            "Guard_Stamina_Cost": {
+              "value": 0.0,
+              "offset": 285
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 289
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 293
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 301
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 329
+            }
+          },
+          "names": [
+            {
+              "name": "薙ぎ払い_着弾炎",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_26/collision/object.col",
+      "sha256": "593b566a65944a680b2b4bf1de6c3a2005664a4d4d6d4463cdc7f52066fe9f30",
+      "bytes": 457,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 250,
+      "attack_end": 421,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 250,
+          "fields": {
+            "Motion_Value": {
+              "value": 40.0,
+              "offset": 266
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 254
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 258
+            },
+            "Guard_Stamina_Cost": {
+              "value": 60.0,
+              "offset": 278
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 282
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 286
+            },
+            "Element_Dmg": {
+              "value": 40.0,
+              "offset": 294
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 322
+            }
+          },
+          "names": [
+            {
+              "name": "ブレス着弾",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_27/collision/object.col",
+      "sha256": "dba1b83daf1663ded7aad2010f190eaa3055968cc10511cdcffe8a3e7c53c726",
+      "bytes": 451,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 244,
+      "attack_end": 415,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 244,
+          "fields": {
+            "Motion_Value": {
+              "value": 35.0,
+              "offset": 260
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 248
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 252
+            },
+            "Guard_Stamina_Cost": {
+              "value": 40.0,
+              "offset": 272
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 276
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 280
+            },
+            "Element_Dmg": {
+              "value": 35.0,
+              "offset": 288
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 316
+            }
+          },
+          "names": [
+            {
+              "name": "ブレス",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_30/collision/object.col",
+      "sha256": "cf87b06897de477408cf5cb2e9ef290fc1814243746ef083e93f670913a491b3",
+      "bytes": 460,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 253,
+      "attack_end": 424,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 253,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 269
+            },
+            "Knock_back_Type": {
+              "value": 39,
+              "offset": 257
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 261
+            },
+            "Guard_Stamina_Cost": {
+              "value": 0.0,
+              "offset": 281
+            },
+            "Guard_Req": {
+              "value": 2,
+              "offset": 285
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 289
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 297
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 325
+            }
+          },
+          "names": [
+            {
+              "name": "組み技ブレス",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_31/collision/object.col",
+      "sha256": "011d0aa44e2aa5f7e0fba6b1d3de290d9a73ed175f82a96080bc2c6607666279",
+      "bytes": 466,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 259,
+      "attack_end": 430,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 259,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 275
+            },
+            "Knock_back_Type": {
+              "value": 39,
+              "offset": 263
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 267
+            },
+            "Guard_Stamina_Cost": {
+              "value": 0.0,
+              "offset": 287
+            },
+            "Guard_Req": {
+              "value": 2,
+              "offset": 291
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 295
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 303
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 331
+            }
+          },
+          "names": [
+            {
+              "name": "組み技ブレス着弾",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_46/collision/object.col",
+      "sha256": "c93c48181f7072ee15c10ae69c83faf33362ebedca137cc9c3c7201492397d77",
+      "bytes": 448,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 241,
+      "attack_end": 412,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 241,
+          "fields": {
+            "Motion_Value": {
+              "value": 0.0,
+              "offset": 257
+            },
+            "Knock_back_Type": {
+              "value": 0,
+              "offset": 245
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 249
+            },
+            "Guard_Stamina_Cost": {
+              "value": 0.0,
+              "offset": 269
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 273
+            },
+            "Element_Id": {
+              "value": 0,
+              "offset": 277
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 285
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 313
+            }
+          },
+          "names": [
+            {
+              "name": "フン",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_90/collision/object.col",
+      "sha256": "94eeeabb4d6ea1522bb2104fe4c232151e5f690bbc884c1cc1c07be482284492",
+      "bytes": 451,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 244,
+      "attack_end": 415,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 244,
+          "fields": {
+            "Motion_Value": {
+              "value": 35.0,
+              "offset": 260
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 248
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 252
+            },
+            "Guard_Stamina_Cost": {
+              "value": 60.0,
+              "offset": 272
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 276
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 280
+            },
+            "Element_Dmg": {
+              "value": 35.0,
+              "offset": 288
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 316
+            }
+          },
+          "names": [
+            {
+              "name": "ブレス",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_91/collision/object.col",
+      "sha256": "569aab64224366b81bfeae686bd620f6483226ac5859fa98c6ce9b53d4c50c43",
+      "bytes": 457,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 250,
+      "attack_end": 421,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 250,
+          "fields": {
+            "Motion_Value": {
+              "value": 70.0,
+              "offset": 266
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 254
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 258
+            },
+            "Guard_Stamina_Cost": {
+              "value": 60.0,
+              "offset": 278
+            },
+            "Guard_Req": {
+              "value": 1,
+              "offset": 282
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 286
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 294
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 322
+            }
+          },
+          "names": [
+            {
+              "name": "ブレス着弾",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_92/collision/object.col",
+      "sha256": "ea48fa653941a221b315ce444b88e60a5bec183876e872fce8894d6e886c9dfa",
+      "bytes": 451,
+      "attack_type": 2,
+      "attack_count": 1,
+      "attack_start": 244,
+      "attack_end": 415,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": [
+        {
+          "index": 0,
+          "offset": 244,
+          "fields": {
+            "Motion_Value": {
+              "value": 35.0,
+              "offset": 260
+            },
+            "Knock_back_Type": {
+              "value": 17,
+              "offset": 248
+            },
+            "Knock_back_Lvl": {
+              "value": 0,
+              "offset": 252
+            },
+            "Guard_Stamina_Cost": {
+              "value": 40.0,
+              "offset": 272
+            },
+            "Guard_Req": {
+              "value": 0,
+              "offset": 276
+            },
+            "Element_Id": {
+              "value": 1,
+              "offset": 280
+            },
+            "Element_Dmg": {
+              "value": 0.0,
+              "offset": 288
+            },
+            "Stun": {
+              "value": 0.0,
+              "offset": 316
+            }
+          },
+          "names": [
+            {
+              "name": "ブレス",
+              "index": 0,
+              "timeline_uid": 1,
+              "geometry_index": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "em/em001/00/shell/em001_93/collision/object.col",
+      "sha256": "416da48c67a4b348c6554476eec56cc79ce94cfd11c64da5157b3d17bda093e9",
+      "bytes": 104,
+      "attack_type": 0,
+      "attack_count": 0,
+      "attack_start": 68,
+      "attack_end": 68,
+      "fully_semantically_decoded": false,
+      "name_count": 0,
+      "geometry_count": 0,
+      "opaque_tail_bytes": 36,
+      "attacks": []
+    },
+    {
+      "path": "em/em001/00/shell/em001_94/collision/object.col",
+      "sha256": "416da48c67a4b348c6554476eec56cc79ce94cfd11c64da5157b3d17bda093e9",
+      "bytes": 104,
+      "attack_type": 0,
+      "attack_count": 0,
+      "attack_start": 68,
+      "attack_end": 68,
+      "fully_semantically_decoded": false,
+      "name_count": 0,
+      "geometry_count": 0,
+      "opaque_tail_bytes": 36,
+      "attacks": []
+    },
+    {
+      "path": "em/em001/00/shell/em001_95/collision/object.col",
+      "sha256": "416da48c67a4b348c6554476eec56cc79ce94cfd11c64da5157b3d17bda093e9",
+      "bytes": 104,
+      "attack_type": 0,
+      "attack_count": 0,
+      "attack_start": 68,
+      "attack_end": 68,
+      "fully_semantically_decoded": false,
+      "name_count": 0,
+      "geometry_count": 0,
+      "opaque_tail_bytes": 36,
+      "attacks": []
+    },
+    {
+      "path": "em/em001/00/trace/col/em001_000.col",
+      "sha256": "ff9e2cae4a1883bc0c37d3cabd03fcf9e32f6dbfd21d0c6a48ef2aa298c7b51d",
+      "bytes": 245,
+      "attack_type": 0,
+      "attack_count": 0,
+      "attack_start": 209,
+      "attack_end": 209,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": []
+    },
+    {
+      "path": "em/em001/00/trace/col/em001_tr00.col",
+      "sha256": "ff9e2cae4a1883bc0c37d3cabd03fcf9e32f6dbfd21d0c6a48ef2aa298c7b51d",
+      "bytes": 245,
+      "attack_type": 0,
+      "attack_count": 0,
+      "attack_start": 209,
+      "attack_end": 209,
+      "fully_semantically_decoded": false,
+      "name_count": 1,
+      "geometry_count": 1,
+      "opaque_tail_bytes": 36,
+      "attacks": []
+    }
+  ]
+}

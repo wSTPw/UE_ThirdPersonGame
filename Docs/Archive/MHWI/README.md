@@ -7,7 +7,7 @@
 | 子目录 | 数量 | 内容 |
 | --- | ---: | --- |
 | [Plans/](Plans/) | 57 | 每批的开发方案（`PLAN-*`、`DSH-*`、三份交接文档、两个进度 CSV） |
-| [Changes/](Changes/) | 78 | 每次实质变更的记录（`CHG-*`） |
+| [Changes/](Changes/) | 81 | 每次实质变更的记录（`CHG-*`） |
 | [Reference/](Reference/) | 34 | 取证报告、验收报告、评审简报、动画库页 |
 
 ## 按主题找
@@ -24,6 +24,12 @@
 | 对外评审简报 | `Reference/MHWI-Rathian-Review-Brief-20261103.md` |
 | 解包流程与格式方法 | `Reference/MHWI-Unpacking-Workflow.md` |
 | 给下一个 AI 的交接（自包含） | `Plans/MHWI-Rathian-AI-Handoff-20261104.md` |
+| AI交接文档的变更记录 | [CHG-20261104-001](Changes/CHG-20261104-001-rathian-ai-handoff.md) |
+| Approx编译修复的变更记录 | [CHG-20261104-002](Changes/CHG-20261104-002-rathian-approx-compile-fix.md) |
+| DevFlow接手和THK审计准备 | [CHG-20261104-003](Changes/CHG-20261104-003-devflow-thk-audit-preparation.md) |
+| 首链只读审查记录 | [CHG-20261105-003](Changes/CHG-20261105-003-rathian-first-chain-audit.md) |
+| 文档现状层简化记录 | [CHG-20261105-004](Changes/CHG-20261105-004-docs-mhwi-simplification.md) |
+| BITE 动作 83 的只读取证与 DevFlow | [CHG-20261106-001](Changes/CHG-20261106-001-rathian-bite-dispatch-devflow.md) |
 | 动画库 848 条明细 | `Reference/MHWI-Rathian-Animations.md` |
 | 音画映射 | `Reference/MHWI-Rathian-AudioVFX-Map-20261102.md` |
 

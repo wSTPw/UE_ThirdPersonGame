@@ -1,6 +1,7 @@
 #include "MHWILinkAnimation.h"
 #include "Animation/AnimMontage.h"
 #include "Animation/AnimSequence.h"
+#include "MHWINativeSources.h"
 #include "MHWILinkRuntimeData.inl"
 
 namespace MHWI::Native
@@ -106,6 +107,11 @@ namespace MHWI::Native
         for (const FNodeIdentity& Row : NodeIdentities) if (Row.Identity == Identity) return true;
         for (const FLinkEntry& Row : GetLongSwordLinkEntries())
             if (Row.Previous == Identity) return true;
+        // Impact reactions dispatch outside the FSM link tree; their bindings
+        // (registry DAMAGE_S/DOWN and the project-keyed Medium trial) are the
+        // authoritative known-identity table.
+        for (const FSourceBinding& Row : GetSourceBindings())
+            if (Row.Identity == Identity) return true;
         return false;
     }
 
@@ -208,12 +214,15 @@ namespace MHWI::Native
         FName Bank(TEXT("w03_00"));
         if (Name.StartsWith(TEXT("A_co00_00_")))
         { Prefix = TEXT("A_co00_00_"); Bank = FName(TEXT("co00_00")); }
+        // Damage bank has no motion table in the w03 data; its identity is the name alone.
+        else if (Name.StartsWith(TEXT("A_co00_01_")))
+        { Prefix = TEXT("A_co00_01_"); Bank = FName(TEXT("co00_01")); }
         if (!Name.StartsWith(Prefix)) return false;
         const FString Suffix = Name.Mid(Prefix.Len());
         if (Suffix.IsEmpty() || !Suffix.IsNumeric()) return false;
         Out.Bank = Bank;
         Out.Motion = FCString::Atoi(*Suffix);
-        return Bank == FName(TEXT("co00_00")) || GetMotionInfo(Out.Motion) != nullptr;
+        return Bank != FName(TEXT("w03_00")) || GetMotionInfo(Out.Motion) != nullptr;
     }
 
     bool ReadSequenceMotion(const UAnimSequenceBase* Sequence, float Position, FMotionSample& Out)
