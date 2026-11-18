@@ -71,3 +71,6 @@ __pycache__/
 
 # DevFlow 任务副本属私有基线，不随仓库分发（见 CHG-20261107-001）
 /Tools/DevFlow/
+
+# MHWI stage extraction (arena candidates, large binaries)
+/ArtSource/ThirdParty/MHWI-Stages/

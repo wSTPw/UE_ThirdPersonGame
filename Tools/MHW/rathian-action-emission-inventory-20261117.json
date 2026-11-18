@@ -1,0 +1,1492 @@
+{
+ "schema": 1,
+ "date": "2026-11-17",
+ "mode": "offline_source_extraction_not_original_game_execution",
+ "source": "Saved\\DevFlow\\Rathian-Condition-Audit-20261104\\source-baseline\\EvidenceInput\\thk-all-raw.json",
+ "action_dump": "Tools/MHW/ActionDumps/em001-actiondump.txt (Leviathon ActionDumps, 285 entries)",
+ "counts": {
+  "segments_total": 13015,
+  "emitting_segments": 985,
+  "distinct_action_ids": 147,
+  "named": 111,
+  "rank_gates": 7
+ },
+ "rank_gates": [
+  {
+   "table": "em001_00",
+   "node": 1,
+   "segment": 0,
+   "case_rank": 2,
+   "rank_name": "MR"
+  },
+  {
+   "table": "em001_36",
+   "node": 1,
+   "segment": 0,
+   "case_rank": 2,
+   "rank_name": "MR"
+  },
+  {
+   "table": "em001_55",
+   "node": 474,
+   "segment": 1,
+   "case_rank": 2,
+   "rank_name": "MR"
+  },
+  {
+   "table": "em001_55",
+   "node": 474,
+   "segment": 9,
+   "case_rank": 1,
+   "rank_name": "HR"
+  },
+  {
+   "table": "em001_55",
+   "node": 475,
+   "segment": 1,
+   "case_rank": 1,
+   "rank_name": "HR"
+  },
+  {
+   "table": "em001_55",
+   "node": 553,
+   "segment": 1,
+   "case_rank": 1,
+   "rank_name": "HR"
+  },
+  {
+   "table": "em001_55",
+   "node": 518,
+   "segment": 0,
+   "case_rank": 2,
+   "rank_name": "MR"
+  }
+ ],
+ "inventory": [
+  {
+   "action_id": 4,
+   "name": "ACTION::IDLE_TIRED",
+   "emissions": 14,
+   "contexts": [
+    "em001_01",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 5,
+   "name": "ACTION::IDLE_TIRED_COMBAT",
+   "emissions": 7,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 8,
+   "name": "ACTION::TAKE_OFF",
+   "emissions": 15,
+   "contexts": [
+    "em001_48",
+    "em001_55",
+    "em001_90",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 9,
+   "name": "ACTION::TAKE_OFF_SWITCH_PATTERN_BY_DIST",
+   "emissions": 1,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 11,
+   "name": "ACTION::LANDING",
+   "emissions": 22,
+   "contexts": [
+    "em001_01",
+    "em001_48",
+    "em001_55",
+    "em001_90",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 12,
+   "name": "ACTION::WALK",
+   "emissions": 25,
+   "contexts": [
+    "em001_01",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 13,
+   "name": "ACTION::WALK_TIRED",
+   "emissions": 10,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 14,
+   "name": "ACTION::WALK_COMBAT",
+   "emissions": 4,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 16,
+   "name": "ACTION::DASH",
+   "emissions": 38,
+   "contexts": [
+    "em001_01",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 17,
+   "name": "ACTION::DASH_NO_HIT",
+   "emissions": 41,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 18,
+   "name": "ACTION::DASH_TIRED",
+   "emissions": 20,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 28,
+   "name": "ACTION::NORMAL_TURN",
+   "emissions": 7,
+   "contexts": [
+    "em001_01",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 29,
+   "name": "ACTION::NORMAL_TURN_FLY",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 30,
+   "name": "ACTION::QUICK_TURN",
+   "emissions": 6,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 31,
+   "name": "ACTION::QUICK_TURN_FLY",
+   "emissions": 1,
+   "contexts": [
+    "em001_01"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 32,
+   "name": "ACTION::SHORT_BACK_STEP",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 36,
+   "name": "ACTION::JUMP_ATTACK_WALL_UP",
+   "emissions": 3,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 37,
+   "name": "ACTION::JUMP_ATTACK_WALL_DOWN",
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 38,
+   "name": "ACTION::SHORT_DOWN_STEP_FLY",
+   "emissions": 5,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 39,
+   "name": "ACTION::SHORT_UP_STEP_FLY",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 44,
+   "name": "ACTION::SUDDEN_RISE",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 45,
+   "name": "ACTION::SUDDEN_RISE_FROM_FLY",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 46,
+   "name": "ACTION::SUDDEN_DROP",
+   "emissions": 5,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 47,
+   "name": "ACTION::GLIDE",
+   "emissions": 14,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 48,
+   "name": "ACTION::GLIDE_COMBAT",
+   "emissions": 72,
+   "contexts": [
+    "em001_01",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 50,
+   "name": "ACTION::GLIDE_COMBAT_NO_DIRECTMOVE",
+   "emissions": 2,
+   "contexts": [
+    "em001_50"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 52,
+   "name": "ACTION::GLIDE_END",
+   "emissions": 1,
+   "contexts": [
+    "em001_01"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 53,
+   "name": "ACTION::GLIDE_DIRECT_MOVE",
+   "emissions": 66,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 54,
+   "name": "ACTION::GLIDE_CHARGE",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 56,
+   "name": "ACTION::STEP_FRONT_FLY_SHORT",
+   "emissions": 9,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 57,
+   "name": "ACTION::STEP_BACK_FLY",
+   "emissions": 5,
+   "contexts": [
+    "em001_01",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 58,
+   "name": "ACTION::SNAKE_TURN_STEP_FLY_R",
+   "emissions": 10,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 59,
+   "name": "ACTION::SNAKE_TURN_STEP_FLY_L",
+   "emissions": 20,
+   "contexts": [
+    "em001_12",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 60,
+   "name": "ACTION::THREAT",
+   "emissions": 10,
+   "contexts": [
+    "em001_12",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 61,
+   "name": "ACTION::THREAT_SHORT",
+   "emissions": 17,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 62,
+   "name": "ACTION::THREAT_FLY",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 63,
+   "name": "ACTION::THREAT_FLY_SHORT",
+   "emissions": 5,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 64,
+   "name": "ACTION::INTIMIDATION",
+   "emissions": 14,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 65,
+   "name": "ACTION::INTIMIDATION_FLY",
+   "emissions": 10,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 66,
+   "name": "ACTION::LIFE_SEARCH",
+   "emissions": 7,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 67,
+   "name": "ACTION::LIFE_SEARCH_TRACE_FLY",
+   "emissions": 5,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 68,
+   "name": "ACTION::LIFE_SEARCH_FLY",
+   "emissions": 11,
+   "contexts": [
+    "em001_01",
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 69,
+   "name": "ACTION::LOST_SEARCH",
+   "emissions": 20,
+   "contexts": [
+    "em001_01",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 70,
+   "name": "ACTION::HALF_LOST_SEARCH_FRONT",
+   "emissions": 7,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 71,
+   "name": "ACTION::HALF_LOST_SEARCH_BACK",
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 72,
+   "name": "ACTION::LOST_SEARCH_FLY",
+   "emissions": 20,
+   "contexts": [
+    "em001_01",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 73,
+   "name": "ACTION::HALF_LOST_SEARCH_FRONT_FLY",
+   "emissions": 4,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 75,
+   "name": "ACTION::ROLLING_TAIL_ATTACK2_L",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 76,
+   "name": "ACTION::ROLLING_TAIL_ATTACK2_R",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 77,
+   "name": "ACTION::NORMAL_BREATH",
+   "emissions": 10,
+   "contexts": [
+    "em001_01",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 79,
+   "name": "ACTION::NORMAL_BREATH_TO_ENEMY",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 80,
+   "name": "ACTION::BACK_STEP_BREATH_TO_AIR",
+   "emissions": 4,
+   "contexts": [
+    "em001_01",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 81,
+   "name": "ACTION::BACK_STEP_BREATH_TO_GROUND",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 82,
+   "name": "ACTION::BACK_STEP_BREATH_FLY",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 83,
+   "name": "ACTION::BITE",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 85,
+   "name": "ACTION::BITE_FLY",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 86,
+   "name": "ACTION::DASH_BITE2",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 87,
+   "name": "ACTION::DASH_BITE_TIRED",
+   "emissions": 6,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 88,
+   "name": "ACTION::RASH_BITE_FLY",
+   "emissions": 11,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 89,
+   "name": "ACTION::SCRATCH_FLY",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 90,
+   "name": "ACTION::BREATH_FLY",
+   "emissions": 11,
+   "contexts": [
+    "em001_01",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 91,
+   "name": "ACTION::BREATH_TO_ENEMY_FLY",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 92,
+   "name": "ACTION::BREATH_NAGIHARAI_FLY_LOW",
+   "emissions": 10,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 93,
+   "name": "ACTION::KICK_FLY_START",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 99,
+   "name": "ACTION::KICK_PROGRESS_FLY_L",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 100,
+   "name": "ACTION::KICK_PROGRESS_FLY_R",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 103,
+   "name": "ACTION::VERTICAL_KICK",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 104,
+   "name": "ACTION::VERTICAL_KICK_FLY",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 105,
+   "name": "ACTION::LOW_TAIL_ATTACK_FLY_L",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 106,
+   "name": "ACTION::LOW_TAIL_ATTACK_FLY_R",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 108,
+   "name": "ACTION::WING_BREAK_ACTION_R",
+   "emissions": 9,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 109,
+   "name": "ACTION::WING_BREAK_ACTION_L",
+   "emissions": 9,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 110,
+   "name": "ACTION::SNIFF_S",
+   "emissions": 16,
+   "contexts": [
+    "em001_01",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 111,
+   "name": "ACTION::SNIFF_L",
+   "emissions": 11,
+   "contexts": [
+    "em001_01",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 112,
+   "name": "ACTION::SNIFF_COMBAT_S",
+   "emissions": 6,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 113,
+   "name": "ACTION::SNIFF_COMBAT_L",
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 114,
+   "name": "ACTION::SNIFF_S_FLY",
+   "emissions": 19,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 115,
+   "name": "ACTION::SNIFF_L_FLY",
+   "emissions": 10,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 116,
+   "name": "ACTION::PEEP_GRASS_SEARCH",
+   "emissions": 13,
+   "contexts": [
+    "em001_01",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 117,
+   "name": "ACTION::MARKING",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 118,
+   "name": "ACTION::MARKING_FLY",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 119,
+   "name": "ACTION::PREDATOR_ATTACK",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 120,
+   "name": "ACTION::PREDATOR_ADJUST",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 121,
+   "name": "ACTION::PREDATOR_EAT",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 122,
+   "name": "ACTION::PREDATOR_GIVE_UP_ACTION",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 123,
+   "name": "ACTION::PREDATOR_GIVE_UP_ACTION_FLY",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 124,
+   "name": "ACTION::EAT",
+   "emissions": 6,
+   "contexts": [
+    "em001_15",
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 125,
+   "name": "ACTION::SLEEP",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 127,
+   "name": "ACTION::SUNBATH",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 129,
+   "name": "ACTION::DRINK",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 133,
+   "name": "ACTION::RIDE_RAGE_HEAD_LV2",
+   "emissions": 2,
+   "contexts": [
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 135,
+   "name": "ACTION::RIDE_RAGE_BODY_LV2",
+   "emissions": 2,
+   "contexts": [
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 137,
+   "name": "ACTION::RIDE_RAGE_CRASH_HEAD",
+   "emissions": 2,
+   "contexts": [
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 138,
+   "name": "ACTION::RIDE_RAGE_CRASH_HEAD_LV2",
+   "emissions": 2,
+   "contexts": [
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 139,
+   "name": "ACTION::RIDE_RAGE_CRASH_BODY",
+   "emissions": 2,
+   "contexts": [
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 140,
+   "name": "ACTION::RIDE_RAGE_CRASH_BODY_LV2",
+   "emissions": 2,
+   "contexts": [
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 143,
+   "name": "ACTION::RIDE_TIRED",
+   "emissions": 2,
+   "contexts": [
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 145,
+   "name": "ACTION::REFRESH",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 146,
+   "name": "ACTION::REFRESH_FLY",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 147,
+   "name": "ACTION::CATCH_ATTACK",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 149,
+   "name": "ACTION::CATCH_THROW",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 150,
+   "name": "ACTION::CATCH_ATTACK_MISS",
+   "emissions": 3,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 176,
+   "name": "ACTION::DAMAGE_TRAP_PARALYSE",
+   "emissions": 10,
+   "contexts": [
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 182,
+   "name": "ACTION::DAMAGE_SLEEP_END",
+   "emissions": 4,
+   "contexts": [
+    "em001_50"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 218,
+   "name": "ACTION::DYING_WALK",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 219,
+   "name": "ACTION::DYING_WALK_FLY",
+   "emissions": 6,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 220,
+   "name": "ACTION::DYING_GLIDE_DIRECT_MOVE",
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 221,
+   "name": "ACTION::DYING_SLEEP",
+   "emissions": 4,
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 223,
+   "name": "ACTION::GRAPPLE_MEDIATION_THREAT",
+   "emissions": 2,
+   "contexts": [
+    "em001_23"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 224,
+   "name": "ACTION::GRAPPLE_TO_EM100_START",
+   "emissions": 2,
+   "contexts": [
+    "em001_50"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 225,
+   "name": "ACTION::GRAPPLE_TO_EM100",
+   "emissions": 2,
+   "contexts": [
+    "em001_50"
+   ],
+   "named": true
+  },
+  {
+   "action_id": 286,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 287,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 288,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 289,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 290,
+   "name": null,
+   "emissions": 5,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 291,
+   "name": null,
+   "emissions": 6,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 292,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 295,
+   "name": null,
+   "emissions": 3,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 296,
+   "name": null,
+   "emissions": 3,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 297,
+   "name": null,
+   "emissions": 3,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 299,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 300,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 301,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 302,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 303,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 304,
+   "name": null,
+   "emissions": 3,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 305,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 307,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 308,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 309,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 310,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 311,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 312,
+   "name": null,
+   "emissions": 5,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 313,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 317,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 318,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 319,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 321,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 322,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 323,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 324,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 325,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 326,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 327,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 329,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  },
+  {
+   "action_id": 330,
+   "name": null,
+   "emissions": 2,
+   "contexts": [
+    "em001_55"
+   ],
+   "named": false
+  }
+ ]
+}

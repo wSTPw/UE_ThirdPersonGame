@@ -1,0 +1,1213 @@
+{
+ "schema": 1,
+ "date": "2026-11-17",
+ "mode": "offline_source_extraction_not_original_game_execution",
+ "source": "Saved\\DevFlow\\Rathian-Condition-Audit-20261104\\source-baseline\\EvidenceInput\\thk-all-raw.json",
+ "named_count": 26,
+ "rows": [
+  {
+   "function_type": "0x3",
+   "semantics": "switch(targetEnemy)",
+   "uses": 112,
+   "p1_values": [
+    1,
+    2,
+    4,
+    5,
+    13,
+    17,
+    22,
+    26,
+    34,
+    41,
+    43,
+    48,
+    58
+   ],
+   "p2_values": [
+    0,
+    2000
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_00",
+    "em001_01",
+    "em001_15",
+    "em001_17",
+    "em001_18",
+    "em001_21",
+    "em001_23",
+    "em001_25",
+    "em001_26",
+    "em001_27",
+    "em001_28",
+    "em001_29",
+    "em001_30",
+    "em001_32",
+    "em001_33",
+    "em001_36",
+    "em001_48",
+    "em001_50",
+    "em001_55",
+    "em001_90",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0x5",
+   "semantics": "switch(targetArea)",
+   "uses": 248,
+   "p1_values": [
+    3,
+    4,
+    6,
+    7,
+    9,
+    14,
+    15,
+    16,
+    17,
+    19,
+    20,
+    21,
+    22,
+    24,
+    37,
+    38,
+    39,
+    40,
+    51,
+    59
+   ],
+   "p2_values": [
+    0,
+    1,
+    300,
+    500,
+    1000,
+    1300
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_01",
+    "em001_11",
+    "em001_15",
+    "em001_17",
+    "em001_24",
+    "em001_26",
+    "em001_41",
+    "em001_48",
+    "em001_52",
+    "em001_53",
+    "em001_55",
+    "em001_90",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0x6",
+   "semantics": "distance_3d_to_target().leq(p1)",
+   "uses": 137,
+   "p1_values": [
+    300,
+    400,
+    600,
+    750,
+    800,
+    850,
+    900,
+    1000,
+    1200,
+    1500,
+    1700,
+    2000,
+    2500,
+    3000,
+    3500,
+    5000,
+    10000,
+    12000
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "p1 范围 300..12000（18 个不同值，137 用例）",
+   "contexts": [
+    "em001_01",
+    "em001_18",
+    "em001_28",
+    "em001_29",
+    "em001_30",
+    "em001_55",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0x8",
+   "semantics": "distance_2d_to_target().leq(p1)",
+   "uses": 258,
+   "p1_values": [
+    300,
+    350,
+    400,
+    450,
+    500,
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900,
+    950,
+    1000,
+    1200,
+    1300,
+    1500,
+    1700,
+    1850,
+    2000
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "p1 范围 300..3000（22 个不同值，258 用例）",
+   "contexts": [
+    "em001_00",
+    "em001_01",
+    "em001_36",
+    "em001_50",
+    "em001_55",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0xe",
+   "semantics": "vertical_distance_to_target().leq(p1)",
+   "uses": 42,
+   "p1_values": [
+    300,
+    400,
+    450,
+    500,
+    550,
+    750,
+    1000,
+    1500
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "p1 范围 300..1500（8 个不同值，42 用例）",
+   "contexts": [
+    "em001_00",
+    "em001_01",
+    "em001_36",
+    "em001_55",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0xf",
+   "semantics": "vertical_distance_to_target().gt(p1)",
+   "uses": 2,
+   "p1_values": [
+    1000
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "p1 范围 1000..1000（1 个不同值，2 用例）",
+   "contexts": [
+    "em001_50"
+   ]
+  },
+  {
+   "function_type": "0x10",
+   "semantics": "switch(param1)",
+   "uses": 10,
+   "p1_values": [
+    0
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0x16",
+   "semantics": "angle_2d_cw_between(p1,p2)",
+   "uses": 141,
+   "p1_values": [
+    0,
+    15,
+    20,
+    30,
+    45,
+    60,
+    90,
+    270,
+    300,
+    315
+   ],
+   "p2_values": [
+    45,
+    60,
+    90,
+    180,
+    270,
+    300,
+    315,
+    330,
+    340,
+    345
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_00",
+    "em001_01",
+    "em001_18",
+    "em001_36",
+    "em001_55",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0x1c",
+   "semantics": "in_combat()",
+   "uses": 48,
+   "p1_values": [
+    0
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_26",
+    "em001_41",
+    "em001_48",
+    "em001_55",
+    "em001_90",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0x1d",
+   "semantics": "alert_out_of_combat()",
+   "uses": 2,
+   "p1_values": [
+    0
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0x1e",
+   "semantics": "enraged()",
+   "uses": 132,
+   "p1_values": [
+    0
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_00",
+    "em001_01",
+    "em001_18",
+    "em001_36",
+    "em001_55",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0x1f",
+   "semantics": "fatigued()",
+   "uses": 115,
+   "p1_values": [
+    0
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_00",
+    "em001_01",
+    "em001_11",
+    "em001_36",
+    "em001_41",
+    "em001_55",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0x24",
+   "semantics": "target_on_part(p1)",
+   "uses": 23,
+   "p1_values": [
+    0,
+    1,
+    2
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_11",
+    "em001_36"
+   ]
+  },
+  {
+   "function_type": "0x25",
+   "semantics": "mounted()",
+   "uses": 12,
+   "p1_values": [
+    0
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_11",
+    "em001_36"
+   ]
+  },
+  {
+   "function_type": "0x26",
+   "semantics": "mount_finisher_ready()",
+   "uses": 2,
+   "p1_values": [
+    0
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_11"
+   ]
+  },
+  {
+   "function_type": "0x27",
+   "semantics": "mount_stabbed()",
+   "uses": 2,
+   "p1_values": [
+    0
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_11"
+   ]
+  },
+  {
+   "function_type": "0x28",
+   "semantics": "mount_staggered_twice()",
+   "uses": 1,
+   "p1_values": [
+    0
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_11"
+   ]
+  },
+  {
+   "function_type": "0x2e",
+   "semantics": "switch(target)",
+   "uses": 91,
+   "p1_values": [
+    0,
+    3,
+    4,
+    5,
+    6,
+    7,
+    10,
+    11,
+    12,
+    13,
+    14,
+    18,
+    21,
+    22,
+    32,
+    39,
+    45,
+    52,
+    55
+   ],
+   "p2_values": [
+    0,
+    1
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_00",
+    "em001_01",
+    "em001_18",
+    "em001_29",
+    "em001_30",
+    "em001_33",
+    "em001_36",
+    "em001_48",
+    "em001_55",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0x2f",
+   "semantics": "target_is(em_enum:p1)",
+   "uses": 83,
+   "p1_values": [
+    0,
+    1,
+    2,
+    7,
+    9,
+    10,
+    11,
+    12,
+    13,
+    16,
+    18,
+    21,
+    24,
+    27,
+    29,
+    30,
+    39,
+    40
+   ],
+   "p2_values": [
+    0,
+    1
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_23",
+    "em001_30",
+    "em001_55",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0x5e",
+   "semantics": "clearTarget()",
+   "uses": 3,
+   "p1_values": [
+    0
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0x70",
+   "semantics": "flying()",
+   "uses": 263,
+   "p1_values": [
+    0
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_00",
+    "em001_01",
+    "em001_12",
+    "em001_17",
+    "em001_18",
+    "em001_26",
+    "em001_36",
+    "em001_41",
+    "em001_48",
+    "em001_53",
+    "em001_55",
+    "em001_90",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0x76",
+   "semantics": "part(p1).is_broken(p2)",
+   "uses": 33,
+   "p1_values": [
+    0,
+    2,
+    3
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0xae",
+   "semantics": "force_area_change()",
+   "uses": 2,
+   "p1_values": [
+    0
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0xb1",
+   "semantics": "force_area_change2()",
+   "uses": 6,
+   "p1_values": [
+    0
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0xb8",
+   "semantics": "switch(current_quest().is_rank)",
+   "uses": 7,
+   "p1_values": [
+    1,
+    2
+   ],
+   "p2_values": [
+    0
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_00",
+    "em001_36",
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0xbf",
+   "semantics": "in_map(st_enum:p1).in_area(p2)",
+   "uses": 8,
+   "p1_values": [
+    101,
+    201,
+    202
+   ],
+   "p2_values": [
+    -1,
+    2,
+    5,
+    6
+   ],
+   "status": "已证",
+   "detail": "",
+   "contexts": [
+    "em001_29",
+    "em001_52",
+    "em001_55"
+   ]
+  }
+ ],
+ "unnamed": [
+  {
+   "function_type": "0x2",
+   "uses": 7947,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_00",
+    "em001_01",
+    "em001_02",
+    "em001_03",
+    "em001_04",
+    "em001_05",
+    "em001_06",
+    "em001_07",
+    "em001_08",
+    "em001_09",
+    "em001_10",
+    "em001_11",
+    "em001_12",
+    "em001_13",
+    "em001_15",
+    "em001_16",
+    "em001_17",
+    "em001_18",
+    "em001_19",
+    "em001_20",
+    "em001_21",
+    "em001_23",
+    "em001_24",
+    "em001_25",
+    "em001_26",
+    "em001_27",
+    "em001_28",
+    "em001_29",
+    "em001_30",
+    "em001_31",
+    "em001_32",
+    "em001_33",
+    "em001_35",
+    "em001_36",
+    "em001_37",
+    "em001_39",
+    "em001_41",
+    "em001_48",
+    "em001_49",
+    "em001_50",
+    "em001_52",
+    "em001_53",
+    "em001_55",
+    "em001_90",
+    "em001_91",
+    "em001_92",
+    "em001_93",
+    "em001_94",
+    "em001_95",
+    "em001_96",
+    "em001_97",
+    "em001_98",
+    "em001_99"
+   ]
+  },
+  {
+   "function_type": "0x0",
+   "uses": 2877,
+   "p1_distinct": 20,
+   "p1_top": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55
+   ],
+   "contexts": [
+    "em001_00",
+    "em001_01",
+    "em001_02",
+    "em001_03",
+    "em001_04",
+    "em001_05",
+    "em001_06",
+    "em001_07",
+    "em001_08",
+    "em001_09",
+    "em001_10",
+    "em001_11",
+    "em001_12",
+    "em001_13",
+    "em001_15",
+    "em001_16",
+    "em001_17",
+    "em001_18",
+    "em001_19",
+    "em001_20",
+    "em001_21",
+    "em001_23",
+    "em001_24",
+    "em001_25",
+    "em001_26",
+    "em001_27",
+    "em001_28",
+    "em001_29",
+    "em001_30",
+    "em001_31",
+    "em001_32",
+    "em001_33",
+    "em001_35",
+    "em001_36",
+    "em001_37",
+    "em001_39",
+    "em001_41",
+    "em001_48",
+    "em001_49",
+    "em001_50",
+    "em001_52",
+    "em001_53",
+    "em001_55",
+    "em001_90",
+    "em001_91",
+    "em001_92",
+    "em001_93",
+    "em001_94",
+    "em001_95",
+    "em001_96",
+    "em001_97",
+    "em001_98",
+    "em001_99"
+   ]
+  },
+  {
+   "function_type": "0x5a",
+   "uses": 186,
+   "p1_distinct": 23,
+   "p1_top": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    20
+   ],
+   "contexts": [
+    "em001_15",
+    "em001_55",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0xa8",
+   "uses": 30,
+   "p1_distinct": 2,
+   "p1_top": [
+    0,
+    1
+   ],
+   "contexts": [
+    "em001_11"
+   ]
+  },
+  {
+   "function_type": "0x94",
+   "uses": 26,
+   "p1_distinct": 2,
+   "p1_top": [
+    0,
+    1
+   ],
+   "contexts": [
+    "em001_00",
+    "em001_36",
+    "em001_55",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0xad",
+   "uses": 25,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_26",
+    "em001_41",
+    "em001_48",
+    "em001_53",
+    "em001_55",
+    "em001_90",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0xa9",
+   "uses": 20,
+   "p1_distinct": 2,
+   "p1_top": [
+    0,
+    1
+   ],
+   "contexts": [
+    "em001_11"
+   ]
+  },
+  {
+   "function_type": "0x57",
+   "uses": 18,
+   "p1_distinct": 5,
+   "p1_top": [
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "contexts": [
+    "em001_15"
+   ]
+  },
+  {
+   "function_type": "0x80",
+   "uses": 16,
+   "p1_distinct": 2,
+   "p1_top": [
+    0,
+    1
+   ],
+   "contexts": [
+    "em001_00",
+    "em001_36",
+    "em001_55",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0x7d",
+   "uses": 16,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0x6b",
+   "uses": 8,
+   "p1_distinct": 2,
+   "p1_top": [
+    5000,
+    7500
+   ],
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0x54",
+   "uses": 6,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_15",
+    "em001_24"
+   ]
+  },
+  {
+   "function_type": "0x30",
+   "uses": 6,
+   "p1_distinct": 2,
+   "p1_top": [
+    2,
+    4
+   ],
+   "contexts": [
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0x52",
+   "uses": 5,
+   "p1_distinct": 2,
+   "p1_top": [
+    0,
+    9
+   ],
+   "contexts": [
+    "em001_15",
+    "em001_24",
+    "em001_52"
+   ]
+  },
+  {
+   "function_type": "0x84",
+   "uses": 5,
+   "p1_distinct": 2,
+   "p1_top": [
+    0,
+    1
+   ],
+   "contexts": [
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0x29",
+   "uses": 4,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_11"
+   ]
+  },
+  {
+   "function_type": "0x6a",
+   "uses": 4,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_21"
+   ]
+  },
+  {
+   "function_type": "0x5c",
+   "uses": 4,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_00",
+    "em001_36",
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0xc2",
+   "uses": 3,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_17",
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0x5f",
+   "uses": 3,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_18",
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0x11",
+   "uses": 3,
+   "p1_distinct": 3,
+   "p1_top": [
+    450,
+    1000,
+    1250
+   ],
+   "contexts": [
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0x2a",
+   "uses": 3,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_55",
+    "em001_91"
+   ]
+  },
+  {
+   "function_type": "0xc3",
+   "uses": 2,
+   "p1_distinct": 2,
+   "p1_top": [
+    50,
+    100
+   ],
+   "contexts": [
+    "em001_07",
+    "em001_20"
+   ]
+  },
+  {
+   "function_type": "0xaf",
+   "uses": 2,
+   "p1_distinct": 1,
+   "p1_top": [
+    5000
+   ],
+   "contexts": [
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0x98",
+   "uses": 2,
+   "p1_distinct": 1,
+   "p1_top": [
+    1
+   ],
+   "contexts": [
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0x99",
+   "uses": 2,
+   "p1_distinct": 1,
+   "p1_top": [
+    1
+   ],
+   "contexts": [
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0x85",
+   "uses": 2,
+   "p1_distinct": 2,
+   "p1_top": [
+    0,
+    1
+   ],
+   "contexts": [
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0x3b",
+   "uses": 1,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_11"
+   ]
+  },
+  {
+   "function_type": "0xab",
+   "uses": 1,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0xaa",
+   "uses": 1,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0xc9",
+   "uses": 1,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0xca",
+   "uses": 1,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0x5d",
+   "uses": 1,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_55"
+   ]
+  },
+  {
+   "function_type": "0x7c",
+   "uses": 1,
+   "p1_distinct": 1,
+   "p1_top": [
+    0
+   ],
+   "contexts": [
+    "em001_20"
+   ]
+  }
+ ]
+}

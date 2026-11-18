@@ -41,14 +41,14 @@
 
 - 社区检索补充：SPL签名已对应LaunchAction `0x141cc5360`、ForceAction `0x1413973b0`、已有DoAction `0x140269ce0`；下一步从这两个新入口追THK83输入/对象，见[固定来源与匹配](../../Tools/MHW/rathian-community-dispatch-20261106.json)。仅静态对应，无运行资格升级。
 
-### M1 条件语义三栏表（本机可做，无需授权）
+### M1 条件语义三栏表（本机可做，无需授权）——**已完成 2026-11-17**：26 类全"已证" 0 冲突，见[三栏表](../Reference/MHWI-Rathian-THK-Condition-Semantics-20261117.md)与[CHG-20261117-004](../Changes/CHG-20261117-004-mhwi-thk-semantics-arena-extract.md)
 
 1. 以 `Scripts/MHWI/map_thk_function_semantics.py` 的输出（`Tools/MHW/rathian-thk-fexty-coverage-20261103.json`）为底
 2. 对 27 类已命名项逐类校验参数取值范围是否与命名自洽：距离类应呈连续 cm 值、角度类应是 0~360 的对、布尔类参数必须全 0、rank 类必须 0~3
 3. 产出"已证 / 冲突 / 未知"三栏表，落 `Docs/Reference/`
 4. 31 类未命名项按使用次数排序，`0x5a`(186 次) 优先做参数聚类——`[4,30,10,32]` 这类整数很像枚举 ID，可与动作/区域/状态枚举对照
 
-### M2 下位可达动作清单（本机可做，无需授权）
+### M2 下位可达动作清单（本机可做，无需授权）——**v1 完成 2026-11-17**：985 发射段/147 动作 ID/111 命名，rank 门全为 HR/MR（无 LR 专属门）；CFG 剪枝待反编译器语义，见[清单](../../Tools/MHW/rathian-action-emission-inventory-20261117.json)与[CHG-20261117-004](../Changes/CHG-20261117-004-mhwi-thk-semantics-arena-extract.md)
 
 1. 遍历 105 THK 节点树，找出被 `0xB8`（`is_rank`）门控的分支
 2. 提取各分支内 emit 的 actionID
