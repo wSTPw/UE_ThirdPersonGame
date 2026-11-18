@@ -418,7 +418,9 @@
         "Scripts/MHWI/extract_foresight_consumers.py",
         "Tools/MHW/foresight-consumers-20261030.json",
         "Scripts/MHWI/pie_hunter_hit_reaction.py",
-        "Tools/MHW/hunter-hit-reaction-repair-20261107.json"
+        "Tools/MHW/hunter-hit-reaction-repair-20261107.json",
+        "Source/IntroCpp/MHWI/MHWIWeaponTrailComponent.h",
+        "Source/IntroCpp/MHWI/MHWIWeaponTrailComponent.cpp"
       ],
       "interface_ids": [
         "DAMAGE-001",
@@ -437,7 +439,8 @@
         "MHWI-012",
         "MHWI-013",
         "MHWI-014",
-        "MHWI-015"
+        "MHWI-015",
+        "MHWI-017"
       ],
       "asset_roots": [
         "/Game/MHWI"
@@ -476,7 +479,8 @@
         "Scripts/MHWI/pie_remaining_animation.py",
         "Scripts/MHWI/pie_r06_impact_matrix.py",
         "Scripts/MHWI/pie_hunter_hit_reaction.py",
-        "Scripts/MHWI/run_damage_matrix.mjs"
+        "Scripts/MHWI/run_damage_matrix.mjs",
+        "Scripts/MHWI/pie_trail_damage_numbers.py"
       ],
       "notes": " 2026-11-07: short Hunter impact UE post-update adapter fixed. Impact consumes first blend delta and ends on current reached frame; non-impact defaults unchanged. Frozen Luna code gate and actual main build passed. Final bone-pose/source correlation, post-hit position, 3FPS, death and real Iai armor checked in 14 scenarios/16 successful runs (121 assertions); see repair manifest. No original full hit-reaction state-machine equivalence claim."
     },

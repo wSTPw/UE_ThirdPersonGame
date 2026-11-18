@@ -43,6 +43,7 @@ PIE 的已验证启动命令见 [升级记录](UE58-Upgrade.md)。MCP 安装、�
 - [MHWI当前行为回归](../Scripts/MHWI/pie_behavior_corrections.py)：`run(suite='all')` 顺序执行ground/direction/air/lifecycle，或单独指定其中一个。正式DA/成本不改为预览值；覆盖气刃插入、普通B/A交替（B01已去除项目自定B无限循环）、翻滚出口、17种袈裟输入（含同帧按下/松开）、转向、登龙七段/自然落地/过早落地/高落差、中断/死亡和缓冲边界。以 `PIE-behavior-<suite>.json` 的passed和时间戳判定。编辑器最小化会被UE强制降到约3 FPS，即使关闭普通后台节流也一样；构造提交前落地的夹具可能因此无法采样，须区分夹具失败与业务失败。旧pie_moveset.py的自动登龙整段串联假设已过时，不能原样作为本轮回归依据。
 - [MHWI原始基础数据校验](../Scripts/MHWI/verify_reference_basics.py)：直接重读固定指纹COL/W03P/FSM，75条攻击记录逐字段重编码并核对已确认映射；不启动原作。[原版基础专项PIE](../Scripts/MHWI/pie_reference_basics.py)的`run()`验证真实命中/回槽、派生正反例、四色居合首击和三色登龙；`run(scope='step')`用生产动作构造0→23→8→20槽边界。期望来自原文件及独立固定基准，不从正式DA反生成；不验证尚未还原的几何、shell起算、精确取消帧和完整伤害公式。
 - [B02短冒烟](../Scripts/MHWI/pie_spirit_branches.py)：`run()`仅验证弱18/强28及费用、A/B插入、原序III/I和自定B负例，本轮约18秒。不默认重跑全套。B01原报告中的低槽拒绝属于历史适配；当前边界夹具已改为低槽弱斩允许，不能复用旧拒绝预期。
+- [呈现层PIE](../Scripts/MHWI/pie_trail_damage_numbers.py)：整刀与刀尖两版刀光各跑一轮（切换清样本、采样、真实扣血、命中数字出现/过期）。编辑器不在前台时PIE只有2-3 FPS，脚本把全局时间膨胀降到0.05保证可采样，并把`t_game`与刀身实测长度写进报告；它验证逻辑与时序，**不替代真实帧率下的观感验收**。结果在`Saved/MHWIPresentation/PIE-presentation.json`。
 
 ## 文档/源码约定
 

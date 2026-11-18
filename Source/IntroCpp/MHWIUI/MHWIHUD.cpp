@@ -91,7 +91,9 @@ void AMHWIHUD::DrawHUD()
 	Label(FString::Printf(TEXT("%3.0f / 100"), Character->GetSpiritGauge()), 270.0f, 91.0f, Text);
 	Bar(40.0f, 114.0f, 332.0f, 16.0f, Character->GetSpiritGauge() / 100.0f, SpiritColor);
 	Label(FString::Printf(TEXT("%s  /  LEVEL %d"), LevelNames[Level], Level), 40.0f, 145.0f, SpiritColor);
-	Label(FString::Printf(TEXT("SLINGER  %d"), FMath::Max(0, Character->SlingerAmmo)), 40.0f, 176.0f, Muted);
+	Label(Character->GetWeaponTrailStyle() == EMHWIWeaponTrailStyle::TipOnly ? TEXT("TRAIL  TIP") : TEXT("TRAIL  FULL"),
+		40.0f, 176.0f, Muted);
+	Label(FString::Printf(TEXT("SLINGER  %d"), FMath::Max(0, Character->SlingerAmmo)), 200.0f, 176.0f, Muted);
 	if (Level > 0)
 	{
 		Label(FString::Printf(TEXT("%.1f s"), FMath::Max(0.0f, Character->GetSpiritTimeRemaining())),
@@ -134,5 +136,39 @@ void AMHWIHUD::DrawHUD()
 		{
 			Label(Controls[Index], ControlsX + 14.0f, ControlsY + 39.0f + Index * 21.0f, Text, 0.95f);
 		}
+	}
+
+	// Hit numbers: MHW shows the value at the contact point, floating up and fading.
+	// Colour follows the effective-hitzone orange; white/grey needs hitzone data this
+	// project does not have, so every resolved hit stays on the effective palette.
+	const TArray<FMHWIDamageNumber>& Numbers = Character->GetDamageNumbers();
+	if (Numbers.Num() == 0) return;
+	UFont* NumberFont = GEngine->GetLargeFont() ? GEngine->GetLargeFont() : Font;
+	const float Now = GetWorld()->GetTimeSeconds();
+	const float NumberLife = FMath::Max(0.1f, Character->GetDamageNumberLifetime());
+	for (const FMHWIDamageNumber& Entry : Numbers)
+	{
+		const float Age = Now - Entry.StartTime;
+		if (Age < 0.0f || Age >= NumberLife) continue;
+		const FVector Screen = Canvas->Project(Entry.WorldLocation);
+		if (Screen.Z <= 0.0f) continue;
+		const float T = Age / NumberLife;
+		const float Fade = T < 0.62f ? 1.0f : FMath::Clamp(1.0f - (T - 0.62f) / 0.38f, 0.0f, 1.0f);
+		const float Pop = T < 0.1f ? FMath::Lerp(1.45f, 1.0f, T / 0.1f) : 1.0f;
+		const float NumberScale = Scale * 2.0f * Pop;
+		const FString Value = FString::Printf(TEXT("%d"), FMath::RoundToInt(Entry.Damage));
+		float TextWidth = 0.0f;
+		float TextHeight = 0.0f;
+		GetTextSize(Value, TextWidth, TextHeight, NumberFont, NumberScale);
+		const float X = Screen.X - TextWidth * 0.5f + Entry.Drift.X * Scale;
+		const float Y = Screen.Y - TextHeight - T * 56.0f * Scale + Entry.Drift.Y * Scale;
+		const FLinearColor Fill(1.0f, 0.69f, 0.20f, Fade);
+		const FLinearColor Outline(0.06f, 0.025f, 0.01f, Fade * 0.85f);
+		const float Edge = FMath::Max(1.0f, 1.4f * Scale);
+		DrawText(Value, Outline, X - Edge, Y, NumberFont, NumberScale, false);
+		DrawText(Value, Outline, X + Edge, Y, NumberFont, NumberScale, false);
+		DrawText(Value, Outline, X, Y - Edge, NumberFont, NumberScale, false);
+		DrawText(Value, Outline, X, Y + Edge, NumberFont, NumberScale, false);
+		DrawText(Value, Fill, X, Y, NumberFont, NumberScale, false);
 	}
 }

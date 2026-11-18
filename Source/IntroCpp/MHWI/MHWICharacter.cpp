@@ -1,6 +1,7 @@
 #include "MHWICharacter.h"
 #include "MHWIAnimInstance.h"
 #include "MHWILinkAnimation.h"
+#include "MHWIWeaponTrailComponent.h"
 #include "AttributeComponent.h"
 #include "Animation/AnimMontage.h"
 #include "Animation/AnimInstance.h"
@@ -116,6 +117,8 @@ AMHWICharacter::AMHWICharacter()
     ScabbardMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("ScabbardMesh"));
     ScabbardMesh->SetupAttachment(GetMesh());
     ScabbardMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+    WeaponTrail = CreateDefaultSubobject<UMHWIWeaponTrailComponent>(TEXT("WeaponTrail"));
+    WeaponTrail->SetupAttachment(RootComponent);
     for (int32 Motion : MHWI::Native::GetConnectorMotions())
     {
         const FString Path = FString::Printf(TEXT("/Game/MHWI/Animations/R06Staging/A_w03_00_%03d"), Motion);
@@ -1000,7 +1003,7 @@ bool AMHWICharacter::StartMove(FName MoveId)
 void AMHWICharacter::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
-    ON_SCOPE_EXIT { if (!bEnding) RefreshWeaponAttachment(DeltaSeconds); };
+    ON_SCOPE_EXIT { if (!bEnding) RefreshWeaponAttachment(DeltaSeconds); UpdateCombatPresentation(); };
     if (bEnding || !Attributes->IsAlive()) return;
     ResolveKeyboardFrameInputEdges();
     if (bOriginalInputPreset) ResolveFrameInputEdges();
@@ -1306,6 +1309,7 @@ void AMHWICharacter::SweepWindow(int32 WindowIndex, const FMHWIHitWindow& Window
         TargetAttributes->ApplyDamage(FinalDamage, this);
         if (Serial != ExecutionSerial || bEnding || bPendingDeath || bPendingInterruption) return;
         if (!IsValid(TargetAttributes) || TargetAttributes->GetCurrentHealth() >= HealthBefore) continue;
+        PushDamageNumber(FinalDamage, ContactLocation);
         if (CurrentMove == MHWI::HelmStrike) ScheduleHelmShell(Target, ContactLocation);
         else if (CurrentMove == MHWI::IaiSpiritSlash) ScheduleIaiShell(Target, ContactLocation);
         bHitConfirmed = true;
@@ -2012,6 +2016,7 @@ void AMHWICharacter::EmitDelayedShell(const FMHWIDelayedHitRuntime& Hit, FName S
     TargetAttributes->ApplyDamage(FinalDamage, this);
     if (bEnding || !Attributes->IsAlive() || !IsValid(TargetAttributes)
         || TargetAttributes->GetCurrentHealth() >= HealthBefore) return;
+    PushDamageNumber(FinalDamage, ContactLocation);
     // No montage source time or melee COL record is invented for a delayed shell.
     OnHitResolved.Broadcast(-1.f, INDEX_NONE, INDEX_NONE);
     OnStateChanged.Broadcast();
@@ -2022,6 +2027,84 @@ void AMHWICharacter::ClearDelayedShells()
     HelmDelayedHits.Reset();
     HelmShellScheduledCount = 0;
     IaiDelayedHit.Reset();
+}
+
+void AMHWICharacter::PushDamageNumber(float Damage, const FVector& WorldLocation)
+{
+    const UWorld* World = GetWorld();
+    if (!World || Damage <= 0.f) return;
+    FMHWIDamageNumber Entry;
+    Entry.Damage = Damage;
+    Entry.WorldLocation = WorldLocation + FVector(0.f, 0.f, 8.f);
+    Entry.StartTime = World->GetTimeSeconds();
+    // Fixed small jitter so consecutive hits on one target stay legible.
+    Entry.Drift = FVector2D(FMath::FRandRange(-16.f, 16.f), FMath::FRandRange(-4.f, 6.f));
+    DamageNumbers.Add(Entry);
+    while (DamageNumbers.Num() > 32) DamageNumbers.RemoveAt(0);
+}
+
+void AMHWICharacter::SetWeaponTrailStyle(EMHWIWeaponTrailStyle NewStyle)
+{
+    if (WeaponTrail) WeaponTrail->SetStyle(NewStyle);
+}
+
+EMHWIWeaponTrailStyle AMHWICharacter::GetWeaponTrailStyle() const
+{
+    return WeaponTrail ? WeaponTrail->GetStyle() : EMHWIWeaponTrailStyle::FullBlade;
+}
+
+void AMHWICharacter::MHWITrailStyle(int32 StyleIndex)
+{
+    SetWeaponTrailStyle(StyleIndex == 1 ? EMHWIWeaponTrailStyle::TipOnly : EMHWIWeaponTrailStyle::FullBlade);
+}
+
+int32 AMHWICharacter::GetWeaponTrailSampleCount() const
+{
+    return WeaponTrail ? WeaponTrail->GetSampleCount() : 0;
+}
+
+FString AMHWICharacter::GetPresentationDebug() const
+{
+    UAnimInstance* Anim = GetMesh() ? GetMesh()->GetAnimInstance() : nullptr;
+    const FAnimMontageInstance* Instance = Anim ? Anim->GetMontageInstanceForID(ActiveMontageInstanceId) : nullptr;
+    return FString::Printf(TEXT("move=%s montage=%s playing=%d active=%d length=%.3f pos=%.3f anim=%.3f ending=%d sheath=%d lag=%.3f trail=%d nums=%d"),
+        *CurrentMove.ToString(), ActiveMontage ? *ActiveMontage->GetName() : TEXT("none"),
+        Instance && Instance->IsPlaying() ? 1 : 0, Instance && Instance->IsActive() ? 1 : 0,
+        ActiveMontage ? ActiveMontage->GetPlayLength() : -1.f, CurrentPosition,
+        Instance ? Instance->GetPosition() : -1.f, bEnding ? 1 : 0, bSheathed ? 1 : 0, PendingHitLag,
+        GetWeaponTrailSampleCount(), DamageNumbers.Num());
+}
+
+void AMHWICharacter::UpdateCombatPresentation()
+{
+    const UWorld* World = GetWorld();
+    if (!World) return;
+    const float Now = World->GetTimeSeconds();
+    const float Lifetime = FMath::Max(0.1f, DamageNumberLifetime);
+    DamageNumbers.RemoveAll([Now, Lifetime](const FMHWIDamageNumber& Entry)
+    {
+        return Now - Entry.StartTime >= Lifetime;
+    });
+
+    if (!WeaponTrail) return;
+    // The trail rides the source hit window and mirrors AdvanceAction's own
+    // interval test, so a long frame that spans the window still draws it.
+    bool bActive = false;
+    if (!bSheathed && ActiveMontage && WeaponMesh)
+    {
+        for (const FMHWIHitWindow& Window : ActiveDefinition.DamageWindows)
+        {
+            if (Window.StartTime - TrailWindowLead <= CurrentPosition
+                && Window.EndTime + TrailWindowLead >= PreviousPosition)
+            {
+                bActive = true;
+                break;
+            }
+        }
+    }
+    const FVector Base = WeaponMesh ? WeaponMesh->GetSocketTransform(TrailBaseBone).GetLocation() : FVector::ZeroVector;
+    const FVector Tip = WeaponMesh ? WeaponMesh->GetSocketTransform(TrailTipBone).GetLocation() : FVector::ZeroVector;
+    WeaponTrail->UpdateTrail(bActive, Base, Tip);
 }
 
 void AMHWICharacter::SetSpiritLevel(int32 NewLevel, bool bPauseDecay)

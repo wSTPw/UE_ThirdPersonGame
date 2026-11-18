@@ -10,6 +10,7 @@
 #include "MHWILinkAnimation.h"
 #include "MHWINativeSources.h"
 #include "MHWIContactResponse.h"
+#include "MHWIWeaponTrailComponent.h"
 #include "MHWICharacter.generated.h"
 
 class UAttributeComponent;
@@ -24,6 +25,19 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FMHWIStateChanged);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FMHWIMoveChanged, FName, MoveId, FText, DisplayName);
 /** One resolved hit; the only entry point for future audio/VFX/camera consumers. */
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FMHWIHitResolved, float, SourceTime, int32, WindowIndex, int32, ColRecordIndex);
+
+/** Presentation-only hit number for the training HUD; never a gameplay record. */
+USTRUCT(BlueprintType)
+struct INTROCPP_API FMHWIDamageNumber
+{
+    GENERATED_BODY()
+    UPROPERTY(BlueprintReadOnly) float Damage = 0.f;
+    /** World contact point sampled when the hit resolved. */
+    UPROPERTY(BlueprintReadOnly) FVector WorldLocation = FVector::ZeroVector;
+    UPROPERTY(BlueprintReadOnly) float StartTime = 0.f;
+    /** Screen-space jitter in 1280x720 units, kept small so stacked hits stay readable. */
+    UPROPERTY(BlueprintReadOnly) FVector2D Drift = FVector2D::ZeroVector;
+};
 
 /** Public control state. Hit reactions own input until their native source ends. */
 UENUM(BlueprintType)
@@ -58,6 +72,21 @@ public:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="MHWI") TObjectPtr<UCameraComponent> Camera;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="MHWI") TObjectPtr<USkeletalMeshComponent> WeaponMesh;
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="MHWI") TObjectPtr<USkeletalMeshComponent> ScabbardMesh;
+    /** Blade ribbon; active only inside this action's source damage windows. */
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="MHWI|Trail") TObjectPtr<UMHWIWeaponTrailComponent> WeaponTrail;
+    /** Presentation switch; both looks live on the trail component. */
+    UFUNCTION(BlueprintCallable, Category="MHWI|Trail") void SetWeaponTrailStyle(EMHWIWeaponTrailStyle NewStyle);
+    UFUNCTION(BlueprintPure, Category="MHWI|Trail") EMHWIWeaponTrailStyle GetWeaponTrailStyle() const;
+    /** Console comparison switch while playing: MHWITrailStyle 0 = full blade, 1 = tip. */
+    UFUNCTION(Exec, Category="MHWI|Trail") void MHWITrailStyle(int32 StyleIndex);
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MHWI|Trail") FName TrailBaseBone = TEXT("bone_100");
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MHWI|Trail") FName TrailTipBone = TEXT("bone_101");
+    /** Montage seconds the trail leads/trails each damage window. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MHWI|Trail", meta=(ClampMin="0.0")) float TrailWindowLead = 0.06f;
+    /** Seconds a hit number stays on screen. */
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MHWI|Combat", meta=(ClampMin="0.1")) float DamageNumberLifetime = 0.75f;
+    const TArray<FMHWIDamageNumber>& GetDamageNumbers() const { return DamageNumbers; }
+    float GetDamageNumberLifetime() const { return DamageNumberLifetime; }
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MHWI") TObjectPtr<UMHWIMovesetData> Moveset;
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MHWI") FName WeaponBone = TEXT("bone_012");
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="MHWI") FName ScabbardBone = TEXT("bone_000");
@@ -139,6 +168,14 @@ public:
     UFUNCTION(BlueprintPure, Category="MHWI") float GetRollProtectionFramesRemaining() const { return RollProtectionFramesRemaining; }
     UFUNCTION(BlueprintPure, Category="MHWI") int32 GetPendingHelmShellCount() const { return HelmDelayedHits.Num(); }
     UFUNCTION(BlueprintPure, Category="MHWI") int32 GetPendingIaiShellCount() const { return IaiDelayedHit.IsSet() ? 1 : 0; }
+    /** Diagnostic only: ribbon samples recorded by the blade trail this instant. */
+    UFUNCTION(BlueprintPure, Category="MHWI|Debug") int32 GetWeaponTrailSampleCount() const;
+    /** Diagnostic only: montage seconds of the running action. */
+    UFUNCTION(BlueprintPure, Category="MHWI|Debug") float GetMovePosition() const { return CurrentPosition; }
+    /** Diagnostic only: one-line state of the action clock feeding the presentation layer. */
+    UFUNCTION(BlueprintPure, Category="MHWI|Debug") FString GetPresentationDebug() const;
+    /** Diagnostic only: unresolved hit numbers still on screen. */
+    UFUNCTION(BlueprintPure, Category="MHWI|Debug") int32 GetActiveDamageNumberCount() const { return DamageNumbers.Num(); }
 protected:
     virtual void BeginPlay() override;
 
@@ -211,6 +248,8 @@ private:
         int32 HitIndex = INDEX_NONE;
     };
     TArray<FMHWIDelayedHitRuntime> HelmDelayedHits;
+    /** Presentation only; never read by damage, permission or slot logic. */
+    UPROPERTY(Transient) TArray<FMHWIDamageNumber> DamageNumbers;
     int32 HelmShellScheduledCount = 0;
     TOptional<FMHWIDelayedHitRuntime> IaiDelayedHit;
     float CapturedSpiritGauge = 0.f;
@@ -382,6 +421,9 @@ private:
     void TickDelayedShells(float DeltaSeconds);
     void EmitDelayedShell(const FMHWIDelayedHitRuntime& Hit, FName SourceMove);
     void ClearDelayedShells();
+    /** Trail sampling and hit-number expiry; runs every tick, never authorizes damage. */
+    void UpdateCombatPresentation();
+    void PushDamageNumber(float Damage, const FVector& WorldLocation);
 
     /** Direction correction windows; values come from FMHWIMoveDefinition. */
     void ApplyTurnWindows(float FromPosition, float ToPosition);

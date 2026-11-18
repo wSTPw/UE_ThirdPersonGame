@@ -78,19 +78,36 @@
 
 玩家受击自 2026-11-16 起使用原生 `co00_01` 片段并按攻击来源方向与等级选段：小/中受击分别用 `DAMAGE_S_*`（104/107/105/106，注册名+selector 证据）与特征组 96/92/94/93（无注册名，用户批准试验）；大受击先播方向短受击片段并按现有力度击飞，落地后接 `DOWN_*_STAND_UP`（slot 7，0x431/0x439 静态证据）起身且保持输入锁定。持刀与纳刀统一走 Common；旧 `co00_00` 70/71/72 与 `w03_00` 61/62/63 是 STEP 载体，已不再用于受击。Impact 在首次 owner delta 开始混合，并按已到达的源帧/实际 Montage 结束释放。这是 UE post-update 适配，不是原作完整击飞/倒地状态机证明。
 
-四方向与三档已通过 13 例真实 PIE（含持刀、双 Large 来源）：实际 bank/body 与朝向一一对应，稳定段骨姿相对源帧平均误差 0.1–0.4°，真实位移与起身链锁输入均已断言。击飞空中段仍用短受击片段（缺落体姿）；TIML 事件未迁移通知。详见 [CHG-20261116-001](../Changes/CHG-20261116-001-hunter-damage-reaction.md)。
+四方向与三档已通过 13 例真实 PIE（含持刀、双 Large 来源）：实际 bank/body 与朝向一一对应，稳定段骨姿相对源帧平均误差 0.1–0.4°，真实位移与起身链锁输入均已断言。击飞空中段仍用短受击片段（缺落体姿）；TIML 事件未迁移通知。详见 [CHG-20261116-001](../Archive/MHWI/Changes/CHG-20261116-001-hunter-damage-reaction.md)。
 
-## 五、训练场
+## 五、刀光与命中数字
 
+`AMHWICharacter` 自带 `UMHWIWeaponTrailComponent`（父类 `UProceduralMeshComponent`，挂 `RootComponent`），刀光只在动作的**源命中窗口**内采样，命中数字只在真实扣血时记录。二者都属于表现层：不读也不改伤害、许可、槽或计时。
+
+| 项 | 实现 | 边界 |
+| --- | --- | --- |
+| 刀光采样窗口 | `TrailWindowLead`（默认 0.06 秒）内的窗口区间判定，与 `AdvanceAction` 同一条件；命中停帧时姿态不动、不再累积 | 不是原作 EFX 起止帧；`wp03_*.efx` 的 WorkNo 未取证，未接 TIML 特效轨 |
+| 刀刃采样点 | `TrailBaseBone=bone_100`、`TrailTipBone=bone_101`（武器骨架，刀身 142–150 cm） | 骨名可在 Details / 蓝图子类覆盖；换武器模型需重新核对 |
+| 几何 | 每帧按历史样本重建三角带：3 列顶点跨外观色带，顶点色预乘「年龄幂次 × 内缘渐隐」，尾段在带内向刀梢收敛 | 样本上限 20；低帧率时段数变少，属采样不足不是逻辑缺陷 |
+| 外观（两版） | `Style` 默认 `TipOnly`：只取刀尖约 4 cm 的淡红细线；`FullBlade` 为备用整刀观感（外半刃柔边白雾） | 两份 `FMHWIWeaponTrailLook` 都在组件上，带范围/颜色/强度/寿命/边缘渐隐各自独立 |
+| 切换 | `SetWeaponTrailStyle`（蓝图）/ 控制台 `MHWITrailStyle 0` / `1`；切换先丢弃已有样本再换外观 | 中途切换会丢一瞬尾迹，换来不出现"半截错带"的跳变 |
+| 材质 | `/Game/MHWI/Materials/M_MHWI_WeaponTrail`，Unlit + Additive + TwoSided，`VertexColor.RGB × Intensity` 进自发光 | 亮度由 look 的 `Intensity`（整刀 0.55 / 刀尖 1.8）预乘进顶点色，材质标量保持 1.0；无贴图、无光照 |
+| 命中数字 | 真实扣血后记录世界接触点，`AMHWIHUD` 投影绘制：上浮 56 px、先放大后回落、62% 后淡出、深色四向描边 + 暖橙填充 | 只有玩家造成的伤害；寿命 `DamageNumberLifetime`（默认 0.75 秒） |
+
+两版当前参数：`TipOnly`（默认）= 带 0.97→1、`(1.0, 0.34, 0.30)`、强度 1.8、寿命 0.26 秒、`bSoftBothEdges`（两侧渐隐成一条发光细线）；`FullBlade` = 带 0.35→1、`(0.86, 0.94, 1.0)`、强度 0.55、寿命 0.08 秒、同样两侧渐隐。整刀版最初用 0→1 + 单边渐隐 + 强度 1.4，实测在低采样帧数下叠成一张不透明白帆，已按此收敛。刀尖版的红色是项目选定的外观预设，**不是**从原作 EFX 取证的颜色；它只说明"两版并存可对比"，不宣称等于原作。HUD 左上角 `TRAIL FULL / TIP` 显示当前外观。
+
+命中数字颜色只实现 MHW 的「有效部位」橙色。白色/灰色（低肉质）与龙属性异常蓝框需要肉质与属性伤害数据，`FMHWIResolvedHit` 的 `Part/Sharpness/Affinity` 仍为 `Unavailable`，因此不做区分而不是猜一个阈值。
+
+## 六、训练场
 三个原生 `AMHWITrainingTarget` **默认均为被动木桩**，普通连招不会受到周期伤害。目标有真实属性血量，不用假命中计数。
 
 需要见切/居合反击练习时：选中目标（如 `MHWI_CounterTarget`），Details 的 MHWI 分类勾选 `Enable Attacks`，再 Play。距离内按 `AttackInterval` 周期、提前 `TelegraphSeconds` 预警并造成 `Damage`；**不是被打时立即反伤**。取消勾选恢复被动。
 
 原生类缺省值仍为 true，手工新增目标时须显式设置该属性。
 
-## 六、已实现 vs 未闭合
+## 七、已实现 vs 未闭合
 
-已实现：32 招定义 / 149 路由 / 29 Montage；原生装备父骨选择与导入基变换（84 组坐标对照误差 <1e-4）；四链 IK 与六段移动过渡；命中缓冲、结构化命中结果、登龙阶段机与延迟 shell；键盘/手柄输入源分离；受击四方向 DAMAGE_S（含持刀统一）。
+已实现：32 招定义 / 149 路由 / 29 Montage；原生装备父骨选择与导入基变换（84 组坐标对照误差 <1e-4）；四链 IK 与六段移动过渡；命中缓冲、结构化命中结果、登龙阶段机与延迟 shell；键盘/手柄输入源分离；受击四方向 DAMAGE_S（含持刀统一）；命中窗口驱动的刀光与命中数字。
 
 未闭合（详见[总账第五节](../Reference/MHWI-LongSword-Evidence.md)）：
 
