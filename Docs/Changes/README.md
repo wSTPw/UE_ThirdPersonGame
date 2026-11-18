@@ -6,11 +6,12 @@
 
 | ID | 日期 | 主题 | 状态 |
 | --- | --- | --- | --- |
+| CHG-20261117-004 | 2026-11-17 | [THK语义审计（M1/M2）与斗技场场景提取](CHG-20261117-004-mhwi-thk-semantics-arena-extract.md) | completed（证据产出）；147动作ID/111命名，26类条件全已证，st201+st202共146文件落库 |
+| CHG-20261117-003 | 2026-11-17 | [刀光第二版（收至刀尖 + 淡红自发光）与版本切换](CHG-20261117-003-weapon-trail-tip.md) | completed；外观抽成 FullBlade/TipOnly 两份 look，切换先清样本；19/19 PIE PASS（两版分别采样/扣血/数字）；真实帧率观感未验收 |
+| CHG-20261117-002 | 2026-11-17 | [太刀刀光与命中数字显示](CHG-20261117-002-weapon-trail-damage-numbers.md) | completed；新增刀刃残影组件与 Canvas 命中数字，窗口跟随源命中窗口；11 项 PIE PASS，真实帧率观感未验收 |
 | CHG-20261117-001 | 2026-11-17 | [本地积压改动入库与版本控制范围调整](CHG-20261117-001-local-backlog-versioning.md) | completed；10-30~11-16 积压入库，DamageSource 9 个资产补齐（C++ 硬编码引用）；Rathalos 848 个全量动画/1.6GB 与 datamine 二进制排除入库；未改 C++、未重编、未 PIE |
-| CHG-20261116-001 | 2026-11-16 | [玩家受击改用原生 DAMAGE_S 四方向片段并补全大/中档](CHG-20261116-001-hunter-damage-reaction.md) | completed；三档方向化选段+落地起身链合入，13 例真实 PIE 全 PASS；Medium 为用户批准试验组，击飞落体段与特殊受击仍 open |
 | CHG-20261107-003 | 2026-11-07 | [修复低帧下玩家短受击姿态缺失](CHG-20261107-003-hunter-hit-reaction.md) | completed；三源码经Luna冻结编译/独立审查/主审合入，主项目构建及最终骨姿/真实位移、生命周期16次运行121断言通过 |
 | CHG-20261107-002 | 2026-11-07 | [雌火龙Basic动画、碰撞盒与PIE完成](CHG-20261107-002-rathian-basic-assets-pie.md) | completed；25新资产、健康步行/起落修正、24项真实PIE/101断言通过，工程火球按用户选择保留 |
-| CHG-20261107-001 | 2026-11-07 | [雌火龙基础玩法源码与离线验证](CHG-20261107-001-rathian-basic-combat.md) | completed（代码阶段）；13文件基础合入，冻结编译/独立审查/主审及原项目编译通过；资产/PIE完成见CHG-002 |
 
 ## 写新记录
 

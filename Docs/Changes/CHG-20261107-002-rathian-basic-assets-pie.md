@@ -30,7 +30,7 @@
 | /Game/MHWI/Rathian/Basic/Maps/L_RathianBasic | 专用平地、生产Pawn、PlayerStart | 不覆盖用户已有训练关卡；PIE后保留编辑器打开 |
 | Tools/MHW/rathian-basic-profile-20261107.json | 配置、源码/资产/报告hash、24用例和保护摘要 | 将可复核的小结从被忽略Saved目录落入工具目录 |
 
-前置基础13文件和Build.cs变更由[CHG-001](CHG-20261107-001-rathian-basic-combat.md)记录；本记录只对后续速度/落地修正及资产运行收尾负责。未改第三方插件。
+前置基础13文件和Build.cs变更由[CHG-001](../Archive/MHWI/Changes/CHG-20261107-001-rathian-basic-combat.md)记录；本记录只对后续速度/落地修正及资产运行收尾负责。未改第三方插件。
 
 ## 官方机制、项目证据与推断
 

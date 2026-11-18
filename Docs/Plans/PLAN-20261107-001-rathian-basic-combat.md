@@ -4,7 +4,7 @@
 - 日期：2026-11-07
 - 用户需求：暂停原作逆向取证，先实现巡逻、发现目标并依出招逻辑移动、攻击、HP、击飞及死亡；基础招式小咬、龙车、单火球、甩尾起飞接落地；动画衔接流畅、体积碰撞合理。
 - 关联模块：mhwi-rathian-approx；近似玩法层，保留忠实线原始资料。
-- 实施记录：基础13文件经冻结UE5.8构建、全新Luna审查/主审ACCEPTED后核hash合入；后续速度/落地修复、资产及24项PIE已完成。代码阶段历史见[CHG-001](../Changes/CHG-20261107-001-rathian-basic-combat.md)，完整结果见[CHG-002](../Changes/CHG-20261107-002-rathian-basic-assets-pie.md)和[当前交接](MHWI-Rathian-Handoff.md)。
+- 实施记录：基础13文件经冻结UE5.8构建、全新Luna审查/主审ACCEPTED后核hash合入；后续速度/落地修复、资产及24项PIE已完成。代码阶段历史见[CHG-001](../Archive/MHWI/Changes/CHG-20261107-001-rathian-basic-combat.md)，完整结果见[CHG-002](../Changes/CHG-20261107-002-rathian-basic-assets-pie.md)和[当前交接](MHWI-Rathian-Handoff.md)。
 - 阶段边界：代码阶段按当时“不启动UE”指令停止；随后用户已授权更新交接后启动UE，继续[PLAN-002](PLAN-20261107-002-rathian-basic-assets-pie.md)。历史启动尝试未就绪，不当作运行验证。
 
 ## 现状与目标
